@@ -39,6 +39,7 @@ export function Testimonials() {
   const [i, setI] = useState(0);
   const total = testimonials.length;
   const go = (d: number) => setI((v) => (v + d + total) % total);
+  const t = testimonials[i]!;
 
   return (
     <section className="bg-concrete py-24 lg:py-32">
@@ -52,21 +53,21 @@ export function Testimonials() {
             <article className="relative rounded-sm border border-border bg-background p-8 shadow-[var(--shadow-lift)] sm:p-12">
               <Quote className="h-10 w-10 text-primary" aria-hidden />
               <p className="mt-6 font-display text-xl leading-relaxed text-foreground sm:text-2xl">
-                “{testimonials[i].quote}”
+                “{t.quote}”
               </p>
-              <div className="mt-8 flex items-center gap-1" aria-label={`${testimonials[i].rating} out of 5 stars`}>
+              <div className="mt-8 flex items-center gap-1" aria-label={`${t.rating} out of 5 stars`}>
                 {Array.from({ length: 5 }).map((_, s) => (
                   <Star
                     key={s}
                     className={cn(
                       "h-4 w-4",
-                      s < testimonials[i].rating ? "fill-primary text-primary" : "text-border",
+                      s < t.rating ? "fill-primary text-primary" : "text-border",
                     )}
                   />
                 ))}
               </div>
-              <p className="mt-4 font-display text-base font-bold text-foreground">{testimonials[i].name}</p>
-              <p className="text-sm text-muted-foreground">{testimonials[i].company}</p>
+              <p className="mt-4 font-display text-base font-bold text-foreground">{t.name}</p>
+              <p className="text-sm text-muted-foreground">{t.company}</p>
             </article>
 
             <div className="mt-8 flex items-center justify-center gap-4">
@@ -79,9 +80,9 @@ export function Testimonials() {
                 <ChevronLeft className="h-5 w-5" />
               </button>
               <div className="flex gap-2">
-                {testimonials.map((t, idx) => (
+                {testimonials.map((item, idx) => (
                   <button
-                    key={t.name}
+                    key={item.name}
                     type="button"
                     aria-label={`Show testimonial ${idx + 1}`}
                     aria-current={idx === i}
