@@ -5,8 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * V Chemics India Solutions — industrial B2B design system.
- * Charcoal / concrete grey base with safety-orange accent.
+ * V Chemics India Solutions — Brand Identity Design System
+ * 1. #054782 — Primary Brand Blue
+ * 2. #669930 — Accent Brand Green
+ * 3. #0b274c — Deep Brand Navy
+ * 4. #ffffff — Pure White
  */
 
 @theme inline {
@@ -38,6 +41,10 @@
   --color-ring: var(--ring);
   --color-ring-offset-background: var(--background);
 
+  --color-brand-blue: #054782;
+  --color-brand-green: #669930;
+  --color-brand-navy: #0b274c;
+
   --color-graphite: var(--graphite);
   --color-graphite-deep: var(--graphite-deep);
   --color-graphite-soft: var(--graphite-soft);
@@ -54,37 +61,44 @@
 :root {
   --radius: 0.25rem;
 
-  --graphite: oklch(0.235 0.008 260);
-  --graphite-deep: oklch(0.185 0.008 260);
-  --graphite-soft: oklch(0.295 0.009 260);
-  --concrete: oklch(0.962 0.003 90);
-  --concrete-dark: oklch(0.9 0.004 90);
-  --steel: oklch(0.58 0.15 245);
-  --on-dark: oklch(0.97 0.002 90);
-  --on-dark-muted: oklch(0.76 0.005 260);
+  /* Official Brand Colors */
+  --graphite: #0b274c;
+  --graphite-deep: #061933;
+  --graphite-soft: #123766;
+  --concrete: #f4f8fc;
+  --concrete-dark: #e1edf7;
+  --steel: #054782;
+  --on-dark: #ffffff;
+  --on-dark-muted: #b0c7df;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.008 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.008 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.008 260);
-  --primary: oklch(0.665 0.213 38);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.962 0.003 90);
-  --secondary-foreground: oklch(0.235 0.008 260);
-  --muted: oklch(0.962 0.003 90);
-  --muted-foreground: oklch(0.5 0.008 260);
-  --accent: oklch(0.665 0.213 38);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.004 90);
-  --input: oklch(0.88 0.004 90);
-  --ring: oklch(0.665 0.213 38);
+  --background: #ffffff;
+  --foreground: #0b274c;
+  --card: #ffffff;
+  --card-foreground: #0b274c;
+  --popover: #ffffff;
+  --popover-foreground: #0b274c;
+  
+  --primary: #054782;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #669930;
+  --secondary-foreground: #ffffff;
+  
+  --accent: #669930;
+  --accent-foreground: #ffffff;
+  
+  --destructive: #c23b22;
+  --destructive-foreground: #ffffff;
+  
+  --muted: #f0f5fb;
+  --muted-foreground: #476585;
+  
+  --border: #d2e1ef;
+  --input: #d2e1ef;
+  --ring: #054782;
 
-  --shadow-lift: 0 24px 48px -24px color-mix(in oklab, var(--graphite) 45%, transparent);
-  --shadow-accent: 0 18px 40px -18px color-mix(in oklab, var(--primary) 55%, transparent);
+  --shadow-lift: 0 24px 48px -24px rgba(11, 39, 76, 0.25);
+  --shadow-accent: 0 18px 40px -18px rgba(5, 71, 130, 0.4);
 }
 
 @layer base {
@@ -122,8 +136,8 @@
     inset: 0;
     pointer-events: none;
     background-image:
-      linear-gradient(to right, color-mix(in oklab, var(--on-dark) 6%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklab, var(--on-dark) 6%, transparent) 1px, transparent 1px);
+      linear-gradient(to right, color-mix(in srgb, #ffffff 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, #ffffff 6%, transparent) 1px, transparent 1px);
     background-size: 64px 64px;
     mask-image: radial-gradient(ellipse at 50% 0%, black, transparent 80%);
   }
@@ -132,8 +146,8 @@
 @utility hatch {
   background-image: repeating-linear-gradient(
     -45deg,
-    color-mix(in oklab, var(--primary) 85%, black) 0 10px,
-    var(--primary) 10px 20px
+    #054782 0 10px,
+    #669930 10px 20px
   );
 }
 

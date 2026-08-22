@@ -5,10 +5,16 @@ export function Counter({
   suffix = "+",
   duration = 1600,
 }: {
-  value: number;
+  value: number | string;
   suffix?: string;
   duration?: number;
 }) {
+  const numValue = typeof value === "number" ? value : parseFloat(String(value)) || 0;
+  const inferredSuffix =
+    typeof value === "string" && (value.includes("%") || value.includes("+"))
+      ? value.replace(/^[0-9.]+/, "")
+      : suffix;
+
   const ref = useRef<HTMLSpanElement>(null);
   const [n, setN] = useState(0);
 
@@ -24,7 +30,7 @@ export function Counter({
         const tick = (now: number) => {
           const p = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - p, 3);
-          setN(Math.round(value * eased));
+          setN(Math.round(numValue * eased));
           if (p < 1) raf = requestAnimationFrame(tick);
         };
         raf = requestAnimationFrame(tick);
@@ -34,12 +40,12 @@ export function Counter({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [value, duration]);
+  }, [numValue, duration]);
 
   return (
     <span ref={ref}>
       {n}
-      {suffix}
+      {inferredSuffix}
     </span>
   );
 }

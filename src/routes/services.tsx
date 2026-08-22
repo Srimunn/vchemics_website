@@ -12,13 +12,17 @@ import {
   Wrench,
   Zap,
   FlaskConical,
+  Sparkles,
+  CheckCircle2,
+  ShieldCheck,
+  Clock,
+  ArrowRight,
 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
-import { CtaBanner } from "@/components/site/CtaBanner";
 import { Testimonials } from "@/components/site/Testimonials";
 import { SectionHeading } from "@/components/site/ui";
-import { industries } from "@/components/site/data";
+import { ContactSection } from "@/components/site/ContactSection";
 
 const title = "Our Services | Mix Design, Site Support & Repair Solutions";
 const description =
@@ -38,40 +42,123 @@ export const Route = createFileRoute("/services")({
   component: Services,
 });
 
-const services = [
+const capabilities = [
   {
-    Icon: FlaskConical,
+    num: "01",
+    tag: "Calibration & Trial",
     title: "Mix Design Consulting",
-    body: "We optimise water-cement ratio, slump retention and early strength for your aggregates and your ambient conditions.",
+    metric: "Optimized w/c & Slump Curves",
+    body: "We fine-tune water-cement ratios, slump retention profiles, and 7-day strength curves tailored to your exact quarry aggregates, local sands, and ambient temperature.",
+    Icon: FlaskConical,
   },
   {
-    Icon: ClipboardCheck,
+    num: "02",
+    tag: "Site Quality Assurance",
     title: "On-Site Trials & QA",
-    body: "Trial batches, slump-flow checks and cube testing supervised with your team before full-scale production begins.",
+    metric: "Cube Strength & Slump Audits",
+    body: "Pre-pour trial batches, slump-flow retention audits, and compressive cube testing supervised alongside your engineering team before mass batching.",
+    Icon: ClipboardCheck,
   },
   {
-    Icon: Layers,
+    num: "03",
+    tag: "Structural Envelope",
     title: "Waterproofing System Design",
-    body: "Specification of the right membrane, crystalline or admixture-based system per exposure class and detail.",
+    metric: "Crystalline & Elastomeric PU",
+    body: "Comprehensive specification of deep-pore crystalline systems, elastomeric PU membranes, and swellable waterstops designed for intense hydrostatic heads.",
+    Icon: Layers,
   },
   {
-    Icon: Wrench,
+    num: "04",
+    tag: "Structural Retrofitting",
     title: "Repair & Rehabilitation",
-    body: "Condition assessment through to jacketing, micro concrete placement, crack injection and protective coating.",
+    metric: "Micro Concrete & Crack Jacketing",
+    body: "Structural integrity assessments, non-shrink micro concrete encasements, low-pressure epoxy crack injections, and rebar passivating anti-corrosion primers.",
+    Icon: Wrench,
   },
   {
+    num: "05",
+    tag: "Bulk Supply Logistics",
+    title: "Supply & Direct Dispatch",
+    metric: "24–48h South India Delivery",
+    body: "Scheduled direct-to-site supply in 20kg bags, 220kg barrels, and bulk IBC containers across Tamil Nadu and neighbouring states with zero batch variance.",
     Icon: Truck,
-    title: "Supply & Logistics",
-    body: "Scheduled deliveries across Tamil Nadu and neighbouring states with consistent batch-to-batch quality.",
   },
   {
+    num: "06",
+    tag: "Workmanship Rigor",
+    title: "Applicator Training & QA",
+    metric: "Certified Site Practice",
+    body: "Hands-on technical workshops for site contractors and applicators covering substrate prep, dosing discipline, pot life control, and precision curing.",
     Icon: HardHat,
-    title: "Applicator Training",
-    body: "Hands-on sessions for site crews on surface prep, dosing discipline and correct application technique.",
   },
 ];
 
-const industryIcons = [Building2, Ruler, Factory, Layers, Hammer, Mountain, Zap, HardHat];
+const industriesServed = [
+  {
+    num: "01",
+    name: "Concrete & RMC",
+    tag: "Batching & Precast",
+    desc: "High-slump retention superplasticisers for pumped concrete and rapid-demould precast yards.",
+    chip: "3-Hour Open Transit",
+    Icon: HardHat,
+  },
+  {
+    num: "02",
+    name: "Civil Engineering",
+    tag: "Bridges & Highways",
+    desc: "Mass concrete thermal management, flyover pier casting, and structural waterproofing.",
+    chip: "High Durability Mix",
+    Icon: Ruler,
+  },
+  {
+    num: "03",
+    name: "Industrial Manufacturing",
+    tag: "Heavy Production",
+    desc: "Dynamic vibration-proof machine foundation grouting and chemical-resistant bund linings.",
+    chip: "Zero-Shrink Spec",
+    Icon: Factory,
+  },
+  {
+    num: "04",
+    name: "Flooring Systems",
+    tag: "Surface Engineering",
+    desc: "Monolithic abrasion hardeners, heavy-duty polymer screeds, and anti-dusting floor seals.",
+    chip: "Forklift Traffic Ready",
+    Icon: Layers,
+  },
+  {
+    num: "05",
+    name: "Restoration & Renovation",
+    tag: "Structural Rehab",
+    desc: "Micro concrete column encasement, low-viscosity crack injection, and rebar rust converters.",
+    chip: "Full Load Recovery",
+    Icon: Hammer,
+  },
+  {
+    num: "06",
+    name: "Mining & Tunneling",
+    tag: "Underground Works",
+    desc: "Fast-setting wet shotcrete accelerators, rock-bolting anchors, and hydro-active water stops.",
+    chip: "Rapid Initial Set",
+    Icon: Mountain,
+  },
+  {
+    num: "07",
+    name: "Power & Energy",
+    tag: "Critical Utilities",
+    desc: "Turbine base grouts, transformer yard pads, and cooling tower crystalline waterproof barriers.",
+    chip: "Extreme Vibration Proof",
+    Icon: Zap,
+  },
+  {
+    num: "08",
+    name: "Building & Construction",
+    tag: "High-Rise Towers",
+    desc: "Basement raft crystalline protection, terrace waterproofing, and high-fluidity column pours.",
+    chip: "100% Watertight Envelope",
+    Icon: Building2,
+  },
+];
 
 function Services() {
   return (
@@ -82,20 +169,56 @@ function Services() {
         intro="Material alone doesn't solve a site problem. Our engineers work with your team from mix design through final application."
       />
 
+      {/* 2. CAPABILITIES & WHAT WE DO (6-CARD ARCHITECTURAL BENTO DECK) */}
       <section className="bg-background py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <SectionHeading eyebrow="Capabilities" title="What we do" />
+            <SectionHeading
+              eyebrow="Capabilities"
+              title="Engineering Services &amp; Field Solutions"
+              intro="Six specialized technical capabilities designed to ensure every batch and placement achieves target design strength."
+            />
           </Reveal>
-          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ Icon, title: t, body }, i) => (
+
+          <ul className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map(({ num, tag, title: t, metric, body, Icon }, i) => (
               <Reveal key={t} as="li" delay={i * 70}>
-                <div className="lift group h-full rounded-sm border border-border bg-background p-8 hover:border-primary">
-                  <span className="grid h-12 w-12 place-items-center rounded-sm bg-secondary text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                    <Icon className="h-5 w-5" />
+                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-8 shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-[#054782]/40 hover:shadow-2xl">
+                  {/* Top Gradient Line */}
+                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  {/* Watermark Numeral */}
+                  <span className="pointer-events-none absolute right-4 top-2 font-mono text-8xl font-black text-foreground/[0.03] select-none group-hover:text-[#054782]/10 transition-colors">
+                    {num}
                   </span>
-                  <h3 className="mt-6 font-display text-lg font-bold">{t}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+
+                  <div>
+                    {/* Header */}
+                    <div className="flex items-center justify-between">
+                      <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-[#054782]/10 to-[#669930]/10 text-[#054782] transition-all duration-500 group-hover:scale-110 group-hover:from-[#054782] group-hover:to-[#669930] group-hover:text-white shadow-xs">
+                        <Icon className="h-7 w-7" />
+                      </span>
+                      <span className="font-mono text-xs font-bold text-[#669930] bg-[#669930]/10 px-3 py-1 rounded-full border border-[#669930]/20 uppercase tracking-wider">
+                        {tag}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-6 font-display text-xl font-bold text-foreground transition-colors group-hover:text-[#054782]">
+                      {t}
+                    </h3>
+
+                    <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                      {body}
+                    </p>
+                  </div>
+
+                  {/* Footer Metric Chip */}
+                  <div className="mt-8 pt-5 border-t border-border/60">
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-[#054782] group-hover:text-[#669930] transition-colors">
+                      <Sparkles className="h-3 w-3 text-[#669930]" /> {metric}
+                    </span>
+                    <div className="mt-2.5 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#054782] group-hover:to-[#669930]" />
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -103,29 +226,63 @@ function Services() {
         </div>
       </section>
 
-      <section className="blueprint clip-slant-both relative bg-graphite py-28">
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      {/* 3. INDUSTRIES WE SERVE (8-CARD ARCHITECTURAL MATRIX) */}
+      <section className="bg-concrete py-24 lg:py-32 border-t border-border/60">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <SectionHeading eyebrow="Applications" title="Industries We Serve" onDark />
+            <SectionHeading
+              eyebrow="Applications"
+              title="Industries We Serve"
+              intro="From tunnel linings to high-rise rafts, our chemical formulations deliver guaranteed structural durability across every sector."
+            />
           </Reveal>
-          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {industries.map((name, i) => {
-              const Icon = industryIcons[i] ?? Building2;
-              return (
-                <Reveal key={name} as="li" delay={i * 60}>
-                  <div className="lift flex h-full items-center gap-4 rounded-sm border border-on-dark/12 bg-graphite-soft/60 p-6 hover:border-primary">
-                    <Icon className="h-5 w-5 shrink-0 text-primary" />
-                    <span className="font-display text-sm font-bold leading-snug text-on-dark">{name}</span>
+
+          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {industriesServed.map(({ num, name, tag, desc, chip, Icon }, i) => (
+              <Reveal key={name} as="li" delay={i * 50}>
+                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-7 shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-[#054782]/40 hover:shadow-xl">
+                  {/* Top Gradient Line on hover */}
+                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                  {/* Watermark Numeral */}
+                  <span className="pointer-events-none absolute right-3 top-2 font-mono text-5xl font-black text-foreground/[0.03] select-none group-hover:text-[#054782]/10 transition-colors">
+                    {num}
+                  </span>
+
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#054782]/10 to-[#669930]/10 text-[#054782] transition-all duration-500 group-hover:scale-110 group-hover:from-[#054782] group-hover:to-[#669930] group-hover:text-white shadow-xs">
+                        <Icon className="h-6 w-6" />
+                      </span>
+                      <span className="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-[#669930] bg-[#669930]/10 px-2.5 py-1 rounded-full border border-[#669930]/20">
+                        {tag}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-5 font-display text-lg font-bold text-foreground transition-colors group-hover:text-[#054782]">
+                      {name}
+                    </h3>
+
+                    <p className="mt-2.5 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                      {desc}
+                    </p>
                   </div>
-                </Reveal>
-              );
-            })}
+
+                  <div className="mt-6 pt-4 border-t border-border/60">
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-[#054782] group-hover:text-[#669930] transition-colors">
+                      <Sparkles className="h-3 w-3 text-[#669930]" /> {chip}
+                    </span>
+                    <div className="mt-2 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#054782] group-hover:to-[#669930]" />
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </ul>
         </div>
       </section>
 
+      {/* 4. CASE STUDY TESTIMONIALS */}
       <Testimonials />
-      <CtaBanner />
     </>
   );
 }

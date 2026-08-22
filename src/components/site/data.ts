@@ -54,8 +54,8 @@ export const industries = [
 ] as const;
 
 export const stats = [
-  { value: 2, label: "Years of Expertise" },
-  { value: 10, label: "Challenging Projects" },
-  { value: 40, label: "Amazing Products" },
-  { value: 50, label: "Happy Customers" },
+  { value: 15, suffix: "+", label: "Years Experience" },
+  { value: 40, suffix: "+", label: "Chemical Formulations" },
+  { value: 50, suffix: "+", label: "Infrastructure Projects" },
+  { value: 100, suffix: "%", label: "Tested & Certified" },
 ] as const;

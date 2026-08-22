@@ -1,27 +1,30 @@
 import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 
-export function Logo({ onDark = false }: { onDark?: boolean }) {
+export function Logo({
+  onDark = false,
+  className,
+}: {
+  onDark?: boolean;
+  className?: string;
+}) {
   return (
-    <Link to="/" className="group flex items-center gap-3" aria-label="V Chemics India Solutions — home">
-      <span className="hatch grid h-10 w-10 place-items-center rounded-sm font-display text-lg font-bold text-primary-foreground transition-transform duration-300 group-hover:-rotate-6">
-        V
-      </span>
-      <span className="leading-tight">
-        <span
-          className={`block font-display text-base font-bold tracking-tight ${
-            onDark ? "text-on-dark" : "text-foreground"
-          }`}
-        >
-          V CHEMICS
-        </span>
-        <span
-          className={`block text-[0.6rem] font-semibold uppercase tracking-[0.22em] ${
-            onDark ? "text-on-dark-muted" : "text-muted-foreground"
-          }`}
-        >
-          India Solutions
-        </span>
-      </span>
+    <Link
+      to="/"
+      className="group inline-flex items-center transition-opacity hover:opacity-90 translate-y-2 sm:translate-y-2.5"
+      aria-label="V Chemics India Solutions — home"
+    >
+      <img
+        src="/image.png"
+        alt="V Chemics India Solutions Logo"
+        className={cn(
+          "h-16 sm:h-20 md:h-24 w-auto max-w-[280px] sm:max-w-[360px] object-contain transition-transform duration-200 group-hover:scale-105",
+          onDark && "brightness-125 contrast-110 drop-shadow-[0_0_14px_rgba(255,255,255,0.85)]",
+          className,
+        )}
+        width={360}
+        height={96}
+      />
     </Link>
   );
 }
