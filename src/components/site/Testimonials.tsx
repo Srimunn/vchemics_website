@@ -105,7 +105,7 @@ export function Testimonials() {
             type="button"
             onClick={prevSlide}
             aria-label="Previous Review"
-            className="absolute -left-3 sm:-left-6 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#054782] hover:bg-[#054782] hover:text-white cursor-pointer"
+            className="absolute -left-5 sm:-left-9 lg:-left-10 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#054782] hover:bg-[#054782] hover:text-white cursor-pointer"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
@@ -115,7 +115,7 @@ export function Testimonials() {
             type="button"
             onClick={nextSlide}
             aria-label="Next Review"
-            className="absolute -right-3 sm:-right-6 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#054782] hover:bg-[#054782] hover:text-white cursor-pointer"
+            className="absolute -right-5 sm:-right-9 lg:-right-10 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#054782] hover:bg-[#054782] hover:text-white cursor-pointer"
           >
             <ChevronRight className="h-6 w-6" />
           </button>

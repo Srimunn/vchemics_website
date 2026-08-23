@@ -12,21 +12,24 @@ import {
   Building2,
   ShieldCheck,
   FlaskConical,
+  MessageCircle,
+  Package,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/site/Reveal";
-
 import { PageHero } from "@/components/site/PageHero";
+import { allProducts, allLocations } from "@/components/site/data";
 
-const title = "Contact V Chemics India Solutions | Padi, Chennai";
+const title = "Contact & Get Technical Quote | V Chemics India Solutions Chennai";
 const description =
-  "Talk to our technical team about admixtures, grouts, waterproofing or repair. Omsakthi Street, Kumaran Nagar Extn-I, Padi, Chennai - 600050. +91 99423-54602.";
+  "Request instant quotations, technical data sheets (TDS), and sample trial batches for concrete admixtures, crystalline waterproofing, PU grouting & micro concrete. Phone: +91 99423-54602.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "keywords", content: "contact V Chemics, construction chemicals quote Chennai, buy concrete admixtures Chennai, PU injection grouting supplier, micro concrete Chennai price" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -36,19 +39,38 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-type Fields = { name: string; email: string; phone: string; message: string };
+type Fields = {
+  name: string;
+  company: string;
+  phone: string;
+  email: string;
+  requirement: string;
+  quantity: string;
+  location: string;
+  message: string;
+};
+
 type Errors = Partial<Record<keyof Fields, string>>;
-const empty: Fields = { name: "", email: "", phone: "", message: "" };
+
+const empty: Fields = {
+  name: "",
+  company: "",
+  phone: "",
+  email: "",
+  requirement: "Concrete Admixtures",
+  quantity: "",
+  location: "Chennai",
+  message: "",
+};
 
 function validate(f: Fields): Errors {
   const e: Errors = {};
-  if (f.name.trim().length < 2) e.name = "Please enter your name.";
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim()))
-    e.email = "Please enter a valid email address.";
+  if (f.name.trim().length < 2) e.name = "Please enter your full name.";
   if (!/^[\d\s+()-]{8,16}$/.test(f.phone.trim()))
-    e.phone = "Please enter a valid phone number.";
-  if (f.message.trim().length < 10)
-    e.message = "Tell us a little more about your project or mix (10+ characters).";
+    e.phone = "Please enter a valid 10-digit mobile number.";
+  if (f.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim()))
+    e.email = "Please enter a valid email address.";
+  if (!f.location.trim()) e.location = "Please provide project site location.";
   return e;
 }
 
@@ -72,38 +94,73 @@ function ContactPage() {
   };
 
   const inputCls =
-    "w-full rounded-xl border border-border/80 bg-background px-4 py-3.5 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-[#054782] focus:ring-3 focus:ring-[#054782]/15";
+    "w-full rounded-xl border border-border/80 bg-background px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground focus:border-[#054782] focus:ring-2 focus:ring-[#054782]/15";
 
   return (
     <>
       <PageHero
-        eyebrow="Contact Us"
-        title="Precision Chemical Solutions For Critical Pours"
-        intro="Whether calibrating an aggregate-matched superplasticiser, resolving slump retention on site, or scheduling direct plant supply — our formulation chemists respond within one working day."
+        eyebrow="Get In Touch / Request Quote"
+        title="Direct Factory Supply &amp; Technical Consultation"
+        intro="Whether scheduling an on-site concrete mix trial, sizing crystalline waterproofing for basement rafts, or requesting bulk barrel supply — our chemical formulation team responds within 2 hours."
       />
 
-      {/* 2. DEDICATED MASTER CONTACT STUDIO */}
-      <section className="bg-background py-24 lg:py-32">
+      {/* 2. DEDICATED MASTER CONTACT & LEAD CAPTURE STUDIO */}
+      <section className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
-            {/* Left Column: Direct Facility Hub */}
+            {/* Left Column: Direct Plant & Hotline Hub */}
             <div className="lg:col-span-5 space-y-8">
               <Reveal>
                 <div>
-                  <p className="eyebrow mb-4 flex items-center gap-3 text-[#669930]">
+                  <p className="eyebrow mb-3 flex items-center gap-3 text-[#669930]">
                     <span className="h-px w-8 bg-[#669930]" aria-hidden />
-                    Works &amp; Technical Hub
+                    Direct Technical Line
                   </p>
-                  <h2 className="mt-2 font-display text-2xl sm:text-3xl font-bold text-foreground">
-                    Get In Touch
+                  <h2 className="mt-1 font-display text-2xl sm:text-3xl font-bold text-foreground">
+                    Connect With Our Technical Desk
                   </h2>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                    Tell us about your site location, target strength, or structural challenge. Our chemical specialists respond within one working day.
+                    Have an urgent pour or site problem? Reach our formulation engineers directly by phone or WhatsApp for immediate assistance.
                   </p>
                 </div>
               </Reveal>
 
-              <Reveal delay={100}>
+              {/* Instant WhatsApp & Call Cards */}
+              <Reveal delay={80}>
+                <div className="space-y-3">
+                  <a
+                    href="https://wa.me/919942354602?text=Hello%20V%20Chemics%20Team%2C%20I%20need%20an%20instant%20price%20quote%20for%20construction%20chemicals."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between rounded-2xl bg-[#25D366] p-4 text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#20bd5a]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <MessageCircle className="h-6 w-6 fill-current" />
+                      <div>
+                        <p className="font-mono text-xs font-bold uppercase">Instant WhatsApp Desk</p>
+                        <p className="text-sm font-bold">+91 99423-54602</p>
+                      </div>
+                    </div>
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+
+                  <a
+                    href="tel:+919942354602"
+                    className="group flex items-center justify-between rounded-2xl bg-[#054782] p-4 text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#07599c]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Phone className="h-6 w-6" />
+                      <div>
+                        <p className="font-mono text-xs font-bold uppercase">Technical Helpline</p>
+                        <p className="text-sm font-bold">+91 99423-54602</p>
+                      </div>
+                    </div>
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                </div>
+              </Reveal>
+
+              <Reveal delay={120}>
                 <ul className="space-y-4 pt-2">
                   {[
                     {
@@ -114,19 +171,19 @@ function ContactPage() {
                       target: "_blank",
                     },
                     {
-                      Icon: Phone,
-                      label: "Direct Technical Line",
-                      value: "+91 99423-54602",
-                      sub: "Mon – Sat: 9:00 AM – 7:00 PM",
-                      href: "tel:+919942354602",
-                    },
-                    {
                       Icon: Mail,
                       label: "Official Support Email",
                       value: "vchemics.info@gmail.com",
-                      sub: "1 Working Day Guaranteed Response",
+                      sub: "Guaranteed Response within 2 Hours",
                       href: "https://mail.google.com/mail/?view=cm&fs=1&to=vchemics.info@gmail.com",
                       target: "_blank",
+                    },
+                    {
+                      Icon: Truck,
+                      label: "Tamil Nadu Regional Dispatch",
+                      value: "Chennai, Coimbatore, Erode, Salem, Karur",
+                      sub: "Same-Day / 24h Direct Site Delivery",
+                      href: "/locations",
                     },
                   ].map(({ Icon, label, value, sub, href, target }) => (
                     <li key={label}>
@@ -134,16 +191,16 @@ function ContactPage() {
                         href={href}
                         target={target}
                         rel={target ? "noopener noreferrer" : undefined}
-                        className="group flex items-start gap-4 p-3 -ml-3 rounded-2xl transition-colors hover:bg-muted/50"
+                        className="group flex items-start gap-4 p-3.5 -ml-3 rounded-2xl transition-colors hover:bg-muted/50"
                       >
-                        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#054782] to-[#0b274c] text-white shadow-xs transition-transform duration-300 group-hover:scale-105 group-hover:from-[#054782] group-hover:to-[#669930]">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-muted text-[#054782] transition-transform group-hover:scale-105 group-hover:bg-[#054782] group-hover:text-white">
                           <Icon className="h-5 w-5" />
                         </span>
                         <div>
                           <p className="font-mono text-[0.68rem] font-bold uppercase tracking-wider text-[#669930]">
                             {label}
                           </p>
-                          <p className="mt-0.5 text-sm font-semibold text-foreground transition-colors group-hover:text-[#054782] break-words">
+                          <p className="mt-0.5 text-sm font-semibold text-foreground group-hover:text-[#054782] transition-colors leading-relaxed">
                             {value}
                           </p>
                           {sub && (
@@ -157,57 +214,156 @@ function ContactPage() {
               </Reveal>
             </div>
 
-            {/* Right Column: Clean Consultation Form */}
+            {/* Right Column: Lead Form Matching PDF Standards */}
             <div className="lg:col-span-7">
               <Reveal delay={120}>
-                <div className="rounded-3xl border border-border/80 bg-card p-8 sm:p-10 shadow-sm relative overflow-hidden">
+                <div className="rounded-3xl border border-border/80 bg-card p-7 sm:p-10 shadow-sm relative overflow-hidden">
                   <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782]" />
 
-                  <form onSubmit={onSubmit} noValidate className="space-y-5">
-                    {(
-                      [
-                        { k: "name", label: "Full Name", type: "text", ph: "e.g. Ramesh Kumar" },
-                        { k: "email", label: "Work Email", type: "email", ph: "you@company.com" },
-                        { k: "phone", label: "Phone Number", type: "tel", ph: "+91 99423 54602" },
-                      ] as const
-                    ).map((f) => (
-                      <div key={f.k}>
-                        <label htmlFor={f.k} className="mb-2 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                          {f.label} <span className="text-[#669930]">*</span>
+                  <div className="mb-6">
+                    <h3 className="font-display text-xl font-bold text-foreground">
+                      Request Technical Quotation / Trial Batch
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Fill in your project requirements for custom dosage calibration and factory-direct pricing.
+                    </p>
+                  </div>
+
+                  <form onSubmit={onSubmit} noValidate className="space-y-4">
+                    {/* Row 1: Name & Company */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="name" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Full Name <span className="text-[#669930]">*</span>
                         </label>
                         <input
-                          id={f.k}
-                          name={f.k}
-                          type={f.type}
-                          placeholder={f.ph}
-                          value={fields[f.k]}
-                          onChange={set(f.k)}
-                          aria-invalid={Boolean(errors[f.k])}
-                          className={cn(inputCls, errors[f.k] && "border-destructive focus:ring-destructive/15")}
+                          id="name"
+                          type="text"
+                          placeholder="e.g. Rajesh Kumar"
+                          value={fields.name}
+                          onChange={set("name")}
+                          className={cn(inputCls, errors.name && "border-destructive focus:ring-destructive/15")}
                         />
-                        {errors[f.k] && (
-                          <p className="mt-1.5 text-xs text-destructive">{errors[f.k]}</p>
-                        )}
+                        {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
                       </div>
-                    ))}
 
+                      <div>
+                        <label htmlFor="company" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Company / Builder Name
+                        </label>
+                        <input
+                          id="company"
+                          type="text"
+                          placeholder="e.g. Apex Infra Ltd"
+                          value={fields.company}
+                          onChange={set("company")}
+                          className={inputCls}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Row 2: Mobile & Email */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="phone" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Mobile Number <span className="text-[#669930]">*</span>
+                        </label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          placeholder="+91 99423 54602"
+                          value={fields.phone}
+                          onChange={set("phone")}
+                          className={cn(inputCls, errors.phone && "border-destructive focus:ring-destructive/15")}
+                        />
+                        {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+                      </div>
+
+                      <div>
+                        <label htmlFor="email" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Email Address
+                        </label>
+                        <input
+                          id="email"
+                          type="email"
+                          placeholder="you@company.com"
+                          value={fields.email}
+                          onChange={set("email")}
+                          className={cn(inputCls, errors.email && "border-destructive focus:ring-destructive/15")}
+                        />
+                        {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+                      </div>
+                    </div>
+
+                    {/* Row 3: Product Requirement & Estimated Quantity */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <label htmlFor="requirement" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Product Category <span className="text-[#669930]">*</span>
+                        </label>
+                        <select
+                          id="requirement"
+                          value={fields.requirement}
+                          onChange={set("requirement")}
+                          className={inputCls}
+                        >
+                          {allProducts.map((p) => (
+                            <option key={p.id} value={p.title}>
+                              {p.title}
+                            </option>
+                          ))}
+                          <option value="Basement Waterproofing Solution">Basement Waterproofing Solution</option>
+                          <option value="Terrace Waterproofing Solution">Terrace Waterproofing Solution</option>
+                          <option value="Structural Rehabilitation">Structural Rehabilitation</option>
+                          <option value="Industrial Flooring">Industrial Flooring</option>
+                          <option value="Other Technical Query">Other Technical Query</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="quantity" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                          Quantity / Volume
+                        </label>
+                        <input
+                          id="quantity"
+                          type="text"
+                          placeholder="e.g. 500 Litres / 50 Bags"
+                          value={fields.quantity}
+                          onChange={set("quantity")}
+                          className={inputCls}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Row 4: Project Location */}
                     <div>
-                      <label htmlFor="message" className="mb-2 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                        Project Requirement / Mix Details <span className="text-[#669930]">*</span>
+                      <label htmlFor="location" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                        Project Site Location <span className="text-[#669930]">*</span>
+                      </label>
+                      <input
+                        id="location"
+                        type="text"
+                        placeholder="e.g. Guindy / Sriperumbudur / Coimbatore Site"
+                        value={fields.location}
+                        onChange={set("location")}
+                        className={cn(inputCls, errors.location && "border-destructive focus:ring-destructive/15")}
+                      />
+                      {errors.location && <p className="mt-1 text-xs text-destructive">{errors.location}</p>}
+                    </div>
+
+                    {/* Row 5: Message */}
+                    <div>
+                      <label htmlFor="message" className="mb-1.5 block font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                        Project Details / Mix Specifications
                       </label>
                       <textarea
                         id="message"
-                        name="message"
-                        rows={4}
-                        placeholder="Project type, required dosage, site location, timeline…"
+                        rows={3}
+                        placeholder="Target grade (M40, M60), aggregate type, transit duration, or specific site challenge…"
                         value={fields.message}
                         onChange={set("message")}
-                        aria-invalid={Boolean(errors.message)}
-                        className={cn(inputCls, "resize-y", errors.message && "border-destructive focus:ring-destructive/15")}
+                        className={cn(inputCls, "resize-y")}
                       />
-                      {errors.message && (
-                        <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>
-                      )}
                     </div>
 
                     <div className="pt-2">
@@ -215,7 +371,7 @@ function ContactPage() {
                         type="submit"
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-[#054782] to-[#669930] py-4 px-9 font-display text-sm font-bold uppercase tracking-[0.1em] text-white shadow-md shadow-[#054782]/20 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg cursor-pointer"
                       >
-                        Send Technical Enquiry <ArrowRight className="h-4 w-4" />
+                        Submit Technical Enquiry <ArrowRight className="h-4 w-4" />
                       </button>
                     </div>
 
@@ -223,7 +379,7 @@ function ContactPage() {
                       <div className="mt-4 flex items-center gap-3 rounded-xl border border-[#669930]/30 bg-[#669930]/10 p-4 text-sm text-foreground">
                         <CheckCircle2 className="h-5 w-5 shrink-0 text-[#669930]" />
                         <p>
-                          <strong>Thank you!</strong> Your technical enquiry has been recorded. Our chemical specialists will contact you shortly.
+                          <strong>Enquiry Recorded!</strong> Our chemical formulation specialist will contact you with product TDS and pricing within 2 hours.
                         </p>
                       </div>
                     )}
@@ -234,8 +390,6 @@ function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* End Contact Studio */}
     </>
   );
 }

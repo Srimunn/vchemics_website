@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   FlaskConical,
   Layers,
@@ -8,284 +9,520 @@ import {
   Gauge,
   Sparkles,
   CheckCircle2,
-  ArrowUpRight,
-  Beaker,
+  ArrowRight,
+  Droplets,
+  Wrench,
   Building2,
+  Factory,
+  ChevronRight,
+  ChevronDown,
+  Phone,
+  MessageCircle,
+  FileText,
+  Package,
+  HelpCircle,
+  Clock,
+  Layers3,
+  TestTube2,
+  Scale,
+  Search,
+  Check,
 } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
-import { ProductGrid } from "@/components/site/ProductGrid";
 import { SectionHeading } from "@/components/site/ui";
-import { ContactSection } from "@/components/site/ContactSection";
+import { allProducts, type ProductItem } from "@/components/site/data";
+import { cn } from "@/lib/utils";
 
-const title = "Products | Concrete Admixtures, Grouts & Waterproofing";
+const title = "Products Catalogue | Concrete Admixtures, Waterproofing, Grouts & Repair in Chennai";
 const description =
-  "Explore V Chemics products: concrete admixtures, non-shrink cementitious and epoxy grouts, waterproofing systems and micro concrete for structural repair.";
+  "Complete technical catalogue of construction chemicals: Concrete Admixtures, Waterproofing Chemicals, PU Injection Grouting, Non-Shrink Grout, Micro Concrete, Concrete Repair, Epoxy Grouting & Protective Coatings.";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "keywords", content: "concrete admixtures Chennai, waterproofing chemicals, PU injection grouting, non-shrink grout, micro concrete, concrete repair, epoxy grouting, protective coatings" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Products,
+  component: ProductsPage,
 });
 
-const catalogues = [
-  {
-    num: "01",
-    tag: "Concrete Performance",
-    title: "Admixture Formulations",
-    desc: "Advanced chemical admixtures engineered for water reduction, extended slump retention, and rapid compressive strength.",
-    Icon: FlaskConical,
-    standard: "IS 9103 • ASTM C494",
-    items: [
-      { name: "PCE Superplasticisers", spec: "Up to 30% Water Cut" },
-      { name: "Setting Retarders", spec: "3+ Hours Open Time" },
-      { name: "Early Accelerators", spec: "48h Fast Demoulding" },
-      { name: "Air Entrainers", spec: "Freeze-Thaw Resistance" },
-      { name: "Integral Waterproofers", spec: "Hydrophobic Pore Blocker" },
-    ],
-  },
-  {
-    num: "02",
-    tag: "Precision Anchoring",
-    title: "High-Strength Grouts",
-    desc: "Zero-shrink cementitious and resin-based grouting solutions designed for heavy machine bases, precast panels, and rebar anchoring.",
-    Icon: Layers,
-    standard: "ASTM C1107 • IS 4031",
-    items: [
-      { name: "Cementitious Non-Shrink", spec: ">75 MPa Compressive" },
-      { name: "High-Strength Epoxy Grout", spec: "Dynamic Vibration Resilient" },
-      { name: "Fast-Set PMMA Grout", spec: "Rapid 2-Hour Return to Service" },
-      { name: "Polyurethane Injection", spec: "Active Water Leak Sealing" },
-      { name: "Anchor & Dowel Mortar", spec: "High Pull-Out Capacity" },
-    ],
-  },
-  {
-    num: "03",
-    tag: "Waterproofing & Protection",
-    title: "Protective Systems",
-    desc: "Crystalline deep-pore barriers, flexible PU elastomeric coatings, and structural micro concrete for permanent durability.",
-    Icon: ShieldCheck,
-    standard: "IS 2645 • DIN 1048",
-    items: [
-      { name: "Crystalline Waterproofing", spec: "Self-Healing Micro-Cracks" },
-      { name: "PU Liquid Membranes", spec: ">400% Elongation" },
-      { name: "Acrylic Polymer Coatings", spec: "UV & Carbonation Barrier" },
-      { name: "Polymer Bonding Agents", spec: "Monolithic Interfacial Bond" },
-      { name: "Water-Retention Curing", spec: "ASTM C309 Compliant" },
-    ],
-  },
-];
+const productIcons: Record<string, any> = {
+  "concrete-admixtures": FlaskConical,
+  "waterproofing-chemicals": Droplets,
+  "pu-injection-grouting": Waves,
+  "non-shrink-grout": Layers,
+  "micro-concrete": Building2,
+  "concrete-repair": Wrench,
+  "epoxy-grouting": Factory,
+  "protective-coatings": ShieldCheck,
+};
 
-function Products() {
+const productDetailsExtended: Record<
+  string,
+  {
+    problemSolved: string;
+    substrateSuitability: string;
+    procedure: string[];
+    packaging: string;
+    faqs: { q: string; a: string }[];
+  }
+> = {
+  "concrete-admixtures": {
+    problemSolved: "Overcomes rapid slump loss, high water demand, honeycombing, and delayed strength development during high-temperature concrete batching and long transit in South India.",
+    substrateSuitability: "OPC 43/53, PPC, PSC, fly ash blends, GGBS, micro-silica, crushed sand (M-sand), and river sand mixes.",
+    procedure: [
+      "Dose admixture directly into gauging water or at the final 10% batching water cycle.",
+      "Mix thoroughly in batching pan or transit mixer drum for minimum 60–90 seconds.",
+      "Conduct on-site slump cone and flow table test to verify targeted rheology.",
+      "Follow standard IS 456 curing regimes to lock in peak hydration.",
+    ],
+    packaging: "20kg Plastic Cans, 220kg HDPE Barrels, 1000L Bulk IBC Containers.",
+    faqs: [
+      {
+        q: "What is the recommended dosage for PCE superplasticisers?",
+        a: "Typically 0.4% to 1.8% by weight of total cementitious binder, optimized via plant trial mix.",
+      },
+    ],
+  },
+  "waterproofing-chemicals": {
+    problemSolved: "Prevents sub-soil water ingress, capillary water seepage, dampness, mold formation, and steel rebar corrosion in basements, retaining walls, and water tanks.",
+    substrateSuitability: "Structural concrete, RCC retaining walls, block masonry, cement plaster, and mortar beds.",
+    procedure: [
+      "High-pressure water jet substrate to remove laitance, form-release oils, and dirt.",
+      "Pre-saturate concrete surface to Saturated Surface Dry (SSD) condition.",
+      "Apply 2 uniform cross-coats using masonry brush at 1.2 – 1.5 kg/m².",
+      "Moist cure with fine water mist spray for 48 hours to activate crystalline needle growth.",
+    ],
+    packaging: "20kg HDPE Pails, 25kg Poly-lined Bags, 200L Barrels.",
+    faqs: [
+      {
+        q: "How does crystalline waterproofing self-heal micro-cracks?",
+        a: "Active chemical catalysts react with free lime in the presence of moisture to grow non-soluble dendritic crystals sealing cracks up to 0.4mm.",
+      },
+    ],
+  },
+  "pu-injection-grouting": {
+    problemSolved: "Instantly stops gushing water leaks under high hydrostatic pressure in concrete cracks, expansion joints, basement diaphragm walls, and tunnel segments.",
+    substrateSuitability: "Poured concrete walls, construction joints, brick/stone masonry, and precast segment junctions.",
+    procedure: [
+      "Drill 45-degree angle injection holes intersecting the crack at midpoint.",
+      "Fix high-pressure mechanical injection packers and tighten firmly.",
+      "Flush crack with water to verify interconnection and remove debris.",
+      "Inject hydro-active PU resin at 50–200 bar until foaming resin emerges from adjacent ports.",
+    ],
+    packaging: "5kg & 20kg Metal Cans with separate catalyst bottles.",
+    faqs: [
+      {
+        q: "How fast does the PU resin react with ingress water?",
+        a: "Reaction induction starts within 15–30 seconds, expanding up to 30x volume to form a tough impermeable seal.",
+      },
+    ],
+  },
+  "non-shrink-grout": {
+    problemSolved: "Eliminates shrinkage voids, air pockets, and loose baseplates beneath vibrating machinery, structural columns, and precast bridge bearings.",
+    substrateSuitability: "Roughened concrete foundation pedestals, base plates, and steel anchor bolt pockets.",
+    procedure: [
+      "Scabble concrete pedestal to expose sound aggregate and saturate with water for 24h prior.",
+      "Erect sturdy leak-proof formwork allowing a 50mm head for gravity flow.",
+      "Mix mechanically with measured clean water (approx. 3.5L per 25kg bag).",
+      "Pour continuously from one side only to avoid air entrapment.",
+    ],
+    packaging: "25kg Moisture-resistant HDPE woven bags with plastic liner.",
+    faqs: [
+      {
+        q: "What compressive strength is achieved at 28 days?",
+        a: "Our cementitious non-shrink grout reaches >75 MPa at 28 days and >25 MPa in 24 hours.",
+      },
+    ],
+  },
+  "micro-concrete": {
+    problemSolved: "Restores spalled, honeycombed, or undersized concrete structural columns, beams, and slabs without requiring heavy mechanical vibration.",
+    substrateSuitability: "Existing RCC columns, beams, foundation footings, and bridge piers.",
+    procedure: [
+      "Chip unsound concrete beyond exposed steel rebar and apply zinc-rich anti-corrosion primer.",
+      "Drill and anchor shear rebar dowels where structural section enlargement is required.",
+      "Erect rigid, watertight shuttering with top hopper pouring chutes.",
+      "Mix micro concrete with 3.5–3.75L water per 25kg bag and pour continuously without vibrating.",
+    ],
+    packaging: "25kg & 40kg Heavy-duty moisture-barrier bags.",
+    faqs: [
+      {
+        q: "Can micro concrete flow into tight congested rebar cages?",
+        a: "Yes, formulated with graded micro-aggregates and high-fluidity polymers, it is self-compacting and fills intricate jackets void-free.",
+      },
+    ],
+  },
+  "concrete-repair": {
+    problemSolved: "Repairs structural defects, spalling, carbonation attack, and corrosion delamination while restoring structural load bearing and alkaline protection to steel.",
+    substrateSuitability: "Damaged concrete structures, overhead slabs, beam soffits, marine piers, and bridge decks.",
+    procedure: [
+      "Saw cut edges to minimum 10mm depth to prevent feather edging.",
+      "Clean exposed steel rebar and apply active anti-corrosion polymer coat.",
+      "Apply bonding slurry coat while tacky.",
+      "Trowel-apply polymer-modified mortar in layers up to 40mm and finish smooth.",
+    ],
+    packaging: "25kg Bags with optional liquid polymer mixing bottles.",
+    faqs: [
+      {
+        q: "Can this mortar be applied overhead without sagging?",
+        a: "Yes, our thixotropic formulations prevent slump/sag in vertical and overhead repairs up to 40mm single pass.",
+      },
+    ],
+  },
+  "epoxy-grouting": {
+    problemSolved: "Provides extraordinary compressive strength, dynamic fatigue resistance, and total impermeability to chemicals, oils, and acids beneath heavy industrial mills.",
+    substrateSuitability: "Heavy machinery plinths, crane rail soleplates, chemical sump pump foundations, and tie-back anchors.",
+    procedure: [
+      "Ensure concrete substrate is completely dry (moisture content < 4%) and oil-free.",
+      "Mix Base (Resin) and Hardener for 2 minutes before adding graded silica aggregates.",
+      "Pour into leak-proof waxed formwork using a flow box for hydrostatic head.",
+      "Allow 24–48 hours full chemical cure before applying machine operating load.",
+    ],
+    packaging: "3-Part Pre-proportioned System (Resin + Hardener + Aggregates) in 15kg & 30kg Kits.",
+    faqs: [
+      {
+        q: "What is the compressive strength of epoxy grout?",
+        a: "Our 3-part epoxy grout exceeds 95 MPa compressive strength and 25 MPa flexural strength.",
+      },
+    ],
+  },
+  "protective-coatings": {
+    problemSolved: "Shields concrete and steel against UV degradation, carbonation, acid rain, industrial chemical spills, and heavy forklift wheel abrasion.",
+    substrateSuitability: "Concrete facades, parking garage decks, chemical bund walls, wastewater treatment basins, and roofs.",
+    procedure: [
+      "Diamond grind or grit blast concrete to achieve an open CSP-2/3 surface profile.",
+      "Apply penetrating epoxy/PU primer to seal micro-pores and prevent pinholes.",
+      "Apply first coat of high-build protective coating using roller or airless spray.",
+      "Apply second cross-coat after 6–8 hours inter-coat window for complete pinhole-free film.",
+    ],
+    packaging: "5kg & 20kg Sets (Base + Hardener).",
+    faqs: [
+      {
+        q: "How long does the anti-carbonation coating protect concrete?",
+        a: "Accelerated weathering tests confirm over 10+ years of active carbon dioxide diffusion barrier protection.",
+      },
+    ],
+  },
+};
+
+function ProductsPage() {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [expandedProcedure, setExpandedProcedure] = useState<string | null>(null);
+
+  const categories = [
+    { id: "all", label: "All Products" },
+    { id: "admixtures", label: "Admixtures" },
+    { id: "waterproofing", label: "Waterproofing" },
+    { id: "grouts", label: "Grouts" },
+    { id: "repair", label: "Repair & Micro Concrete" },
+    { id: "coatings", label: "Coatings" },
+  ];
+
+  const filteredProducts = allProducts.filter((p) => {
+    const matchesCategory =
+      selectedCategory === "all" ||
+      (selectedCategory === "admixtures" && p.id === "concrete-admixtures") ||
+      (selectedCategory === "waterproofing" &&
+        (p.id === "waterproofing-chemicals" || p.id === "pu-injection-grouting")) ||
+      (selectedCategory === "grouts" &&
+        (p.id === "non-shrink-grout" || p.id === "epoxy-grouting")) ||
+      (selectedCategory === "repair" &&
+        (p.id === "micro-concrete" || p.id === "concrete-repair")) ||
+      (selectedCategory === "coatings" && p.id === "protective-coatings");
+
+    const matchesSearch =
+      searchQuery === "" ||
+      p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.standard.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.dosage.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchesCategory && matchesSearch;
+  });
+
   return (
     <>
       <PageHero
-        eyebrow="Our Products"
-        title="Formulations for every stage of your pour"
-        intro="Forty-plus specialized formulations across admixtures, high-strength grouts, crystalline waterproofing, and structural repair — each backed by technical data sheets and on-site dosage guidance."
+        eyebrow="Certified Formulations"
+        title="8 Construction Chemical Product Families"
+        intro="Engineered in Chennai to rigorous IS & ASTM benchmarks — supporting ready-mix concrete plants, civil contractors, and industrial infrastructure projects across South India."
       />
 
-      {/* 2. CORE SYSTEMS PRODUCT GRID */}
-      <section className="bg-background py-10 lg:py-14">
+      {/* 1. INTERACTIVE FILTER & SEARCH DOCK */}
+      <section className="bg-muted/40 border-b border-border/80 py-6">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Core Categories"
-              title="Formulated For South India's Demanding Sites"
-              intro="Click any product category below to explore technical applications, mix specs, and direct delivery options."
-            />
-          </Reveal>
+          <div className="rounded-2xl border border-border/80 bg-card p-4 sm:p-5 shadow-sm space-y-4">
+            {/* Top Bar: Section Title, Count & Search Input */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#669930]" />
+                <span className="font-mono text-xs font-bold uppercase text-[#054782]">
+                  Select Formulation Discipline
+                </span>
+                <span className="font-mono text-[0.68rem] text-muted-foreground bg-muted px-2 py-0.5 rounded-full border border-border/60">
+                  {filteredProducts.length} {filteredProducts.length === 1 ? "Family" : "Families"}
+                </span>
+              </div>
 
-          <div className="mt-6">
-            <ProductGrid />
-          </div>
+              {/* Live Search Input */}
+              <div className="relative w-full sm:w-80">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-[#054782]" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search chemical, IS/ASTM standard..."
+                  className="w-full rounded-xl border border-border/80 bg-background pl-10 pr-4 py-2 text-xs font-semibold text-foreground placeholder:text-muted-foreground focus:border-[#054782] focus:outline-none focus:ring-2 focus:ring-[#054782]/20"
+                />
+              </div>
+            </div>
 
-          {/* 3. PERFORMANCE COMPATIBILITY DECK */}
-          <div className="mt-20 pt-14 border-t border-border/70">
-            <Reveal className="pb-6 max-w-3xl">
-              <p className="eyebrow mb-3 flex items-center gap-3 text-[#669930]">
-                <span className="h-px w-8 bg-[#669930]" aria-hidden />
-                Engineering Applicability
-              </p>
-              <h3 className="mt-2 font-display text-2xl font-bold sm:text-3xl text-foreground">
-                Our concrete admixtures are recommended for:
-              </h3>
-              <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Formulated to optimize slump retention, hydration control, and early strength gain for diverse placement methods.
-              </p>
-            </Reveal>
-
-            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-              {[
-                {
-                  num: "01",
-                  title: "Pumped Concrete",
-                  tag: "High-Rise Pumping",
-                  chip: "150m+ Vertical Head",
-                  desc: "Friction reduction & anti-blockage lubrication for long pipe lines and high-rise casting.",
-                  Icon: Truck,
-                },
-                {
-                  num: "02",
-                  title: "High Fluidity Concrete",
-                  tag: "Self-Compacting (SCC)",
-                  chip: ">650mm Slump Flow",
-                  desc: "Seamless self-leveling flow around dense rebar cages with zero aggregate segregation.",
-                  Icon: Waves,
-                },
-                {
-                  num: "03",
-                  title: "High Strength Concrete",
-                  tag: "M50 – M100+ Grades",
-                  chip: "Up to 22% Water Cut",
-                  desc: "Ultra-low water-cement ratio achieving peak 7-day and 28-day compressive strength.",
-                  Icon: ShieldCheck,
-                },
-                {
-                  num: "04",
-                  title: "Ready-Mixed Concrete",
-                  tag: "Batch Plant Quality",
-                  chip: "3-Hour Open Window",
-                  desc: "Extended open time & reliable slump retention for urban RMC deliveries in tropical heat.",
-                  Icon: Layers,
-                },
-                {
-                  num: "05",
-                  title: "Long Distance Transport",
-                  tag: "Controlled Hydration",
-                  chip: "Zero Cold Joints",
-                  desc: "Retarded setting profiles to withstand extended transit delays without compromising finish.",
-                  Icon: Gauge,
-                },
-              ].map(({ num, title: u, tag, chip, desc, Icon }, i) => (
-                <Reveal key={u} as="li" delay={i * 60}>
-                  <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-card p-5 shadow-xs transition-all duration-500 hover:-translate-y-1.5 hover:border-[#054782]/40 hover:shadow-xl">
-                    <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                    <span className="pointer-events-none absolute right-3 top-2 font-mono text-4xl font-black text-foreground/[0.03] select-none group-hover:text-[#054782]/10 transition-colors">
-                      {num}
-                    </span>
-
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#054782]/10 to-[#669930]/10 text-[#054782] transition-all duration-500 group-hover:scale-110 group-hover:from-[#054782] group-hover:to-[#669930] group-hover:text-white shadow-xs">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <span className="font-mono text-xs font-bold text-[#669930] bg-[#669930]/10 px-2.5 py-0.5 rounded-full border border-[#669930]/20">
-                          {num}
-                        </span>
-                      </div>
-
-                      <span className="mt-4 block font-mono text-[0.68rem] font-bold uppercase tracking-wider text-[#669930]">
-                        {tag}
-                      </span>
-
-                      <h4 className="mt-1 font-display text-base font-bold text-foreground transition-colors group-hover:text-[#054782]">
-                        {u}
-                      </h4>
-
-                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                        {desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-5 pt-3 border-t border-border/60">
-                      <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-[#054782] group-hover:text-[#669930] transition-colors">
-                        <Sparkles className="h-3 w-3 text-[#669930]" /> {chip}
-                      </span>
-                      <div className="mt-2 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#054782] group-hover:to-[#669930]" />
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </ul>
+            {/* Symmetrical 6-Column Category Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 w-full pt-1 border-t border-border/50">
+              {categories.map((cat) => {
+                const isSelected = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className={cn(
+                      "flex items-center justify-center rounded-xl px-3 py-2.5 font-display text-xs font-bold uppercase tracking-wider transition-all cursor-pointer border text-center",
+                      isSelected
+                        ? "border-[#054782] bg-[#054782] text-white shadow-md shadow-[#054782]/25"
+                        : "border-border/80 bg-background text-foreground/80 hover:text-[#054782] hover:border-[#054782]/40 hover:bg-muted/40",
+                    )}
+                  >
+                    <span className="truncate">{cat.label}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4. FULL CATALOGUE: RANGES AT A GLANCE (ARCHITECTURAL 3-COLUMN DECK) */}
-      <section className="bg-concrete py-10 lg:py-14 border-t border-border/60">
+      {/* 2. PRODUCT SPECIFICATION CARDS GRID */}
+      <section className="bg-background py-10 lg:py-16 relative overflow-hidden">
+        {/* Ambient Glows */}
+        <div className="absolute top-1/4 -left-48 h-96 w-96 rounded-full bg-[#054782]/5 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 -right-48 h-96 w-96 rounded-full bg-[#669930]/5 blur-3xl pointer-events-none" />
+
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Full Catalogue"
-              title="Ranges At A Glance"
-              intro="Comprehensive breakdown of our formulation families, performance specifications, and compliance standards."
-            />
-          </Reveal>
+          {/* Cards Grid */}
+          <div className="grid gap-6 md:grid-cols-2">
+            {filteredProducts.map((p, idx) => {
+              const CardIcon = productIcons[p.id] || FlaskConical;
+              const ext = productDetailsExtended[p.id] || productDetailsExtended["concrete-admixtures"];
+              const isProcOpen = expandedProcedure === p.id;
 
-          <div className="mt-6 grid gap-5 lg:grid-cols-3">
-            {catalogues.map(({ num, tag, title: t, desc, Icon, standard, items }, idx) => (
-              <Reveal key={t} delay={idx * 90}>
-                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border/80 bg-card p-6 sm:p-7 shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:border-[#054782]/40 hover:shadow-2xl">
-                  {/* Top Gradient Line */}
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                  {/* Watermark Numeral */}
-                  <span className="pointer-events-none absolute right-4 top-2 font-mono text-7xl font-black text-foreground/[0.03] select-none group-hover:text-[#054782]/10 transition-colors">
-                    {num}
-                  </span>
+              return (
+                <div
+                  key={p.id}
+                  id={p.id}
+                  className="scroll-mt-28 group relative rounded-2xl border border-border/80 bg-card overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                >
+                  {/* Top Accent Gradient Line */}
+                  <div className="h-1 w-full bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782]" />
 
                   <div>
-                    {/* Header */}
-                    <div className="flex items-center justify-between">
-                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#054782]/10 to-[#669930]/10 text-[#054782] transition-all duration-500 group-hover:scale-110 group-hover:from-[#054782] group-hover:to-[#669930] group-hover:text-white shadow-xs">
-                        <Icon className="h-6 w-6" />
-                      </span>
-                      <span className="font-mono text-xs font-bold text-[#669930] bg-[#669930]/10 px-3 py-0.5 rounded-full border border-[#669930]/20 uppercase tracking-wider">
-                        {tag}
-                      </span>
+                    {/* Visual Banner Header */}
+                    <div className="relative aspect-[24/9] w-full overflow-hidden bg-muted">
+                      <img
+                        src={p.image}
+                        alt={p.alt}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0b274c]/95 via-[#0b274c]/40 to-transparent" />
+
+                      {/* Floating Badges */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-0.5 font-mono text-[0.65rem] font-bold uppercase tracking-wider text-white border border-white/20 shadow-sm">
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#669930] animate-pulse" />
+                          0{idx + 1} • {p.category}
+                        </span>
+                      </div>
+
+                      <div className="absolute top-3 right-3 z-10">
+                        <span className="grid h-7 w-7 place-items-center rounded-lg bg-white/20 text-white backdrop-blur-md shadow-xs">
+                          <CardIcon className="h-3.5 w-3.5" />
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-2 left-3 right-3 z-10">
+                        <span className="font-mono text-[0.62rem] font-bold uppercase tracking-wider text-[#669930] block">
+                          Testing Standard: {p.standard.split("•")[0].trim()}
+                        </span>
+                      </div>
                     </div>
 
-                    <h3 className="mt-4 font-display text-xl font-bold text-foreground transition-colors group-hover:text-[#054782]">
-                      {t}
-                    </h3>
+                    {/* Card Content Body */}
+                    <div className="p-4 sm:p-5 space-y-3">
+                      <div>
+                        <h3 className="font-display text-lg sm:text-xl font-bold text-foreground group-hover:text-[#054782] transition-colors leading-tight">
+                          {p.title}
+                        </h3>
+                        <p className="mt-0.5 font-mono text-[0.72rem] font-semibold text-[#054782]">
+                          {p.tagline}
+                        </p>
+                      </div>
 
-                    <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      {desc}
-                    </p>
+                      {/* Problem Solved Container */}
+                      <div className="rounded-xl border border-border/70 bg-muted/25 p-3">
+                        <span className="font-mono text-[0.62rem] font-bold uppercase tracking-wider text-[#054782] flex items-center gap-1.5">
+                          <HelpCircle className="h-3 w-3 text-[#669930]" /> What Problem It Solves
+                        </span>
+                        <p className="mt-1 text-[0.74rem] text-foreground/90 leading-relaxed font-sans">
+                          {ext.problemSolved}
+                        </p>
+                      </div>
 
-                    {/* Formulations List */}
-                    <div className="mt-5 space-y-2">
-                      <p className="font-mono text-[0.68rem] font-bold uppercase tracking-wider text-[#669930]">
-                        Key Product Formulations
-                      </p>
-                      <ul className="space-y-2">
-                        {items.map((it) => (
-                          <li
-                            key={it.name}
-                            className="flex items-center justify-between gap-3 rounded-xl bg-muted/40 p-2.5 text-xs transition-colors hover:bg-muted/70"
-                          >
-                            <span className="font-medium text-foreground">{it.name}</span>
-                            <span className="font-mono text-[0.68rem] font-semibold text-[#054782] bg-white dark:bg-card px-2 py-0.5 rounded-md border border-border/60 shrink-0">
-                              {it.spec}
-                            </span>
-                          </li>
+                      {/* Key Parameter Badges */}
+                      <div className="grid grid-cols-2 gap-2">
+                        <div className="rounded-lg border border-[#669930]/30 bg-[#669930]/5 p-2.5">
+                          <span className="block font-mono text-[0.6rem] font-bold uppercase text-[#669930]">
+                            Dosage / Coverage
+                          </span>
+                          <span className="font-display text-xs font-bold text-foreground mt-0.5 block truncate">
+                            {p.dosage}
+                          </span>
+                        </div>
+
+                        <div className="rounded-lg border border-[#054782]/30 bg-[#054782]/5 p-2.5">
+                          <span className="block font-mono text-[0.6rem] font-bold uppercase text-[#054782]">
+                            Standard Packaging
+                          </span>
+                          <span className="font-mono text-xs font-bold text-foreground mt-0.5 block truncate">
+                            {ext.packaging.split(",")[0].trim()}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Features Bullet List */}
+                      <div className="space-y-1 pt-0.5">
+                        {p.features.slice(0, 3).map((feat) => (
+                          <div key={feat} className="flex items-center gap-1.5 text-[0.74rem] text-muted-foreground">
+                            <Check className="h-3 w-3 text-[#669930] shrink-0" />
+                            <span>{feat}</span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
+
+                      {/* Application Procedure Collapsible Accordion */}
+                      <div className="rounded-xl border border-border/70 bg-card overflow-hidden">
+                        <button
+                          type="button"
+                          onClick={() => setExpandedProcedure(isProcOpen ? null : p.id)}
+                          className="flex w-full items-center justify-between p-2.5 text-left font-display text-[0.72rem] font-bold text-foreground hover:bg-muted/40 transition-colors cursor-pointer"
+                        >
+                          <span className="flex items-center gap-1.5">
+                            <Clock className="h-3 w-3 text-[#054782]" />
+                            <span>4-Step Application Procedure</span>
+                          </span>
+                          <ChevronDown
+                            className={cn(
+                              "h-3.5 w-3.5 text-muted-foreground transition-transform duration-300",
+                              isProcOpen && "rotate-180 text-[#054782]",
+                            )}
+                          />
+                        </button>
+
+                        {isProcOpen && (
+                          <div className="p-3 pt-1 border-t border-border/60 bg-muted/20 space-y-1.5 animate-in fade-in duration-300">
+                            {ext.procedure.map((step, sIdx) => (
+                              <div key={step} className="flex items-start gap-2 text-[0.72rem] text-muted-foreground">
+                                <span className="font-mono font-bold text-[#054782] shrink-0">
+                                  #{sIdx + 1}
+                                </span>
+                                <span className="leading-relaxed font-sans">{step}</span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Card Footer with Standard Tag */}
-                  <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between">
-                    <span className="font-mono text-[0.68rem] font-semibold text-muted-foreground">
-                      Standard: <strong className="text-foreground">{standard}</strong>
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-xs font-bold text-[#054782] group-hover:text-[#669930] transition-colors">
-                      <CheckCircle2 className="h-4 w-4 text-[#669930]" /> Tested
-                    </span>
+                  {/* Actions Footer */}
+                  <div className="p-4 sm:p-5 pt-3 border-t border-border/60 mt-2 flex items-center justify-end">
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-border/80 bg-background px-3.5 py-2 font-display text-[0.72rem] font-bold uppercase tracking-wider text-foreground hover:bg-muted/50 hover:text-[#054782] transition-all"
+                    >
+                      <span>Request TDS / Trial</span>
+                      <ArrowRight className="h-3 w-3" />
+                    </Link>
                   </div>
                 </div>
-              </Reveal>
-            ))}
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. MASTER CHEMICAL CROSS-REFERENCE MATRIX (TABLE VIEW) */}
+      <section className="bg-muted/20 py-14 lg:py-20 border-t border-border/60">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-8 border-b border-border/60">
+              <div>
+                <p className="eyebrow flex items-center gap-2.5 text-[#669930]">
+                  <span className="h-0.5 w-6 bg-[#669930]" aria-hidden /> Formulation Matrix
+                </p>
+                <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
+                  Chemical Formulations Comparison
+                </h2>
+                <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl">
+                  Quick engineering cross-reference across all 8 chemical product families.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Table Container */}
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border/80 bg-card shadow-md">
+            <table className="w-full text-left text-xs sm:text-sm border-collapse">
+              <thead>
+                <tr className="border-b border-border/80 bg-muted/50 font-mono text-[0.68rem] uppercase tracking-wider text-muted-foreground">
+                  <th className="py-3.5 px-4 font-bold text-[#054782] w-[28%]">Product Family</th>
+                  <th className="py-3.5 px-4 font-bold w-[18%]">Key Standard</th>
+                  <th className="py-3.5 px-4 font-bold text-[#669930] w-[28%]">Dosage / Coverage</th>
+                  <th className="py-3.5 px-4 font-bold w-[26%]">Standard Packaging</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/60">
+                {allProducts.map((p, idx) => {
+                  const ext = productDetailsExtended[p.id] || productDetailsExtended["concrete-admixtures"];
+                  return (
+                    <tr
+                      key={p.id}
+                      className="transition-colors hover:bg-muted/30 group"
+                    >
+                      <td className="py-3.5 px-4 font-display font-bold text-foreground group-hover:text-[#054782] transition-colors">
+                        <span className="font-mono text-[0.68rem] text-[#669930] mr-1.5">0{idx + 1}.</span>
+                        {p.title}
+                      </td>
+                      <td className="py-3.5 px-4 font-mono text-[0.72rem] text-muted-foreground">
+                        {p.standard.split("•")[0].trim()}
+                      </td>
+                      <td className="py-3.5 px-4 font-mono text-[0.72rem] text-[#669930] leading-snug">
+                        {p.dosage}
+                      </td>
+                      <td className="py-3.5 px-4 text-[0.72rem] text-muted-foreground leading-snug">
+                        {ext.packaging}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
