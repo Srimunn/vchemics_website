@@ -18,9 +18,9 @@ import { SectionHeading } from "@/components/site/ui";
 import { allProjects, type ProjectItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Projects & Civil Case Studies Portfolio | V Chemics";
+const title = "Projects & Civil Case Studies Portfolio | Vchemics";
 const description =
-  "Explore landmark civil, industrial, and commercial projects across South India built with V Chemics concrete admixtures, grouts, and waterproofing systems.";
+  "Explore landmark civil, industrial, and commercial projects across South India built with Vchemics concrete admixtures, grouts, and waterproofing systems.";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({

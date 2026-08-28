@@ -18,12 +18,12 @@ export function Footer() {
             <Link
               to="/"
               className="inline-block transition-transform duration-300 hover:scale-[1.02]"
-              aria-label="VChemics India Solutions — home"
+              aria-label="Vchemics India Solutions — home"
             >
               <div className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 sm:px-5 sm:py-2.5 shadow-md shadow-black/20 border border-white/40">
                 <img
                   src="/image.png"
-                  alt="VChemics India Solutions Logo"
+                  alt="Vchemics India Solutions Logo"
                   className="h-8 sm:h-9 w-auto max-w-[210px] object-contain"
                   width={210}
                   height={36}
@@ -62,7 +62,7 @@ export function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`VChemics on ${label}`}
+                  aria-label={`Vchemics on ${label}`}
                   className="grid h-9 w-9 place-items-center rounded-xl border border-white/15 bg-white/5 text-[#b0c7df] transition-all duration-300 hover:scale-110 hover:border-brand-green hover:bg-brand-green hover:text-white shadow-xs"
                 >
                   <Icon className="h-4 w-4" />
@@ -183,7 +183,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#b0c7df]">
-          <p>© {new Date().getFullYear()} VChemics India Solutions. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Vchemics India Solutions. All Rights Reserved.</p>
 
           <div className="flex items-center gap-6">
             <Link to="/terms" className="transition-colors hover:text-brand-green">

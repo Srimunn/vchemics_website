@@ -19,9 +19,9 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, type ProductItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Construction Chemicals Catalog & Products | V Chemics";
+const title = "Construction Chemicals Catalog & Products | Vchemics";
 const description =
-  "Explore high-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & repair mortars from V Chemics in Chennai.";
+  "Explore high-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & repair mortars from Vchemics in Chennai.";
 
 export const Route = createFileRoute("/products")({
   head: () => ({
@@ -156,7 +156,7 @@ function ProductsPage() {
               IN-HOUSE ENGINEERED SYSTEMS
             </p>
             <h2 className="mt-1.5 font-display text-2xl sm:text-3xl font-bold text-foreground">
-              VChemics Core Chemical Families
+              Vchemics Core Chemical Families
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-muted-foreground">
               Formulated in Chennai to stringent IS and ASTM specifications for heavy-duty civil

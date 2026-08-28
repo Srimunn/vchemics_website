@@ -89,11 +89,11 @@ export const Route = createFileRoute("/products_/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.product) return {};
     const { product } = loaderData;
-    const title = `${product.title} | Technical Specs & TDS | V Chemics`;
+    const title = `${product.title} | Technical Specs & TDS | Vchemics`;
     const description =
       productMetaDescriptions[product.id] ||
       productMetaDescriptions[product.slug] ||
-      `${product.title} manufactured by V Chemics Chennai. ${product.tagline}. Compliant with ${product.standard}.`;
+      `${product.title} manufactured by Vchemics Chennai. ${product.tagline}. Compliant with ${product.standard}.`;
     const url = `https://vchemics.com/products/${product.id}`;
     const ogImage =
       typeof product.image === "string" && product.image.startsWith("http")
@@ -109,7 +109,7 @@ export const Route = createFileRoute("/products_/$slug")({
       image: ogImage,
       brand: {
         "@type": "Brand",
-        name: "VChemics India Solutions",
+        name: "Vchemics India Solutions",
       },
       offers: {
         "@type": "Offer",
@@ -120,7 +120,7 @@ export const Route = createFileRoute("/products_/$slug")({
         url: url,
         seller: {
           "@type": "Organization",
-          name: "VChemics India Solutions",
+          name: "Vchemics India Solutions",
         },
       },
     };
@@ -188,7 +188,7 @@ export const Route = createFileRoute("/products_/$slug")({
         { name: "description", content: description },
         {
           name: "keywords",
-          content: `${product.title}, ${product.category}, ${product.standard}, construction chemicals Chennai, VChemics`,
+          content: `${product.title}, ${product.category}, ${product.standard}, construction chemicals Chennai, Vchemics`,
         },
         { name: "robots", content: "index, follow" },
         { property: "og:title", content: title },
@@ -757,7 +757,7 @@ function ProductDetailPage() {
                 </Link>
 
                 <a
-                  href="https://wa.me/919942354602?text=Hi%20VChemics,%20please%20send%20the%20TDS%20and%20pricing%20for%20"
+                  href="https://wa.me/919942354602?text=Hi%20Vchemics,%20please%20send%20the%20TDS%20and%20pricing%20for%20"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-green/40 bg-brand-green/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-green hover:bg-brand-green/20 transition-all text-center"

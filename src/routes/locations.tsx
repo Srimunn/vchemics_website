@@ -19,9 +19,9 @@ import { SectionHeading } from "@/components/site/ui";
 import { allLocations, type LocationItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Locations in Chennai, Coimbatore & Erode | V Chemics";
+const title = "Locations in Chennai, Coimbatore & Erode | Vchemics";
 const description =
-  "Locate V Chemics regional supply hubs across Tamil Nadu: Chennai Plant & HQ, Coimbatore Hub, and Erode Depot. Same-day and 24-hour direct site delivery.";
+  "Locate Vchemics regional supply hubs across Tamil Nadu: Chennai Plant & HQ, Coimbatore Hub, and Erode Depot. Same-day and 24-hour direct site delivery.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({

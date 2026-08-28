@@ -37,7 +37,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, allSolutions, allLocations, stats } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Construction Chemicals & Waterproofing in Chennai | VChemics";
+const title = "Construction Chemicals & Waterproofing in Chennai | Vchemics";
 const description =
   "Leading manufacturer of concrete admixtures, crystalline waterproofing, PU grouts, non-shrink grouts & micro concrete in Chennai. Same-day site dispatch in TN.";
 
@@ -54,20 +54,20 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 
 const faqs = [
   {
-    q: "What construction chemicals does VChemics manufacture in Chennai?",
-    a: "VChemics manufactures PCE superplasticiser concrete admixtures, crystalline waterproofing chemicals, hydro-active PU injection resins, ASTM C1107 non-shrink grouts, polymer repair mortars, micro concrete, 3-part epoxy grouts, and protective PU/epoxy coatings.",
+    q: "What construction chemicals does Vchemics manufacture in Chennai?",
+    a: "Vchemics manufactures PCE superplasticiser concrete admixtures, crystalline waterproofing chemicals, hydro-active PU injection resins, ASTM C1107 non-shrink grouts, polymer repair mortars, micro concrete, 3-part epoxy grouts, and protective PU/epoxy coatings.",
   },
   {
-    q: "How quickly can VChemics deliver materials to sites in Tamil Nadu?",
+    q: "How quickly can Vchemics deliver materials to sites in Tamil Nadu?",
     a: "We provide same-day dispatch (4-8 hours) within Chennai Metro, and guaranteed 24-hour direct delivery across Coimbatore, Erode, and neighbouring districts from our regional warehouses.",
   },
   {
-    q: "Does VChemics provide on-site concrete mix trial batches?",
+    q: "Does Vchemics provide on-site concrete mix trial batches?",
     a: "Yes. Our chemical formulation engineers visit ready-mix batch plants and job sites to perform slump-flow audits, cube compressive tests, and optimize water-cement ratios tailored to your quarry aggregates.",
   },
   {
-    q: "Are VChemics products compliant with IS and ASTM standards?",
-    a: "All VChemics products are manufactured under rigorous QA and tested to comply with IS 9103, IS 2645, ASTM C494, ASTM C1107, and EN 1504 specifications with official Test Certificates & TDS.",
+    q: "Are Vchemics products compliant with IS and ASTM standards?",
+    a: "All Vchemics products are manufactured under rigorous QA and tested to comply with IS 9103, IS 2645, ASTM C494, ASTM C1107, and EN 1504 specifications with official Test Certificates & TDS.",
   },
   {
     q: "What industries and professionals do you serve?",
@@ -324,7 +324,7 @@ function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Market Sectors"
-              title="Who VChemics Serves"
+              title="Who Vchemics Serves"
               intro="Custom chemical solutions and certified technical support tailored for every tier of the construction ecosystem."
             />
           </Reveal>
@@ -752,7 +752,7 @@ function Home() {
 
                           <div className="rounded-xl border border-brand-green/40 bg-brand-green/20 p-3 backdrop-blur-xs">
                             <span className="font-mono text-[0.62rem] font-bold uppercase tracking-wider text-brand-green block">
-                              ✓ VChemics Solution
+                              ✓ Vchemics Solution
                             </span>
                             <p className="mt-1 text-[0.7rem] text-white/90 leading-snug line-clamp-2 font-sans">
                               {sol.solutionDesc}

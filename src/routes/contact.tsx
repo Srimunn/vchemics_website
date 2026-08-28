@@ -19,9 +19,9 @@ import { PageHero } from "@/components/site/PageHero";
 import { allLocations } from "@/components/site/data";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 
-const title = "Contact Us & Get Technical Quotes | V Chemics Chennai";
+const title = "Contact Us & Get Technical Quotes | Vchemics Chennai";
 const description =
-  "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from V Chemics in Chennai.";
+  "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from Vchemics in Chennai.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "keywords",
         content:
-          "contact VChemics, construction chemicals quote Chennai, buy concrete admixtures Chennai, PU injection grouting supplier, micro concrete Chennai price",
+          "contact Vchemics, construction chemicals quote Chennai, buy concrete admixtures Chennai, PU injection grouting supplier, micro concrete Chennai price",
       },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
@@ -81,7 +81,7 @@ function ContactPage() {
               <Reveal delay={80}>
                 <div className="space-y-3">
                   <a
-                    href="https://wa.me/919942354602?text=Hello%20V%20Chemics%20Team%2C%20I%20need%20an%20instant%20price%20quote%20for%20construction%20chemicals."
+                    href="https://wa.me/919942354602?text=Hello%20Vchemics%20Team%2C%20I%20need%20an%20instant%20price%20quote%20for%20construction%20chemicals."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center justify-between rounded-2xl bg-[#25D366] p-4 text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#20bd5a]"

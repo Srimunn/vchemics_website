@@ -94,7 +94,7 @@ export const allProducts: ProductItem[] = [
     ],
     faqs: [
       {
-        q: "Can V-Chemics PCE superplasticisers be blended with Fly Ash, GGBS, and Micro-Silica?",
+        q: "Can Vchemics PCE superplasticisers be blended with Fly Ash, GGBS, and Micro-Silica?",
         a: "Yes. Our polycarboxylate ether (PCE) formulations are specifically calibrated with high steric hindrance polymers to remain stable in high-volume supplementary cementitious material (SCM) mixes containing up to 60% GGBS or 35% Class F fly ash, preventing delayed setting or slump loss.",
       },
       {
@@ -229,7 +229,7 @@ export const allProducts: ProductItem[] = [
     ],
     faqs: [
       {
-        q: "What 24-hour and 28-day compressive strengths are achieved by V-Chemics non-shrink grout?",
+        q: "What 24-hour and 28-day compressive strengths are achieved by Vchemics non-shrink grout?",
         a: "When mixed at flowable consistency compliant with ASTM C1107 Grade B/C, our cementitious non-shrink grout achieves >25 MPa in 24 hours and exceeds >75 MPa at 28 days, ensuring rapid machinery turnaround and heavy foundation load transfer.",
       },
       {
@@ -275,7 +275,7 @@ export const allProducts: ProductItem[] = [
     faqs: [
       {
         q: "How does 3-part epoxy grout perform against severe machinery dynamic fatigue and chemical spills?",
-        a: "V-Chemics 3-part epoxy grout provides compressive strength >95 MPa, flexural strength >28 MPa, and exceptional vibration dampening capacity. It is 100% impermeable to lubricating oils, hydraulic fluids, sulfuric acid (up to 30%), and battery chemicals beneath stamping presses and turbines.",
+        a: "Vchemics 3-part epoxy grout provides compressive strength >95 MPa, flexural strength >28 MPa, and exceptional vibration dampening capacity. It is 100% impermeable to lubricating oils, hydraulic fluids, sulfuric acid (up to 30%), and battery chemicals beneath stamping presses and turbines.",
       },
       {
         q: "What is the maximum substrate moisture content permitted for epoxy grout placement?",
@@ -320,7 +320,7 @@ export const allProducts: ProductItem[] = [
     faqs: [
       {
         q: "How does the anti-carbonation coating protect concrete facades against industrial smog and coastal air?",
-        a: "V-Chemics elastomeric anti-carbonation coatings create a selective breathable membrane with equivalent concrete cover (R) exceeding 200 meters against carbon dioxide diffusion while allowing internal moisture vapor to escape (Sd < 0.5m), preventing facade spalling and rebar depassivation.",
+        a: "Vchemics elastomeric anti-carbonation coatings create a selective breathable membrane with equivalent concrete cover (R) exceeding 200 meters against carbon dioxide diffusion while allowing internal moisture vapor to escape (Sd < 0.5m), preventing facade spalling and rebar depassivation.",
       },
       {
         q: "What is the required inter-coat drying window and surface profile (CSP) before application?",
@@ -410,7 +410,7 @@ export const allProducts: ProductItem[] = [
     faqs: [
       {
         q: "Can micro concrete flow freely through dense rebar cages without mechanical vibration?",
-        a: "Yes. Formulated with spherical micro-aggregates (<5mm) and high-range fluidifying polymers, V-Chemics micro concrete achieves self-compacting rheology (slump flow >650mm), filling narrow jackets and complex structural formwork void-free with zero needle vibration.",
+        a: "Yes. Formulated with spherical micro-aggregates (<5mm) and high-range fluidifying polymers, Vchemics micro concrete achieves self-compacting rheology (slump flow >650mm), filling narrow jackets and complex structural formwork void-free with zero needle vibration.",
       },
       {
         q: "What is the recommended minimum and maximum thickness for structural column jacketing?",
@@ -454,8 +454,8 @@ export const allSolutions: SolutionItem[] = [
     solutionDesc:
       "Our dual-barrier system combines integral crystalline admixture dosing during concrete pouring with secondary flexible elastomeric slurry coatings and swellable waterstops at construction cold joints.",
     keyProducts: [
-      "V-Chemics Integral Crystalline Admixture",
-      "V-Chemics Crystalline Slurry Coating",
+      "Vchemics Integral Crystalline Admixture",
+      "Vchemics Crystalline Slurry Coating",
       "Hydrophilic Swellable Waterstop Bar",
       "PU Hydro-Active Leak Injection Resin",
     ],
@@ -539,7 +539,7 @@ export const allSolutions: SolutionItem[] = [
     solutionDesc:
       "We provide high-elongation (>400%) seamless polyurethane and reinforced polymer matrix systems that bridge dynamic thermal cracks while reflecting UV solar radiation to lower ambient indoor temperatures.",
     keyProducts: [
-      "V-Chemics Liquid PU Elastomeric Membrane",
+      "Vchemics Liquid PU Elastomeric Membrane",
       "Fiberglass Mesh Reinforcement Layer",
       "UV-Resistant Aliphatic Topcoat",
       "Polymer Screed Slope Mortar",
@@ -624,7 +624,7 @@ export const allSolutions: SolutionItem[] = [
     solutionDesc:
       "A complete restorative chemical protocol: chipping unsound concrete, applying zinc-rich rust passivators to exposed steel, and reforming sections with shrinkage-compensated polymer modified mortars.",
     keyProducts: [
-      "V-Chemics Zinc-Rich Rebar Primer",
+      "Vchemics Zinc-Rich Rebar Primer",
       "Polymer Bonding Interfacial Agent",
       "Structural Repair Mortar Class R4",
       "Anti-Carbonation Protective Topcoat",
@@ -709,7 +709,7 @@ export const allSolutions: SolutionItem[] = [
     solutionDesc:
       "Engineered RCC jacketing using high-fluidity, shrinkage-compensated micro concrete poured into tight shuttering, effectively restoring and enhancing structural cross-sectional load capacities.",
     keyProducts: [
-      "V-Chemics High-Flow Micro Concrete",
+      "Vchemics High-Flow Micro Concrete",
       "Epoxy Anchor & Dowel Mortar",
       "Substrate Interfacial Bonding Resin",
       "High-Pressure Low-Viscosity Epoxy Injection",
@@ -794,7 +794,7 @@ export const allSolutions: SolutionItem[] = [
     solutionDesc:
       "We provide dry-shake non-metallic/metallic surface hardeners troweled directly into fresh concrete, alongside solvent-free epoxy screeds and anti-microbial polyurethane floor toppings.",
     keyProducts: [
-      "V-Chemics Metallic Floor Hardener",
+      "Vchemics Metallic Floor Hardener",
       "Solvent-Free Epoxy Floor Screed",
       "High-Build Chemical Resistant PU Topping",
       "Silicate Dust-Proofer & Concrete Densifier",
@@ -979,7 +979,7 @@ export const allProjects: ProjectItem[] = [
     scope:
       "Deep station basement waterproofing, diaphragm wall PU leak sealing, and high-fluidity M60 pumped concrete admixtures.",
     productsUsed: [
-      "V-Chemics Crystalline Admixture",
+      "Vchemics Crystalline Admixture",
       "PU Injection Resin",
       "PCE Superplasticiser 600",
     ],
@@ -993,7 +993,7 @@ export const allProjects: ProjectItem[] = [
     location: "Sriperumbudur Corridor",
     scope:
       "Heavy 2,500-ton stamping press baseplate precision anchoring with zero-shrink dynamic vibration-proof epoxy grout.",
-    productsUsed: ["V-Chemics High-Strength Epoxy Grout", "Non-Shrink Grout Class C"],
+    productsUsed: ["Vchemics High-Strength Epoxy Grout", "Non-Shrink Grout Class C"],
     metrics: ">95 MPa Compressive Strength",
     year: "2023",
   },
@@ -1004,7 +1004,7 @@ export const allProjects: ProjectItem[] = [
     location: "Coimbatore, Tamil Nadu",
     scope:
       "Multi-layer elastomeric PU membrane waterproofing over 18,000 sq.m of exposed terrace and landscaped podium deck.",
-    productsUsed: ["V-Chemics Liquid PU Membrane", "Aliphatic UV Topcoat", "Polymer Screed"],
+    productsUsed: ["Vchemics Liquid PU Membrane", "Aliphatic UV Topcoat", "Polymer Screed"],
     metrics: "72h Zero-Leak Ponding Signoff",
     year: "2024",
   },
@@ -1026,7 +1026,7 @@ export const allProjects: ProjectItem[] = [
     location: "Perundurai SIPCOT, Erode",
     scope:
       "Heavy chemical-resistant internal liner coating and crystalline waterproofing for high-salinity industrial effluent sumps.",
-    productsUsed: ["V-Chemics Chemical Resistant Epoxy", "Crystalline Slurry", "Epoxy Mortar"],
+    productsUsed: ["Vchemics Chemical Resistant Epoxy", "Crystalline Slurry", "Epoxy Mortar"],
     metrics: "pH 2–12 Chemical Resistance",
     year: "2024",
   },
@@ -1294,15 +1294,15 @@ export interface FounderItem {
 export const founder: FounderItem = {
   name: "Velmurugan Sivanantham",
   titles: [
-    "Founder & CEO, VChemics India Solutions",
+    "Founder & CEO, Vchemics India Solutions",
     "Managing Director, Robotics Bricks and Blocks",
   ],
   bio: [
-    "Velmurugan Sivanantham is the Founder of VChemics India Solutions and Managing Director of Robotics Bricks and Blocks Private Limited. Under his leadership, both companies have grown into recognized names in the national construction materials market, delivering industrial, civil infrastructure, and residential projects across cities in Tamil Nadu and beyond.",
-    "At VChemics, he has built a specialized construction chemicals business focused on high-performance, sustainable products that improve the strength, durability, and longevity of structures. At Robotics Bricks and Blocks, he directs innovative precast solutions including paver blocks and precast materials.",
+    "Velmurugan Sivanantham is the Founder of Vchemics India Solutions and Managing Director of Robotics Bricks and Blocks Private Limited. Under his leadership, both companies have grown into recognized names in the national construction materials market, delivering industrial, civil infrastructure, and residential projects across cities in Tamil Nadu and beyond.",
+    "At Vchemics, he has built a specialized construction chemicals business focused on high-performance, sustainable products that improve the strength, durability, and longevity of structures. At Robotics Bricks and Blocks, he directs innovative precast solutions including paver blocks and precast materials.",
     "A strong believer in collaboration, he works closely with clients, partners, and industry experts to build solutions that go beyond stated requirements — backed by a team-first approach and a consistent focus on client satisfaction.",
   ],
   credentials: ["Active Member, Business Networking International (BNI)"],
   photo: founderImg,
-  alt: "Velmurugan Sivanantham, Founder of VChemics India Solutions",
+  alt: "Velmurugan Sivanantham, Founder of Vchemics India Solutions",
 };

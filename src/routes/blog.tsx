@@ -7,7 +7,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allBlogPosts, blogTopics } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Technical Knowledge Centre & Blog | V Chemics";
+const title = "Technical Knowledge Centre & Blog | Vchemics";
 const description =
   "Technical engineering guides on concrete admixtures, PU injection grouting, crystalline waterproofing, micro concrete, and structural repair methods.";
 
@@ -18,7 +18,7 @@ const blogSchema = {
   description: description,
   publisher: {
     "@type": "Organization",
-    name: "VChemics India Solutions",
+    name: "Vchemics India Solutions",
     url: "https://vchemics.com",
   },
   blogPost: allBlogPosts.map((post) => ({

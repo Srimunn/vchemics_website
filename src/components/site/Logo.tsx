@@ -14,11 +14,11 @@ export function Logo({
     <Link
       to="/"
       className="group inline-flex items-center transition-opacity hover:opacity-90"
-      aria-label="VChemics India Solutions — home"
+      aria-label="Vchemics India Solutions — home"
     >
       <img
         src="/image.png"
-        alt="VChemics India Solutions Logo"
+        alt="Vchemics India Solutions Logo"
         className={cn(
           "w-auto max-w-[240px] sm:max-w-[320px] object-contain transition-all duration-300 group-hover:scale-105",
           compact ? "h-10 sm:h-12 md:h-13" : "h-14 sm:h-18 md:h-20",

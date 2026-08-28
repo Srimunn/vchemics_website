@@ -104,8 +104,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "VChemics India Solutions",
-  alternateName: "VChemics",
+  name: "Vchemics India Solutions",
+  alternateName: "Vchemics",
   url: "https://vchemics.com",
   logo: "https://vchemics.com/image.png",
   image: "https://vchemics.com/image.png",
@@ -130,8 +130,8 @@ const organizationSchema = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Organization"],
-  name: "VChemics India Solutions",
-  alternateName: "VChemics",
+  name: "Vchemics India Solutions",
+  alternateName: "Vchemics",
   url: "https://vchemics.com",
   logo: "https://vchemics.com/image.png",
   image: "https://vchemics.com/image.png",
@@ -187,7 +187,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        title: "Construction Chemicals & Waterproofing Solutions | V Chemics",
+        title: "Construction Chemicals & Waterproofing Solutions | Vchemics",
       },
       {
         name: "description",
@@ -199,10 +199,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "construction chemicals Chennai, waterproofing chemicals Chennai, concrete admixture supplier Chennai, PU injection grouting Chennai, non shrink grout Chennai, micro concrete Chennai",
       },
-      { name: "author", content: "VChemics India Solutions" },
+      { name: "author", content: "Vchemics India Solutions" },
       { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "VChemics India Solutions" },
+      { property: "og:site_name", content: "Vchemics India Solutions" },
       { property: "og:image", content: "https://vchemics.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

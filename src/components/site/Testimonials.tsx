@@ -22,7 +22,7 @@ const testimonials = [
     project: "Basement Raft Waterproofing",
     impact: "Zero Dampness Across 2 Monsoons",
     quote:
-      "We waterproofed three basement rafts with VChemics crystalline systems. Two intense monsoons later, not a single damp patch or moisture ingress appeared on the retaining walls.",
+      "We waterproofed three basement rafts with Vchemics crystalline systems. Two intense monsoons later, not a single damp patch or moisture ingress appeared on the retaining walls.",
     rating: 5,
     sector: "Commercial Real Estate",
   },
@@ -55,7 +55,7 @@ const testimonials = [
     project: "Heavy-Duty Industrial Floor Screed",
     impact: "High Abrasion & Dust-Free Finish",
     quote:
-      "VChemics floor hardeners and polymer screeds withstand continuous forklift traffic and heavy dynamic racking loads without surface dusting or micro-cracking.",
+      "Vchemics floor hardeners and polymer screeds withstand continuous forklift traffic and heavy dynamic racking loads without surface dusting or micro-cracking.",
     rating: 5,
     sector: "Industrial Flooring",
   },
@@ -90,7 +90,7 @@ export function Testimonials() {
           <SectionHeading
             eyebrow="Testimonials"
             title="Our Clients Say!"
-            intro="Real feedback from project managers, RMC operators, and structural consultants using VChemics formulations."
+            intro="Real feedback from project managers, RMC operators, and structural consultants using Vchemics formulations."
           />
         </Reveal>
 

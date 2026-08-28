@@ -46,7 +46,7 @@ export const Route = createFileRoute("/blog_/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.post) return {};
     const { post } = loaderData;
-    const title = `${post.title} | V Chemics`;
+    const title = `${post.title} | Vchemics`;
     const description =
       blogMetaDescriptions[post.id] || blogMetaDescriptions[post.slug] || post.excerpt;
     const url = `https://vchemics.com/blog/${post.slug}`;
@@ -68,7 +68,7 @@ export const Route = createFileRoute("/blog_/$slug")({
       },
       publisher: {
         "@type": "Organization",
-        name: "VChemics India Solutions",
+        name: "Vchemics India Solutions",
         url: "https://vchemics.com",
         logo: {
           "@type": "ImageObject",
@@ -588,7 +588,7 @@ function BlogPostDetailPage() {
           <Reveal delay={180}>
             <div className="mt-10 rounded-3xl border border-border/80 bg-concrete/50 p-6 sm:p-8 shadow-xs">
               <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand-green block mb-2">
-                Recommended VChemics Solutions
+                Recommended Vchemics Solutions
               </span>
               <h3 className="font-display text-xl font-bold text-foreground mb-4">
                 Formulations Mentioned In This Guide

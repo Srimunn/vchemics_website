@@ -55,11 +55,11 @@ export const Route = createFileRoute("/solutions_/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.solution) return {};
     const { solution } = loaderData;
-    const title = `${solution.title} Solutions & Methodology | V Chemics`;
+    const title = `${solution.title} Solutions & Methodology | Vchemics`;
     const description =
       solutionMetaDescriptions[solution.id] ||
       solutionMetaDescriptions[solution.slug] ||
-      `${solution.subtitle} Engineered structural application protocols by V Chemics Chennai.`;
+      `${solution.subtitle} Engineered structural application protocols by Vchemics Chennai.`;
     const url = `https://vchemics.com/solutions/${solution.id}`;
     const ogImage =
       typeof solution.image === "string" && solution.image.startsWith("http")
@@ -73,7 +73,7 @@ export const Route = createFileRoute("/solutions_/$slug")({
       description: description,
       provider: {
         "@type": "Organization",
-        name: "VChemics India Solutions",
+        name: "Vchemics India Solutions",
         url: "https://vchemics.com",
       },
       areaServed: {
@@ -113,7 +113,7 @@ export const Route = createFileRoute("/solutions_/$slug")({
         { name: "description", content: description },
         {
           name: "keywords",
-          content: `${solution.title}, structural solutions Chennai, waterproofing chemicals, concrete repair Tamil Nadu, VChemics`,
+          content: `${solution.title}, structural solutions Chennai, waterproofing chemicals, concrete repair Tamil Nadu, Vchemics`,
         },
         { name: "robots", content: "index, follow" },
         { property: "og:title", content: title },
@@ -290,7 +290,7 @@ function SolutionDetailPage() {
                   <span className="grid h-6 w-6 place-items-center rounded-lg bg-brand-blue/20 text-xs text-brand-blue">
                     ✓
                   </span>
-                  <span>VChemics Chemical Protocol</span>
+                  <span>Vchemics Chemical Protocol</span>
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
                   Engineered Multi-Barrier Protection

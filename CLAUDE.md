@@ -1,4 +1,4 @@
-# VChemics India Solutions — Project Context for AI Assistants
+# Vchemics India Solutions — Project Context for AI Assistants
 
 > **Purpose**: Read this file first before making any change to this codebase.
 > It explains the stack, architecture, design system, data model, and conventions so you work with the project — not against it.
@@ -7,7 +7,7 @@
 
 ## 1. What Is This Project?
 
-**VChemics India Solutions** is a marketing + product-catalogue website for a Chennai-based construction chemicals manufacturer. They supply concrete admixtures, waterproofing chemicals, PU injection grouts, non-shrink grouts, micro concrete, epoxy grouts, protective coatings, and concrete repair products across Tamil Nadu.
+**Vchemics India Solutions** is a marketing + product-catalogue website for a Chennai-based construction chemicals manufacturer. They supply concrete admixtures, waterproofing chemicals, PU injection grouts, non-shrink grouts, micro concrete, epoxy grouts, protective coatings, and concrete repair products across Tamil Nadu.
 
 The site is connected to **Lovable** (lovable.dev) — a visual web editor that syncs commits back and forth. **Do not force-push, rebase, amend, or squash already-pushed commits**. Always keep the branch in a deployable state.
 
@@ -245,7 +245,7 @@ The dev server runs on `localhost:3000` by default (configured by Lovable's Vite
 
 ## 12. Business Information (quick reference)
 
-- **Company**: VChemics India Solutions
+- **Company**: Vchemics India Solutions
 - **HQ**: Omsakthi Street, Kumaran Nagar Extn-I, Padi, Chennai - 600050
 - **Phone**: +91 99423-54602
 - **Email**: vchemics.info@gmail.com

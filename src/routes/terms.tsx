@@ -19,9 +19,9 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const title = "Terms & Conditions of Service | V Chemics India";
+const title = "Terms & Conditions of Service | Vchemics India";
 const description =
-  "Terms and conditions of service, product warranties, and governing policies for V Chemics India Solutions, leading construction chemicals manufacturer.";
+  "Terms and conditions of service, product warranties, and governing policies for Vchemics India Solutions, leading construction chemicals manufacturer.";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -128,7 +128,7 @@ const sections = [
     title: "DISCLAIMER OF WARRANTIES; LIMITATION OF LIABILITY",
     icon: Scale,
     content:
-      "We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free. We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable. You agree that from time to time we may remove the service for indefinite periods of time or cancel the service at any time, without notice to you. You expressly agree that your use of, or inability to use, the service is at your sole risk. The service and all products and services delivered to you through the service are (except as expressly stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement. In no case shall VChemics India Solutions, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the service or any content (or product) posted, transmitted, or otherwise made available via the service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.",
+      "We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free. We do not warrant that the results that may be obtained from the use of the service will be accurate or reliable. You agree that from time to time we may remove the service for indefinite periods of time or cancel the service at any time, without notice to you. You expressly agree that your use of, or inability to use, the service is at your sole risk. The service and all products and services delivered to you through the service are (except as expressly stated by us) provided 'as is' and 'as available' for your use, without any representation, warranties or conditions of any kind, either express or implied, including all implied warranties or conditions of merchantability, merchantable quality, fitness for a particular purpose, durability, title, and non-infringement. In no case shall Vchemics India Solutions, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages, whether based in contract, tort (including negligence), strict liability or otherwise, arising from your use of any of the service or any products procured using the service, or for any other claim related in any way to your use of the service or any product, including, but not limited to, any errors or omissions in any content, or any loss or damage of any kind incurred as a result of the use of the service or any content (or product) posted, transmitted, or otherwise made available via the service, even if advised of their possibility. Because some states or jurisdictions do not allow the exclusion or the limitation of liability for consequential or incidental damages, in such states or jurisdictions, our liability shall be limited to the maximum extent permitted by law.",
   },
   {
     id: "section-12",
@@ -136,7 +136,7 @@ const sections = [
     title: "INDEMNIFICATION",
     icon: ShieldCheck,
     content:
-      "You agree to indemnify, defend and hold harmless VChemics India Solutions and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.",
+      "You agree to indemnify, defend and hold harmless Vchemics India Solutions and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of your breach of these Terms of Service or the documents they incorporate by reference, or your violation of any law or the rights of a third-party.",
   },
   {
     id: "section-13",
@@ -214,7 +214,7 @@ function TermsPage() {
             Terms &amp; Conditions
           </p>
           <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] text-on-dark sm:text-5xl lg:text-6xl">
-            VChemics India Solutions
+            Vchemics India Solutions
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-on-dark-muted sm:text-xl font-medium">
             Emerging leader in specialized chemicals for construction companies
@@ -230,7 +230,7 @@ function TermsPage() {
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/60 pb-6">
                 <div>
                   <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                    <Building2 className="h-3.5 w-3.5" /> VChemics India Solutions
+                    <Building2 className="h-3.5 w-3.5" /> Vchemics India Solutions
                   </span>
                   <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
                     Website Operating Agreement
@@ -250,10 +250,10 @@ function TermsPage() {
                 <p>
                   This website is operated by{" "}
                   <strong className="font-semibold text-foreground">
-                    VChemics India Solutions
+                    Vchemics India Solutions
                   </strong>
                   . Throughout the site, the terms &ldquo;we&rdquo;, &ldquo;us&rdquo; and
-                  &ldquo;our&rdquo; refer to VChemics India Solutions. VChemics India Solutions
+                  &ldquo;our&rdquo; refer to Vchemics India Solutions. Vchemics India Solutions
                   offers this website, including all information, tools, and services available from
                   this site to you, the user, conditioned upon your acceptance of all terms,
                   conditions, policies, and notices stated here.

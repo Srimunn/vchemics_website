@@ -28,9 +28,9 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allSolutions, type SolutionItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Waterproofing & Concrete Repair Solutions | V Chemics";
+const title = "Waterproofing & Concrete Repair Solutions | Vchemics";
 const description =
-  "Engineered waterproofing, concrete repair, basement sealing, structural column rehabilitation & industrial flooring solutions from V Chemics in Chennai.";
+  "Engineered waterproofing, concrete repair, basement sealing, structural column rehabilitation & industrial flooring solutions from Vchemics in Chennai.";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -88,7 +88,7 @@ const crossSectionLayers: Record<
       thickness: "20mm x 10mm Bar",
       mechanism:
         "Expands up to 300% on contact with water to permanently seal construction cold joints.",
-      material: "V-Chemics Swellable Sodium Bentonite/Butyl Bar",
+      material: "Vchemics Swellable Sodium Bentonite/Butyl Bar",
     },
     {
       layerNumber: "Layer 03",
@@ -96,7 +96,7 @@ const crossSectionLayers: Record<
       thickness: "1.2 – 1.5 kg/m²",
       mechanism:
         "Active chemical catalysts penetrate up to 300mm deep, growing non-soluble dendritic crystals.",
-      material: "V-Chemics Deep-Pore Crystalline Matrix",
+      material: "Vchemics Deep-Pore Crystalline Matrix",
     },
     {
       layerNumber: "Layer 04",
@@ -154,7 +154,7 @@ const crossSectionLayers: Record<
       thickness: "2 Uniform Coats",
       mechanism:
         "Provides active galvanic zinc protection to prevent future electrolytic rust and spalling.",
-      material: "V-Chemics Zinc-Rich Epoxy/Polymer Primer",
+      material: "Vchemics Zinc-Rich Epoxy/Polymer Primer",
     },
     {
       layerNumber: "Layer 03",
@@ -196,7 +196,7 @@ const crossSectionLayers: Record<
       thickness: "50mm – 150mm Jacket",
       mechanism:
         "High-fluidity micro concrete flows into tight formwork, achieving >65 MPa without vibration.",
-      material: "V-Chemics Non-Shrink Micro Concrete",
+      material: "Vchemics Non-Shrink Micro Concrete",
     },
     {
       layerNumber: "Layer 04",
@@ -274,7 +274,7 @@ function SolutionsPage() {
       title: "Structural Substrate",
       thickness: "Standard",
       mechanism: "Engineered preparation and adhesion profile",
-      material: "V-Chemics Primer & Matrix",
+      material: "Vchemics Primer & Matrix",
     };
 
   return (

@@ -16,22 +16,22 @@ import { SectionHeading } from "@/components/site/ui";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { founder } from "@/components/site/data";
 
-const title = "About Us | VChemics Construction Chemical Specialists";
+const title = "About Us | Vchemics Construction Chemical Specialists";
 const description =
-  "VChemics manufactures concrete admixtures, non-shrink grouts, and waterproofing systems in Chennai. Technical support, on-site trials, and 1-day response.";
+  "Vchemics manufactures concrete admixtures, non-shrink grouts, and waterproofing systems in Chennai. Technical support, on-site trials, and 1-day response.";
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: founder?.name ?? "Velmurugan Sivanantham",
-  jobTitle: founder?.titles?.[0] ?? "Founder, VChemics India Solutions",
+  jobTitle: founder?.titles?.[0] ?? "Founder, Vchemics India Solutions",
   worksFor: {
     "@type": "Organization",
-    name: "VChemics India Solutions",
+    name: "Vchemics India Solutions",
     url: "https://vchemics.com",
   },
   description:
-    "Founder of VChemics India Solutions specializing in high-performance construction chemicals, concrete admixtures, and structural waterproofing in Tamil Nadu.",
+    "Founder of Vchemics India Solutions specializing in high-performance construction chemicals, concrete admixtures, and structural waterproofing in Tamil Nadu.",
   knowsAbout: [
     "Concrete Technology",
     "Construction Chemicals",
@@ -159,7 +159,7 @@ function About() {
                   mix into an unyielding, resilient asset.
                 </p>
                 <p>
-                  Headquartered in Chennai, VChemics operates dedicated synthesis reactors producing
+                  Headquartered in Chennai, Vchemics operates dedicated synthesis reactors producing
                   PCE superplasticisers, crystalline waterproofing compounds, non-shrink epoxy
                   grouts, and structural micro-mortars. Every formulation is tailored to match local
                   sands, quarry aggregates, and regional humidity curves.
@@ -276,7 +276,7 @@ function About() {
                           src={founder.photo}
                           alt={
                             founder.alt ||
-                            `${founder.name}, Founder & CEO of VChemics India Solutions`
+                            `${founder.name}, Founder & CEO of Vchemics India Solutions`
                           }
                           className="h-full w-full object-cover object-top shadow-sm transition-transform duration-700 hover:scale-105"
                         />
@@ -298,7 +298,7 @@ function About() {
                           </span>
                         </div>
                         <span className="font-mono text-[0.68rem] text-white/80 hidden sm:inline-block bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/15">
-                          VChemics
+                          Vchemics
                         </span>
                       </div>
                     </div>
@@ -358,7 +358,7 @@ function About() {
             <SectionHeading
               eyebrow="What Drives Us"
               title="How We Engineer Excellence"
-              intro="Four core formulation and delivery standards that define every batch and technical trial at VChemics."
+              intro="Four core formulation and delivery standards that define every batch and technical trial at Vchemics."
             />
           </Reveal>
 

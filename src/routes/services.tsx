@@ -24,9 +24,9 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { SectionHeading } from "@/components/site/ui";
 import { ContactSection } from "@/components/site/ContactSection";
 
-const title = "Mix Design & Site Support Engineering Services | V Chemics";
+const title = "Mix Design & Site Support Engineering Services | Vchemics";
 const description =
-  "Mix design consulting, on-site trials, waterproofing system design, structural repair support and reliable supply logistics from VChemics India Solutions.";
+  "Mix design consulting, on-site trials, waterproofing system design, structural repair support and reliable supply logistics from Vchemics India Solutions.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({

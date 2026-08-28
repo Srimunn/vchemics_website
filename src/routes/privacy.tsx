@@ -3,9 +3,9 @@ import { ShieldCheck, Mail, Lock, Eye, FileText, CheckCircle2, ArrowRight } from
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 
-const title = "Privacy Policy & Data Protection | V Chemics India";
+const title = "Privacy Policy & Data Protection | Vchemics India";
 const description =
-  "Read the Privacy Policy for V Chemics India Solutions. Learn how we handle customer inquiries, technical quotes, orders, and personal information.";
+  "Read the Privacy Policy for Vchemics India Solutions. Learn how we handle customer inquiries, technical quotes, orders, and personal information.";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -31,7 +31,7 @@ function PrivacyPage() {
       <PageHero
         eyebrow="Data Protection & Trust"
         title="Privacy Policy"
-        intro="How VChemics India Solutions collects, uses, and safeguards your technical inquiries, project requirements, and personal information."
+        intro="How Vchemics India Solutions collects, uses, and safeguards your technical inquiries, project requirements, and personal information."
       />
 
       <div className="bg-background py-16 sm:py-24">

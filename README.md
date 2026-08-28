@@ -1,7 +1,7 @@
-# VChemics Elevate
+# Vchemics Elevate
 
 Build a complete, modern, production-ready website for a construction chemicals
-company called "VChemics India Solutions." This replaces their outdated old
+company called "Vchemics India Solutions." This replaces their outdated old
 site — I want a premium, industrial-tech design, not a generic template.
 
 === TECH STACK ===
@@ -14,7 +14,7 @@ site — I want a premium, industrial-tech design, not a generic template.
 - Single-page or multi-page (Home, About, Products, Services, Contact) — default to multi-page
 
 === BRAND & DESIGN SYSTEM ===
-Company: VChemics India Solutions — manufacturer/supplier of construction chemicals
+Company: Vchemics India Solutions — manufacturer/supplier of construction chemicals
 Industry: Construction materials, concrete admixtures, waterproofing, grouts
 Aesthetic reference: Sika, BASF Construction Chemicals, Autodesk — bold industrial B2B, not flashy or cartoonish
 
@@ -54,7 +54,7 @@ Heading: "Engineering Stronger, Longer-Lasting Construction"
 Body copy (rewrite in modern punchy tone, don't copy verbatim):
 Our construction material solutions help meet rigorous design and construction
 challenges. Concrete admixtures are essential to high-performance, long-lasting,
-durable, and beautiful concrete. VChemics offers a wide range of admixtures with
+durable, and beautiful concrete. Vchemics offers a wide range of admixtures with
 innovative mix design options that reduce water content while achieving strong
 early strength. We also provide a full range of cementitious grouts, epoxy grouts,
 PMMA grouts, and polyurethane grouts — trusted in the market for their technical
@@ -115,7 +115,7 @@ Column 1: Logo + short tagline + social icons (LinkedIn, Instagram, Facebook pla
 Column 2: Quick Links — Home, About Us, Products, Services, Contact
 Column 3: Products — link list
 Column 4: Contact info (address, phone, email)
-Bottom bar: "© 2026 VChemics India Solutions. All Rights Reserved." | Terms & Conditions link
+Bottom bar: "© 2026 Vchemics India Solutions. All Rights Reserved." | Terms & Conditions link
 
 === ADDITIONAL REQUIREMENTS ===
 
