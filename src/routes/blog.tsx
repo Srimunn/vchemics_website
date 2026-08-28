@@ -19,7 +19,7 @@ const blogSchema = {
   publisher: {
     "@type": "Organization",
     name: "Vchemics India Solutions",
-    url: "https://vchemics.com",
+    url: "https://vchemicsindia.com",
   },
   blogPost: allBlogPosts.map((post) => ({
     "@type": "BlogPosting",
@@ -47,11 +47,11 @@ export const Route = createFileRoute("/blog")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemics.com/blog" },
-      { property: "og:image", content: "https://vchemics.com/image.png" },
+      { property: "og:url", content: "https://vchemicsindia.com/blog" },
+      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemics.com/blog" }],
+    links: [{ rel: "canonical", href: "https://vchemicsindia.com/blog" }],
     scripts: [
       {
         type: "application/ld+json",

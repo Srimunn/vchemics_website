@@ -28,7 +28,7 @@ const personSchema = {
   worksFor: {
     "@type": "Organization",
     name: "Vchemics India Solutions",
-    url: "https://vchemics.com",
+    url: "https://vchemicsindia.com",
   },
   description:
     "Founder of Vchemics India Solutions specializing in high-performance construction chemicals, concrete admixtures, and structural waterproofing in Tamil Nadu.",
@@ -50,11 +50,11 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemics.com/about" },
-      { property: "og:image", content: "https://vchemics.com/image.png" },
+      { property: "og:url", content: "https://vchemicsindia.com/about" },
+      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemics.com/about" }],
+    links: [{ rel: "canonical", href: "https://vchemicsindia.com/about" }],
     scripts: [
       {
         type: "application/ld+json",

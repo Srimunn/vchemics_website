@@ -49,11 +49,11 @@ export const Route = createFileRoute("/blog_/$slug")({
     const title = `${post.title} | Vchemics`;
     const description =
       blogMetaDescriptions[post.id] || blogMetaDescriptions[post.slug] || post.excerpt;
-    const url = `https://vchemics.com/blog/${post.slug}`;
+    const url = `https://vchemicsindia.com/blog/${post.slug}`;
     const ogImage =
       typeof post.image === "string" && post.image.startsWith("http")
         ? post.image
-        : "https://vchemics.com/image.png";
+        : "https://vchemicsindia.com/image.png";
 
     const articleSchema = {
       "@context": "https://schema.org",
@@ -69,10 +69,10 @@ export const Route = createFileRoute("/blog_/$slug")({
       publisher: {
         "@type": "Organization",
         name: "Vchemics India Solutions",
-        url: "https://vchemics.com",
+        url: "https://vchemicsindia.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://vchemics.com/image.png",
+          url: "https://vchemicsindia.com/image.png",
         },
       },
       mainEntityOfPage: {
@@ -89,13 +89,13 @@ export const Route = createFileRoute("/blog_/$slug")({
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://vchemics.com/",
+          item: "https://vchemicsindia.com/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Blog",
-          item: "https://vchemics.com/blog",
+          item: "https://vchemicsindia.com/blog",
         },
         {
           "@type": "ListItem",

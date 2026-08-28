@@ -94,11 +94,11 @@ export const Route = createFileRoute("/products_/$slug")({
       productMetaDescriptions[product.id] ||
       productMetaDescriptions[product.slug] ||
       `${product.title} manufactured by Vchemics Chennai. ${product.tagline}. Compliant with ${product.standard}.`;
-    const url = `https://vchemics.com/products/${product.id}`;
+    const url = `https://vchemicsindia.com/products/${product.id}`;
     const ogImage =
       typeof product.image === "string" && product.image.startsWith("http")
         ? product.image
-        : "https://vchemics.com/image.png";
+        : "https://vchemicsindia.com/image.png";
 
     const productSchema: Record<string, unknown> = {
       "@context": "https://schema.org",
@@ -133,13 +133,13 @@ export const Route = createFileRoute("/products_/$slug")({
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://vchemics.com/",
+          item: "https://vchemicsindia.com/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Products",
-          item: "https://vchemics.com/products",
+          item: "https://vchemicsindia.com/products",
         },
         {
           "@type": "ListItem",

@@ -119,11 +119,11 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemics.com/" },
-      { property: "og:image", content: "https://vchemics.com/image.png" },
+      { property: "og:url", content: "https://vchemicsindia.com/" },
+      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemics.com/" }],
+    links: [{ rel: "canonical", href: "https://vchemicsindia.com/" }],
     scripts: [
       {
         type: "application/ld+json",

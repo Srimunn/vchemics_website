@@ -977,13 +977,13 @@ export const allProjects: ProjectItem[] = [
     category: "Infrastructure",
     location: "Chennai, Tamil Nadu",
     scope:
-      "Deep station basement waterproofing, diaphragm wall PU leak sealing, and high-fluidity M60 pumped concrete admixtures.",
+      "Vchemics supplied crystalline waterproofing admixtures, diaphragm wall PU leak-sealing resin, and high-fluidity superplasticiser formulations for this project's deep station basement and diaphragm wall works.",
     productsUsed: [
       "Vchemics Crystalline Admixture",
       "PU Injection Resin",
       "PCE Superplasticiser 600",
     ],
-    metrics: "45,000 m² Watertight Envelope",
+    metrics: "Formulated for 45,000 m² Watertight Envelope",
     year: "2024",
   },
   {
@@ -992,9 +992,9 @@ export const allProjects: ProjectItem[] = [
     category: "Industrial",
     location: "Sriperumbudur Corridor",
     scope:
-      "Heavy 2,500-ton stamping press baseplate precision anchoring with zero-shrink dynamic vibration-proof epoxy grout.",
+      "Vchemics supplied high-strength epoxy grouts and Class C non-shrink precision grouting formulations for this project's 2,500-ton stamping press baseplate anchoring and dynamic vibration damping.",
     productsUsed: ["Vchemics High-Strength Epoxy Grout", "Non-Shrink Grout Class C"],
-    metrics: ">95 MPa Compressive Strength",
+    metrics: "Formulation Target: >95 MPa Compressive Strength",
     year: "2023",
   },
   {
@@ -1003,9 +1003,9 @@ export const allProjects: ProjectItem[] = [
     category: "Commercial",
     location: "Coimbatore, Tamil Nadu",
     scope:
-      "Multi-layer elastomeric PU membrane waterproofing over 18,000 sq.m of exposed terrace and landscaped podium deck.",
+      "Vchemics supplied multi-layer liquid PU elastomeric membranes, aliphatic UV topcoats, and polymer screed formulations for this project's 18,000 sq.m exposed terrace and landscaped podium deck waterproofing.",
     productsUsed: ["Vchemics Liquid PU Membrane", "Aliphatic UV Topcoat", "Polymer Screed"],
-    metrics: "72h Zero-Leak Ponding Signoff",
+    metrics: "Formulation Target: 72h Zero-Leak Ponding",
     year: "2024",
   },
   {
@@ -1014,9 +1014,9 @@ export const allProjects: ProjectItem[] = [
     category: "Infrastructure",
     location: "Mettur / Salem Belt",
     scope:
-      "Structural rehabilitation and column micro concrete jacketing of thermal plant cooling structure exposed to high sulfate conditions.",
+      "Vchemics supplied Class R4 structural micro concrete, zinc rebar anti-corrosion primers, and anti-carbonation barrier coating formulations for this project's thermal power cooling structure and column jacketing rehabilitation.",
     productsUsed: ["Micro Concrete R4", "Zinc Rebar Primer", "Anti-Carbonation Barrier"],
-    metrics: "120 Structural Columns Restored",
+    metrics: "Formulated for 120 Structural Column Jacketings",
     year: "2023",
   },
   {
@@ -1025,9 +1025,9 @@ export const allProjects: ProjectItem[] = [
     category: "Waterproofing",
     location: "Perundurai SIPCOT, Erode",
     scope:
-      "Heavy chemical-resistant internal liner coating and crystalline waterproofing for high-salinity industrial effluent sumps.",
+      "Vchemics supplied heavy chemical-resistant epoxy coatings, crystalline waterproofing slurry, and epoxy mortar formulations for this project's high-salinity industrial effluent sumps and treatment tanks.",
     productsUsed: ["Vchemics Chemical Resistant Epoxy", "Crystalline Slurry", "Epoxy Mortar"],
-    metrics: "pH 2–12 Chemical Resistance",
+    metrics: "Formulation Target: pH 2–12 Chemical Resistance",
     year: "2024",
   },
   {
@@ -1036,9 +1036,9 @@ export const allProjects: ProjectItem[] = [
     category: "Commercial",
     location: "Karur & Dindigul",
     scope:
-      "Custom-calibrated superplasticisers maintaining 180mm slump over 90-minute transit in 39°C ambient summer temperatures.",
+      "Vchemics supplied custom-calibrated PCE retarding superplasticisers and integral waterproofing formulations for this project's high-rise concrete pours, maintaining 180mm slump over 90-minute transit in 39°C ambient temperatures.",
     productsUsed: ["PCE Retarding Superplasticiser", "Integral Waterproofer"],
-    metrics: "35,000+ m³ Batch Consistency",
+    metrics: "Formulated for 35,000+ m³ Batch Consistency",
     year: "2024",
   },
 ];

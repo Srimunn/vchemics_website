@@ -249,7 +249,7 @@ The dev server runs on `localhost:3000` by default (configured by Lovable's Vite
 - **HQ**: Omsakthi Street, Kumaran Nagar Extn-I, Padi, Chennai - 600050
 - **Phone**: +91 99423-54602
 - **Email**: vchemics.info@gmail.com
-- **Domain**: https://vchemics.com
+- **Domain**: https://vchemicsindia.com
 - **Operating hours**: Mon-Sat, 09:00-19:00
 - **Service area**: Chennai, Coimbatore, Erode (Tamil Nadu, South India)
 - **Products (8)**: Concrete Admixtures · Waterproofing Chemicals · PU Injection Grouting · Non-Shrink Grout · Micro Concrete · Concrete Repair · Epoxy Grouting · Protective Coatings

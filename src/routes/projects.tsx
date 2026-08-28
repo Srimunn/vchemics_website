@@ -31,11 +31,11 @@ export const Route = createFileRoute("/projects")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemics.com/projects" },
-      { property: "og:image", content: "https://vchemics.com/image.png" },
+      { property: "og:url", content: "https://vchemicsindia.com/projects" },
+      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemics.com/projects" }],
+    links: [{ rel: "canonical", href: "https://vchemicsindia.com/projects" }],
   }),
   component: ProjectsPage,
 });
@@ -109,7 +109,11 @@ function ProjectsPage() {
                       </span>
                     </div>
 
-                    <h3 className="mt-4 font-display text-xl font-bold text-foreground group-hover:text-brand-blue transition-colors leading-snug">
+                    <p className="mt-2.5 font-mono text-[0.68rem] font-semibold uppercase tracking-wider text-muted-foreground">
+                      Chemical Formulation Supplier
+                    </p>
+
+                    <h3 className="mt-2 font-display text-xl font-bold text-foreground group-hover:text-brand-blue transition-colors leading-snug">
                       {proj.title}
                     </h3>
 
@@ -147,7 +151,7 @@ function ProjectsPage() {
                       {proj.metrics}
                     </span>
                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-brand-blue">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-brand-green" /> Verified
+                      <CheckCircle2 className="h-3.5 w-3.5 text-brand-green" /> Supply Reference
                     </span>
                   </div>
                 </div>
