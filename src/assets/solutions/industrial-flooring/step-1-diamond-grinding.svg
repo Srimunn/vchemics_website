@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Grid -->
+    <pattern id="grid-fl-1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#132d54" stroke-width="1" />
+      <circle cx="0" cy="0" r="1" fill="#38bdf8" opacity="0.3" />
+    </pattern>
+    <pattern id="subgrid-fl-1" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#0e2343" stroke-width="0.5" />
+    </pattern>
+    
+    <!-- Gradients -->
+    <linearGradient id="bg-fl-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06152d" />
+      <stop offset="100%" stop-color="#0a1f3d" />
+    </linearGradient>
+    <linearGradient id="conc-slab-1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f" />
+      <stop offset="100%" stop-color="#152843" />
+    </linearGradient>
+    <linearGradient id="grinder-head" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="500" fill="url(#bg-fl-1)" />
+  <rect width="800" height="500" fill="url(#subgrid-fl-1)" />
+  <rect width="800" height="500" fill="url(#grid-fl-1)" />
+
+  <!-- Outer Blueprint Border -->
+  <rect x="15" y="15" width="770" height="470" fill="none" stroke="#1e4976" stroke-width="1.5" />
+  <rect x="20" y="20" width="760" height="460" fill="none" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="8,4" opacity="0.6" />
+
+  <!-- Blueprint Header Banner -->
+  <g transform="translate(35, 35)">
+    <rect x="0" y="0" width="730" height="42" rx="6" fill="#0b2447" stroke="#1d4ed8" stroke-width="1" />
+    <circle cx="20" cy="21" r="5" fill="#38bdf8" />
+    <text x="35" y="26" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="bold" letter-spacing="2">ENGINEERING DIAGRAM // STEP 01</text>
+    <text x="360" y="26" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">DIAMOND GRINDING &amp; SUBSTRATE PROFILING</text>
+    <rect x="635" y="8" width="85" height="26" rx="4" fill="#0f3b6c" stroke="#38bdf8" stroke-width="0.8" />
+    <text x="677" y="25" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">CSP 2 – 3</text>
+  </g>
+
+  <!-- Concrete Section Slab (Left/Center) -->
+  <g transform="translate(60, 110)">
+    <!-- Base Concrete Slab -->
+    <rect x="0" y="60" width="460" height="260" rx="4" fill="url(#conc-slab-1)" stroke="#38bdf8" stroke-width="1.5" />
+
+    <!-- Unprepared Laitance Layer (Left side) -->
+    <rect x="0" y="55" width="160" height="10" fill="#f59e0b" opacity="0.4" />
+    <line x1="0" y1="55" x2="160" y2="55" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3,2" />
+    <text x="15" y="45" fill="#f59e0b" font-family="monospace" font-size="8.5" font-weight="bold">WEAK LAITANCE LAYER (0.8mm)</text>
+
+    <!-- Profiled Concrete Texture (Right side after grinder) -->
+    <path d="M 160 62 Q 170 58 180 62 T 200 62 T 220 62 T 240 62 T 260 62 T 280 62 T 300 62 T 320 62 T 340 62 T 360 62 T 380 62 T 400 62 T 420 62 T 440 62 T 460 62" 
+          fill="none" stroke="#00f0ff" stroke-width="3" />
+    <text x="320" y="45" fill="#00f0ff" font-family="monospace" font-size="8.5" font-weight="bold">PROFILED CSP-3 TEXTURE</text>
+
+    <!-- Open Capillary Pores in Concrete Matrix -->
+    <g stroke="#38bdf8" stroke-width="1.2" opacity="0.7">
+      <line x1="200" y1="62" x2="200" y2="85" stroke-dasharray="2,2" />
+      <line x1="240" y1="62" x2="240" y2="90" stroke-dasharray="2,2" />
+      <line x1="280" y1="62" x2="280" y2="82" stroke-dasharray="2,2" />
+      <line x1="330" y1="62" x2="330" y2="88" stroke-dasharray="2,2" />
+      <line x1="380" y1="62" x2="380" y2="80" stroke-dasharray="2,2" />
+      <line x1="420" y1="62" x2="420" y2="92" stroke-dasharray="2,2" />
+    </g>
+
+    <!-- Planetary Diamond Grinding Head Assembly -->
+    <g transform="translate(160, 20)">
+      <!-- Main Grinder Shroud -->
+      <rect x="-45" y="-15" width="90" height="45" rx="6" fill="url(#grinder-head)" stroke="#0f172a" stroke-width="2" />
+      
+      <!-- Planetary Diamond Disc Segments (Gold Blocks) -->
+      <rect x="-40" y="30" width="18" height="8" rx="1" fill="#fbbf24" stroke="#78350f" stroke-width="1" />
+      <rect x="-10" y="30" width="20" height="8" rx="1" fill="#fbbf24" stroke="#78350f" stroke-width="1" />
+      <rect x="22" y="30" width="18" height="8" rx="1" fill="#fbbf24" stroke="#78350f" stroke-width="1" />
+
+      <!-- Vacuum Dust Shroud Hose -->
+      <path d="M 25 -15 Q 40 -40 70 -40" fill="none" stroke="#64748b" stroke-width="8" stroke-linecap="round" />
+      <path d="M 25 -15 Q 40 -40 70 -40" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,2" />
+      <text x="80" y="-36" fill="#38bdf8" font-family="monospace" font-size="8" font-weight="bold">VACUUM EXTRACTION</text>
+
+      <!-- Rotation Arrows -->
+      <path d="M -25 -5 A 25 25 0 0 1 25 -5" fill="none" stroke="#00f0ff" stroke-width="2" />
+      <polygon points="25,-8 32,-3 25,2" fill="#00f0ff" />
+      <text x="0" y="8" fill="#00f0ff" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">450 RPM</text>
+    </g>
+
+    <!-- Dimension & Quality Callouts -->
+    <g transform="translate(40, 160)">
+      <rect x="0" y="0" width="135" height="46" rx="4" fill="#0b2447" stroke="#f59e0b" stroke-width="1" />
+      <text x="10" y="16" fill="#f59e0b" font-family="monospace" font-size="8.5" font-weight="bold">BEFORE GRINDING</text>
+      <text x="10" y="30" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">Closed Laitance Layer</text>
+      <text x="10" y="41" fill="#94a3b8" font-family="monospace" font-size="8">Bond Strength &lt; 0.8 MPa</text>
+    </g>
+
+    <g transform="translate(280, 160)">
+      <rect x="0" y="0" width="150" height="46" rx="4" fill="#0b2447" stroke="#10b981" stroke-width="1" />
+      <text x="10" y="16" fill="#10b981" font-family="monospace" font-size="8.5" font-weight="bold">AFTER PROFILING</text>
+      <text x="10" y="30" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">Open Capillary Pores</text>
+      <text x="10" y="41" fill="#10b981" font-family="monospace" font-size="8">Pull-Off Bond &gt; 2.5 MPa</text>
+    </g>
+  </g>
+
+  <!-- Right Technical Spec Panel -->
+  <g transform="translate(545, 110)">
+    <!-- Panel Box -->
+    <rect x="0" y="0" width="220" height="320" rx="8" fill="#091e3d" stroke="#1e4976" stroke-width="1.5" />
+    <path d="M 0 0 L 220 0 L 220 35 L 0 35 Z" fill="#0f2e5a" />
+    <text x="15" y="22" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">SURFACE SPEC</text>
+
+    <!-- Spec 1: Diamond Tooling -->
+    <g transform="translate(15, 50)">
+      <text x="0" y="12" fill="#94a3b8" font-family="monospace" font-size="9">DIAMOND GRIT SEQUENCE</text>
+      <text x="0" y="28" fill="#ffffff" font-family="sans-serif" font-size="10.5" font-weight="bold">30/40 Grit Metal Bond</text>
+      <text x="0" y="42" fill="#38bdf8" font-family="monospace" font-size="9">Planetary Multi-Head</text>
+      <line x1="0" y1="48" x2="190" y2="48" stroke="#1e3a5f" stroke-width="1" />
+    </g>
+
+    <!-- Spec 2: Profile Standard -->
+    <g transform="translate(15, 110)">
+      <text x="0" y="12" fill="#94a3b8" font-family="monospace" font-size="9">SURFACE PROFILE (ICRI)</text>
+      <text x="0" y="28" fill="#10b981" font-family="monospace" font-size="13" font-weight="bold">CSP 2 to CSP 3 Standard</text>
+      <text x="0" y="42" fill="#94a3b8" font-family="sans-serif" font-size="9.5">Uniform Micro-Texture</text>
+      <line x1="0" y1="48" x2="190" y2="48" stroke="#1e3a5f" stroke-width="1" />
+    </g>
+
+    <!-- Checklist Box -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="190" height="125" rx="5" fill="#04142a" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2" />
+      <circle cx="15" cy="18" r="4" fill="#10b981" />
+      <text x="25" y="22" fill="#10b981" font-family="monospace" font-size="9.5" font-weight="bold">SUBSTRATE GOALS</text>
+      <text x="12" y="42" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• 100% removal of tire marks/oil</text>
+      <text x="12" y="58" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• Concrete pore capillaries opened</text>
+      <text x="12" y="74" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• Hepa vacuum dust extraction</text>
+      <text x="12" y="90" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• Maximum resin mechanical key</text>
+    </g>
+  </g>
+
+  <!-- Bottom Technical Footer Bar -->
+  <g transform="translate(60, 445)">
+    <text x="0" y="15" fill="#64748b" font-family="monospace" font-size="9">VCHEMICS INDUSTRIAL FLOORING PROTOCOL • ICRI CSP 2-3 • ASTM D4258</text>
+    <text x="680" y="15" fill="#38bdf8" font-family="monospace" font-size="9" text-anchor="end">DWG REF: VC-IF-01</text>
+  </g>
+</svg>

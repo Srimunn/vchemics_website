@@ -24,20 +24,24 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { SectionHeading } from "@/components/site/ui";
 import { ContactSection } from "@/components/site/ContactSection";
 
-const title = "Our Services | Mix Design, Site Support & Repair Solutions";
+const title = "Mix Design & Site Support Engineering Services | V Chemics";
 const description =
-  "Mix design consulting, on-site trials, waterproofing system design, structural repair support and reliable supply logistics from V Chemics India Solutions.";
+  "Mix design consulting, on-site trials, waterproofing system design, structural repair support and reliable supply logistics from VChemics India Solutions.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://vchemics.com/services" },
+      { property: "og:image", content: "https://vchemics.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://vchemics.com/services" }],
   }),
   component: Services,
 });
@@ -183,27 +187,27 @@ function Services() {
           <ul className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {capabilities.map(({ num, tag, title: t, metric, body, Icon }, i) => (
               <Reveal key={t} as="li" delay={i * 70}>
-                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-8 shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-[#054782]/40 hover:shadow-2xl">
+                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-8 shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/40 hover:shadow-2xl">
                   {/* Top Gradient Line */}
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   {/* Watermark Numeral */}
-                  <span className="pointer-events-none absolute right-4 top-2 font-mono text-8xl font-black text-foreground/[0.03] select-none group-hover:text-[#054782]/10 transition-colors">
+                  <span className="pointer-events-none absolute right-4 top-2 font-mono text-8xl font-black text-foreground/[0.03] select-none group-hover:text-brand-blue/10 transition-colors">
                     {num}
                   </span>
 
                   <div>
                     {/* Header */}
                     <div className="flex items-center justify-between">
-                      <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-[#054782]/10 to-[#669930]/10 text-[#054782] transition-all duration-500 group-hover:scale-110 group-hover:from-[#054782] group-hover:to-[#669930] group-hover:text-white shadow-xs">
+                      <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-brand-blue/10 to-brand-green/10 text-brand-blue transition-all duration-500 group-hover:scale-110 group-hover:from-brand-blue group-hover:to-brand-green group-hover:text-white shadow-xs">
                         <Icon className="h-7 w-7" />
                       </span>
-                      <span className="font-mono text-xs font-bold text-[#669930] bg-[#669930]/10 px-3 py-1 rounded-full border border-[#669930]/20 uppercase tracking-wider">
+                      <span className="font-mono text-xs font-bold text-brand-green bg-brand-green/10 px-3 py-1 rounded-full border border-brand-green/20 uppercase tracking-wider">
                         {tag}
                       </span>
                     </div>
 
-                    <h3 className="mt-6 font-display text-xl font-bold text-foreground transition-colors group-hover:text-[#054782]">
+                    <h3 className="mt-6 font-display text-xl font-bold text-foreground transition-colors group-hover:text-brand-blue">
                       {t}
                     </h3>
 
@@ -214,10 +218,10 @@ function Services() {
 
                   {/* Footer Metric Chip */}
                   <div className="mt-8 pt-5 border-t border-border/60">
-                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-[#054782] group-hover:text-[#669930] transition-colors">
-                      <Sparkles className="h-3 w-3 text-[#669930]" /> {metric}
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-brand-blue group-hover:text-brand-green transition-colors">
+                      <Sparkles className="h-3 w-3 text-brand-green" /> {metric}
                     </span>
-                    <div className="mt-2.5 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#054782] group-hover:to-[#669930]" />
+                    <div className="mt-2.5 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-brand-blue group-hover:to-brand-green" />
                   </div>
                 </div>
               </Reveal>
@@ -240,26 +244,26 @@ function Services() {
           <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {industriesServed.map(({ num, name, tag, desc, chip, Icon }, i) => (
               <Reveal key={name} as="li" delay={i * 50}>
-                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-7 shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-[#054782]/40 hover:shadow-xl">
+                <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-7 shadow-xs transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/40 hover:shadow-xl">
                   {/* Top Gradient Line on hover */}
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#054782] via-[#669930] to-[#054782] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   {/* Watermark Numeral */}
-                  <span className="pointer-events-none absolute right-3 top-2 font-mono text-5xl font-black text-foreground/[0.03] select-none group-hover:text-[#054782]/10 transition-colors">
+                  <span className="pointer-events-none absolute right-3 top-2 font-mono text-5xl font-black text-foreground/[0.03] select-none group-hover:text-brand-blue/10 transition-colors">
                     {num}
                   </span>
 
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#054782]/10 to-[#669930]/10 text-[#054782] transition-all duration-500 group-hover:scale-110 group-hover:from-[#054782] group-hover:to-[#669930] group-hover:text-white shadow-xs">
+                      <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-brand-blue/10 to-brand-green/10 text-brand-blue transition-all duration-500 group-hover:scale-110 group-hover:from-brand-blue group-hover:to-brand-green group-hover:text-white shadow-xs">
                         <Icon className="h-6 w-6" />
                       </span>
-                      <span className="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-[#669930] bg-[#669930]/10 px-2.5 py-1 rounded-full border border-[#669930]/20">
+                      <span className="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-brand-green bg-brand-green/10 px-2.5 py-1 rounded-full border border-brand-green/20">
                         {tag}
                       </span>
                     </div>
 
-                    <h3 className="mt-5 font-display text-lg font-bold text-foreground transition-colors group-hover:text-[#054782]">
+                    <h3 className="mt-5 font-display text-lg font-bold text-foreground transition-colors group-hover:text-brand-blue">
                       {name}
                     </h3>
 
@@ -269,10 +273,10 @@ function Services() {
                   </div>
 
                   <div className="mt-6 pt-4 border-t border-border/60">
-                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-[#054782] group-hover:text-[#669930] transition-colors">
-                      <Sparkles className="h-3 w-3 text-[#669930]" /> {chip}
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-semibold text-brand-blue group-hover:text-brand-green transition-colors">
+                      <Sparkles className="h-3 w-3 text-brand-green" /> {chip}
                     </span>
-                    <div className="mt-2 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#054782] group-hover:to-[#669930]" />
+                    <div className="mt-2 h-1 w-6 rounded-full bg-border transition-all duration-500 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-brand-blue group-hover:to-brand-green" />
                   </div>
                 </div>
               </Reveal>

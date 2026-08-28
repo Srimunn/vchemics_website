@@ -19,20 +19,24 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const title = "Terms & Conditions | V Chemics India Solutions";
+const title = "Terms & Conditions of Service | V Chemics India";
 const description =
-  "Terms of service, privacy policy and governing conditions for V Chemics India Solutions — emerging leader in specialized construction chemicals.";
+  "Terms and conditions of service, product warranties, and governing policies for V Chemics India Solutions, leading construction chemicals manufacturer.";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://vchemics.com/terms" },
+      { property: "og:image", content: "https://vchemics.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://vchemics.com/terms" }],
   }),
   component: TermsPage,
 });
@@ -187,8 +191,7 @@ const sections = [
     num: "SECTION 19",
     title: "CONTACT INFORMATION",
     icon: Mail,
-    content:
-      "Questions about the Terms of Service should be sent to us at vchemics.info@gmail.com",
+    content: "Questions about the Terms of Service should be sent to us at vchemics1989@gmail.com",
   },
 ];
 
@@ -199,7 +202,7 @@ function TermsPage() {
     (s) =>
       s.title.toLowerCase().includes(query.toLowerCase()) ||
       s.num.toLowerCase().includes(query.toLowerCase()) ||
-      s.content.toLowerCase().includes(query.toLowerCase())
+      s.content.toLowerCase().includes(query.toLowerCase()),
   );
 
   return (
@@ -211,7 +214,7 @@ function TermsPage() {
             Terms &amp; Conditions
           </p>
           <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] text-on-dark sm:text-5xl lg:text-6xl">
-            V Chemics India Solutions
+            VChemics India Solutions
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-on-dark-muted sm:text-xl font-medium">
             Emerging leader in specialized chemicals for construction companies
@@ -227,7 +230,7 @@ function TermsPage() {
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/60 pb-6">
                 <div>
                   <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-                    <Building2 className="h-3.5 w-3.5" /> V Chemics India Solutions
+                    <Building2 className="h-3.5 w-3.5" /> VChemics India Solutions
                   </span>
                   <h2 className="mt-3 font-display text-2xl font-bold text-foreground sm:text-3xl">
                     Website Operating Agreement
@@ -245,16 +248,41 @@ function TermsPage() {
 
               <div className="mt-6 space-y-4 text-justify text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
                 <p>
-                  This website is operated by <strong className="font-semibold text-foreground">VChemics India Solutions</strong>. Throughout the site, the terms &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;our&rdquo; refer to VChemics India Solutions. VChemics India Solutions offers this website, including all information, tools, and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.
+                  This website is operated by{" "}
+                  <strong className="font-semibold text-foreground">
+                    VChemics India Solutions
+                  </strong>
+                  . Throughout the site, the terms &ldquo;we&rdquo;, &ldquo;us&rdquo; and
+                  &ldquo;our&rdquo; refer to VChemics India Solutions. VChemics India Solutions
+                  offers this website, including all information, tools, and services available from
+                  this site to you, the user, conditioned upon your acceptance of all terms,
+                  conditions, policies, and notices stated here.
                 </p>
                 <p>
-                  By visiting our site and/or purchasing something from us, you engage in our &ldquo;Service&rdquo; and agree to be bound by the following terms and conditions (&ldquo;Terms of Service&rdquo;, &ldquo;Terms&rdquo;), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/or contributors of content.
+                  By visiting our site and/or purchasing something from us, you engage in our
+                  &ldquo;Service&rdquo; and agree to be bound by the following terms and conditions
+                  (&ldquo;Terms of Service&rdquo;, &ldquo;Terms&rdquo;), including those additional
+                  terms and conditions and policies referenced herein and/or available by hyperlink.
+                  These Terms of Service apply to all users of the site, including without
+                  limitation users who are browsers, vendors, customers, merchants, and/or
+                  contributors of content.
                 </p>
                 <p>
-                  Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services. If these Terms of Service are considered an offer, acceptance is expressly limited to these Terms of Service.
+                  Please read these Terms of Service carefully before accessing or using our
+                  website. By accessing or using any part of the site, you agree to be bound by
+                  these Terms of Service. If you do not agree to all the terms and conditions of
+                  this agreement, then you may not access the website or use any services. If these
+                  Terms of Service are considered an offer, acceptance is expressly limited to these
+                  Terms of Service.
                 </p>
                 <p>
-                  Any new features or tools that are added to the current store shall also be subject to the Terms of Service. You can review the most current version of the Terms of Service at any time on this page. We reserve the right to update, change, or replace any part of these Terms of Service by posting updates and/or changes to our website. It is your responsibility to check this page periodically for changes. Your continued use of or access to the website following the posting of any changes constitutes acceptance of those changes.
+                  Any new features or tools that are added to the current store shall also be
+                  subject to the Terms of Service. You can review the most current version of the
+                  Terms of Service at any time on this page. We reserve the right to update, change,
+                  or replace any part of these Terms of Service by posting updates and/or changes to
+                  our website. It is your responsibility to check this page periodically for
+                  changes. Your continued use of or access to the website following the posting of
+                  any changes constitutes acceptance of those changes.
                 </p>
               </div>
             </div>
@@ -363,17 +391,18 @@ function TermsPage() {
                             <p>
                               Questions about the Terms of Service should be sent to us at{" "}
                               <a
-                                href="https://mail.google.com/mail/?view=cm&fs=1&to=vchemics.info@gmail.com"
+                                href="https://mail.google.com/mail/?view=cm&fs=1&to=vchemics1989@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
                               >
-                                vchemics.info@gmail.com
+                                vchemics1989@gmail.com
                               </a>
                             </p>
                           ) : sec.id === "section-18" ? (
                             <p>
-                              The Line of Credit which is offered can only be availed for purchasing Products displayed on{" "}
+                              The Line of Credit which is offered can only be availed for purchasing
+                              Products displayed on{" "}
                               <a
                                 href="/"
                                 className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
@@ -413,22 +442,28 @@ function TermsPage() {
 
                       <div className="space-y-4 text-justify text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
                         <p>
-                          This privacy policy has been compiled to better serve those who are concerned with how their Personal information is being used online. Privacy Policy tells about the information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context.
+                          This privacy policy has been compiled to better serve those who are
+                          concerned with how their Personal information is being used online.
+                          Privacy Policy tells about the information that can be used on its own or
+                          with other information to identify, contact, or locate a single person, or
+                          to identify an individual in context.
                         </p>
                         <p>
-                          Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect, or otherwise handle your Personally Identifiable Information on our website.
+                          Please read our privacy policy carefully to get a clear understanding of
+                          how we collect, use, protect, or otherwise handle your Personally
+                          Identifiable Information on our website.
                         </p>
                       </div>
 
                       <div className="pt-2">
                         <a
-                          href="https://mail.google.com/mail/?view=cm&fs=1&to=vchemics.info@gmail.com"
+                          href="https://mail.google.com/mail/?view=cm&fs=1&to=vchemics1989@gmail.com"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-display text-sm font-bold uppercase tracking-wider text-primary-foreground transition-all duration-200 hover:opacity-90"
                         >
                           <Mail className="h-4 w-4" />
-                          Contact Privacy Team: vchemics.info@gmail.com
+                          Contact Privacy Team: vchemics1989@gmail.com
                         </a>
                       </div>
                     </div>

@@ -8,19 +8,19 @@ export function PageHero({
   intro?: string;
 }) {
   return (
-    <section className="blueprint clip-slant-b relative bg-graphite-deep pt-36 pb-24 sm:pt-44 sm:pb-32">
+    <section className="blueprint clip-slant-b relative bg-[#061933] pt-32 sm:pt-40 pb-20 sm:pb-28 text-white overflow-hidden">
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         {eyebrow && (
-          <p className="eyebrow mb-4 flex items-center gap-3 text-[#669930]">
-            <span className="h-px w-8 bg-[#669930]" aria-hidden />
+          <p className="eyebrow mb-3 flex items-center gap-2.5 text-brand-green font-mono text-xs sm:text-sm font-bold uppercase tracking-wider">
+            <span className="h-0.5 w-6 bg-brand-green" aria-hidden />
             {eyebrow}
           </p>
         )}
-        <h1 className="max-w-3xl text-4xl leading-[1.05] text-on-dark sm:text-5xl lg:text-6xl font-display font-bold">
+        <h1 className="max-w-4xl text-3xl sm:text-4xl lg:text-5xl font-display font-bold leading-[1.12] text-white">
           {title}
         </h1>
         {intro && (
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-on-dark-muted sm:text-lg">
+          <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-[#b0c7df]">
             {intro}
           </p>
         )}

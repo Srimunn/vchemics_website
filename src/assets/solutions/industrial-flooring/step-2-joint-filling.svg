@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- Background Grid -->
+    <pattern id="grid-fl-2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#132d54" stroke-width="1" />
+      <circle cx="0" cy="0" r="1" fill="#38bdf8" opacity="0.3" />
+    </pattern>
+    <pattern id="subgrid-fl-2" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#0e2343" stroke-width="0.5" />
+    </pattern>
+    
+    <!-- Gradients -->
+    <linearGradient id="bg-fl-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06152d" />
+      <stop offset="100%" stop-color="#0a1f3d" />
+    </linearGradient>
+    <linearGradient id="conc-slab-2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f" />
+      <stop offset="100%" stop-color="#152843" />
+    </linearGradient>
+    <linearGradient id="epoxy-joint-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="forklift-wheel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="500" fill="url(#bg-fl-2)" />
+  <rect width="800" height="500" fill="url(#subgrid-fl-2)" />
+  <rect width="800" height="500" fill="url(#grid-fl-2)" />
+
+  <!-- Outer Blueprint Border -->
+  <rect x="15" y="15" width="770" height="470" fill="none" stroke="#1e4976" stroke-width="1.5" />
+  <rect x="20" y="20" width="760" height="460" fill="none" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="8,4" opacity="0.6" />
+
+  <!-- Blueprint Header Banner -->
+  <g transform="translate(35, 35)">
+    <rect x="0" y="0" width="730" height="42" rx="6" fill="#0b2447" stroke="#1d4ed8" stroke-width="1" />
+    <circle cx="20" cy="21" r="5" fill="#38bdf8" />
+    <text x="35" y="26" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="bold" letter-spacing="2">ENGINEERING DIAGRAM // STEP 02</text>
+    <text x="360" y="26" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="bold">CONTROL JOINT &amp; CRACK SEMI-RIGID EPOXY FILLING</text>
+    <rect x="635" y="8" width="85" height="26" rx="4" fill="#0f3b6c" stroke="#38bdf8" stroke-width="0.8" />
+    <text x="677" y="25" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">SHORE D 80</text>
+  </g>
+
+  <!-- Concrete Section Slab with Filled Joint (Left/Center) -->
+  <g transform="translate(60, 110)">
+    <!-- Left Concrete Slab Section -->
+    <rect x="0" y="60" width="220" height="260" rx="4" fill="url(#conc-slab-2)" stroke="#38bdf8" stroke-width="1.5" />
+    
+    <!-- Right Concrete Slab Section -->
+    <rect x="240" y="60" width="220" height="260" rx="4" fill="url(#conc-slab-2)" stroke="#38bdf8" stroke-width="1.5" />
+
+    <!-- Top Surface Line -->
+    <line x1="0" y1="60" x2="220" y2="60" stroke="#00f0ff" stroke-width="3" />
+    <line x1="240" y1="60" x2="460" y2="60" stroke="#00f0ff" stroke-width="3" />
+
+    <!-- Filled Semi-Rigid Epoxy Joint (20mm wide x 120mm deep slot) -->
+    <rect x="220" y="60" width="20" height="120" fill="url(#epoxy-joint-grad)" stroke="#00f0ff" stroke-width="1" />
+    <line x1="220" y1="60" x2="240" y2="60" stroke="#00f0ff" stroke-width="3.5" />
+
+    <!-- Backer Rod / Sand base at bottom of joint -->
+    <ellipse cx="230" cy="180" rx="9" ry="6" fill="#64748b" stroke="#334155" stroke-width="1" />
+
+    <!-- Crack Induced Plane Below Joint (Controlled Relief) -->
+    <line x1="230" y1="186" x2="230" y2="320" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.6" />
+
+    <!-- Solid Polyurethane Forklift Wheel (Rolling Over Joint) -->
+    <g transform="translate(230, -5)">
+      <!-- Heavy Wheel Disc -->
+      <circle cx="0" cy="0" r="62" fill="url(#forklift-wheel)" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="0" r="40" fill="#334155" stroke="#64748b" stroke-width="1.5" />
+      <circle cx="0" cy="0" r="16" fill="#f8fafc" stroke="#0f172a" stroke-width="3" />
+      
+      <!-- Load Distribution Arrow Vector (Straight Down onto Joint) -->
+      <g transform="translate(0, -68)">
+        <line x1="0" y1="0" x2="0" y2="28" stroke="#ef4444" stroke-width="3" />
+        <polygon points="0,32 -5,22 5,22" fill="#ef4444" />
+        <text x="12" y="16" fill="#f87171" font-family="monospace" font-size="9" font-weight="bold">FORKLIFT LOAD (4.5 TON)</text>
+      </g>
+    </g>
+
+    <!-- Joint Edge Protection Callout Annotations -->
+    <g transform="translate(20, 160)">
+      <rect x="0" y="0" width="165" height="50" rx="4" fill="#0b2447" stroke="#10b981" stroke-width="1" />
+      <text x="10" y="18" fill="#10b981" font-family="monospace" font-size="8.5" font-weight="bold">EDGE SPALL PROTECTION</text>
+      <text x="10" y="32" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">100% Flush Load Transfer</text>
+      <text x="10" y="44" fill="#10b981" font-family="monospace" font-size="8">Zero Wheel Impact Damage</text>
+      <line x1="165" y1="25" x2="220" y2="60" stroke="#10b981" stroke-width="1.5" stroke-dasharray="2,2" />
+      <circle cx="220" cy="60" r="3" fill="#10b981" />
+    </g>
+
+    <g transform="translate(270, 160)">
+      <rect x="0" y="0" width="160" height="50" rx="4" fill="#0b2447" stroke="#38bdf8" stroke-width="1" />
+      <text x="10" y="18" fill="#38bdf8" font-family="monospace" font-size="8.5" font-weight="bold">JOINT FILLER CHEMISTRY</text>
+      <text x="10" y="32" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold">Semi-Rigid Epoxy</text>
+      <text x="10" y="44" fill="#94a3b8" font-family="monospace" font-size="8">Shore D 80 • 100% Solids</text>
+      <line x1="0" y1="25" x2="-30" y2="100" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="2,2" />
+      <circle cx="-30" cy="100" r="3" fill="#38bdf8" />
+    </g>
+  </g>
+
+  <!-- Right Technical Spec Panel -->
+  <g transform="translate(545, 110)">
+    <!-- Panel Box -->
+    <rect x="0" y="0" width="220" height="320" rx="8" fill="#091e3d" stroke="#1e4976" stroke-width="1.5" />
+    <path d="M 0 0 L 220 0 L 220 35 L 0 35 Z" fill="#0f2e5a" />
+    <text x="15" y="22" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">JOINT INTEGRITY</text>
+
+    <!-- Spec 1: Shore Hardness -->
+    <g transform="translate(15, 50)">
+      <text x="0" y="12" fill="#94a3b8" font-family="monospace" font-size="9">HARDNESS RATING</text>
+      <text x="0" y="28" fill="#10b981" font-family="monospace" font-size="14" font-weight="bold">Shore D 80 – 85</text>
+      <text x="0" y="42" fill="#38bdf8" font-family="monospace" font-size="9">Semi-Rigid Load Bearing</text>
+      <line x1="0" y1="48" x2="190" y2="48" stroke="#1e3a5f" stroke-width="1" />
+    </g>
+
+    <!-- Spec 2: Wheel Support -->
+    <g transform="translate(15, 110)">
+      <text x="0" y="12" fill="#94a3b8" font-family="monospace" font-size="9">WHEEL IMPACT RESISTANCE</text>
+      <text x="0" y="28" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold">Heavy Solid Rubber/Steel</text>
+      <text x="0" y="42" fill="#94a3b8" font-family="sans-serif" font-size="9.5">Prevents Shoulder Spalling</text>
+      <line x1="0" y1="48" x2="190" y2="48" stroke="#1e3a5f" stroke-width="1" />
+    </g>
+
+    <!-- Engineering Note Box -->
+    <g transform="translate(15, 175)">
+      <rect x="0" y="0" width="190" height="125" rx="5" fill="#04142a" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2" />
+      <circle cx="15" cy="18" r="4" fill="#10b981" />
+      <text x="25" y="22" fill="#10b981" font-family="monospace" font-size="9.5" font-weight="bold">WHY IT MATTERS</text>
+      <text x="12" y="42" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• Unfilled joints chip under loads</text>
+      <text x="12" y="58" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• High-build filler absorbs shock</text>
+      <text x="12" y="74" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• Flush razor shaving finish</text>
+      <text x="12" y="90" fill="#e2e8f0" font-family="sans-serif" font-size="9" font-weight="500">• Eliminates floor trip hazards</text>
+    </g>
+  </g>
+
+  <!-- Bottom Technical Footer Bar -->
+  <g transform="translate(60, 445)">
+    <text x="0" y="15" fill="#64748b" font-family="monospace" font-size="9">VCHEMICS JOINT RESTORATION STANDARD • ACI 302.1R FLOOR REPAIR</text>
+    <text x="680" y="15" fill="#38bdf8" font-family="monospace" font-size="9" text-anchor="end">DWG REF: VC-IF-02</text>
+  </g>
+</svg>

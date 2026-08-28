@@ -1,10 +1,11 @@
-# V Chemics Elevate
+# VChemics Elevate
 
-Build a complete, modern, production-ready website for a construction chemicals 
-company called "V Chemics India Solutions." This replaces their outdated old 
+Build a complete, modern, production-ready website for a construction chemicals
+company called "VChemics India Solutions." This replaces their outdated old
 site — I want a premium, industrial-tech design, not a generic template.
 
 === TECH STACK ===
+
 - React + Tailwind CSS (or plain HTML/CSS/JS if React isn't supported)
 - Fully responsive (mobile, tablet, desktop)
 - Smooth scroll animations (fade-in/slide-up on scroll using Intersection Observer or Framer Motion)
@@ -13,21 +14,24 @@ site — I want a premium, industrial-tech design, not a generic template.
 - Single-page or multi-page (Home, About, Products, Services, Contact) — default to multi-page
 
 === BRAND & DESIGN SYSTEM ===
-Company: V Chemics India Solutions — manufacturer/supplier of construction chemicals
+Company: VChemics India Solutions — manufacturer/supplier of construction chemicals
 Industry: Construction materials, concrete admixtures, waterproofing, grouts
 Aesthetic reference: Sika, BASF Construction Chemicals, Autodesk — bold industrial B2B, not flashy or cartoonish
 
 Color Palette:
+
 - Primary background: Charcoal/graphite (#1A1D21 or similar dark) and concrete grey (#F2F1EF light sections)
 - Accent color: Safety orange (#FF5A1F) or steel blue (#0072CE) for CTAs, icons, highlights
 - Text: White/light grey on dark sections, dark charcoal on light sections
 
 Typography:
+
 - Headings: Bold sans-serif (Space Grotesk, Poppins, or Inter — heavy weight)
 - Body: Inter or Roboto, clean and readable
 - Large, confident hero headline sizing (48-64px desktop)
 
 Visual style:
+
 - Angled/diagonal section dividers instead of plain straight lines
 - Subtle blueprint/grid texture overlays on dark sections
 - Icon-driven cards (use construction/chemistry-related icons — lucide-react or similar)
@@ -48,12 +52,12 @@ Two CTA buttons: "Get In Touch" (solid accent) and "Explore Products" (outline)
 === ABOUT / INTRO SECTION ===
 Heading: "Engineering Stronger, Longer-Lasting Construction"
 Body copy (rewrite in modern punchy tone, don't copy verbatim):
-Our construction material solutions help meet rigorous design and construction 
-challenges. Concrete admixtures are essential to high-performance, long-lasting, 
-durable, and beautiful concrete. V Chemics offers a wide range of admixtures with 
-innovative mix design options that reduce water content while achieving strong 
-early strength. We also provide a full range of cementitious grouts, epoxy grouts, 
-PMMA grouts, and polyurethane grouts — trusted in the market for their technical 
+Our construction material solutions help meet rigorous design and construction
+challenges. Concrete admixtures are essential to high-performance, long-lasting,
+durable, and beautiful concrete. VChemics offers a wide range of admixtures with
+innovative mix design options that reduce water content while achieving strong
+early strength. We also provide a full range of cementitious grouts, epoxy grouts,
+PMMA grouts, and polyurethane grouts — trusted in the market for their technical
 performance, durability, and waterproofing ability.
 
 Sub-heading: "We specialize in Construction Chemicals including:"
@@ -71,6 +75,7 @@ Sub-heading: "We specialize in Construction Chemicals including:"
 === PRODUCTS SECTION ===
 Heading: "Explore Our Products"
 Grid of 4 product cards (image + title + short description + "Learn More" link):
+
 1. Concrete Admixtures
 2. Non-shrink Grouts
 3. Waterproofing Solutions
@@ -78,7 +83,7 @@ Grid of 4 product cards (image + title + short description + "Learn More" link):
 
 Below grid, add sub-section:
 "Our concrete admixtures are recommended for:"
-Icon list (5 items): Pumped Concrete, High Fluidity Concrete, High Strength Concrete, 
+Icon list (5 items): Pumped Concrete, High Fluidity Concrete, High Strength Concrete,
 Ready-Mixed Concrete, Long Distance Transport Concrete
 
 === CTA BANNER (full-width, accent background) ===
@@ -87,7 +92,7 @@ Button: "Get In Touch"
 
 === INDUSTRIES WE SERVE SECTION ===
 Heading: "Industries We Serve"
-8-item icon grid: Concrete, Civil Engineering, Industrial Manufacturing, Flooring, 
+8-item icon grid: Concrete, Civil Engineering, Industrial Manufacturing, Flooring,
 Restoration and Renovation, Mining and Tunneling, Power and Energy, Building and Construction
 
 === TESTIMONIALS SECTION ===
@@ -98,7 +103,8 @@ Use placeholder testimonials I can replace later
 === CONTACT SECTION ===
 Heading: "Get In Touch"
 Left side: Contact form (Name, Email, Phone, Message, Submit button)
-Right side: 
+Right side:
+
 - Address: Omsakthi Street, Kumaran Nagar Extn-I, Padi, Chennai - 600050
 - Phone: +91 99423-54602
 - Email: vchemics.info@gmail.com
@@ -109,10 +115,11 @@ Column 1: Logo + short tagline + social icons (LinkedIn, Instagram, Facebook pla
 Column 2: Quick Links — Home, About Us, Products, Services, Contact
 Column 3: Products — link list
 Column 4: Contact info (address, phone, email)
-Bottom bar: "© 2026 V Chemics India Solutions. All Rights Reserved." | Terms & Conditions link
+Bottom bar: "© 2026 VChemics India Solutions. All Rights Reserved." | Terms & Conditions link
 
 === ADDITIONAL REQUIREMENTS ===
-- Use placeholder images from a free stock source (Unsplash construction/concrete images) 
+
+- Use placeholder images from a free stock source (Unsplash construction/concrete images)
   with proper alt text — I'll replace with real photos later
 - All buttons and links should have hover states
 - Form should have basic client-side validation

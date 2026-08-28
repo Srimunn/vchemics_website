@@ -16,8 +16,18 @@ export function Reveal({
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
+    // Immediately show if IntersectionObserver is unavailable
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setShown(true);
+      return;
+    }
+
     const el = ref.current;
-    if (!el) return;
+    if (!el) {
+      setShown(true);
+      return;
+    }
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -27,10 +37,19 @@ export function Reveal({
           }
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+      { threshold: 0.01, rootMargin: "120px 0px 120px 0px" },
     );
     io.observe(el);
-    return () => io.disconnect();
+
+    // Guaranteed fallback: reveal content after 150ms regardless of observer
+    const fallback = setTimeout(() => {
+      setShown(true);
+    }, 150);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(fallback);
+    };
   }, []);
 
   const Comp = Tag as "div";
@@ -39,7 +58,11 @@ export function Reveal({
     <Comp
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn("reveal", shown && "reveal-in", className)}
+      className={cn(
+        "transition-all duration-500 ease-out",
+        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3",
+        className,
+      )}
     >
       {children}
     </Comp>
