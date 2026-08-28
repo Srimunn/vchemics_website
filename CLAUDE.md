@@ -15,20 +15,20 @@ The site is connected to **Lovable** (lovable.dev) — a visual web editor that 
 
 ## 2. Tech Stack
 
-| Layer           | Technology                                                                                         |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| Framework       | **TanStack Start** (SSR React meta-framework) v1.168                                               |
-| Router          | **TanStack Router** v1.170 — file-based, type-safe                                                 |
-| Styling         | **Tailwind CSS v4** (`@import "tailwindcss"`) + custom design tokens                               |
-| UI Primitives   | **shadcn/ui** (Radix UI under the hood) — located in `src/components/ui/`                          |
-| Icons           | **lucide-react**                                                                                   |
-| Build tool      | **Vite** v8 via `@lovable.dev/vite-tanstack-config`                                                |
-| Package manager | **Bun** (use `bun install`, `bun run dev`)                                                         |
-| Server target   | Cloudflare (Nitro adapter — do not change)                                                         |
-| Data fetching   | **TanStack Query** v5                                                                              |
-| Forms           | **react-hook-form** + **zod** + **@hookform/resolvers**                                            |
-| Animations      | `tw-animate-css` + custom CSS utilities                                                            |
-| Fonts           | **Space Grotesk** (headings/display) · **Inter** (body) — loaded from Google Fonts in `__root.tsx` |
+| Layer           | Technology                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| Framework       | **TanStack Start** (SSR React meta-framework) v1.168                                                    |
+| Router          | **TanStack Router** v1.170 — file-based, type-safe                                                      |
+| Styling         | **Tailwind CSS v4** (`@import "tailwindcss"`) + custom design tokens                                    |
+| UI Primitives   | **shadcn/ui** (Radix UI under the hood) — located in `src/components/ui/`                               |
+| Icons           | **lucide-react**                                                                                        |
+| Build tool      | **Vite** v8 via `@lovable.dev/vite-tanstack-config`                                                     |
+| Package manager | **Bun** (use `bun install`, `bun run dev`)                                                              |
+| Server target   | Node.js server (Nitro node-server preset), hosted on Railway — do not change without updating this doc. |
+| Data fetching   | **TanStack Query** v5                                                                                   |
+| Forms           | **react-hook-form** + **zod** + **@hookform/resolvers**                                                 |
+| Animations      | `tw-animate-css` + custom CSS utilities                                                                 |
+| Fonts           | **Space Grotesk** (headings/display) · **Inter** (body) — loaded from Google Fonts in `__root.tsx`      |
 
 ---
 
