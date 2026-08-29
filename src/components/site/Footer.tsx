@@ -12,21 +12,21 @@ export function Footer() {
 
       <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
         {/* Main 4-Column Structured Footer Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 pb-14 border-b border-white/10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 pb-14 border-b border-white/10 items-start">
           {/* Col 1: Brand & Overview (4 cols) */}
-          <div className="lg:col-span-4 space-y-6 pr-0 lg:pr-4">
+          <div className="lg:col-span-4 space-y-5 pr-0 lg:pr-6">
             <Link
               to="/"
-              className="inline-block transition-transform duration-300 hover:scale-[1.02]"
+              className="block w-full max-w-sm transition-transform duration-300 hover:scale-[1.02]"
               aria-label="Vchemics India Solutions — home"
             >
-              <div className="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 sm:px-5 sm:py-2.5 shadow-md shadow-black/20 border border-white/40">
+              <div className="flex w-full items-center justify-center rounded-2xl bg-white px-6 py-3.5 sm:py-4 shadow-md shadow-black/20 border border-white/40">
                 <img
                   src="/image.png"
                   alt="Vchemics India Solutions Logo"
-                  className="h-8 sm:h-9 w-auto max-w-[210px] object-contain"
-                  width={210}
-                  height={36}
+                  className="h-12 sm:h-14 w-auto max-w-[280px] object-contain"
+                  width={280}
+                  height={56}
                 />
               </div>
             </Link>
@@ -140,6 +140,19 @@ export function Footer() {
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
                   <span className="leading-relaxed">
                     302/B9, Indian Nagar, 3rd Street, 46 Pudhur, Modakurichi, Erode - 638002
+                  </span>
+                </a>
+              </li>
+              <li className="pt-1">
+                <a
+                  href="https://maps.google.com/?q=RSF+No.+121/16+Murugar+Kovil+Boganapalli+Krishnagiri+635001+Tamil+Nadu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 transition-colors hover:text-white group"
+                >
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" />
+                  <span className="leading-relaxed">
+                    RSF No.: 121/16, Murugar Kovil, Boganapalli, Krishnagiri - 635001
                   </span>
                 </a>
               </li>

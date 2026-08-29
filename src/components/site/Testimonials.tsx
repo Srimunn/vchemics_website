@@ -100,28 +100,28 @@ export function Testimonials() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Left Arrow Button */}
+          {/* Desktop Left Arrow Button */}
           <button
             type="button"
             onClick={prevSlide}
             aria-label="Previous Review"
-            className="absolute -left-5 sm:-left-9 lg:-left-10 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-brand-blue hover:bg-brand-blue hover:text-white cursor-pointer"
+            className="hidden sm:grid absolute -left-6 sm:-left-8 lg:-left-10 top-1/2 -translate-y-1/2 z-20 h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-brand-blue hover:bg-brand-blue hover:text-white cursor-pointer"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
 
-          {/* Right Arrow Button */}
+          {/* Desktop Right Arrow Button */}
           <button
             type="button"
             onClick={nextSlide}
             aria-label="Next Review"
-            className="absolute -right-5 sm:-right-9 lg:-right-10 top-1/2 -translate-y-1/2 z-20 grid h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-brand-blue hover:bg-brand-blue hover:text-white cursor-pointer"
+            className="hidden sm:grid absolute -right-6 sm:-right-8 lg:-right-10 top-1/2 -translate-y-1/2 z-20 h-12 w-12 sm:h-14 sm:w-14 place-items-center rounded-2xl border border-border/80 bg-card text-foreground shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-brand-blue hover:bg-brand-blue hover:text-white cursor-pointer"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
 
           {/* Sliding Cards Track */}
-          <div className="overflow-hidden px-2 sm:px-4 py-4">
+          <div className="overflow-hidden px-1 sm:px-4 py-2 sm:py-4">
             <div
               className="flex transition-transform duration-700 ease-out gap-6"
               style={{
@@ -131,7 +131,7 @@ export function Testimonials() {
               {[...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
                 <div
                   key={`${t.name}-${idx}`}
-                  className="w-full sm:w-[370px] lg:w-[390px] shrink-0 flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/40 hover:shadow-xl relative group"
+                  className="w-full sm:w-[370px] lg:w-[390px] shrink-0 flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/40 hover:shadow-xl relative group"
                 >
                   {/* Top Accent Gradient Line */}
                   <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -189,6 +189,31 @@ export function Testimonials() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Mobile Bottom Navigation Controls */}
+          <div className="flex sm:hidden items-center justify-center gap-4 mt-6">
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous Review"
+              className="grid h-10 w-10 place-items-center rounded-xl border border-border/80 bg-card text-foreground shadow-sm active:scale-95 transition-transform cursor-pointer"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <div className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground font-bold">
+              <span className="text-brand-green">0{currentIndex + 1}</span>
+              <span>/</span>
+              <span>0{total}</span>
+            </div>
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next Review"
+              className="grid h-10 w-10 place-items-center rounded-xl border border-border/80 bg-card text-foreground shadow-sm active:scale-95 transition-transform cursor-pointer"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
           </div>
         </div>
       </div>

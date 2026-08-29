@@ -37,9 +37,10 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, allSolutions, allLocations, stats } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Construction Chemicals & Waterproofing in Chennai | Vchemics";
+const title =
+  "Construction Chemical Distributors & Services, Tamil Nadu – Chennai, Coimbatore, Erode & Krishnagiri | Vchemics";
 const description =
-  "Leading manufacturer of concrete admixtures, crystalline waterproofing, PU grouts, non-shrink grouts & micro concrete in Chennai. Same-day site dispatch in TN.";
+  "Leading construction chemical distributor & manufacturer of concrete admixtures, crystalline waterproofing, PU grouts, non-shrink grouts & micro concrete across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch in TN.";
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "concrete-admixtures": FlaskConical,
@@ -54,12 +55,12 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
 
 const faqs = [
   {
-    q: "What construction chemicals does Vchemics manufacture in Chennai?",
-    a: "Vchemics manufactures PCE superplasticiser concrete admixtures, crystalline waterproofing chemicals, hydro-active PU injection resins, ASTM C1107 non-shrink grouts, polymer repair mortars, micro concrete, 3-part epoxy grouts, and protective PU/epoxy coatings.",
+    q: "What construction chemicals does Vchemics manufacture and distribute in Tamil Nadu?",
+    a: "Vchemics manufactures and distributes PCE superplasticiser concrete admixtures, crystalline waterproofing chemicals, hydro-active PU injection resins, ASTM C1107 non-shrink grouts, polymer repair mortars, micro concrete, 3-part epoxy grouts, and protective PU/epoxy coatings across Chennai, Coimbatore, Erode, and Krishnagiri.",
   },
   {
     q: "How quickly can Vchemics deliver materials to sites in Tamil Nadu?",
-    a: "We provide same-day dispatch (4-8 hours) within Chennai Metro, and guaranteed 24-hour direct delivery across Coimbatore, Erode, and neighbouring districts from our regional warehouses.",
+    a: "We provide same-day dispatch (4-8 hours) within Chennai Metro, and guaranteed 24-hour direct delivery across Coimbatore, Erode, Krishnagiri, and neighbouring districts from our regional warehouses.",
   },
   {
     q: "Does Vchemics provide on-site concrete mix trial batches?",
@@ -113,7 +114,7 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "construction chemicals Chennai, waterproofing solutions Chennai, concrete admixture supplier Chennai, PU injection grouting Chennai, non shrink grout Chennai, micro concrete Chennai",
+          "construction chemical distributors Tamil Nadu, construction chemicals Chennai, waterproofing chemicals Coimbatore, concrete admixtures Erode, Krishnagiri construction chemicals, PU injection grouting, non shrink grout, micro concrete",
       },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
@@ -167,7 +168,7 @@ function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-brand-blue/40 transition-all duration-300 hover:scale-105"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl btn-brand-gradient px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-brand-blue/40 transition-all duration-300 hover:scale-105"
               >
                 <span>Get Instant Quote</span>
                 <ArrowRight className="h-4 w-4" />
@@ -175,7 +176,7 @@ function Home() {
 
               <a
                 href="tel:+919942354602"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
               >
                 <Phone className="h-4 w-4 text-brand-green" />
                 <span className="font-phone">+91 99423-54602</span>
@@ -775,8 +776,8 @@ function Home() {
                     ) : (
                       /* COLLAPSED STATE (PERFECTLY CENTERED VERTICAL TITLE WITH NO OVERLAP) */
                       <div className="flex flex-col justify-between flex-1 py-4 items-center">
-                        <div className="my-auto flex items-center justify-center">
-                          <h3 className="lg:[writing-mode:vertical-rl] lg:rotate-180 font-display text-sm lg:text-base font-bold text-white tracking-wide whitespace-nowrap">
+                        <div className="my-auto flex items-center justify-center px-2">
+                          <h3 className="lg:[writing-mode:vertical-rl] lg:rotate-180 font-display text-sm lg:text-base font-bold text-white tracking-wide text-center max-w-full break-words lg:whitespace-nowrap">
                             {sol.title}
                           </h3>
                         </div>

@@ -34,12 +34,12 @@ function PrivacyPage() {
         intro="How Vchemics India Solutions collects, uses, and safeguards your technical inquiries, project requirements, and personal information."
       />
 
-      <div className="bg-background py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="space-y-10">
+      <div className="bg-background py-12 lg:py-20">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mx-auto max-w-4xl space-y-8 sm:space-y-10">
             {/* Overview Card */}
             <Reveal>
-              <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-sm space-y-6">
+              <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-8 lg:p-10 shadow-sm space-y-6">
                 <div className="flex items-center gap-3 text-brand-green">
                   <ShieldCheck className="h-6 w-6" />
                   <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
@@ -79,7 +79,7 @@ function PrivacyPage() {
 
             {/* How We Protect Data */}
             <Reveal delay={50}>
-              <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-sm space-y-6">
+              <div className="rounded-3xl border border-border/80 bg-card p-5 sm:p-8 lg:p-10 shadow-sm space-y-6">
                 <div className="flex items-center gap-3 text-brand-blue">
                   <Lock className="h-6 w-6" />
                   <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
@@ -119,7 +119,7 @@ function PrivacyPage() {
 
             {/* Contact for Privacy Questions */}
             <Reveal delay={100}>
-              <div className="rounded-3xl border-2 border-brand-green/30 bg-gradient-to-br from-card via-card to-brand-green/5 p-6 sm:p-10 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="rounded-3xl border-2 border-brand-green/30 bg-gradient-to-br from-card via-card to-brand-green/5 p-5 sm:p-8 lg:p-10 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <div>
                   <h2 className="font-display text-xl font-bold text-foreground">
                     Have Questions About Your Data?
@@ -131,7 +131,7 @@ function PrivacyPage() {
                 </div>
                 <a
                   href="mailto:vchemics1989@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-xl bg-brand-blue px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-brand-blue/90 shrink-0 shadow-sm"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition-all hover:bg-brand-blue/90 shrink-0 shadow-sm"
                 >
                   <Mail className="h-4 w-4" />
                   <span>Email Privacy Officer</span>

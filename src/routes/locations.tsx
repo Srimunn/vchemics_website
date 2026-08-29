@@ -19,9 +19,9 @@ import { SectionHeading } from "@/components/site/ui";
 import { allLocations, type LocationItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Locations in Chennai, Coimbatore & Erode | Vchemics";
+const title = "Locations in Chennai, Coimbatore, Erode & Krishnagiri | Vchemics";
 const description =
-  "Locate Vchemics regional supply hubs across Tamil Nadu: Chennai Plant & HQ, Coimbatore Hub, and Erode Depot. Same-day and 24-hour direct site delivery.";
+  "Locate Vchemics regional supply hubs across Tamil Nadu: Chennai Plant & HQ, Coimbatore Hub, Erode Depot, and Krishnagiri Regional Office. Same-day and 24-hour direct site delivery.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/locations")({
       {
         name: "keywords",
         content:
-          "construction chemicals Tamil Nadu, construction chemical supplier Chennai, Coimbatore waterproofing chemicals, Erode construction chemicals",
+          "construction chemicals Tamil Nadu, construction chemical supplier Chennai, Coimbatore waterproofing chemicals, Erode construction chemicals, Krishnagiri construction chemicals",
       },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
@@ -71,7 +71,7 @@ function LocationsPage() {
       <PageHero
         eyebrow="Regional Network"
         title="Supply Hubs & Engineering Centers Across South India"
-        intro="With strategically positioned manufacturing plants, regional distribution warehouses, and local technical specialists in Chennai, Coimbatore, and Erode — we ensure rapid direct-to-site supply."
+        intro="With strategically positioned manufacturing plants, regional distribution warehouses, and local technical specialists in Chennai, Coimbatore, Erode, and Krishnagiri — we ensure rapid direct-to-site supply."
       />
 
       {/* 2. INTERACTIVE LOCATION SWITCHER */}
@@ -276,7 +276,7 @@ function LocationsPage() {
             />
           </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {allLocations.map((loc, idx) => (
               <Reveal key={loc.id} delay={idx * 60}>
                 <div className="group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-xs transition-all duration-500 hover:-translate-y-1.5 hover:border-brand-blue/40 hover:shadow-xl">

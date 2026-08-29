@@ -19,9 +19,9 @@ import { PageHero } from "@/components/site/PageHero";
 import { allLocations } from "@/components/site/data";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 
-const title = "Contact Us & Get Technical Quotes | Vchemics Chennai";
+const title = "Contact Us & Get Technical Quotes | Vchemics Tamil Nadu";
 const description =
-  "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from Vchemics in Chennai.";
+  "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from Vchemics across Chennai, Coimbatore, Erode & Krishnagiri.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -31,7 +31,7 @@ export const Route = createFileRoute("/contact")({
       {
         name: "keywords",
         content:
-          "contact Vchemics, construction chemicals quote Chennai, buy concrete admixtures Chennai, PU injection grouting supplier, micro concrete Chennai price",
+          "contact Vchemics, construction chemicals quote Chennai, buy concrete admixtures Coimbatore, PU injection grouting supplier Erode, Krishnagiri construction chemicals price, micro concrete Tamil Nadu",
       },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
@@ -135,7 +135,7 @@ function ContactPage() {
                     {
                       Icon: Truck,
                       label: "Tamil Nadu Regional Dispatch",
-                      value: "Chennai, Coimbatore, Erode",
+                      value: "Chennai, Coimbatore, Erode, Krishnagiri",
                       sub: "Same-Day / 24h Direct Site Delivery",
                       href: "/locations",
                     },

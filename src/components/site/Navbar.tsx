@@ -48,7 +48,7 @@ export function Navbar() {
     >
       <nav
         className={cn(
-          "mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out",
+          "mx-auto flex max-w-7xl items-center justify-between px-5 lg:px-8 transition-all duration-300 ease-in-out",
           scrolled ? "h-14 sm:h-16" : "h-20 sm:h-24",
         )}
       >

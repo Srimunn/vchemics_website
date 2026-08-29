@@ -267,7 +267,7 @@ function ProductDetailPage() {
         <div className="absolute inset-0 bg-radial-at-t from-brand-blue/30 via-transparent to-transparent pointer-events-none" />
         <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl pointer-events-none" />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           {/* Navigation Row: Back Link + Breadcrumbs */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
             {/* Standalone Back Link */}
@@ -275,7 +275,7 @@ function ProductDetailPage() {
               to="/products"
               className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand-green hover:text-white transition-colors"
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3.5 w-3.5 shrink-0" />
               <span>Back to Products</span>
             </Link>
 
@@ -287,14 +287,14 @@ function ProductDetailPage() {
               <Link to="/" className="hover:text-white transition-colors">
                 Home
               </Link>
-              <ChevronRight className="h-3 w-3 text-white/40" />
+              <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
               <Link to="/products" className="hover:text-white transition-colors">
                 Products
               </Link>
-              <ChevronRight className="h-3 w-3 text-white/40" />
+              <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
               <span className="text-white/60">{product.category}</span>
-              <ChevronRight className="h-3 w-3 text-white/40" />
-              <span className="text-brand-green font-semibold truncate max-w-[200px] sm:max-w-none">
+              <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
+              <span className="text-brand-green font-semibold truncate max-w-[180px] sm:max-w-none">
                 {product.title}
               </span>
             </nav>
@@ -310,7 +310,7 @@ function ProductDetailPage() {
               </div>
 
               {/* Product Title H1 */}
-              <h1 className="mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                 {product.title}
               </h1>
 
@@ -332,7 +332,7 @@ function ProductDetailPage() {
               <div className="mt-6 flex flex-wrap items-center gap-3.5">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl btn-brand-gradient px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105"
                 >
                   <FileText className="h-4 w-4" />
                   <span>Request TDS / Trial Batch</span>
@@ -340,7 +340,7 @@ function ProductDetailPage() {
 
                 <a
                   href="tel:+919942354602"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
                 >
                   <Phone className="h-4 w-4 text-brand-green" />
                   <span>Call Technical Sales</span>
@@ -380,7 +380,7 @@ function ProductDetailPage() {
 
       {/* 2. DEEP SPECIFICATIONS & PERFORMANCE METRICS */}
       <section className="py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12">
           {/* Overview Grids */}
           <div className="grid lg:grid-cols-12 gap-8">
             {/* Left Column: Problem Solved & Key Features (7 cols) */}
@@ -462,7 +462,7 @@ function ProductDetailPage() {
                 </h3>
 
                 <div className="divide-y divide-border/60 text-xs">
-                  <div className="py-2.5 flex items-center justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
                     <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
                       Standard
                     </span>
@@ -471,7 +471,7 @@ function ProductDetailPage() {
                     </span>
                   </div>
 
-                  <div className="py-2.5 flex items-center justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
                     <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
                       Dosage / Rate
                     </span>
@@ -480,21 +480,26 @@ function ProductDetailPage() {
                     </span>
                   </div>
 
-                  <div className="py-2.5 flex items-center justify-between">
+                  <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
                     <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
                       Packaging
                     </span>
-                    <span className="font-semibold text-foreground text-right max-w-[200px] truncate">
+                    <span className="font-semibold text-foreground text-right max-w-full sm:max-w-[200px] truncate">
                       {ext.packaging}
                     </span>
                   </div>
 
                   {product.specs?.map((spec) => (
-                    <div key={spec.label} className="py-2.5 flex items-center justify-between">
+                    <div
+                      key={spec.label}
+                      className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap"
+                    >
                       <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
                         {spec.label}
                       </span>
-                      <span className="font-semibold text-foreground font-mono">{spec.value}</span>
+                      <span className="font-semibold text-foreground font-mono text-right">
+                        {spec.value}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -540,7 +545,7 @@ function ProductDetailPage() {
       {/* 3. RELATED FORMULATIONS FROM FOSROC (AUTHORIZED DEALER STOCK) */}
       {relatedFormulations.length > 0 && (
         <section className="py-14 lg:py-20 border-t border-border/80 bg-muted/20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
             <Reveal>
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
                 <div>
@@ -641,7 +646,7 @@ function ProductDetailPage() {
       {/* 5. RELATED TECHNICAL ARTICLES */}
       {relatedArticles.length > 0 && (
         <section className="py-14 lg:py-20 border-t border-border/80 bg-muted/20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
               <div>
                 <p className="eyebrow flex items-center gap-2 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">
@@ -727,7 +732,7 @@ function ProductDetailPage() {
 
       {/* 6. DOWNLOAD / TDS ENQUIRY CARD */}
       <section className="py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-brand-blue/30 bg-linear-to-br from-brand-blue/10 via-card to-brand-green/10 p-6 sm:p-10 shadow-lg">
             <div className="grid lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-8 space-y-3">
@@ -771,8 +776,8 @@ function ProductDetailPage() {
         </div>
       </section>
 
-      {/* Bottom Back to Catalog Link */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4">
+      {/* 7. BOTTOM STICKY/ACCORDION MOBILE ACTION DOCK (OPTIONAL) */}
+      <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-4">
         <Link
           to="/products"
           className="inline-flex items-center gap-2 text-xs font-bold font-display uppercase tracking-wider text-brand-blue hover:text-brand-green transition-colors"

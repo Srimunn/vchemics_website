@@ -136,7 +136,7 @@ const localBusinessSchema = {
   logo: "https://vchemicsindia.com/image.png",
   image: "https://vchemicsindia.com/image.png",
   description:
-    "Leading manufacturer and supplier of concrete admixtures, crystalline waterproofing chemicals, PU injection grouting, non-shrink grouts, and micro concrete in Chennai and across Tamil Nadu.",
+    "Leading manufacturer and supplier of concrete admixtures, crystalline waterproofing chemicals, PU injection grouting, non-shrink grouts, and micro concrete in Chennai, Coimbatore, Erode, Krishnagiri, and across Tamil Nadu.",
   telephone: "+91-99423-54602",
   email: "vchemics1989@gmail.com",
   sameAs: [
@@ -163,7 +163,7 @@ const localBusinessSchema = {
     opens: "09:00",
     closes: "19:00",
   },
-  areaServed: ["Chennai", "Coimbatore", "Erode", "Tamil Nadu", "South India"],
+  areaServed: ["Chennai", "Coimbatore", "Erode", "Krishnagiri", "Tamil Nadu", "South India"],
   priceRange: "₹₹",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -192,12 +192,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "High-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & micro concrete manufacturer in Chennai. Same-day dispatch.",
+          "High-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & micro concrete manufacturer across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch.",
       },
       {
         name: "keywords",
         content:
-          "construction chemicals Chennai, waterproofing chemicals Chennai, concrete admixture supplier Chennai, PU injection grouting Chennai, non shrink grout Chennai, micro concrete Chennai",
+          "construction chemicals Chennai, waterproofing chemicals Coimbatore, concrete admixture supplier Erode, Krishnagiri construction chemicals, PU injection grouting Tamil Nadu, non shrink grout, micro concrete",
       },
       { name: "author", content: "Vchemics India Solutions" },
       { name: "robots", content: "index, follow" },

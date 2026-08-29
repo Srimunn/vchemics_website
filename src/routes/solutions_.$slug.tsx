@@ -152,7 +152,7 @@ function SolutionDetailPage() {
         <div className="absolute inset-0 bg-radial-at-t from-brand-blue/30 via-transparent to-transparent pointer-events-none" />
         <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-brand-green/10 blur-3xl pointer-events-none" />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           {/* Navigation Row: Back Link + Breadcrumbs */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
             {/* Standalone Back Link */}
@@ -160,7 +160,7 @@ function SolutionDetailPage() {
               to="/solutions"
               className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand-green hover:text-white transition-colors"
             >
-              <ArrowLeft className="h-3.5 w-3.5" />
+              <ArrowLeft className="h-3.5 w-3.5 shrink-0" />
               <span>Back to Solutions</span>
             </Link>
 
@@ -172,12 +172,12 @@ function SolutionDetailPage() {
               <Link to="/" className="hover:text-white transition-colors">
                 Home
               </Link>
-              <ChevronRight className="h-3 w-3 text-white/40" />
+              <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
               <Link to="/solutions" className="hover:text-white transition-colors">
                 Solutions
               </Link>
-              <ChevronRight className="h-3 w-3 text-white/40" />
-              <span className="text-brand-green font-semibold truncate max-w-[200px] sm:max-w-none">
+              <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
+              <span className="text-brand-green font-semibold truncate max-w-[180px] sm:max-w-none">
                 {solution.title}
               </span>
             </nav>
@@ -193,7 +193,7 @@ function SolutionDetailPage() {
               </div>
 
               {/* Solution Title H1 */}
-              <h1 className="mt-4 font-display text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
                 {solution.title}
               </h1>
 
@@ -216,7 +216,7 @@ function SolutionDetailPage() {
               <div className="mt-6 flex flex-wrap items-center gap-3.5">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl btn-brand-gradient px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105"
                 >
                   <FileText className="h-4 w-4" />
                   <span>Request Site Consultation</span>
@@ -224,7 +224,7 @@ function SolutionDetailPage() {
 
                 <a
                   href="tel:+919942354602"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
                 >
                   <Phone className="h-4 w-4 text-brand-green" />
                   <span>Call Technical Sales</span>
@@ -264,12 +264,12 @@ function SolutionDetailPage() {
 
       {/* 2. CHALLENGE VS SOLUTION STRATEGY & METHODOLOGY */}
       <section className="py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12">
           {/* Challenge & Solution Cards */}
           <Reveal>
             <div className="grid md:grid-cols-2 gap-6">
               {/* Challenge Card */}
-              <div className="rounded-2xl sm:rounded-3xl border border-amber-500/30 bg-amber-500/5 p-6 sm:p-8 space-y-3">
+              <div className="rounded-2xl sm:rounded-3xl border border-amber-500/30 bg-amber-500/5 p-5 sm:p-8 space-y-3">
                 <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
                   <span className="grid h-6 w-6 place-items-center rounded-lg bg-amber-500/20 text-xs">
                     ⚠
@@ -285,7 +285,7 @@ function SolutionDetailPage() {
               </div>
 
               {/* Solution Card */}
-              <div className="rounded-2xl sm:rounded-3xl border border-brand-blue/30 bg-brand-blue/5 p-6 sm:p-8 space-y-3">
+              <div className="rounded-2xl sm:rounded-3xl border border-brand-blue/30 bg-brand-blue/5 p-5 sm:p-8 space-y-3">
                 <div className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand-blue">
                   <span className="grid h-6 w-6 place-items-center rounded-lg bg-brand-blue/20 text-xs text-brand-blue">
                     ✓
@@ -385,7 +385,7 @@ function SolutionDetailPage() {
 
       {/* 3. HOW WE WORKED - SITE EXECUTION GALLERY */}
       <section className="bg-muted/15 py-16 sm:py-24 border-t border-b border-border/60">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12">
           {/* Section Header */}
           <Reveal>
             <div className="max-w-2xl">
@@ -511,8 +511,8 @@ function SolutionDetailPage() {
 
       {/* 4. BOTTOM ACTION & TECHNICAL ADVISORY CTA */}
       <section className="pt-14 sm:pt-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-border/80 bg-graphite-deep text-white p-8 sm:p-12 lg:p-14 relative overflow-hidden shadow-2xl">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="rounded-3xl border border-border/80 bg-graphite-deep text-white p-6 sm:p-12 lg:p-14 relative overflow-hidden shadow-2xl">
             <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-brand-green/10 blur-3xl pointer-events-none" />
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
               <div className="space-y-3 max-w-2xl">
@@ -529,17 +529,17 @@ function SolutionDetailPage() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-4 shrink-0">
+              <div className="flex flex-wrap items-center justify-center gap-4 shrink-0 w-full sm:w-auto">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-6 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:scale-105 transition-all"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl btn-brand-gradient px-6 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-xl hover:scale-105 transition-all"
                 >
                   <span>Request Site Audit</span>
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   to="/solutions"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
                 >
                   <span>All Solutions</span>
                 </Link>

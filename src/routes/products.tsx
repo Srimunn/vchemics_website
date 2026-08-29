@@ -104,7 +104,7 @@ function ProductsPage() {
 
       {/* 1. SLIM INTERACTIVE FILTER & SEARCH DOCK */}
       <section className="bg-muted/40 border-b border-border/80 py-3 sticky top-14 sm:top-16 z-30 backdrop-blur-md bg-white/95 transition-all duration-300">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="rounded-xl border border-border/80 bg-card p-2 sm:p-2.5 shadow-xs flex flex-col md:flex-row items-center justify-between gap-2.5">
             {/* Category Tabs */}
             <div className="flex flex-wrap items-center gap-1.5 w-full md:w-auto">
@@ -148,7 +148,7 @@ function ProductsPage() {
         <div className="absolute top-1/4 -left-48 h-96 w-96 rounded-full bg-brand-blue/5 blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 -right-48 h-96 w-96 rounded-full bg-brand-green/5 blur-3xl pointer-events-none" />
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Section Header */}
           <div className="pb-6">
             <p className="eyebrow flex items-center gap-2 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">

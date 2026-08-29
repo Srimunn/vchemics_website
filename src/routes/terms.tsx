@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import {
   ShieldCheck,
@@ -207,26 +208,17 @@ function TermsPage() {
 
   return (
     <>
-      <section className="blueprint clip-slant-b relative bg-graphite-deep pt-36 pb-24 sm:pt-44 sm:pb-32">
-        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-          <p className="eyebrow mb-4 flex items-center gap-3 text-primary">
-            <span className="h-px w-8 bg-primary" aria-hidden />
-            Terms &amp; Conditions
-          </p>
-          <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] text-on-dark sm:text-5xl lg:text-6xl">
-            Vchemics India Solutions
-          </h1>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-on-dark-muted sm:text-xl font-medium">
-            Emerging leader in specialized chemicals for construction companies
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Terms & Conditions"
+        title="Terms & Conditions of Service"
+        intro="Governing policies, product warranties, and operating terms for Vchemics India Solutions — specialist manufacturer of high-performance construction chemicals."
+      />
 
       <div className="bg-background py-12 lg:py-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           {/* Header Key Info Card */}
           <Reveal>
-            <div className="mb-12 rounded-2xl border border-border/80 bg-card p-6 shadow-sm sm:p-8 lg:p-10">
+            <div className="mb-12 rounded-2xl border border-border/80 bg-card p-5 sm:p-8 lg:p-10 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/60 pb-6">
                 <div>
                   <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
@@ -246,7 +238,7 @@ function TermsPage() {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-4 text-justify text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
+              <div className="mt-6 space-y-4 text-left text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
                 <p>
                   This website is operated by{" "}
                   <strong className="font-semibold text-foreground">
@@ -362,7 +354,7 @@ function TermsPage() {
                     <Reveal key={sec.id} delay={(idx % 3) * 30}>
                       <article
                         id={sec.id}
-                        className="scroll-mt-28 rounded-xl border border-border/80 bg-card p-6 shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-md sm:p-8"
+                        className="scroll-mt-28 rounded-xl border border-border/80 bg-card p-5 sm:p-8 shadow-sm transition-all duration-300 hover:border-primary/40 hover:shadow-md"
                       >
                         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border/50 pb-4">
                           <div className="flex items-center gap-3">
@@ -382,11 +374,11 @@ function TermsPage() {
                           </a>
                         </div>
 
-                        <h3 className="mt-4 font-display text-lg font-bold text-foreground sm:text-xl">
+                        <h3 className="mt-4 font-display text-lg font-bold text-foreground sm:text-xl break-words">
                           {sec.title}
                         </h3>
 
-                        <div className="mt-4 text-justify text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
+                        <div className="mt-4 text-left text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7 break-words">
                           {sec.id === "section-19" ? (
                             <p>
                               Questions about the Terms of Service should be sent to us at{" "}
@@ -394,7 +386,7 @@ function TermsPage() {
                                 href="https://mail.google.com/mail/?view=cm&fs=1&to=vchemics1989@gmail.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+                                className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80 transition-colors break-all"
                               >
                                 vchemics1989@gmail.com
                               </a>
@@ -405,7 +397,7 @@ function TermsPage() {
                               Products displayed on{" "}
                               <a
                                 href="/"
-                                className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+                                className="font-semibold text-primary underline underline-offset-4 hover:text-primary/80 transition-colors break-all"
                               >
                                 www.vchemicsindiasolutions.com
                               </a>
@@ -424,9 +416,9 @@ function TermsPage() {
               <Reveal>
                 <article
                   id="privacy-policy"
-                  className="scroll-mt-28 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 p-6 shadow-md sm:p-8 lg:p-10"
+                  className="scroll-mt-28 rounded-2xl border-2 border-primary/30 bg-gradient-to-br from-card via-card to-primary/5 p-5 sm:p-8 lg:p-10 shadow-md"
                 >
-                  <div className="flex items-start gap-4 sm:gap-5">
+                  <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-5">
                     <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary text-primary-foreground shadow-sm">
                       <ShieldCheck className="h-6 w-6" />
                     </div>
@@ -440,7 +432,7 @@ function TermsPage() {
                         </h2>
                       </div>
 
-                      <div className="space-y-4 text-justify text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
+                      <div className="space-y-4 text-left text-sm leading-relaxed text-muted-foreground sm:text-[15px] sm:leading-7">
                         <p>
                           This privacy policy has been compiled to better serve those who are
                           concerned with how their Personal information is being used online.
@@ -460,10 +452,10 @@ function TermsPage() {
                           href="https://mail.google.com/mail/?view=cm&fs=1&to=vchemics1989@gmail.com"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-display text-sm font-bold uppercase tracking-wider text-primary-foreground transition-all duration-200 hover:opacity-90"
+                          className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-primary-foreground transition-all duration-200 hover:opacity-90 max-w-full break-all"
                         >
-                          <Mail className="h-4 w-4" />
-                          Contact Privacy Team: vchemics1989@gmail.com
+                          <Mail className="h-4 w-4 shrink-0" />
+                          <span>Contact Privacy Team: vchemics1989@gmail.com</span>
                         </a>
                       </div>
                     </div>

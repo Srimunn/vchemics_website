@@ -957,6 +957,31 @@ export const allLocations: LocationItem[] = [
     ],
     mapQuery: "302/B9 Indian Nagar 3rd Street 46 Pudhur Modakurichi Erode 638002",
   },
+  {
+    id: "krishnagiri",
+    slug: "krishnagiri",
+    city: "Krishnagiri",
+    role: "Regional Office",
+    address: "RSF No.: 121/16, Murugar Kovil, Boganapalli, Krishnagiri - 635001, Tamil Nadu, India",
+    phone: "+91 99423-54602",
+    email: "vchemics1989@gmail.com",
+    dispatchTime: "Within 24 Hours Delivery",
+    coverageAreas: [
+      "Krishnagiri District",
+      "Hosur Industrial Belt",
+      "Dharmapuri",
+      "Bargur",
+      "Pochampalli",
+      "SIPCOT Industrial Complexes",
+    ],
+    keyHighlights: [
+      "Regional office and distribution point serving Northern Tamil Nadu and industrial corridors",
+      "Comprehensive inventory of construction chemicals, waterproofing systems, and grouts",
+      "Direct technical consultations and trial batches for infrastructure and industrial works",
+      "Fast 24-hour dispatch and delivery across Krishnagiri and neighboring industrial zones",
+    ],
+    mapQuery: "RSF No. 121/16 Murugar Kovil Boganapalli Krishnagiri 635001 Tamil Nadu",
+  },
 ];
 
 export interface ProjectItem {
@@ -1278,7 +1303,7 @@ export const industries = [
 export const stats = [
   { value: 15, suffix: "+", label: "Years Experience" },
   { value: 40, suffix: "+", label: "Chemical Formulations" },
-  { value: 3, suffix: " Hubs", label: "TN Regional Centers" },
+  { value: 4, suffix: " Hubs", label: "TN Regional Centers" },
   { value: 100, suffix: "%", label: "Tested & Certified" },
 ] as const;
 
