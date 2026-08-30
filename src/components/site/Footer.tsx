@@ -80,8 +80,8 @@ export function Footer() {
               {allProducts.map((p) => (
                 <li key={p.id}>
                   <Link
-                    to="/products"
-                    hash={p.id}
+                    to="/products/$slug"
+                    params={{ slug: p.id }}
                     className="transition-colors hover:text-brand-green inline-flex items-center gap-1.5"
                   >
                     <span className="text-white/30">•</span> {p.title}
@@ -100,8 +100,8 @@ export function Footer() {
               {allSolutions.map((s) => (
                 <li key={s.id}>
                   <Link
-                    to="/solutions"
-                    hash={s.id}
+                    to="/solutions/$slug"
+                    params={{ slug: s.id }}
                     className="transition-colors hover:text-brand-green inline-flex items-center gap-1.5"
                   >
                     <span className="text-white/30">•</span> {s.title}

@@ -115,21 +115,22 @@ Liquid-applied polyurethane (PU) membranes and elastomeric [protective coatings]
 
 ## 3. Substructure vs Superstructure Selection Matrix
 
-- **Below-Ground Foundations & Basements**: Raft foundations, retaining walls, and lift pits benefit most from crystalline [waterproofing chemicals](/products/waterproofing-chemicals) and slurry coatings, supplemented by [PU injection grouting](/products/pu-injection-grouting) for active water ingress.
-- **Podiums, Roof Decks & Terraces**: Continuous exposure to diurnal thermal expansion requires multi-coat aliphatic polyurethane membranes and [protective coatings](/products/protective-coatings) with reinforcing geotextile scrims.
+- **Below-Ground Foundations & Basements**: Raft foundations, retaining walls, and lift pits benefit most from engineered [basement waterproofing](/solutions/basement-waterproofing) systems, crystalline [waterproofing chemicals](/products/waterproofing-chemicals) and slurry coatings, supplemented by [PU injection grouting](/products/pu-injection-grouting) for active water ingress.
+- **Podiums, Roof Decks & Terraces**: Continuous exposure to diurnal thermal expansion requires [terrace waterproofing](/solutions/terrace-waterproofing) protocols with multi-coat aliphatic polyurethane membranes and [protective coatings](/products/protective-coatings) with reinforcing geotextile scrims.
 `,
     relatedProducts: [
       { name: "Waterproofing Chemicals", link: "/products/waterproofing-chemicals" },
       { name: "PU Injection Grouting", link: "/products/pu-injection-grouting" },
       { name: "Protective Coatings", link: "/products/protective-coatings" },
       { name: "Basement Waterproofing", link: "/solutions/basement-waterproofing" },
+      { name: "Terrace Waterproofing", link: "/solutions/terrace-waterproofing" },
     ],
   },
   "machine-foundation-epoxy-grouting-standards": {
     content: `
 ## 1. Dynamic Vibration & High-Frequency Shock Forces in Heavy Plinths
 
-Industrial machinery such as reciprocating compressors, stamping presses, ball mills, and turbines transmit continuous dynamic cyclic loads into foundation soleplates. Standard cementitious mortars suffer micro-fracturing and fatigue failure under sustained high-frequency shock, where precision [non-shrink grouts](/products/non-shrink-grout) and polymer matrices are vital.
+Industrial machinery such as reciprocating compressors, stamping presses, ball mills, and turbines transmit continuous dynamic cyclic loads into foundation soleplates and [heavy-duty industrial flooring plinths](/solutions/industrial-flooring). Standard cementitious mortars suffer micro-fracturing and fatigue failure under sustained high-frequency shock, where precision [non-shrink grouts](/products/non-shrink-grout) and polymer matrices are vital.
 
 ## 2. Effective Bearing Area (EBA >95%) and Zero-Shrinkage Physics
 
@@ -169,7 +170,7 @@ In severe active water bursts, a rapid-foaming single-component PU resin is firs
     content: `
 ## 1. Structural Section Enlargement & Jacketing Principles
 
-When existing RCC columns require higher axial load capacity or seismic retrofitting, structural encasement with high-performance [micro concrete](/products/micro-concrete) is the engineering gold standard. The existing substrate is scabbled to expose sound aggregate, dowel rebar is anchored with structural epoxy, and steel reinforcement cages are installed.
+When existing RCC columns require higher axial load capacity or seismic retrofitting, [structural rehabilitation and column encasement](/solutions/structural-rehabilitation) with high-performance [micro concrete](/products/micro-concrete) is the engineering gold standard. The existing substrate is scabbled to expose sound aggregate, dowel rebar is anchored with structural epoxy, and steel reinforcement cages are installed.
 
 ## 2. Self-Compacting Flow Properties Through Congested Rebar Cages
 

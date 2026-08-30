@@ -520,6 +520,76 @@ function SolutionsPage() {
           </div>
         </div>
       </section>
+
+      {/* 2. ALL 5 SOLUTION PROTOCOLS DIRECT INDEX */}
+      <section className="py-14 lg:py-20 border-t border-border/80 bg-muted/20">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
+            <div>
+              <p className="eyebrow flex items-center gap-2 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-brand-green" />
+                COMPLETE SOLUTION DIRECTORY
+              </p>
+              <h2 className="mt-1.5 font-display text-2xl sm:text-3xl font-bold text-foreground">
+                All 5 Engineered Solution Disciplines
+              </h2>
+              <p className="mt-1 text-xs sm:text-sm text-muted-foreground max-w-xl">
+                Explore dedicated execution methodologies, certified ASTM/IS layering standards, and photo case documentation.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {allSolutions.map((sol, idx) => {
+              const SolIcon = solutionIcons[sol.id as keyof typeof solutionIcons] || ShieldCheck;
+              return (
+                <Link
+                  key={sol.id}
+                  to="/solutions/$slug"
+                  params={{ slug: sol.id }}
+                  className="group flex flex-col justify-between rounded-3xl border border-border/80 bg-card p-6 shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:scale-110 transition-transform">
+                        <SolIcon className="h-6 w-6" />
+                      </div>
+                      <span className="font-mono text-xs font-bold text-brand-green bg-brand-green/10 px-2.5 py-1 rounded-full border border-brand-green/30">
+                        Protocol 0{idx + 1}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="font-display text-lg font-bold text-foreground group-hover:text-brand-blue transition-colors">
+                        {sol.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
+                        {sol.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="space-y-1.5 pt-2 border-t border-border/60">
+                      <span className="font-mono text-[0.65rem] font-bold text-brand-blue uppercase tracking-wider block">
+                        Target Applications:
+                      </span>
+                      <p className="text-xs text-foreground/80 line-clamp-2">
+                        {sol.applications.slice(0, 3).join(" • ")}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 mt-4 border-t border-border/60 flex items-center justify-between">
+                    <span className="font-display text-xs font-bold text-brand-blue group-hover:text-brand-green transition-colors">
+                      View Full Protocol &amp; Case Study
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

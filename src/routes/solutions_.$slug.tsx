@@ -509,7 +509,64 @@ function SolutionDetailPage() {
         </div>
       </section>
 
-      {/* 4. BOTTOM ACTION & TECHNICAL ADVISORY CTA */}
+      {/* 4. OTHER SOLUTION PROTOCOLS DIRECT CROSS-LINKS */}
+      <section className="pt-14 sm:pt-20">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
+            <div>
+              <p className="eyebrow flex items-center gap-2 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-brand-green" />
+                EXPLORE MORE DISCIPLINES
+              </p>
+              <h2 className="mt-1.5 font-display text-xl sm:text-2xl font-bold text-foreground">
+                Other Engineered Solution Protocols
+              </h2>
+            </div>
+            <Link
+              to="/solutions"
+              className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue hover:text-brand-green transition-colors"
+            >
+              <span>View All Protocols</span>
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {allSolutions
+              .filter((s) => s.id !== solution.id)
+              .map((otherSol) => {
+                const OtherIcon =
+                  solutionIcons[otherSol.id as keyof typeof solutionIcons] || ShieldCheck;
+                return (
+                  <Link
+                    key={otherSol.id}
+                    to="/solutions/$slug"
+                    params={{ slug: otherSol.id }}
+                    className="group flex flex-col justify-between rounded-2xl border border-border/80 bg-card p-5 shadow-xs hover:border-brand-blue/40 hover:shadow-lg transition-all duration-300"
+                  >
+                    <div className="space-y-2.5">
+                      <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:scale-105 transition-transform">
+                        <OtherIcon className="h-5 w-5" />
+                      </div>
+                      <p className="font-display text-sm font-bold text-foreground group-hover:text-brand-blue transition-colors line-clamp-1">
+                        {otherSol.title}
+                      </p>
+                      <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed font-sans">
+                        {otherSol.subtitle}
+                      </p>
+                    </div>
+                    <div className="pt-3 mt-3 border-t border-border/60 flex items-center justify-between text-xs font-bold text-brand-blue font-display uppercase tracking-wider">
+                      <span>View Protocol</span>
+                      <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. BOTTOM ACTION & TECHNICAL ADVISORY CTA */}
       <section className="pt-14 sm:pt-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="rounded-3xl border border-border/80 bg-graphite-deep text-white p-6 sm:p-12 lg:p-14 relative overflow-hidden shadow-2xl">

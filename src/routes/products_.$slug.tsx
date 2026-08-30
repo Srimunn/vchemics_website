@@ -78,6 +78,41 @@ const productMetaDescriptions: Record<string, string> = {
     "Pre-bagged flowable micro concrete for structural column jacketing, section enlargement, and dense rebar encasement with zero vibration and >60 MPa strength.",
 };
 
+const productSolutionsMap: Record<string, { id: string; title: string }> = {
+  "micro-concrete": {
+    id: "structural-rehabilitation",
+    title: "Structural Rehabilitation & Column Jacketing",
+  },
+  "concrete-repair": {
+    id: "concrete-repair",
+    title: "Concrete Repair & Restoration Protocol",
+  },
+  "waterproofing-chemicals": {
+    id: "basement-waterproofing",
+    title: "Deep-Pore Basement Waterproofing",
+  },
+  "pu-injection-grouting": {
+    id: "basement-waterproofing",
+    title: "Active Leak High-Pressure Injection",
+  },
+  "protective-coatings": {
+    id: "industrial-flooring",
+    title: "Industrial Flooring & Protective Coatings",
+  },
+  "epoxy-grouting": {
+    id: "industrial-flooring",
+    title: "Heavy Equipment Plinths & Industrial Flooring",
+  },
+  "non-shrink-grout": {
+    id: "industrial-flooring",
+    title: "Precision Equipment Bedding & Plinths",
+  },
+  "concrete-admixtures": {
+    id: "basement-waterproofing",
+    title: "Dense Impermeable Concrete Mixes",
+  },
+};
+
 export const Route = createFileRoute("/products_/$slug")({
   loader: ({ params }) => {
     const product = allProducts.find((p) => p.id === params.slug || p.slug === params.slug);
@@ -400,6 +435,21 @@ function ProductDetailPage() {
                   <strong className="text-foreground font-semibold">Substrate Suitability: </strong>
                   <span>{ext.substrateSuitability}</span>
                 </div>
+                {productSolutionsMap[product.id] && (
+                  <div className="pt-2 border-t border-brand-blue/15 text-xs text-muted-foreground flex items-center justify-between flex-wrap gap-2">
+                    <div>
+                      <strong className="text-foreground font-semibold">Related Solution Protocol: </strong>
+                      <Link
+                        to="/solutions/$slug"
+                        params={{ slug: productSolutionsMap[product.id].id }}
+                        className="text-brand-blue font-semibold hover:text-brand-green underline underline-offset-2 transition-colors inline-flex items-center gap-1"
+                      >
+                        <span>{productSolutionsMap[product.id].title}</span>
+                        <ArrowRight className="h-3 w-3" />
+                      </Link>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Key Features / Benefits Checklist */}
