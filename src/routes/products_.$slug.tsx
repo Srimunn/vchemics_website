@@ -404,10 +404,10 @@ function ProductDetailPage() {
 
               {/* Key Features / Benefits Checklist */}
               <div className="rounded-2xl border border-border/80 bg-card p-5 sm:p-6 shadow-xs space-y-4">
-                <h3 className="font-display text-lg font-bold text-foreground flex items-center gap-2">
+                <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-brand-green" />
                   <span>Key Performance Advantages</span>
-                </h3>
+                </h2>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {product.features.map((feat) => (
                     <div
@@ -459,9 +459,9 @@ function ProductDetailPage() {
             <div className="lg:col-span-5 space-y-6">
               {/* Technical Specifications Table */}
               <div className="rounded-2xl border border-border/80 bg-card p-5 sm:p-6 shadow-xs space-y-4">
-                <h3 className="font-display text-lg font-bold text-foreground">
+                <h2 className="font-display text-lg font-bold text-foreground">
                   Technical Specifications
-                </h3>
+                </h2>
 
                 <div className="divide-y divide-border/60 text-xs">
                   <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
@@ -509,9 +509,9 @@ function ProductDetailPage() {
 
               {/* Recommended Applications */}
               <div className="rounded-2xl border border-border/80 bg-card p-5 sm:p-6 shadow-xs space-y-3">
-                <h4 className="font-display text-sm font-bold uppercase tracking-wider text-brand-blue">
+                <h3 className="font-display text-sm font-bold uppercase tracking-wider text-brand-blue">
                   Typical Site Applications
-                </h4>
+                </h3>
                 <ul className="space-y-2 text-xs text-foreground/80">
                   {product.applications.map((app) => (
                     <li key={app} className="flex items-start gap-2">
@@ -524,9 +524,9 @@ function ProductDetailPage() {
 
               {/* Quick Inquiry Box */}
               <div className="rounded-2xl border border-brand-green/30 bg-gradient-to-br from-brand-green/10 via-card to-card p-5 space-y-3 text-center">
-                <h4 className="font-display text-base font-bold text-foreground">
+                <h3 className="font-display text-base font-bold text-foreground">
                   Need Material for Your Project?
-                </h4>
+                </h3>
                 <p className="text-xs text-muted-foreground">
                   Same-day dispatch available in Chennai & across Tamil Nadu. Direct factory pricing
                   for bulk orders.
@@ -743,9 +743,9 @@ function ProductDetailPage() {
                   <span>Technical Documentation & Compliance</span>
                 </div>
 
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
                   Request Technical Data Sheet (TDS) & Method Statement
-                </h3>
+                </h2>
 
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed max-w-2xl font-sans">
                   Obtain full certified laboratory test reports, mix design guidelines, ASTM/IS

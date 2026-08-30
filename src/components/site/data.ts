@@ -369,7 +369,7 @@ export const allProducts: ProductItem[] = [
       },
       {
         q: "Does this repair mortar prevent future galvanic corrosion around the repair perimeter?",
-        a: "Yes. Formulated with active corrosion inhibitors, high electrical resistivity, and compatible modulus of elasticity, it eliminates the 'incipient anode' ring effect that frequently causes secondary rebar corrosion at the boundary of parent concrete.",
+        a: "Yes. It's formulated with active corrosion inhibitors, high electrical resistivity, and a modulus of elasticity compatible with the parent concrete. This eliminates the 'incipient anode' ring effect — a common cause of secondary rebar corrosion at the repair boundary.",
       },
       {
         q: "What is the minimum application depth and edge preparation to prevent feather-edge spalling?",
@@ -410,7 +410,7 @@ export const allProducts: ProductItem[] = [
     faqs: [
       {
         q: "Can micro concrete flow freely through dense rebar cages without mechanical vibration?",
-        a: "Yes. Formulated with spherical micro-aggregates (<5mm) and high-range fluidifying polymers, Vchemics micro concrete achieves self-compacting rheology (slump flow >650mm), filling narrow jackets and complex structural formwork void-free with zero needle vibration.",
+        a: "Yes. Vchemics micro concrete is formulated with spherical micro-aggregates (<5mm) and high-range fluidifying polymers, giving it self-compacting rheology (slump flow >650mm). This lets it fill narrow jackets and complex formwork void-free, with zero needle vibration.",
       },
       {
         q: "What is the recommended minimum and maximum thickness for structural column jacketing?",
@@ -418,7 +418,7 @@ export const allProducts: ProductItem[] = [
       },
       {
         q: "How should the parent concrete and exposed corroded rebar be prepared prior to encasement?",
-        a: "Unsound concrete must be chipped away at least 15mm–20mm behind corroded rebar. Clean exposed steel to SA 2.5 cleanliness using grit blasting or wire brush, coat with zinc-rich anti-corrosion primer, install shear dowel anchors, and pre-soak the parent concrete to SSD condition before erecting watertight shuttering.",
+        a: "Preparation follows five steps: chip away unsound concrete at least 15mm–20mm behind corroded rebar; clean exposed steel to SA 2.5 cleanliness using grit blasting or wire brush; coat with zinc-rich anti-corrosion primer; install shear dowel anchors; and pre-soak the parent concrete to SSD condition before erecting watertight shuttering.",
       },
     ],
   },
