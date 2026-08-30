@@ -195,7 +195,7 @@ function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="Formulation Families"
-              title="8 Major Product Categories"
+              title="Our Major Product Categories"
               intro="Precision-blended construction chemicals and structural waterproofing solutions ready for dispatch across Tamil Nadu."
             />
           </Reveal>
