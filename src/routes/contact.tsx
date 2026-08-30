@@ -23,6 +23,21 @@ const title = "Contact Us & Get Technical Quotes | Vchemics Tamil Nadu";
 const description =
   "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from Vchemics across Chennai, Coimbatore, Erode & Krishnagiri.";
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: title,
+  description: description,
+  url: "https://www.vchemicsindia.com/contact",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Vchemics India Solutions",
+    telephone: "+91-99423-54602",
+    email: "vchemics1989@gmail.com",
+    url: "https://www.vchemicsindia.com",
+  },
+};
+
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
@@ -37,11 +52,17 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemicsindia.com/contact" },
-      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
+      { property: "og:url", content: "https://www.vchemicsindia.com/contact" },
+      { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemicsindia.com/contact" }],
+    links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(contactPageSchema),
+      },
+    ],
   }),
   component: ContactPage,
 });

@@ -22,6 +22,17 @@ import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { getBlogPostBySlug } from "@/lib/blog";
 
+const blogMetaTitles: Record<string, string> = {
+  "column-jacketing-micro-concrete-standards":
+    "Column Jacketing & Section Enlargement | Vchemics",
+  "crystalline-vs-membrane-waterproofing":
+    "Crystalline vs Elastomeric Waterproofing | Vchemics",
+  "machine-foundation-epoxy-grouting-standards":
+    "Precision Grouting: ASTM C1107 vs Epoxy | Vchemics",
+  "pu-injection-active-leak-sealing":
+    "PU Injection Grouting for Active Leak Sealing | Vchemics",
+};
+
 const blogMetaDescriptions: Record<string, string> = {
   "preventing-cold-joints-tropical-concrete":
     "Learn how PCE retarding superplasticisers extend open slump retention up to 3 hours in tropical heat without compromising early 3-day compressive strength.",
@@ -46,14 +57,15 @@ export const Route = createFileRoute("/blog_/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.post) return {};
     const { post } = loaderData;
-    const title = `${post.title} | Vchemics`;
+    const title =
+      blogMetaTitles[post.id] || blogMetaTitles[post.slug] || `${post.title} | Vchemics`;
     const description =
       blogMetaDescriptions[post.id] || blogMetaDescriptions[post.slug] || post.excerpt;
-    const url = `https://vchemicsindia.com/blog/${post.slug}`;
+    const url = `https://www.vchemicsindia.com/blog/${post.slug}`;
     const ogImage =
       typeof post.image === "string" && post.image.startsWith("http")
         ? post.image
-        : "https://vchemicsindia.com/image.png";
+        : "https://www.vchemicsindia.com/image.png";
 
     const articleSchema = {
       "@context": "https://schema.org",
@@ -69,10 +81,10 @@ export const Route = createFileRoute("/blog_/$slug")({
       publisher: {
         "@type": "Organization",
         name: "Vchemics India Solutions",
-        url: "https://vchemicsindia.com",
+        url: "https://www.vchemicsindia.com",
         logo: {
           "@type": "ImageObject",
-          url: "https://vchemicsindia.com/image.png",
+          url: "https://www.vchemicsindia.com/image.png",
         },
       },
       mainEntityOfPage: {
@@ -89,13 +101,13 @@ export const Route = createFileRoute("/blog_/$slug")({
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://vchemicsindia.com/",
+          item: "https://www.vchemicsindia.com/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Blog",
-          item: "https://vchemicsindia.com/blog",
+          item: "https://www.vchemicsindia.com/blog",
         },
         {
           "@type": "ListItem",

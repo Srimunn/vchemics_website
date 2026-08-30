@@ -101,14 +101,22 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Vchemics India Solutions",
+  alternateName: "Vchemics",
+  url: "https://www.vchemicsindia.com",
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Vchemics India Solutions",
   alternateName: "Vchemics",
-  url: "https://vchemicsindia.com",
-  logo: "https://vchemicsindia.com/image.png",
-  image: "https://vchemicsindia.com/image.png",
+  url: "https://www.vchemicsindia.com",
+  logo: "https://www.vchemicsindia.com/image.png",
+  image: "https://www.vchemicsindia.com/image.png",
   description:
     "Manufacturer of concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts, and micro concrete in Chennai and across South India.",
   telephone: "+91-99423-54602",
@@ -132,9 +140,9 @@ const localBusinessSchema = {
   "@type": ["LocalBusiness", "Organization"],
   name: "Vchemics India Solutions",
   alternateName: "Vchemics",
-  url: "https://vchemicsindia.com",
-  logo: "https://vchemicsindia.com/image.png",
-  image: "https://vchemicsindia.com/image.png",
+  url: "https://www.vchemicsindia.com",
+  logo: "https://www.vchemicsindia.com/image.png",
+  image: "https://www.vchemicsindia.com/image.png",
   description:
     "Leading manufacturer and supplier of concrete admixtures, crystalline waterproofing chemicals, PU injection grouting, non-shrink grouts, and micro concrete in Chennai, Coimbatore, Erode, Krishnagiri, and across Tamil Nadu.",
   telephone: "+91-99423-54602",
@@ -165,20 +173,16 @@ const localBusinessSchema = {
   },
   areaServed: ["Chennai", "Coimbatore", "Erode", "Krishnagiri", "Tamil Nadu", "South India"],
   priceRange: "₹₹",
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Construction Chemicals & Waterproofing Products",
-    itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Concrete Admixtures" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Waterproofing Chemicals" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "PU Injection Grouting" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Non-Shrink Grout" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Micro Concrete" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Concrete Repair" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Epoxy Grouting" } },
-      { "@type": "Offer", itemOffered: { "@type": "Product", name: "Protective Coatings" } },
-    ],
-  },
+  knowsAbout: [
+    "Concrete Admixtures",
+    "Waterproofing Chemicals",
+    "PU Injection Grouting",
+    "Non-Shrink Grout",
+    "Micro Concrete",
+    "Concrete Repair",
+    "Epoxy Grouting",
+    "Protective Coatings",
+  ],
 };
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -203,11 +207,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Vchemics India Solutions" },
-      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
+      { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "https://vchemicsindia.com" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "64x64" },
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
@@ -229,6 +232,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         type: "application/ld+json",
         children: JSON.stringify(localBusinessSchema),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(webSiteSchema),
       },
     ],
   }),

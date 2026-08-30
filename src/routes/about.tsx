@@ -20,6 +20,19 @@ const title = "About Us | Vchemics Construction Chemical Specialists";
 const description =
   "Vchemics manufactures concrete admixtures, non-shrink grouts, and waterproofing systems in Chennai. Technical support, on-site trials, and 1-day response.";
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: title,
+  description: description,
+  url: "https://www.vchemicsindia.com/about",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Vchemics India Solutions",
+    url: "https://www.vchemicsindia.com",
+  },
+};
+
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -28,7 +41,7 @@ const personSchema = {
   worksFor: {
     "@type": "Organization",
     name: "Vchemics India Solutions",
-    url: "https://vchemicsindia.com",
+    url: "https://www.vchemicsindia.com",
   },
   description:
     "Founder of Vchemics India Solutions specializing in high-performance construction chemicals, concrete admixtures, and structural waterproofing in Tamil Nadu.",
@@ -50,12 +63,16 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemicsindia.com/about" },
-      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
+      { property: "og:url", content: "https://www.vchemicsindia.com/about" },
+      { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemicsindia.com/about" }],
+    links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/about" }],
     scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(aboutPageSchema),
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify(personSchema),

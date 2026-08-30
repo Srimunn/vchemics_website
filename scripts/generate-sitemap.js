@@ -62,7 +62,7 @@ const urls = [];
 // Static Pages
 for (const route of staticRoutes) {
   urls.push(`  <url>
-    <loc>https://vchemicsindia.com${route.path === "/" ? "/" : route.path}</loc>
+    <loc>https://www.vchemicsindia.com${route.path === "/" ? "/" : route.path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
@@ -72,7 +72,7 @@ for (const route of staticRoutes) {
 // Product Pages
 for (const id of productIds) {
   urls.push(`  <url>
-    <loc>https://vchemicsindia.com/products/${id}</loc>
+    <loc>https://www.vchemicsindia.com/products/${id}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -82,7 +82,7 @@ for (const id of productIds) {
 // Solution Pages
 for (const id of solutionIds) {
   urls.push(`  <url>
-    <loc>https://vchemicsindia.com/solutions/${id}</loc>
+    <loc>https://www.vchemicsindia.com/solutions/${id}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -92,7 +92,7 @@ for (const id of solutionIds) {
 // Blog Posts
 for (const slug of blogSlugs) {
   urls.push(`  <url>
-    <loc>https://vchemicsindia.com/blog/${slug}</loc>
+    <loc>https://www.vchemicsindia.com/blog/${slug}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

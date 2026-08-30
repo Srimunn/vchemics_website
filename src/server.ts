@@ -44,18 +44,106 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
+function compressResponseIfNeeded(request: Request, response: Response): Response {
+  if (!response.body || response.status === 204 || response.status === 304) {
+    return response;
+  }
+
+  const existingEncoding = response.headers.get("content-encoding");
+  if (existingEncoding && existingEncoding !== "identity") {
+    return response;
+  }
+
+  const acceptEncoding = request.headers.get("accept-encoding") || "";
+  const contentType = response.headers.get("content-type") || "";
+
+  const isCompressible =
+    contentType.includes("text/") ||
+    contentType.includes("application/json") ||
+    contentType.includes("application/javascript") ||
+    contentType.includes("application/xml") ||
+    contentType.includes("image/svg+xml");
+
+  if (!isCompressible) {
+    return response;
+  }
+
+  let format: "gzip" | "deflate" | null = null;
+  if (typeof CompressionStream !== "undefined") {
+    if (acceptEncoding.includes("gzip")) {
+      format = "gzip";
+    } else if (acceptEncoding.includes("deflate")) {
+      format = "deflate";
+    }
+  }
+
+  if (!format) {
+    return response;
+  }
+
+  const headers = new Headers(response.headers);
+  headers.set("content-encoding", format);
+  headers.set("vary", "accept-encoding");
+  headers.delete("content-length");
+
+  const compressedBody = response.body.pipeThrough(new CompressionStream(format));
+
+  return new Response(compressedBody, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
+const HSTS_HEADER_VALUE = "max-age=31536000; includeSubDomains";
+
+function applySecurityHeaders(response: Response): Response {
+  if (response.headers.get("strict-transport-security")) {
+    return response;
+  }
+  const headers = new Headers(response.headers);
+  headers.set("strict-transport-security", HSTS_HEADER_VALUE);
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const url = new URL(request.url);
+    const hostHeader =
+      request.headers.get("x-forwarded-host") || request.headers.get("host") || url.hostname;
+    const hostname = hostHeader.split(":")[0].toLowerCase();
+
+    if (hostname === "vchemicsindia.com") {
+      url.hostname = "www.vchemicsindia.com";
+      url.protocol = "https:";
+      url.port = "";
+      return new Response(null, {
+        status: 301,
+        headers: {
+          location: url.toString(),
+          "strict-transport-security": HSTS_HEADER_VALUE,
+        },
+      });
+    }
+
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalizedResponse = await normalizeCatastrophicSsrResponse(response);
+      const securedResponse = applySecurityHeaders(normalizedResponse);
+      return compressResponseIfNeeded(request, securedResponse);
     } catch (error) {
       console.error(error);
-      return new Response(renderErrorPage(), {
+      const errorResponse = new Response(renderErrorPage(), {
         status: 500,
         headers: { "content-type": "text/html; charset=utf-8" },
       });
+      const securedErrorResponse = applySecurityHeaders(errorResponse);
+      return compressResponseIfNeeded(request, securedErrorResponse);
     }
   },
 };

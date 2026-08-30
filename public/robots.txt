@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vchemicsindia.com/sitemap.xml
+Sitemap: https://www.vchemicsindia.com/sitemap.xml

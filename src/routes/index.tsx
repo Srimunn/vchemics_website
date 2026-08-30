@@ -37,8 +37,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, allSolutions, allLocations, stats } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title =
-  "Construction Chemical Distributors & Services, Tamil Nadu – Chennai, Coimbatore, Erode & Krishnagiri | Vchemics";
+const title = "Construction Chemical Distributors, Tamil Nadu | Vchemics";
 const description =
   "Leading construction chemical distributor & manufacturer of concrete admixtures, crystalline waterproofing, PU grouts, non-shrink grouts & micro concrete across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch in TN.";
 
@@ -120,11 +119,11 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://vchemicsindia.com/" },
-      { property: "og:image", content: "https://vchemicsindia.com/image.png" },
+      { property: "og:url", content: "https://www.vchemicsindia.com/" },
+      { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://vchemicsindia.com/" }],
+    links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/" }],
     scripts: [
       {
         type: "application/ld+json",

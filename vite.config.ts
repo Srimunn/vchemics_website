@@ -14,6 +14,14 @@ export default defineConfig({
   },
   nitro: {
     preset: "node-server",
+    compressPublicAssets: true,
+    routeRules: {
+      "/**": {
+        headers: {
+          "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+        },
+      },
+    },
   },
   vite: {
     optimizeDeps: {

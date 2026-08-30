@@ -60,11 +60,11 @@ export const Route = createFileRoute("/solutions_/$slug")({
       solutionMetaDescriptions[solution.id] ||
       solutionMetaDescriptions[solution.slug] ||
       `${solution.subtitle} Engineered structural application protocols by Vchemics Chennai.`;
-    const url = `https://vchemicsindia.com/solutions/${solution.id}`;
+    const url = `https://www.vchemicsindia.com/solutions/${solution.id}`;
     const ogImage =
       typeof solution.image === "string" && solution.image.startsWith("http")
         ? solution.image
-        : "https://vchemicsindia.com/image.png";
+        : "https://www.vchemicsindia.com/image.png";
 
     const solutionSchema = {
       "@context": "https://schema.org",
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/solutions_/$slug")({
       provider: {
         "@type": "Organization",
         name: "Vchemics India Solutions",
-        url: "https://vchemicsindia.com",
+        url: "https://www.vchemicsindia.com",
       },
       areaServed: {
         "@type": "State",
@@ -90,13 +90,13 @@ export const Route = createFileRoute("/solutions_/$slug")({
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: "https://vchemicsindia.com/",
+          item: "https://www.vchemicsindia.com/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Solutions",
-          item: "https://vchemicsindia.com/solutions",
+          item: "https://www.vchemicsindia.com/solutions",
         },
         {
           "@type": "ListItem",
