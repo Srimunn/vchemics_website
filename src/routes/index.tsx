@@ -36,6 +36,7 @@ import { SectionHeading } from "@/components/site/ui";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, allSolutions, allLocations, stats } from "@/components/site/data";
 import { cn } from "@/lib/utils";
+import { trackGetQuoteClick, trackCallClick } from "@/lib/analytics";
 
 const title = "Construction Chemical Distributors, Tamil Nadu | Vchemics";
 const description =
@@ -167,6 +168,13 @@ function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-3.5 sm:gap-4">
               <Link
                 to="/contact"
+                onClick={() =>
+                  trackGetQuoteClick({
+                    button_location: "home_hero",
+                    label: "Get Instant Quote",
+                    source: "/",
+                  })
+                }
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl btn-brand-gradient px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-brand-blue/40 transition-all duration-300 hover:scale-105"
               >
                 <span>Get Instant Quote</span>
@@ -175,6 +183,12 @@ function Home() {
 
               <a
                 href="tel:+919942354602"
+                onClick={() =>
+                  trackCallClick({
+                    source: "home_hero",
+                    phone_number: "+91 99423-54602",
+                  })
+                }
                 className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/10 px-6 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition-all duration-300 hover:bg-white/20"
               >
                 <Phone className="h-4 w-4 text-brand-green" />

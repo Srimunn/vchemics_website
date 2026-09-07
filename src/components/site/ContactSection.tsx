@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 import { EnquiryForm } from "./EnquiryForm";
+import { trackCallClick, trackEmailClick } from "@/lib/analytics";
 
 export function ContactSection() {
   return (
@@ -51,6 +52,13 @@ export function ContactSection() {
                       href={href}
                       target={target}
                       rel={target ? "noopener noreferrer" : undefined}
+                      onClick={() => {
+                        if (label === "Phone") {
+                          trackCallClick({ source: "contact_section", phone_number: value });
+                        } else if (label === "Email") {
+                          trackEmailClick({ source: "contact_section", email: value });
+                        }
+                      }}
                       className="group flex items-start gap-4 p-2 -ml-2 rounded-xl transition-colors hover:bg-muted/40"
                     >
                       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand-blue to-brand-navy text-white shadow-xs transition-transform duration-300 group-hover:scale-105 group-hover:from-brand-blue group-hover:to-brand-green">

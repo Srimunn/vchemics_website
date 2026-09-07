@@ -18,6 +18,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { PageHero } from "@/components/site/PageHero";
 import { allLocations } from "@/components/site/data";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
+import { trackWhatsAppClick, trackCallClick, trackEmailClick } from "@/lib/analytics";
 
 const title = "Contact Us & Get Technical Quotes | Vchemics Tamil Nadu";
 const description =
@@ -105,6 +106,12 @@ function ContactPage() {
                     href="https://wa.me/919942354602?text=Hello%20Vchemics%20Team%2C%20I%20need%20an%20instant%20price%20quote%20for%20construction%20chemicals."
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() =>
+                      trackWhatsAppClick({
+                        source: "contact_page_instant_desk",
+                        destination: "https://wa.me/919942354602",
+                      })
+                    }
                     className="group flex items-center justify-between rounded-2xl bg-[#25D366] p-4 text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#20bd5a]"
                   >
                     <div className="flex items-center gap-3">
@@ -121,6 +128,12 @@ function ContactPage() {
 
                   <a
                     href="tel:+919942354602"
+                    onClick={() =>
+                      trackCallClick({
+                        source: "contact_page_helpline",
+                        phone_number: "+91 99423-54602",
+                      })
+                    }
                     className="group flex items-center justify-between rounded-2xl bg-brand-blue p-4 text-white shadow-lg transition-all hover:scale-[1.02] hover:bg-[#07599c]"
                   >
                     <div className="flex items-center gap-3">
@@ -166,6 +179,11 @@ function ContactPage() {
                         href={href}
                         target={target}
                         rel={target ? "noopener noreferrer" : undefined}
+                        onClick={() => {
+                          if (label.includes("Email")) {
+                            trackEmailClick({ source: "contact_page", email: value });
+                          }
+                        }}
                         className="group flex items-start gap-4 p-3.5 -ml-3 rounded-2xl transition-colors hover:bg-muted/50"
                       >
                         <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-muted text-brand-blue transition-transform group-hover:scale-105 group-hover:bg-brand-blue group-hover:text-white">

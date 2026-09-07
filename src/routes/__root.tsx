@@ -6,11 +6,13 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  useRouterState,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { GA_MEASUREMENT_ID, trackPageView, initGlobalAnalyticsListeners } from "@/lib/analytics";
 import { Navbar } from "@/components/site/Navbar";
 import { BrandStrip } from "@/components/site/BrandStrip";
 import { Footer } from "@/components/site/Footer";
@@ -250,6 +252,20 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Google Analytics 4 (GA4) Tracking Script */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
@@ -261,6 +277,23 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isFirstRender = useRef(true);
+
+  // Track page_view event on client-side route transitions
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    trackPageView(pathname);
+  }, [pathname]);
+
+  // Set up global click listener for tel:, mailto:, WhatsApp, and Quote buttons
+  useEffect(() => {
+    const cleanup = initGlobalAnalyticsListeners();
+    return cleanup;
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

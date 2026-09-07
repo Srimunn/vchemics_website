@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 import { allProducts, allSolutions, allLocations } from "./data";
+import { trackCallClick, trackEmailClick } from "@/lib/analytics";
 
 export function Footer() {
   return (
@@ -159,6 +160,9 @@ export function Footer() {
               <li className="pt-1">
                 <a
                   href="tel:+919942354602"
+                  onClick={() =>
+                    trackCallClick({ source: "footer", phone_number: "+91 99423-54602" })
+                  }
                   className="flex items-center gap-2.5 transition-colors hover:text-white group"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-brand-green" />
@@ -170,6 +174,9 @@ export function Footer() {
               <li>
                 <a
                   href="mailto:vchemics1989@gmail.com"
+                  onClick={() =>
+                    trackEmailClick({ source: "footer", email: "vchemics1989@gmail.com" })
+                  }
                   className="flex items-center gap-2.5 transition-colors hover:text-white group"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-brand-green" />

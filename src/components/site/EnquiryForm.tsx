@@ -3,6 +3,7 @@ import { CheckCircle, AlertCircle, Loader2, ArrowRight, RotateCcw } from "lucide
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 import { allProducts } from "./data";
+import { trackContactFormSubmit, trackCallClick } from "@/lib/analytics";
 
 export interface EnquiryFormProps {
   initialRequirement?: string;
@@ -137,6 +138,18 @@ export function EnquiryForm({
 
       if (response.ok && result.success) {
         setStatus("success");
+        // Track GA4 contact_form_submit event
+        trackContactFormSubmit({
+          productCategory: formData.productCategory,
+          fullName: formData.fullName,
+          company: formData.company,
+          phone: formData.phone,
+          email: formData.email,
+          location: formData.location,
+          quantity: formData.quantity,
+          mode,
+        });
+
         setFormData({
           ...initialFields,
           productCategory: initialRequirement || initialFields.productCategory,
@@ -207,6 +220,9 @@ export function EnquiryForm({
 
           <a
             href="tel:+919942354602"
+            onClick={() =>
+              trackCallClick({ source: "enquiry_form_success", phone_number: "+91 99423-54602" })
+            }
             className="inline-flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background py-3.5 px-6 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-foreground hover:bg-muted/50 hover:text-brand-blue transition-all"
           >
             <span>Call Technical Line</span>

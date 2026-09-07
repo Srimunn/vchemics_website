@@ -1094,6 +1094,32 @@ export const blogTopics = [
 
 export const allBlogPosts: BlogPostItem[] = [
   {
+    id: "pu-injection-grouting",
+    slug: "pu-injection-grouting",
+    title: "PU Injection Grouting: Process, Uses, Types & Selection Guide",
+    category: "Precision Grouts",
+    date: "September 2026",
+    readTime: "9 min read",
+    author: "Technical Formulation Team",
+    excerpt:
+      "Learn how PU injection grouting seals concrete leaks and cracks, its types, process, applications, limitations and selection factors.",
+    tags: [
+      "PU Injection Grouting",
+      "Waterproofing",
+      "Crack Repair",
+      "Basement Waterproofing",
+      "Concrete Repair",
+    ],
+    image: groutsImg,
+    alt: "PU Injection Grouting: Process, Uses, Types & Selection Guide",
+    takeaways: [
+      "PU injection is not one material — hydrophilic, hydrophobic, foaming, and non-foaming resins each suit different water and movement conditions.",
+      "A leaking crack is not automatically a structural crack; structural significance must be assessed separately by a qualified engineer.",
+      "Injection pressure has no universal value — it depends on the resin, crack geometry, substrate condition, and site water pressure.",
+      "Always consult the current product TDS before mixing, application, or curing — generic assumptions between products are a common cause of repair failure.",
+    ],
+  },
+  {
     id: "preventing-cold-joints-tropical-concrete",
     slug: "preventing-cold-joints-tropical-concrete",
     title: "How to Prevent Cold Joints in High-Temperature Concrete Pours",

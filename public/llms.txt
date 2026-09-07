@@ -1,0 +1,37 @@
+# Vchemics India Solutions
+> Specialist distributor and manufacturer of high-performance construction chemicals, precision grouts, crystalline waterproofing systems, and structural repair formulations across Tamil Nadu — Chennai, Coimbatore, Erode, and Krishnagiri.
+
+Vchemics India Solutions provides certified IS, ASTM, and EN standard chemical formulations and technical site consultation for infrastructure, commercial, and residential projects throughout South India.
+
+## Products
+
+- [Concrete Admixtures](https://www.vchemicsindia.com/products/concrete-admixtures): High-performance polycarboxylate ether (PCE) and SNF chemical admixtures engineered for high slump retention, up to 30% water cut, and rapid early strength development.
+- [Waterproofing Chemicals](https://www.vchemicsindia.com/products/waterproofing-chemicals): Integral crystalline powders, hydrophobic pore-blocking liquids, and acrylic elastomeric barrier chemicals delivering permanent protection against hydrostatic pressure.
+- [PU Injection Grouting](https://www.vchemicsindia.com/products/pu-injection-grouting): Rapidly expanding single & dual component hydrophobic polyurethane injection resins that react with ingress water to form a closed-cell elastomeric barrier.
+- [Non-Shrink Grout](https://www.vchemicsindia.com/products/non-shrink-grout): Factory-blended, shrinkage-compensated cementitious grouts engineered with selected spherical aggregates and reactive expanders for ultimate load transfer.
+- [Epoxy Grouting](https://www.vchemicsindia.com/products/epoxy-grouting): Ultra-high strength 3-part epoxy grouts offering extraordinary compressive, tensile, and shear strengths with total resistance to chemical spills and dynamic shock.
+- [Protective Coatings](https://www.vchemicsindia.com/products/protective-coatings): Weather-resistant aliphatic PU topcoats, high-build solvent-free epoxy floorings, and breathable anti-carbonation coatings engineered to shield concrete against UV and weathering.
+- [Concrete Repair](https://www.vchemicsindia.com/products/concrete-repair): Thixotropic polymer-modified structural repair mortars, zinc-rich rebar anti-corrosion primers, and epoxy bonding agents for precision concrete restoration.
+- [Micro Concrete](https://www.vchemicsindia.com/products/micro-concrete): Pre-bagged, single component, polymer-modified micro concrete designed for structural encasement, heavy section repair, and column enlargement without vibration.
+
+## Solutions
+
+- [Basement Waterproofing](https://www.vchemicsindia.com/solutions/basement-waterproofing): Permanent deep-pore crystalline & membrane envelope resisting >5 bar hydrostatic pressure in deep subterranean rafts and retaining walls.
+- [Terrace Waterproofing](https://www.vchemicsindia.com/solutions/terrace-waterproofing): Seamless elastomeric PU & acrylic hybrid barrier engineered to bridge dynamic thermal cracks and withstand water ponding.
+- [Concrete Repair](https://www.vchemicsindia.com/solutions/concrete-repair): Step-by-step structural concrete restoration protocol: crack routing, zinc-rich rebar passivation, and polymer-modified mortar repair.
+- [Industrial Flooring](https://www.vchemicsindia.com/solutions/industrial-flooring): Heavy-duty epoxy screeds, dry shake floor hardeners, and chemical-resistant toppings for heavy industrial rolling loads.
+- [Structural Rehabilitation](https://www.vchemicsindia.com/solutions/structural-rehabilitation): Precision RCC column jacketing, section enlargement, and self-compacting micro concrete encasement compliant with EN 1504-3 Class R4.
+
+## Technical Guides
+
+- [How to Prevent Cold Joints in High-Temperature Concrete Pours](https://www.vchemicsindia.com/blog/hot-weather-concreting-pce-retarders): How PCE retarding superplasticisers extend open slump retention up to 3 hours in tropical heat without compromising early 3-day strength.
+- [Crystalline vs Elastomeric Membrane Waterproofing: Engineering Selection Guide](https://www.vchemicsindia.com/blog/crystalline-vs-membrane-waterproofing): Deep dive into chemical crystallization vs liquid polyurethane elastomeric membranes: comparative pore sealing chemistry, hydrostatic head resistance, and crack self-healing capabilities.
+- [Heavy Equipment Precision Grouting: ASTM C1107 vs 3-Part Epoxy Grout](https://www.vchemicsindia.com/blog/machine-foundation-epoxy-grouting-standards): Engineering specifications for heavy machine plinths, stamping presses, and dynamic turbine mountings. Comparing Effective Bearing Area (EBA >95%) and vibration dampening.
+- [High-Pressure PU Injection Grouting for Active Hydrostatic Water Ingress](https://www.vchemicsindia.com/blog/pu-injection-active-leak-sealing): Step-by-step 45-degree mechanical packer installation and hydro-active polyurethane resin injection at 50–250 bar to permanently arrest high-pressure gushing leaks.
+- [Structural Column Jacketing & Section Enlargement with Micro Concrete](https://www.vchemicsindia.com/blog/column-jacketing-micro-concrete-standards): Best practices for RCC column encasement, rebar passivating primers, shear dowel anchorage, and self-compacting micro concrete placement compliant with EN 1504-3 Class R4.
+
+## Company
+
+- [About Us](https://www.vchemicsindia.com/about): Technical background, founders, ISO quality certifications, and over 35 years of chemical distribution heritage in Tamil Nadu.
+- [Branch Locations](https://www.vchemicsindia.com/locations): Stocking depots and application centers across Chennai (Padi), Coimbatore, Erode (Modakurichi), and Krishnagiri.
+- [Contact & Technical Consultation](https://www.vchemicsindia.com/contact): Request certified technical data sheets (TDS), method statements, on-site diagnostics, and direct wholesale pricing.

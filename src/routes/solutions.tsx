@@ -534,7 +534,8 @@ function SolutionsPage() {
                 All 5 Engineered Solution Disciplines
               </h2>
               <p className="mt-1 text-xs sm:text-sm text-muted-foreground max-w-xl">
-                Explore dedicated execution methodologies, certified ASTM/IS layering standards, and photo case documentation.
+                Explore dedicated execution methodologies, certified ASTM/IS layering standards, and
+                photo case documentation.
               </p>
             </div>
           </div>

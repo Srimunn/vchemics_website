@@ -37,6 +37,7 @@ import {
 import { productDetailsExtended } from "@/lib/product-details";
 import { getCategoryIcon } from "@/lib/category-icons";
 import { cn } from "@/lib/utils";
+import { trackWhatsAppClick, trackCallClick, trackGetQuoteClick } from "@/lib/analytics";
 
 const productIcons: Record<string, LucideIcon> = {
   "concrete-admixtures": FlaskConical,
@@ -369,6 +370,13 @@ function ProductDetailPage() {
               <div className="mt-6 flex flex-wrap items-center gap-3.5">
                 <Link
                   to="/contact"
+                  onClick={() =>
+                    trackGetQuoteClick({
+                      button_location: "product_detail_hero",
+                      label: "Request TDS / Trial Batch",
+                      product: product.title,
+                    })
+                  }
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl btn-brand-gradient px-6 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-lg shadow-brand-blue/30 transition-all hover:scale-105"
                 >
                   <FileText className="h-4 w-4" />
@@ -377,6 +385,12 @@ function ProductDetailPage() {
 
                 <a
                   href="tel:+919942354602"
+                  onClick={() =>
+                    trackCallClick({
+                      source: "product_detail_hero",
+                      phone_number: "+91 99423-54602",
+                    })
+                  }
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
                 >
                   <Phone className="h-4 w-4 text-brand-green" />
@@ -438,7 +452,9 @@ function ProductDetailPage() {
                 {productSolutionsMap[product.id] && (
                   <div className="pt-2 border-t border-brand-blue/15 text-xs text-muted-foreground flex items-center justify-between flex-wrap gap-2">
                     <div>
-                      <strong className="text-foreground font-semibold">Related Solution Protocol: </strong>
+                      <strong className="text-foreground font-semibold">
+                        Related Solution Protocol:{" "}
+                      </strong>
                       <Link
                         to="/solutions/$slug"
                         params={{ slug: productSolutionsMap[product.id].id }}
@@ -817,6 +833,13 @@ function ProductDetailPage() {
                   href="https://wa.me/919942354602?text=Hi%20Vchemics,%20please%20send%20the%20TDS%20and%20pricing%20for%20"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "product_detail_action_card",
+                      product: product.title,
+                      destination: "https://wa.me/919942354602",
+                    })
+                  }
                   className="inline-flex items-center justify-center gap-2 rounded-xl border border-brand-green/40 bg-brand-green/10 px-5 py-3 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-green hover:bg-brand-green/20 transition-all text-center"
                 >
                   <MessageCircle className="h-4 w-4" />

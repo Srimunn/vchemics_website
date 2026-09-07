@@ -21,19 +21,20 @@ import {
 import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { getBlogPostBySlug } from "@/lib/blog";
+import { trackWhatsAppClick, trackGetQuoteClick } from "@/lib/analytics";
 
 const blogMetaTitles: Record<string, string> = {
-  "column-jacketing-micro-concrete-standards":
-    "Column Jacketing & Section Enlargement | Vchemics",
-  "crystalline-vs-membrane-waterproofing":
-    "Crystalline vs Elastomeric Waterproofing | Vchemics",
+  "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
+  "column-jacketing-micro-concrete-standards": "Column Jacketing & Section Enlargement | Vchemics",
+  "crystalline-vs-membrane-waterproofing": "Crystalline vs Elastomeric Waterproofing | Vchemics",
   "machine-foundation-epoxy-grouting-standards":
     "Precision Grouting: ASTM C1107 vs Epoxy | Vchemics",
-  "pu-injection-active-leak-sealing":
-    "PU Injection Grouting for Active Leak Sealing | Vchemics",
+  "pu-injection-active-leak-sealing": "PU Injection Grouting for Active Leak Sealing | Vchemics",
 };
 
 const blogMetaDescriptions: Record<string, string> = {
+  "pu-injection-grouting":
+    "Learn how PU injection grouting seals concrete leaks and cracks, its types, process, applications, limitations and selection factors.",
   "preventing-cold-joints-tropical-concrete":
     "Learn how PCE retarding superplasticisers extend open slump retention up to 3 hours in tropical heat without compromising early 3-day compressive strength.",
   "crystalline-vs-membrane-waterproofing":
@@ -646,6 +647,13 @@ function BlogPostDetailPage() {
                   href={`https://wa.me/919942354602?text=Hello%2C%20I%20read%20your%20technical%20article%20on%20${encodeURIComponent(post.title)}%20and%20need%20engineering%20advice.`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackWhatsAppClick({
+                      source: "blog_post_page",
+                      post: post.title,
+                      destination: `https://wa.me/919942354602`,
+                    })
+                  }
                   className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 font-display text-xs font-bold uppercase text-white hover:bg-[#20bd5a] transition-all shadow-md"
                 >
                   <MessageCircle className="h-4 w-4 fill-current" />
@@ -653,6 +661,13 @@ function BlogPostDetailPage() {
                 </a>
                 <Link
                   to="/contact"
+                  onClick={() =>
+                    trackGetQuoteClick({
+                      button_location: "blog_post_footer",
+                      label: "Request Quote",
+                      source: `/blog/${post.slug}`,
+                    })
+                  }
                   className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-5 py-3 font-display text-xs font-bold uppercase text-white shadow-md hover:scale-105 transition-all"
                 >
                   <span>Request Quote</span>

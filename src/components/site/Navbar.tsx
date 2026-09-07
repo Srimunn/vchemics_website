@@ -3,6 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./Logo";
+import { trackGetQuoteClick } from "@/lib/analytics";
 
 export function Navbar() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -92,6 +93,13 @@ export function Navbar() {
           <li>
             <Link
               to="/contact"
+              onClick={() =>
+                trackGetQuoteClick({
+                  button_location: "navbar_desktop",
+                  label: "GET A QUOTE",
+                  source: pathname,
+                })
+              }
               className={cn(
                 "inline-flex items-center gap-2 rounded-xl btn-brand-gradient font-display font-bold uppercase tracking-wider text-white shadow-md shadow-brand-blue/20 transition-all duration-300 hover:scale-105 hover:shadow-lg",
                 scrolled ? "px-3.5 xl:px-4 py-2 text-xs" : "px-4 xl:px-5 py-2.5 text-xs xl:text-sm",
@@ -156,7 +164,14 @@ export function Navbar() {
           <div className="pt-4 border-t border-border/80">
             <Link
               to="/contact"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                trackGetQuoteClick({
+                  button_location: "navbar_mobile",
+                  label: "CONTACT / GET A QUOTE",
+                  source: pathname,
+                });
+              }}
               className="flex w-full items-center justify-center gap-2 rounded-xl btn-brand-gradient py-3.5 font-display text-sm font-bold uppercase tracking-wider text-white shadow-md shadow-brand-blue/25"
             >
               <span>CONTACT / GET A QUOTE</span>
