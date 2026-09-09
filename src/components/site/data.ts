@@ -10,6 +10,7 @@ import groutsImg from "@/assets/product-grouts.jpg";
 import terraceWaterproofingImg from "@/assets/solution-terrace-waterproofing.jpg";
 import founderImg from "@/assets/velmurugan-sivanantham.jpg";
 import blogColdJointsImg from "@/assets/blog-preventing-cold-joints.jpg";
+import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.jpg";
 import step1StructureImg from "@/assets/solutions/basement-waterproofing/step-1-structure.jpg";
 import step2BeamCoatingImg from "@/assets/solutions/basement-waterproofing/step-2-beam-coating.jpg";
 import step3SiteConditionsImg from "@/assets/solutions/basement-waterproofing/step-3-site-conditions.jpg";
@@ -35,6 +36,7 @@ import step2DowelingImg from "@/assets/solutions/structural-rehabilitation/step-
 import step3RebarCageImg from "@/assets/solutions/structural-rehabilitation/step-3-rebar-cage.jpg";
 import step4FormworkImg from "@/assets/solutions/structural-rehabilitation/step-4-formwork.jpg";
 import step5FinishedColumnImg from "@/assets/solutions/structural-rehabilitation/step-5-finished-column.jpg";
+import paintingHeroImg from "@/assets/solutions/painting/painting-hero.svg";
 
 export interface WorkGalleryStep {
   step: number;
@@ -431,7 +433,9 @@ export interface SolutionItem {
   slug: string;
   title: string;
   subtitle: string;
+  category?: string;
   image: string;
+  alt?: string;
   challenge: string;
   solutionDesc: string;
   keyProducts: string[];
@@ -865,6 +869,52 @@ export const allSolutions: SolutionItem[] = [
       },
     ],
   },
+  {
+    id: "painting",
+    slug: "painting",
+    title: "Protective & Architectural Painting",
+    category: "coatings",
+    subtitle:
+      "Industrial protective coatings and architectural finishes for lasting performance and appearance.",
+    image: paintingHeroImg,
+    alt: "Illustrative diagram of protective and architectural painting surface coverage",
+    metrics: "Weather, chemical & abrasion-resistant finish systems",
+    challenge:
+      "Uncoated or poorly maintained surfaces — structural steel, tanks, industrial plant, building exteriors and interiors — are exposed to weathering, chemical attack, UV degradation, and general wear, leading to corrosion, discoloration, and reduced service life.",
+    solutionDesc:
+      "Vchemics supplies and applies protective coating and architectural painting systems matched to the substrate and exposure condition — from heavy-duty industrial protective coatings on tanks and structural steel to durable, weather-resistant architectural finishes for building exteriors and interiors.",
+    keyProducts: [
+      "Epoxy & Polyurethane Protective Coatings",
+      "Anti-Corrosive Primers & Zinc Passivators",
+      "High-Performance Weatherproof Architectural Emulsions",
+      "Chemical-Resistant Tank & Structural Steel Enamels",
+    ],
+    stages: [
+      {
+        name: "Surface Profiling & Preparation",
+        desc: "Mechanical blast cleaning, grit blasting or power wire brushing conforming to SA 2.5 cleanliness.",
+      },
+      {
+        name: "Anti-Corrosive / Receptive Primer",
+        desc: "Application of substrate-specific zinc-rich, epoxy, or alkali-resistant penetrative primer.",
+      },
+      {
+        name: "Intermediate Build Coat",
+        desc: "High-build barrier coating to eliminate pinholes and build specified Dry Film Thickness (DFT).",
+      },
+      {
+        name: "Protective Architectural Finish",
+        desc: "UV-stable aliphatic polyurethane or weather-proof exterior finish resisting environmental degradation.",
+      },
+    ],
+    applications: [
+      "Structural steel framing & gantry systems",
+      "Industrial chemical & water storage tanks",
+      "Commercial exterior facades & elevations",
+      "High-traffic manufacturing plant interiors",
+    ],
+    workGallery: undefined,
+  },
 ];
 
 export interface LocationItem {
@@ -1079,6 +1129,7 @@ export interface BlogPostItem {
   author: string;
   tags: string[];
   image: string;
+  imageKey?: string;
   alt: string;
   takeaways?: string[];
   standards?: { code: string; name: string; url: string }[];
@@ -1110,8 +1161,9 @@ export const allBlogPosts: BlogPostItem[] = [
       "Basement Waterproofing",
       "Concrete Repair",
     ],
-    image: groutsImg,
-    alt: "PU Injection Grouting: Process, Uses, Types & Selection Guide",
+    image: puInjectionSiteHeroImg,
+    imageKey: "pu-injection-site",
+    alt: "Worker performing PU injection grouting on a concrete ceiling with marked injection grid points, using a hand-held injection hose.",
     takeaways: [
       "PU injection is not one material — hydrophilic, hydrophobic, foaming, and non-foaming resins each suit different water and movement conditions.",
       "A leaking crack is not automatically a structural crack; structural significance must be assessed separately by a qualified engineer.",
@@ -1174,6 +1226,7 @@ export const allBlogPosts: BlogPostItem[] = [
       "Membrane",
     ],
     image: waterproofingImg,
+    imageKey: "waterproofing",
     alt: "Crystalline vs Membrane Waterproofing Engineering Cross Section Guide",
     takeaways: [
       "Crystalline chemistry grows non-soluble dendritic crystals sealing micro-cracks up to 0.4mm.",
@@ -1212,6 +1265,7 @@ export const allBlogPosts: BlogPostItem[] = [
       "Resin Grouts",
     ],
     image: epoxyGroutImg,
+    imageKey: "grouts",
     alt: "Machine Foundation Precision Epoxy Grouting Diagram",
     takeaways: [
       "ASTM C1107 Grade B/C ensures 100% Effective Bearing Area contact beneath baseplates.",
@@ -1249,6 +1303,7 @@ export const allBlogPosts: BlogPostItem[] = [
       "Waterproofing",
     ],
     image: puInjectionImg,
+    imageKey: "grouts",
     alt: "PU Injection High-Pressure Leak Sealing Methodology",
     takeaways: [
       "Hydro-active PU expands 20x to 30x in volume within 30 seconds of water contact.",
@@ -1286,6 +1341,7 @@ export const allBlogPosts: BlogPostItem[] = [
       "EN 1504",
     ],
     image: microConcreteImg,
+    imageKey: "microconcrete",
     alt: "RCC Column Jacketing with Self Compacting Micro Concrete",
     takeaways: [
       "EN 1504-3 Class R4 micro concrete achieves >60 MPa 28-day compressive strength.",

@@ -4,7 +4,9 @@ import { BookOpen, Calendar, Clock, ArrowRight, Sparkles, Search, FileText } fro
 import { PageHero } from "@/components/site/PageHero";
 import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
+import { PlaceholderBadge } from "@/components/site/PlaceholderBadge";
 import { allBlogPosts, blogTopics } from "@/components/site/data";
+import { isGenericBlogImage } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 const title = "Technical Knowledge Centre & Blog | Vchemics";
@@ -180,6 +182,12 @@ function KnowledgeCenterPage() {
                               {featuredPost.category}
                             </span>
                           </div>
+                          {/* Amber Placeholder Badge for generic category images */}
+                          {isGenericBlogImage(featuredPost) && (
+                            <div className="absolute top-3 right-3 z-10 pointer-events-none">
+                              <PlaceholderBadge />
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div className="aspect-[16/10] w-full">
@@ -290,6 +298,12 @@ function KnowledgeCenterPage() {
                         {post.category}
                       </span>
                     </div>
+                    {/* Amber Placeholder Badge for generic category images */}
+                    {isGenericBlogImage(post) && (
+                      <div className="absolute top-3 right-3 z-10 pointer-events-none">
+                        <PlaceholderBadge />
+                      </div>
+                    )}
                   </div>
 
                   {/* Content Area */}

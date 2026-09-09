@@ -14,6 +14,7 @@ import {
   Truck,
   Waves,
   Wrench,
+  Paintbrush,
   Zap,
   Gauge,
   Sparkles,
@@ -623,7 +624,7 @@ function Home() {
                   <span className="h-0.5 w-6 bg-brand-green" aria-hidden /> Engineered Protocols
                 </p>
                 <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
-                  5 Structural Solution Systems
+                  6 Engineered Solution Systems
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl">
                   Hover or select an engineering discipline below to explore chemical mechanisms,
@@ -635,7 +636,7 @@ function Home() {
                 to="/solutions"
                 className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card px-5 py-3 font-display text-xs font-bold uppercase tracking-wider text-foreground hover:border-brand-blue hover:text-brand-blue transition-all shrink-0"
               >
-                <span>View Full Protocols (5)</span>
+                <span>View Full Protocols ({allSolutions.length})</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
@@ -654,7 +655,9 @@ function Home() {
                       ? Wrench
                       : sol.id === "structural-rehabilitation"
                         ? Building2
-                        : Factory;
+                        : sol.id === "industrial-flooring"
+                          ? Factory
+                          : Paintbrush;
 
               return (
                 <div

@@ -20,7 +20,8 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
-import { getBlogPostBySlug } from "@/lib/blog";
+import { PlaceholderBadge } from "@/components/site/PlaceholderBadge";
+import { getBlogPostBySlug, isGenericBlogImage } from "@/lib/blog";
 import { trackWhatsAppClick, trackGetQuoteClick } from "@/lib/analytics";
 
 const blogMetaTitles: Record<string, string> = {
@@ -398,6 +399,13 @@ function BlogPostDetailPage() {
                       alt={post.alt || `${post.title} - Technical Engineering Diagram`}
                       className="w-full h-auto object-contain block rounded-2xl sm:rounded-3xl transition-transform duration-300 group-hover:scale-[1.008]"
                     />
+
+                    {/* Amber Placeholder Badge for generic stock/category images */}
+                    {isGenericBlogImage(post) && (
+                      <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 pointer-events-none">
+                        <PlaceholderBadge />
+                      </div>
+                    )}
 
                     {/* Subtle Hover Action Overlay */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300 rounded-2xl sm:rounded-3xl flex items-center justify-center pointer-events-none">

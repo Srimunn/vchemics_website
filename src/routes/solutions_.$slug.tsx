@@ -5,6 +5,7 @@ import {
   Wrench,
   Building2,
   Factory,
+  Paintbrush,
   ArrowLeft,
   ArrowRight,
   ChevronRight,
@@ -29,6 +30,7 @@ const solutionIcons: Record<string, LucideIcon> = {
   "concrete-repair": Wrench,
   "structural-rehabilitation": Building2,
   "industrial-flooring": Factory,
+  painting: Paintbrush,
 };
 
 const solutionMetaDescriptions: Record<string, string> = {
@@ -42,6 +44,8 @@ const solutionMetaDescriptions: Record<string, string> = {
     "Engineered RCC column jacketing and section enlargement with self-compacting micro concrete and epoxy doweling achieving >65 MPa compressive strength.",
   "industrial-flooring":
     "Heavy-duty epoxy screeds, metallic dry-shake floor hardeners, and chemical-resistant polyurethane toppings built for high-abrasion forklift and factory traffic.",
+  painting:
+    "Industrial protective coatings and durable architectural painting systems matched to exposure conditions for structural steel, tanks, and building envelopes.",
 };
 
 export const Route = createFileRoute("/solutions_/$slug")({
@@ -239,7 +243,10 @@ function SolutionDetailPage() {
                   {solution.image ? (
                     <img
                       src={solution.image}
-                      alt={`${solution.title} - Certified Engineering Application Protocol`}
+                      alt={
+                        solution.alt ||
+                        `${solution.title} - Certified Engineering Application Protocol`
+                      }
                       className="h-full w-full object-cover"
                     />
                   ) : (

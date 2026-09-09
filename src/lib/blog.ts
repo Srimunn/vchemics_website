@@ -1,4 +1,39 @@
 import { allBlogPosts, type BlogPostItem } from "@/components/site/data";
+import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.jpg";
+import admixturesImg from "@/assets/product-admixtures.jpg";
+import waterproofingImg from "@/assets/product-waterproofing.jpg";
+import groutsImg from "@/assets/product-grouts.jpg";
+import microConcreteImg from "@/assets/product-microconcrete.jpg";
+
+export const blogImages: Record<string, string> = {
+  admixtures: admixturesImg,
+  waterproofing: waterproofingImg,
+  grouts: groutsImg,
+  microconcrete: microConcreteImg,
+  "pu-injection-site": puInjectionSiteHeroImg,
+};
+
+export const GENERIC_BLOG_IMAGE_KEYS = [
+  "admixtures",
+  "waterproofing",
+  "grouts",
+  "microconcrete",
+] as const;
+
+export function isGenericBlogImage(post: { imageKey?: string; image?: string }): boolean {
+  if (post.imageKey) {
+    return (GENERIC_BLOG_IMAGE_KEYS as readonly string[]).includes(post.imageKey);
+  }
+  if (
+    post.image === blogImages.admixtures ||
+    post.image === blogImages.waterproofing ||
+    post.image === blogImages.grouts ||
+    post.image === blogImages.microconcrete
+  ) {
+    return true;
+  }
+  return false;
+}
 
 export interface BlogPost extends BlogPostItem {
   content: string; // Markdown formatted content
@@ -495,9 +530,11 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
 
   const detail = blogPostMarkdownData[base.id] || blogPostMarkdownData[base.slug];
   const markdown = detail?.content || `## Overview\n\n${base.excerpt}`;
+  const resolvedImage = (base.imageKey && blogImages[base.imageKey]) || base.image;
 
   return {
     ...base,
+    image: resolvedImage,
     content: markdown,
     takeaways: detail?.takeaways || base.takeaways || [],
     standards: detail?.standards || base.standards || [],
@@ -506,5 +543,8 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
 }
 
 export function getAllBlogPosts(): BlogPostItem[] {
-  return allBlogPosts;
+  return allBlogPosts.map((post) => ({
+    ...post,
+    image: (post.imageKey && blogImages[post.imageKey]) || post.image,
+  }));
 }

@@ -105,7 +105,8 @@ export function Footer() {
                     params={{ slug: s.id }}
                     className="transition-colors hover:text-brand-green inline-flex items-center gap-1.5"
                   >
-                    <span className="text-white/30">•</span> {s.title}
+                    <span className="text-white/30">•</span>{" "}
+                    {s.id === "painting" ? "Painting" : s.title}
                   </Link>
                 </li>
               ))}

@@ -13,7 +13,8 @@ tags:
     "Basement Waterproofing",
     "Concrete Repair",
   ]
-image: "grouts"
+image: "pu-injection-site"
+alt: "Worker performing PU injection grouting on a concrete ceiling with marked injection grid points, using a hand-held injection hose."
 takeaways:
   - "PU injection is not one material — hydrophilic, hydrophobic, foaming, and non-foaming resins each suit different water and movement conditions."
   - "A leaking crack is not automatically a structural crack; structural significance must be assessed separately by a qualified engineer."

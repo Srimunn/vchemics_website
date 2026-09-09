@@ -6,6 +6,7 @@ import {
   Wrench,
   Building2,
   Factory,
+  Paintbrush,
   ArrowRight,
   Sparkles,
   Phone,
@@ -61,6 +62,7 @@ const solutionIcons = {
   "concrete-repair": Wrench,
   "structural-rehabilitation": Building2,
   "industrial-flooring": Factory,
+  painting: Paintbrush,
 };
 
 const crossSectionLayers: Record<
@@ -241,6 +243,40 @@ const crossSectionLayers: Record<
       material: "Lithium / Sodium Silicate Floor Densifier",
     },
   ],
+  painting: [
+    {
+      layerNumber: "Layer 01",
+      title: "Substrate Profiling & Abrasive Prep",
+      thickness: "Parent Substrate",
+      mechanism:
+        "Grit blasting to SA 2.5 or high-pressure washing to eliminate contaminants and establish receptive profile.",
+      material: "Structural Steel / Dense Masonry Substrate",
+    },
+    {
+      layerNumber: "Layer 02",
+      title: "Anti-Corrosive / Alkali Primer",
+      thickness: "50 – 75 µm DFT",
+      mechanism:
+        "Passivates metal oxidation and anchors coating system with deep capillary substrate wetting.",
+      material: "Zinc-Rich Epoxy or Alkali-Resistant Primer",
+    },
+    {
+      layerNumber: "Layer 03",
+      title: "High-Build Intermediate Barrier",
+      thickness: "100 – 150 µm DFT",
+      mechanism:
+        "Forms an impenetrable cross-linked barrier against chloride diffusion, atmospheric humidity, and chemicals.",
+      material: "High-Build Epoxy or Elastomeric Intermediate",
+    },
+    {
+      layerNumber: "Layer 04",
+      title: "UV-Stable Protective & Decorative Topcoat",
+      thickness: "50 – 80 µm DFT",
+      mechanism:
+        "Provides non-chalking UV resistance, vibrant color retention, and chemical fume/abrasion defense.",
+      material: "Aliphatic Polyurethane / Weatherproof Emulsion",
+    },
+  ],
 };
 
 function SolutionsPage() {
@@ -310,8 +346,8 @@ function SolutionsPage() {
               </p>
             </div>
 
-            {/* 5-Column Responsive Discipline Selector Bar (Zero horizontal scrollbar) */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 w-full">
+            {/* 6-Column Responsive Discipline Selector Bar (Zero horizontal scrollbar) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 w-full">
               {allSolutions.map((sol, idx) => {
                 const SolIcon = solutionIcons[sol.id as keyof typeof solutionIcons] || ShieldCheck;
                 const isActive = sol.id === activeTab;
@@ -521,7 +557,7 @@ function SolutionsPage() {
         </div>
       </section>
 
-      {/* 2. ALL 5 SOLUTION PROTOCOLS DIRECT INDEX */}
+      {/* 2. ALL 6 SOLUTION PROTOCOLS DIRECT INDEX */}
       <section className="py-14 lg:py-20 border-t border-border/80 bg-muted/20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
@@ -531,7 +567,7 @@ function SolutionsPage() {
                 COMPLETE SOLUTION DIRECTORY
               </p>
               <h2 className="mt-1.5 font-display text-2xl sm:text-3xl font-bold text-foreground">
-                All 5 Engineered Solution Disciplines
+                All 6 Engineered Solution Disciplines
               </h2>
               <p className="mt-1 text-xs sm:text-sm text-muted-foreground max-w-xl">
                 Explore dedicated execution methodologies, certified ASTM/IS layering standards, and
