@@ -11,6 +11,7 @@ import terraceWaterproofingImg from "@/assets/solution-terrace-waterproofing.jpg
 import founderImg from "@/assets/velmurugan-sivanantham.jpg";
 import blogColdJointsImg from "@/assets/blog-preventing-cold-joints.jpg";
 import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.jpg";
+import waterproofingGuideImg from "@/assets/blog/water_proofing.png";
 import step1StructureImg from "@/assets/solutions/basement-waterproofing/step-1-structure.jpg";
 import step2BeamCoatingImg from "@/assets/solutions/basement-waterproofing/step-2-beam-coating.jpg";
 import step3SiteConditionsImg from "@/assets/solutions/basement-waterproofing/step-3-site-conditions.jpg";
@@ -1225,8 +1226,8 @@ export const allBlogPosts: BlogPostItem[] = [
       "Waterproofing",
       "Membrane",
     ],
-    image: waterproofingImg,
-    imageKey: "waterproofing",
+    image: waterproofingGuideImg,
+    imageKey: "waterproofing-guide",
     alt: "Crystalline vs Membrane Waterproofing Engineering Cross Section Guide",
     takeaways: [
       "Crystalline chemistry grows non-soluble dendritic crystals sealing micro-cracks up to 0.4mm.",
@@ -1360,6 +1361,27 @@ export const allBlogPosts: BlogPostItem[] = [
         url: "https://law.resource.org/pub/in/bis/S03/is.516.1959.pdf",
       },
     ],
+  },
+  {
+    id: "waterproofing-chemicals-guide",
+    slug: "waterproofing-chemicals-guide",
+    title: "Waterproofing Chemicals: A Simple Guide for Better Building Protection",
+    category: "Waterproofing Guides",
+    date: "September 2026",
+    readTime: "8 min read",
+    author: "Vchemics Technical Team",
+    excerpt:
+      "Learn how waterproofing chemicals control moisture, where to apply them, and how to select the right protection for walls, terraces, basements, wet areas, and water tanks.",
+    tags: [
+      "Waterproofing Chemicals",
+      "Waterproofing",
+      "Basement Waterproofing",
+      "Terrace Waterproofing",
+      "Building Maintenance",
+    ],
+    image: waterproofingImg,
+    imageKey: "waterproofing",
+    alt: "Applicator rolling a seamless waterproofing coating across a concrete roof slab",
   },
 ];
 

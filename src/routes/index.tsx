@@ -5,16 +5,15 @@ import {
   Droplets,
   FlaskConical,
   Factory,
-  Hammer,
   HardHat,
   Layers,
   Mountain,
-  Ruler,
   ShieldCheck,
   Truck,
   Waves,
   Wrench,
   Paintbrush,
+  Ruler,
   Zap,
   Gauge,
   Sparkles,
@@ -53,6 +52,75 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
   "epoxy-grouting": Factory,
   "protective-coatings": ShieldCheck,
 };
+
+const marketSectors = [
+  {
+    number: "01",
+    name: "Civil & Infrastructure Contractors",
+    shortName: "Civil & Infrastructure",
+    role: "Concrete performance, waterproofing and structural protection",
+    description:
+      "Construction chemical support for infrastructure works that need reliable concrete performance, watertight detailing and durable repair systems.",
+    solutions: ["Concrete Admixtures", "Waterproofing", "Concrete Repair"],
+    link: "/solutions",
+    icon: HardHat,
+  },
+  {
+    number: "02",
+    name: "Ready-Mix Concrete (RMC) Plants",
+    shortName: "Ready-Mix & Precast",
+    role: "Mix design, slump retention and batching consistency",
+    description:
+      "PCE-based admixture guidance calibrated to local aggregates, cement blends and hot-weather transit conditions for consistent production.",
+    solutions: ["Admixtures", "Mix Performance", "Concrete Quality"],
+    link: "/products#concrete-admixtures",
+    icon: Truck,
+  },
+  {
+    number: "03",
+    name: "Structural & Waterproofing Consultants",
+    shortName: "Consultants & Specifiers",
+    role: "Specification support, method statements and test data",
+    description:
+      "Technical input for consultants and project teams selecting compatible waterproofing, repair, rehabilitation and protection systems.",
+    solutions: ["Specification Support", "Waterproofing", "Repair Systems"],
+    link: "/solutions",
+    icon: Ruler,
+  },
+  {
+    number: "04",
+    name: "Industrial & Manufacturing Plants",
+    shortName: "Industrial & Manufacturing",
+    role: "Equipment foundations, flooring and chemical protection",
+    description:
+      "Grouting, flooring and protective coating systems for machinery plinths, production areas, tanks and demanding industrial environments.",
+    solutions: ["Precision Grouting", "Industrial Flooring", "Protective Coatings"],
+    link: "/solutions/industrial-flooring",
+    icon: Factory,
+  },
+  {
+    number: "05",
+    name: "Builders & Commercial Developers",
+    shortName: "Builders & Developers",
+    role: "Watertight envelopes and durable building finishes",
+    description:
+      "Practical waterproofing, repair and structural protection for commercial buildings, basements, podiums and large construction projects.",
+    solutions: ["Waterproofing", "Concrete Repair", "Structural Protection"],
+    link: "/solutions/basement-waterproofing",
+    icon: Building2,
+  },
+  {
+    number: "06",
+    name: "Specialist Waterproofing Applicators",
+    shortName: "Waterproofing Applicators",
+    role: "Application materials, training and site support",
+    description:
+      "Application-focused waterproofing materials and technical guidance for active leaks, difficult site conditions and repair work.",
+    solutions: ["PU Injection", "Waterproofing", "Repair Materials"],
+    link: "/products#waterproofing-chemicals",
+    icon: Droplets,
+  },
+] as const;
 
 const faqs = [
   {
@@ -138,9 +206,12 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [activeSector, setActiveSector] = useState(0);
   const [activeSolutionTab, setActiveSolutionTab] = useState(
     allSolutions[0]?.id ?? "basement-waterproofing",
   );
+  const selectedSector = marketSectors[activeSector];
+  const SelectedSectorIcon = selectedSector.icon;
 
   return (
     <>
@@ -344,8 +415,180 @@ function Home() {
             />
           </Reveal>
 
-          {/* Zig-Zag Stack of Rectangular Boxes */}
-          <div className="mt-14 space-y-6 sm:space-y-8">
+          {/* Editorial sector navigation */}
+          <div className="mt-10 lg:mt-12">
+            <div className="hidden lg:grid lg:grid-cols-[minmax(250px,0.8fr)_minmax(0,1.6fr)] lg:gap-14">
+              <nav
+                aria-label="Market sectors"
+                role="tablist"
+                className="grid h-[390px] grid-rows-6 overflow-hidden rounded-3xl border border-border/80"
+              >
+                {marketSectors.map((sector, index) => {
+                  const isActive = activeSector === index;
+                  return (
+                    <button
+                      key={sector.number}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-controls={`sector-panel-${sector.number}`}
+                      onClick={() => setActiveSector(index)}
+                      onMouseEnter={() => setActiveSector(index)}
+                      className={cn(
+                        "group flex h-full w-full items-center gap-4 border-b border-border/70 px-3 text-left transition-colors last:border-b-0",
+                        isActive
+                          ? "bg-brand-green text-white"
+                          : "text-foreground hover:bg-white/70",
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "font-mono text-xs font-bold tracking-wider",
+                          isActive ? "text-brand-green" : "text-muted-foreground",
+                        )}
+                      >
+                        {sector.number}
+                      </span>
+                      <span className="font-display text-base font-bold leading-tight">
+                        {sector.shortName}
+                      </span>
+                      <ChevronRight
+                        className={cn(
+                          "ml-auto h-4 w-4 transition-transform",
+                          isActive ? "text-brand-green translate-x-1" : "text-muted-foreground",
+                        )}
+                      />
+                    </button>
+                  );
+                })}
+              </nav>
+
+              <div
+                id={`sector-panel-${selectedSector.number}`}
+                role="tabpanel"
+                aria-live="polite"
+                onMouseMove={(event) => {
+                  const bounds = event.currentTarget.getBoundingClientRect();
+                  const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+                  const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+                  event.currentTarget.style.setProperty("--sector-light-x", `${x}%`);
+                  event.currentTarget.style.setProperty("--sector-light-y", `${y}%`);
+                }}
+                className="group/sector relative h-[390px] overflow-hidden rounded-3xl border border-brand-green/35 bg-[linear-gradient(135deg,#0b274c_0%,#0b274c_55%,#164255_68%,#3e713e_84%,#669930_100%)] p-7 text-white shadow-sm sm:p-9"
+              >
+                <div className="pointer-events-none absolute left-[var(--sector-light-x,78%)] top-[var(--sector-light-y,18%)] h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-green/25 blur-3xl transition-[left,top] duration-500 ease-out animate-sector-glow group-hover/sector:[animation-play-state:paused]" />
+                <div
+                  key={selectedSector.number}
+                  className="relative flex h-full flex-col justify-between gap-10 animate-in fade-in slide-in-from-right-2 duration-300"
+                >
+                  <div>
+                    <div className="flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-[0.16em] text-brand-green">
+                      <span>{selectedSector.number}</span>
+                      <span className="h-0.5 w-8 bg-brand-green" aria-hidden />
+                      <span className="text-[#b0c7df]">{selectedSector.role}</span>
+                    </div>
+                    <div className="mt-8 flex items-start gap-4">
+                      <SelectedSectorIcon className="mt-1 h-7 w-7 shrink-0 text-brand-green" />
+                      <div>
+                        <h3 className="font-display text-2xl font-bold leading-tight sm:text-3xl">
+                          {selectedSector.name}
+                        </h3>
+                        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#d3e0ed] sm:text-base">
+                          {selectedSector.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-6 border-t border-white/15 pt-5 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      <span className="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-brand-green">
+                        Relevant solutions
+                      </span>
+                      <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+                        {selectedSector.solutions.map((solution) => (
+                          <span key={solution} className="text-sm font-semibold text-white/90">
+                            {solution}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <Link
+                      to={selectedSector.link}
+                      className="inline-flex shrink-0 items-center gap-2 font-display text-xs font-bold uppercase tracking-wider text-white transition-colors hover:text-brand-green"
+                    >
+                      Explore solutions <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:hidden">
+              <div className="divide-y divide-border border-y border-border/80">
+                {marketSectors.map((sector, index) => {
+                  const isOpen = activeSector === index;
+                  const SectorIcon = sector.icon;
+                  return (
+                    <div key={sector.number}>
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        aria-controls={`mobile-sector-panel-${sector.number}`}
+                        onClick={() => setActiveSector(index)}
+                        className="flex w-full items-center gap-3 px-2 py-4 text-left"
+                      >
+                        <span className="font-mono text-xs font-bold text-brand-green">
+                          {sector.number}
+                        </span>
+                        <span className="font-display text-base font-bold text-foreground">
+                          {sector.shortName}
+                        </span>
+                        <ChevronDown
+                          className={cn(
+                            "ml-auto h-4 w-4 text-muted-foreground transition-transform",
+                            isOpen && "rotate-180 text-brand-blue",
+                          )}
+                        />
+                      </button>
+                      {isOpen && (
+                        <div
+                          id={`mobile-sector-panel-${sector.number}`}
+                          className="border-t border-border/70 bg-white/60 px-2 pb-5 pt-4"
+                        >
+                          <div className="flex items-start gap-3">
+                            <SectorIcon className="mt-1 h-5 w-5 shrink-0 text-brand-green" />
+                            <div>
+                              <h3 className="font-display text-lg font-bold text-foreground">
+                                {sector.name}
+                              </h3>
+                              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                                {sector.description}
+                              </p>
+                              <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-semibold text-foreground/80">
+                                {sector.solutions.map((solution) => (
+                                  <span key={solution}>{solution}</span>
+                                ))}
+                              </div>
+                              <Link
+                                to={sector.link}
+                                className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand-blue"
+                              >
+                                Explore solutions <ArrowRight className="h-3.5 w-3.5" />
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Legacy sector cards retained in source for reference; hidden after the redesign. */}
+          <div className="hidden">
             {[
               {
                 step: "01",
