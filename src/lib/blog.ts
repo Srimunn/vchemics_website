@@ -619,7 +619,9 @@ Chemical-resistant coatings are designed for surfaces exposed to acids, alkalis,
 
 Abrasion-resistant coatings help protect surfaces exposed to repeated mechanical wear. Typical examples include forklift routes, loading areas, workshops, parking decks, and industrial floors. These systems help reduce surface wear and make cleaning and maintenance easier.
 
-To explore tailored solutions for these applications, feel free to check our [Vchemics India Protective Coatings Range](/products/protective-coatings).
+To explore tailored solutions for these applications, feel free to check our product range:
+
+[Vchemics India Protective Coatings Range](/products/protective-coatings)
 
 ## Where Are Protective Coatings Used?
 

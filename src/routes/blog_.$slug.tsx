@@ -291,6 +291,15 @@ function BlogPostDetailPage() {
           {children}
         </tr>
       ),
+      a: ({ children, href, ...props }: { children?: ReactNode; href?: string }) => (
+        <a
+          href={href}
+          className="font-semibold text-brand-green underline underline-offset-4 decoration-brand-green transition-colors hover:text-brand-navy hover:decoration-brand-navy"
+          {...props}
+        >
+          {children}
+        </a>
+      ),
     }),
     [],
   );
@@ -435,7 +444,7 @@ function BlogPostDetailPage() {
         )}
 
         <Reveal delay={120}>
-          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-display prose-headings:font-bold prose-headings:text-foreground prose-p:font-sans prose-p:text-base sm:prose-p:text-lg prose-p:leading-relaxed prose-p:text-foreground/80 prose-li:font-sans prose-li:text-base sm:prose-li:text-lg prose-li:leading-relaxed prose-li:text-foreground/80 prose-a:text-brand-blue prose-a:font-semibold hover:prose-a:text-brand-green prose-strong:text-foreground prose-strong:font-bold">
+          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-display prose-headings:font-bold prose-headings:text-foreground prose-p:font-sans prose-p:text-base sm:prose-p:text-lg prose-p:leading-relaxed prose-p:text-foreground/80 prose-li:font-sans prose-li:text-base sm:prose-li:text-lg prose-li:leading-relaxed prose-li:text-foreground/80 prose-a:text-brand-green prose-a:font-semibold prose-a:underline prose-a:underline-offset-4 prose-a:decoration-brand-green hover:prose-a:text-brand-navy hover:prose-a:decoration-brand-navy prose-strong:text-foreground prose-strong:font-bold">
             {post.content.trimStart().startsWith("##") && (
               <p className="!mb-8 !text-lg !leading-relaxed !text-foreground/90 sm:!text-xl">
                 {post.excerpt}
