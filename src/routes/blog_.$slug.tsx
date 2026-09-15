@@ -21,6 +21,7 @@ import { trackGetQuoteClick } from "@/lib/analytics";
 
 const blogMetaTitles: Record<string, string> = {
   "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
+  "protective-coatings-for-buildings": "Protective Coatings: Types, Benefits & Uses",
   "column-jacketing-micro-concrete-standards": "Column Jacketing & Section Enlargement | Vchemics",
   "crystalline-vs-membrane-waterproofing": "Crystalline vs Elastomeric Waterproofing | Vchemics",
   "machine-foundation-epoxy-grouting-standards":
@@ -41,6 +42,8 @@ const blogMetaDescriptions: Record<string, string> = {
     "Step-by-step guide to 45-degree mechanical packer installation and hydro-active PU injection grouting at 50-250 bar to permanently arrest water leaks.",
   "column-jacketing-micro-concrete-standards":
     "Best practices for RCC structural column encasement, rebar passivating primers, shear dowel anchorage, and self-compacting micro concrete pouring.",
+  "protective-coatings-for-buildings":
+    "Learn about protective coatings, their types, benefits, applications, and selection for concrete, steel, roofs, and industrial surfaces.",
 };
 
 export const Route = createFileRoute("/blog_/$slug")({

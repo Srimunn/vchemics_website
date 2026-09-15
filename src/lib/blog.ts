@@ -1,6 +1,7 @@
 import { allBlogPosts, type BlogPostItem } from "@/components/site/data";
 import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.jpg";
 import waterproofingGuideImg from "@/assets/blog/water_proofing.png";
+import protectiveCoatingsBuildingsImg from "@/assets/blog/protective-coatings-buildings.png";
 import admixturesImg from "@/assets/product-admixtures.jpg";
 import waterproofingImg from "@/assets/product-waterproofing.jpg";
 import groutsImg from "@/assets/product-grouts.jpg";
@@ -13,6 +14,7 @@ export const blogImages: Record<string, string> = {
   microconcrete: microConcreteImg,
   "pu-injection-site": puInjectionSiteHeroImg,
   "waterproofing-guide": waterproofingGuideImg,
+  "protective-coatings-buildings": protectiveCoatingsBuildingsImg,
 };
 
 export const GENERIC_BLOG_IMAGE_KEYS = [
@@ -569,6 +571,150 @@ Waterproofing blocks water passage, but active plumbing leaks, broken pipes, or 
       { name: "Basement Waterproofing", link: "/solutions/basement-waterproofing" },
       { name: "Terrace Waterproofing", link: "/solutions/terrace-waterproofing" },
       { name: "PU Injection Grouting", link: "/products/pu-injection-grouting" },
+    ],
+  },
+  "protective-coatings-for-buildings": {
+    content: `
+Protective coatings are specially formulated materials applied to concrete, steel, roofs, floors, and other construction surfaces. They create a protective layer that helps reduce damage caused by sunlight, moisture, chemicals, abrasion, and environmental exposure.
+
+Unlike ordinary paint, a protective coating is selected for a specific performance requirement. Some coatings provide UV resistance, some resist chemical attack, and others help limit carbonation or surface wear.
+
+A properly selected coating can improve service life, reduce maintenance, and help a structure remain safe and presentable for longer.
+
+## What Are Protective Coatings?
+
+Protective coatings are specially formulated materials applied to concrete, steel, roofs, floors, and other construction surfaces. They create a protective layer that helps reduce damage caused by sunlight, moisture, chemicals, abrasion, and environmental exposure.
+
+Unlike ordinary paint, a protective coating is selected for a specific performance requirement. Some coatings provide UV resistance, some resist chemical attack, and others help limit carbonation or surface wear.
+
+A properly selected coating can improve service life, reduce maintenance, and help a structure remain safe and presentable for longer.
+
+## Why Do Buildings Need Protective Coatings?
+
+Concrete and steel are strong materials, but they are not immune to damage. Outdoor structures face rain, heat, pollution, salts, and repeated temperature changes. Industrial floors may also experience chemical spills, forklift traffic, and heavy impact.
+
+Over time, these conditions can lead to cracking, surface dusting, corrosion, staining, and loss of appearance. Protective coatings act as a barrier between the substrate and the surrounding environment.
+
+For example, a parking deck may need resistance to water and vehicle abrasion, while a coastal structure may need protection against moisture and chloride exposure. The coating system should match the actual site conditions.
+
+## Types of Protective Coatings
+
+### Polyurethane Protective Coatings
+
+Polyurethane coatings are commonly used where weather resistance, flexibility, and appearance are important. Aliphatic polyurethane topcoats are designed to provide a UV-stable, non-yellowing finish for exposed concrete and steel surfaces. They are suitable for facades, parking decks, roofs, and other areas exposed to sunlight and changing weather conditions.
+
+### Epoxy Protective Coatings
+
+Epoxy coatings provide strong adhesion and a hard, seamless surface. They are widely used for industrial floors, warehouses, automotive showrooms, pharmaceutical facilities, and areas exposed to abrasion or chemical spills. High-build and solvent-free epoxy systems are often selected where durability, easy cleaning, and resistance to forklift traffic are required.
+
+### Anti-Carbonation Coatings
+
+Anti-carbonation coatings help reduce the movement of carbon dioxide into concrete. This is important because carbonation can lower the alkalinity of concrete and contribute to the loss of protection around embedded steel reinforcement. These coatings are often used on exposed facades, flyover piers, bridges, and other reinforced concrete structures.
+
+### Chemical-Resistant Coatings
+
+Chemical-resistant coatings are designed for surfaces exposed to acids, alkalis, oils, cleaning agents, or industrial chemicals. They are used in chemical plants, wastewater treatment facilities, containment areas, and industrial service zones. Chemical resistance depends on the coating chemistry and the chemical involved. The expected exposure should always be checked before selection.
+
+### Abrasion-Resistant Coatings
+
+Abrasion-resistant coatings help protect surfaces exposed to repeated mechanical wear. Typical examples include forklift routes, loading areas, workshops, parking decks, and industrial floors. These systems help reduce surface wear and make cleaning and maintenance easier.
+
+To explore tailored solutions for these applications, feel free to check our [Vchemics India Protective Coatings Range](/products/protective-coatings).
+
+## Where Are Protective Coatings Used?
+
+Protective coatings are used across commercial, industrial, infrastructure, and residential projects. Common applications include:
+
+- Exposed concrete facades and architectural surfaces
+- Parking garage decks and car park floors
+- Flyover piers, bridges, and coastal civil structures
+- Chemical bund walls and containment areas
+- Wastewater treatment basins and ETP facilities
+- Industrial flooring and warehouse floors
+- Automotive showrooms and workshops
+- Pharmaceutical and clean production areas
+- Terrace roofs and roof protection systems
+- Swimming pool surrounds and service areas
+
+## Benefits of Protective Coatings
+
+- **Improved Weather Resistance:** UV- and weather-resistant coatings help reduce surface deterioration caused by sunlight, rain, and changing outdoor conditions.
+- **Reduced Carbonation and Chloride Exposure:** Suitable barrier coatings help limit the movement of aggressive substances into concrete, supporting the long-term protection of reinforcement.
+- **Better Chemical Resistance:** Industrial coating systems can protect surfaces against selected chemicals, oils, cleaning agents, and accidental spills.
+- **Higher Abrasion Resistance:** Hard-wearing coatings help reduce damage from forklift wheels, foot traffic, dragging equipment, and repeated movement.
+- **Easier Cleaning and Maintenance:** Seamless coated surfaces are generally easier to wash and maintain than rough or damaged concrete surfaces.
+- **Improved Appearance:** Protective coatings can provide a clean, uniform finish while supporting the functional performance of the structure.
+
+## How Protective Coatings Work
+
+A protective coating system normally works through several layers. Each layer has a specific purpose:
+
+1. **Surface preparation:** Dust, laitance, oil, weak concrete, and loose particles are removed. Diamond grinding or grit blasting may be used depending on the substrate.
+2. **Primer application:** A suitable epoxy or polyurethane primer improves adhesion and helps seal the surface.
+3. **First coat:** The first high-build coat provides the main protective barrier.
+4. **Second coat:** A cross-coat is applied after the required recoat interval to improve coverage and system thickness.
+
+For many systems, the recoat interval may be around 6–8 hours, but the actual time depends on the product, temperature, humidity, and site conditions. Always follow the technical data sheet.
+
+## How to Select the Right Protective Coating
+
+Choosing a coating only by price can lead to early failure. Consider the following points before final selection:
+
+- **Substrate:** Is the surface concrete, steel, masonry, or an existing coating?
+- **Exposure:** Will the surface face sunlight, rain, moisture, chemicals, or salts?
+- **Traffic:** Will it receive pedestrian traffic, forklift traffic, or vehicle movement?
+- **Flexibility:** Is movement or crack-bridging performance required?
+- **Appearance:** Is colour stability or a decorative finish important?
+- **Maintenance:** Must the surface be washable or easy to clean?
+- **Standards:** Does the project require EN 1504-2, ASTM D4541, ASTM D4060, or another specification?
+- **Application conditions:** Can the surface be prepared properly, and can the coating cure under the expected site conditions?
+
+## Application Requirements
+
+Good surface preparation is one of the most important factors in coating performance. Even a high-quality product may fail if applied over dust, oil, weak concrete, or damp contamination.
+
+Before application, check the surface condition, moisture level, temperature, humidity, and dew point. The substrate should be sound and free from contaminants.
+
+Typical protective coating systems may use 0.25–0.40 kg/m² per coat, with two or three coats recommended depending on the product and required performance. Actual consumption should be confirmed from the product technical data sheet.
+
+Vchemics protective coating systems are available in 5 kg and 20 kg sets, generally supplied as base and hardener components.
+
+## Frequently Asked Questions
+
+### Can protective coatings be used on concrete?
+Yes. Protective coatings are widely used on concrete facades, floors, roofs, parking decks, bridge components, and industrial structures.
+
+### Are epoxy and polyurethane coatings the same?
+No. Epoxy is generally selected for hard, durable, and chemically resistant surfaces. Polyurethane is often selected for weather resistance, flexibility, and UV-stable finishes.
+
+### Do protective coatings stop all cracks?
+No. A coating cannot correct structural movement or major defects by itself. Cracks should be assessed and repaired using a suitable repair system before coating.
+
+### How many coats are required?
+Many systems use two or three coats, but the required number depends on the product, exposure, substrate, and specified dry film thickness.
+
+### How long will a protective coating last?
+Service life depends on surface preparation, coating selection, application quality, exposure, and maintenance. No single service-life period applies to every project.
+
+### Where can I get technical guidance?
+You can contact Vchemics India for product data sheets, system recommendations, and trial batch requirements.
+
+## Conclusion
+
+Protective coatings are an important part of modern building and infrastructure maintenance. They help protect concrete and steel from UV exposure, carbonation, moisture, chemicals, and mechanical wear.
+
+The best system depends on the substrate, exposure conditions, performance requirement, and application method. Polyurethane, epoxy, anti-carbonation, chemical-resistant, and abrasion-resistant coatings each serve different purposes.
+
+To choose the right solution, review the project conditions and consult the product technical data sheet before application.
+
+- **Explore the Vchemics Protective Coatings range:** [Vchemics India Protective Coatings Range](/products/protective-coatings)
+- **Contact Vchemics India:** [Contact Vchemics India](/contact)
+`,
+    relatedProducts: [
+      { name: "Protective Coatings", link: "/products/protective-coatings" },
+      { name: "Concrete Repair", link: "/products/concrete-repair" },
+      { name: "Waterproofing Chemicals", link: "/products/waterproofing-chemicals" },
+      { name: "Industrial Flooring", link: "/solutions/industrial-flooring" },
     ],
   },
 };
