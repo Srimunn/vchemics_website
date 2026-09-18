@@ -162,20 +162,6 @@
   background-image: linear-gradient(to right, var(--color-brand-blue), var(--color-brand-green));
 }
 
-@keyframes sector-glow-drift {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translate3d(-22%, -8%, 0) scale(0.9);
-  }
-  50% {
-    transform: translate(-50%, -50%) translate3d(12%, 16%, 0) scale(1.08);
-  }
-}
-
-@utility animate-sector-glow {
-  animation: sector-glow-drift 8s ease-in-out infinite;
-}
-
 /* Angled section dividers */
 @utility clip-slant-b {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);

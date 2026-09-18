@@ -584,47 +584,42 @@ function SolutionsPage() {
                   key={sol.id}
                   to="/solutions/$slug"
                   params={{ slug: sol.id }}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 shadow-xs transition-all duration-500 hover:scale-[1.02] hover:border-brand-green hover:shadow-xl"
+                  className="group flex flex-col justify-between rounded-3xl border border-border/80 bg-card p-6 shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300"
                 >
-                  <div
-                    className="pointer-events-none absolute inset-0 z-0 bg-brand-green [clip-path:circle(0%_at_0%_100%)] transition-[clip-path] duration-700 ease-out group-hover:[clip-path:circle(165%_at_0%_100%)]"
-                    aria-hidden="true"
-                  />
-
-                  <div className="relative z-10 space-y-4">
+                  <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="grid h-12 w-12 place-items-center rounded-2xl border border-brand-blue/20 bg-brand-blue/10 text-brand-blue transition-all duration-300 group-hover:bg-white/15 group-hover:text-white group-hover:border-white/30 group-hover:scale-110">
+                      <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:scale-110 transition-transform">
                         <SolIcon className="h-6 w-6" />
                       </div>
-                      <span className="rounded-full border border-brand-green/30 bg-brand-green/10 px-2.5 py-1 font-mono text-xs font-bold text-brand-green transition-colors duration-300 delay-300 group-hover:border-white/30 group-hover:bg-white/15 group-hover:text-white">
+                      <span className="font-mono text-xs font-bold text-brand-green bg-brand-green/10 px-2.5 py-1 rounded-full border border-brand-green/30">
                         Protocol 0{idx + 1}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="font-display text-lg font-bold text-foreground transition-colors duration-300 delay-300 group-hover:text-white">
+                      <h3 className="font-display text-lg font-bold text-foreground group-hover:text-brand-blue transition-colors">
                         {sol.title}
                       </h3>
-                      <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground transition-colors duration-300 delay-300 group-hover:text-white/85">
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
                         {sol.subtitle}
                       </p>
                     </div>
 
-                    <div className="space-y-1.5 border-t border-border/60 pt-2 transition-colors duration-300 delay-300 group-hover:border-white/30">
-                      <span className="block font-mono text-[0.65rem] font-bold uppercase tracking-wider text-brand-blue transition-colors duration-300 delay-300 group-hover:text-white">
+                    <div className="space-y-1.5 pt-2 border-t border-border/60">
+                      <span className="font-mono text-[0.65rem] font-bold text-brand-blue uppercase tracking-wider block">
                         Target Applications:
                       </span>
-                      <p className="line-clamp-2 text-xs text-foreground/80 transition-colors duration-300 delay-300 group-hover:text-white/85">
+                      <p className="text-xs text-foreground/80 line-clamp-2">
                         {sol.applications.slice(0, 3).join(" • ")}
                       </p>
                     </div>
                   </div>
 
-                  <div className="relative z-10 mt-4 flex items-center justify-between border-t border-border/60 pt-4 transition-colors duration-300 delay-300 group-hover:border-white/30">
-                    <span className="font-display text-xs font-bold text-brand-blue transition-colors duration-300 delay-300 group-hover:text-white">
+                  <div className="pt-4 mt-4 border-t border-border/60 flex items-center justify-between">
+                    <span className="font-display text-xs font-bold text-brand-blue group-hover:text-brand-green transition-colors">
                       View Full Protocol &amp; Case Study
                     </span>
-                    <ArrowRight className="h-4 w-4 text-brand-blue transition-all duration-300 delay-300 group-hover:translate-x-1 group-hover:text-white" />
+                    <ArrowRight className="h-4 w-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>
               );

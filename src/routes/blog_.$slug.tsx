@@ -291,10 +291,12 @@ function BlogPostDetailPage() {
           {children}
         </tr>
       ),
-      a: ({ children, href, ...props }: { children?: ReactNode; href?: string }) => (
+      a: ({ children, className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
         <a
-          href={href}
-          className="font-semibold text-brand-green underline underline-offset-4 decoration-brand-green transition-colors hover:text-brand-navy hover:decoration-brand-navy"
+          className={cn(
+            "font-semibold text-brand-green underline underline-offset-4 decoration-brand-green transition-colors hover:text-brand-navy hover:decoration-brand-navy",
+            className,
+          )}
           {...props}
         >
           {children}

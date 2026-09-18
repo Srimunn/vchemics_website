@@ -189,46 +189,42 @@ function KnowledgeCenterPage() {
                     </div>
 
                     {/* Content Side */}
-                    <div className="group/content relative flex h-full flex-col justify-between space-y-7 overflow-hidden bg-background p-6 transition-colors delay-700 duration-0 group-hover/content:bg-brand-green sm:p-8 lg:p-10">
-                      <div
-                        className="pointer-events-none absolute inset-0 z-0 bg-brand-green [clip-path:circle(0%_at_100%_0%)] transition-[clip-path] duration-700 ease-out group-hover/content:[clip-path:circle(220%_at_100%_0%)]"
-                        aria-hidden="true"
-                      />
-                      <div className="relative z-10">
-                        <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-brand-green transition-colors duration-300 delay-300 group-hover/content:text-white">
+                    <div className="relative flex h-full flex-col justify-between space-y-7 bg-background p-6 sm:p-8 lg:p-10">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-brand-green">
                           <span>{featuredPost.category}</span>
-                          <span className="h-1 w-1 bg-brand-green transition-colors duration-300 delay-300 group-hover/content:bg-white" />
+                          <span className="h-1 w-1 bg-brand-green" />
                           <span className="text-muted-foreground">Featured guide</span>
                         </div>
 
-                        <h3 className="mt-5 font-display text-2xl font-bold leading-tight text-foreground transition-colors duration-300 delay-300 group-hover/content:text-white sm:text-3xl">
+                        <h3 className="mt-5 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                           <Link
                             to="/blog/$slug"
                             params={{ slug: featuredPost.slug }}
-                            className="hover:underline"
+                            className="hover:text-brand-blue hover:underline transition-colors"
                           >
                             {featuredPost.title}
                           </Link>
                         </h3>
 
-                        <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground transition-colors duration-300 delay-300 group-hover/content:text-white/85">
+                        <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
                           {featuredPost.excerpt}
                         </p>
                       </div>
 
-                      <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5 transition-colors duration-300 delay-300 group-hover/content:border-white/30">
-                        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground font-mono transition-colors duration-300 delay-300 group-hover/content:text-white/80">
-                          <span className="font-semibold text-foreground transition-colors duration-300 delay-300 group-hover/content:text-white">
+                      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground font-mono">
+                          <span className="font-semibold text-foreground">
                             By {featuredPost.author}
                           </span>
-                          <span className="text-border transition-colors duration-300 delay-300 group-hover/content:text-white/40">
+                          <span className="text-border">
                             |
                           </span>
                           <span className="flex items-center gap-1">
                             <Clock className="h-3.5 w-3.5 text-brand-blue" />{" "}
                             {featuredPost.readTime}
                           </span>
-                          <span className="text-border transition-colors duration-300 delay-300 group-hover/content:text-white/40">
+                          <span className="text-border">
                             |
                           </span>
                           <span className="flex items-center gap-1">
@@ -240,7 +236,7 @@ function KnowledgeCenterPage() {
                         <Link
                           to="/blog/$slug"
                           params={{ slug: featuredPost.slug }}
-                          className="relative z-10 inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue transition-colors duration-300 delay-300 hover:text-brand-green group-hover/content:text-white cursor-pointer"
+                          className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue transition-colors hover:text-brand-green cursor-pointer"
                         >
                           <span>Read Full Guide</span>
                           <ArrowRight className="h-4 w-4" />
@@ -262,7 +258,7 @@ function KnowledgeCenterPage() {
           >
             {gridPosts.map((post, idx) => (
               <Reveal key={post.id} delay={idx * 50}>
-                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-background transition-all duration-500 hover:scale-[1.02] hover:border-brand-green hover:shadow-xl">
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-background transition-all duration-300 hover:border-brand-blue/40 hover:shadow-xl">
                   {/* Image Slot */}
                   <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted/20">
                     {post.image ? (
@@ -284,37 +280,33 @@ function KnowledgeCenterPage() {
                   </div>
 
                   {/* Content Area */}
-                  <div className="group/content relative flex flex-1 flex-col justify-between overflow-hidden bg-background p-5 transition-colors delay-700 duration-0 group-hover/content:bg-brand-green sm:p-6">
-                    <div
-                      className="pointer-events-none absolute inset-0 z-0 bg-brand-green [clip-path:circle(0%_at_0%_100%)] transition-[clip-path] duration-700 ease-out group-hover/content:[clip-path:circle(220%_at_0%_100%)]"
-                      aria-hidden="true"
-                    />
-                    <div className="relative z-10">
-                      <p className="eyebrow text-[0.65rem] text-brand-green transition-colors duration-300 delay-300 group-hover/content:text-white">
+                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                    <div>
+                      <p className="eyebrow text-[0.65rem] text-brand-green">
                         {post.category}
                       </p>
 
-                      <h3 className="mt-3 font-display text-lg font-bold leading-snug text-foreground transition-colors duration-300 delay-300 group-hover/content:text-white sm:text-xl">
+                      <h3 className="mt-3 font-display text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-brand-blue sm:text-xl">
                         <Link
                           to="/blog/$slug"
                           params={{ slug: post.slug }}
-                          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+                          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue hover:underline"
                         >
                           {post.title}
                         </Link>
                       </h3>
 
-                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground transition-colors duration-300 delay-300 group-hover/content:text-white/85">
+                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                         {post.excerpt}
                       </p>
                     </div>
 
                     {/* Bottom Read Guide Link */}
-                    <div className="relative z-10 mt-7 flex items-center border-t border-border pt-4 transition-colors duration-300 delay-300 group-hover/content:border-white/30">
+                    <div className="mt-7 flex items-center border-t border-border pt-4">
                       <Link
                         to="/blog/$slug"
                         params={{ slug: post.slug }}
-                        className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue transition-colors duration-300 delay-300 group-hover/content:text-white cursor-pointer"
+                        className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue transition-colors hover:text-brand-green cursor-pointer"
                       >
                         <span>Read Guide</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
