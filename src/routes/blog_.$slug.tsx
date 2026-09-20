@@ -18,6 +18,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { PlaceholderBadge } from "@/components/site/PlaceholderBadge";
 import { getBlogPostBySlug, isGenericBlogImage } from "@/lib/blog";
 import { trackGetQuoteClick } from "@/lib/analytics";
+import { cn } from "@/lib/utils";
 
 const blogMetaTitles: Record<string, string> = {
   "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
@@ -218,7 +219,9 @@ function BlogPostDetailPage() {
     const matches: { text: string; id: string }[] = [];
     let match;
     while ((match = h2Regex.exec(post.content)) !== null) {
-      const text = match[1].trim();
+      const matchedText = match[1];
+      if (!matchedText) continue;
+      const text = matchedText.trim();
       matches.push({
         text,
         id: slugify(text),
