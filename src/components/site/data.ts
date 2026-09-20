@@ -11,6 +11,8 @@ import terraceWaterproofingImg from "@/assets/solution-terrace-waterproofing.jpg
 import founderImg from "@/assets/velmurugan-sivanantham.jpg";
 import blogColdJointsImg from "@/assets/blog-preventing-cold-joints.jpg";
 import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.jpg";
+import waterproofingGuideImg from "@/assets/blog/water_proofing.png";
+import protectiveCoatingsBuildingsImg from "@/assets/blog/protective-coatings-buildings.png";
 import step1StructureImg from "@/assets/solutions/basement-waterproofing/step-1-structure.jpg";
 import step2BeamCoatingImg from "@/assets/solutions/basement-waterproofing/step-2-beam-coating.jpg";
 import step3SiteConditionsImg from "@/assets/solutions/basement-waterproofing/step-3-site-conditions.jpg";
@@ -1225,8 +1227,8 @@ export const allBlogPosts: BlogPostItem[] = [
       "Waterproofing",
       "Membrane",
     ],
-    image: waterproofingImg,
-    imageKey: "waterproofing",
+    image: waterproofingGuideImg,
+    imageKey: "waterproofing-guide",
     alt: "Crystalline vs Membrane Waterproofing Engineering Cross Section Guide",
     takeaways: [
       "Crystalline chemistry grows non-soluble dendritic crystals sealing micro-cracks up to 0.4mm.",
@@ -1358,6 +1360,76 @@ export const allBlogPosts: BlogPostItem[] = [
         code: "IS 516",
         name: "Method of Tests for Strength of Concrete",
         url: "https://law.resource.org/pub/in/bis/S03/is.516.1959.pdf",
+      },
+    ],
+  },
+  {
+    id: "waterproofing-chemicals-guide",
+    slug: "waterproofing-chemicals-guide",
+    title: "Waterproofing Chemicals: A Simple Guide for Better Building Protection",
+    category: "Waterproofing Guides",
+    date: "September 2026",
+    readTime: "8 min read",
+    author: "Vchemics Technical Team",
+    excerpt:
+      "Learn how waterproofing chemicals control moisture, where to apply them, and how to select the right protection for walls, terraces, basements, wet areas, and water tanks.",
+    tags: [
+      "Waterproofing Chemicals",
+      "Waterproofing",
+      "Basement Waterproofing",
+      "Terrace Waterproofing",
+      "Building Maintenance",
+    ],
+    image: waterproofingImg,
+    imageKey: "waterproofing",
+    alt: "Applicator rolling a seamless waterproofing coating across a concrete roof slab",
+  },
+  {
+    id: "protective-coatings-for-buildings",
+    slug: "protective-coatings-for-buildings",
+    title: "Protective Coatings: Types, Benefits & Uses",
+    category: "Waterproofing Guides",
+    date: "September 2026",
+    readTime: "8 min read",
+    author: "Vchemics Technical Team",
+    excerpt:
+      "Learn about protective coatings, their types, benefits, applications, and selection for concrete, steel, roofs, and industrial surfaces.",
+    tags: [
+      "Protective Coatings",
+      "Protective Coatings for Buildings",
+      "Types of Protective Coatings",
+      "Benefits of Protective Coatings",
+      "Protective Coating for Concrete",
+      "Protective Coating for Steel",
+      "Polyurethane Protective Coating",
+      "Epoxy Protective Coating",
+      "Anti-Carbonation Coating",
+      "Industrial Protective Coatings",
+    ],
+    image: protectiveCoatingsBuildingsImg,
+    imageKey: "protective-coatings-buildings",
+    alt: "Worker applying protective coating to exposed concrete building surface",
+    takeaways: [
+      "Protective coatings create a specialized barrier against UV, moisture, chemicals, carbonation, and mechanical wear.",
+      "Polyurethane, epoxy, and anti-carbonation systems each serve different exposure, movement, and durability needs.",
+      "Proper surface preparation and moisture assessment are essential to prevent premature coating failure.",
+      "System thickness, recoat windows, and curing times must be strictly followed according to technical specifications.",
+    ],
+    standards: [
+      {
+        code: "EN 1504-2",
+        name: "Surface Protection Systems for Concrete",
+        url: "https://www.en-standard.eu",
+      },
+      {
+        code: "ASTM D4541",
+        name: "Standard Test Method for Pull-Off Strength of Coatings Using Portable Adhesion Testers",
+        url: "https://www.astm.org",
+      },
+      {
+        code: "ASTM D4060",
+        name: "Standard Test Method for Abrasion Resistance of Organic Coatings by the Taber Abraser",
+        url: "https://www.astm.org",
       },
     ],
   },

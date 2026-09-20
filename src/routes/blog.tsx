@@ -94,43 +94,43 @@ function KnowledgeCenterPage() {
       />
 
       {/* 2. SEARCH & CATEGORY FILTER BAR */}
-      <section className="bg-background py-16 lg:py-24">
+      <section className="bg-[#f7f9fb] py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pb-8 border-b border-border/80">
+          <div className="flex flex-col gap-6 border-b border-border pb-8 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="eyebrow flex items-center gap-2 text-brand-green">
-                <BookOpen className="h-4 w-4" /> Technical Whitepapers &amp; Field Guides
+                <BookOpen className="h-4 w-4" /> Technical whitepapers &amp; field guides
               </p>
-              <h2 className="mt-1 font-display text-2xl sm:text-3xl font-bold text-foreground">
+              <h2 className="mt-2 font-display text-2xl font-bold text-foreground sm:text-3xl">
                 Browse Technical Articles
               </h2>
             </div>
 
             {/* Search Input */}
             <div className="relative w-full md:w-80">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Search className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Search topics, codes, standards…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full rounded-xl border border-border/80 bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10 outline-none transition-all"
+                className="w-full border border-border bg-background py-3 pl-10 pr-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/10"
               />
             </div>
           </div>
 
           {/* Category Filter Pills Bar */}
-          <div className="mt-6 flex flex-wrap items-center gap-2 p-1.5 rounded-2xl bg-muted/20 border border-border/60">
-            <span className="font-mono text-xs font-bold uppercase text-muted-foreground px-3 py-1">
+          <div className="mt-6 flex flex-wrap items-center gap-2 border-b border-border pb-7">
+            <span className="px-1 py-1 font-mono text-xs font-bold uppercase text-muted-foreground">
               Category:
             </span>
             <button
               onClick={() => setActiveCategory(null)}
               className={cn(
-                "rounded-xl px-3.5 py-1.5 font-mono text-xs transition-all cursor-pointer",
+                "border px-3.5 py-1.5 font-mono text-xs transition-colors cursor-pointer",
                 activeCategory === null
-                  ? "bg-brand-blue text-white font-bold shadow-xs"
-                  : "bg-card border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground",
+                  ? "border-brand-blue bg-brand-blue font-bold text-white"
+                  : "border-border bg-background text-muted-foreground hover:border-brand-blue hover:text-foreground",
               )}
             >
               All Topics ({allBlogPosts.length})
@@ -140,10 +140,10 @@ function KnowledgeCenterPage() {
                 key={cat}
                 onClick={() => setActiveCategory(cat === activeCategory ? null : cat)}
                 className={cn(
-                  "rounded-xl px-3.5 py-1.5 font-mono text-xs transition-all cursor-pointer",
+                  "border px-3.5 py-1.5 font-mono text-xs transition-colors cursor-pointer",
                   activeCategory === cat
-                    ? "bg-brand-blue text-white font-bold shadow-xs"
-                    : "bg-card border border-border/70 text-muted-foreground hover:bg-muted hover:text-foreground",
+                    ? "border-brand-blue bg-brand-blue font-bold text-white"
+                    : "border-border bg-background text-muted-foreground hover:border-brand-blue hover:text-foreground",
                 )}
               >
                 {cat}
@@ -158,30 +158,20 @@ function KnowledgeCenterPage() {
                 <p className="eyebrow flex items-center gap-2 text-brand-green mb-3 font-mono text-xs font-bold uppercase tracking-wider">
                   <Sparkles className="h-3.5 w-3.5 text-brand-green" /> Latest Guide
                 </p>
-                <div className="group lift relative overflow-hidden rounded-3xl border border-border/80 bg-card shadow-lg hover:border-brand-blue/40 transition-all duration-300">
-                  {/* Top Accent Gradient Bar */}
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-20" />
-
-                  <div className="grid gap-6 lg:gap-8 lg:grid-cols-12 items-center p-6 sm:p-8 lg:p-10">
+                <div className="group relative overflow-hidden rounded-3xl border border-border bg-background transition-all duration-500 hover:scale-[1.01] hover:border-brand-green hover:shadow-xl">
+                  <div className="grid items-stretch lg:grid-cols-2">
                     {/* Featured Image Slot */}
-                    <div className="lg:col-span-6 relative overflow-hidden rounded-2xl border border-border/70 bg-card shadow-xs">
+                    <div className="relative min-h-64 overflow-hidden border-b border-border bg-muted/20 lg:min-h-0 lg:border-b-0 lg:border-r">
                       {featuredPost.image ? (
-                        <div className="relative aspect-[16/10] w-full flex items-center justify-center overflow-hidden bg-muted/10">
+                        <div className="relative aspect-[16/10] h-full w-full overflow-hidden bg-muted/10">
                           <img
                             src={featuredPost.image}
                             alt={
                               featuredPost.alt ||
                               `${featuredPost.title} - Technical Engineering Guide`
                             }
-                            className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                           />
-                          {/* Floating Category Badge */}
-                          <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-black/75 backdrop-blur-md px-3 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-wider text-white border border-white/20 shadow-md">
-                              <span className="h-1.5 w-1.5 rounded-full bg-brand-green animate-pulse" />
-                              {featuredPost.category}
-                            </span>
-                          </div>
                           {/* Amber Placeholder Badge for generic category images */}
                           {isGenericBlogImage(featuredPost) && (
                             <div className="absolute top-3 right-3 z-10 pointer-events-none">
@@ -199,29 +189,19 @@ function KnowledgeCenterPage() {
                     </div>
 
                     {/* Content Side */}
-                    <div className="lg:col-span-6 flex flex-col justify-between h-full space-y-5">
+                    <div className="relative flex h-full flex-col justify-between space-y-7 bg-background p-6 sm:p-8 lg:p-10">
                       <div>
-                        <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground">
-                          <span className="font-semibold text-brand-blue bg-brand-blue/10 px-2.5 py-1 rounded-md border border-brand-blue/15">
-                            Featured Engineering Whitepaper
-                          </span>
-                          <span>•</span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="h-3.5 w-3.5 text-brand-blue" />
-                            {featuredPost.readTime}
-                          </span>
-                          <span>•</span>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="h-3.5 w-3.5 text-brand-green" />
-                            {featuredPost.date}
-                          </span>
+                        <div className="flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-[0.14em] text-brand-green">
+                          <span>{featuredPost.category}</span>
+                          <span className="h-1 w-1 bg-brand-green" />
+                          <span className="text-muted-foreground">Featured guide</span>
                         </div>
 
-                        <h3 className="mt-4 font-display text-2xl sm:text-3xl font-bold text-foreground group-hover:text-brand-blue transition-colors leading-tight">
+                        <h3 className="mt-5 font-display text-2xl font-bold leading-tight text-foreground sm:text-3xl">
                           <Link
                             to="/blog/$slug"
                             params={{ slug: featuredPost.slug }}
-                            className="hover:underline"
+                            className="hover:text-brand-blue hover:underline transition-colors"
                           >
                             {featuredPost.title}
                           </Link>
@@ -230,30 +210,33 @@ function KnowledgeCenterPage() {
                         <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted-foreground">
                           {featuredPost.excerpt}
                         </p>
-
-                        <div className="mt-5 flex flex-wrap gap-2">
-                          {featuredPost.tags.map((t) => (
-                            <span
-                              key={t}
-                              className="rounded-full bg-brand-blue/10 px-3 py-1 font-mono text-[0.68rem] font-semibold text-brand-blue border border-brand-blue/15"
-                            >
-                              #{t}
-                            </span>
-                          ))}
-                        </div>
                       </div>
 
-                      <div className="pt-5 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
+                      <div className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground font-mono">
                           <span className="font-semibold text-foreground">
                             By {featuredPost.author}
+                          </span>
+                          <span className="text-border">
+                            |
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3.5 w-3.5 text-brand-blue" />{" "}
+                            {featuredPost.readTime}
+                          </span>
+                          <span className="text-border">
+                            |
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Calendar className="h-3.5 w-3.5 text-brand-green" />{" "}
+                            {featuredPost.date}
                           </span>
                         </div>
 
                         <Link
                           to="/blog/$slug"
                           params={{ slug: featuredPost.slug }}
-                          className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-6 py-3 font-display text-xs font-bold uppercase tracking-wider text-white shadow-md hover:scale-105 transition-all cursor-pointer"
+                          className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue transition-colors hover:text-brand-green cursor-pointer"
                         >
                           <span>Read Full Guide</span>
                           <ArrowRight className="h-4 w-4" />
@@ -275,29 +258,19 @@ function KnowledgeCenterPage() {
           >
             {gridPosts.map((post, idx) => (
               <Reveal key={post.id} delay={idx * 50}>
-                <article className="group lift relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/80 bg-card shadow-xs hover:border-brand-blue/40">
-                  {/* Top Accent Gradient Bar */}
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue opacity-0 transition-opacity duration-300 group-hover:opacity-100 z-20" />
-
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-background transition-all duration-300 hover:border-brand-blue/40 hover:shadow-xl">
                   {/* Image Slot */}
-                  <div className="relative aspect-[16/10] overflow-hidden bg-muted/20 rounded-t-3xl flex items-center justify-center">
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-border bg-muted/20">
                     {post.image ? (
                       <img
                         src={post.image}
                         alt={post.alt || `${post.title} - Technical Guide`}
-                        className="h-full w-full object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                       />
                     ) : (
                       <ImagePlaceholder label="+ Add Real Photo" />
                     )}
 
-                    {/* Category Badge Overlay (top-left) */}
-                    <div className="absolute top-3 left-3 z-10 pointer-events-none">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-black/75 backdrop-blur-md px-3 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-wider text-white border border-white/20 shadow-md">
-                        <span className="h-1.5 w-1.5 rounded-full bg-brand-green animate-pulse" />
-                        {post.category}
-                      </span>
-                    </div>
                     {/* Amber Placeholder Badge for generic category images */}
                     {isGenericBlogImage(post) && (
                       <div className="absolute top-3 right-3 z-10 pointer-events-none">
@@ -307,48 +280,33 @@ function KnowledgeCenterPage() {
                   </div>
 
                   {/* Content Area */}
-                  <div className="flex flex-1 flex-col justify-between p-6 sm:p-7">
+                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
                     <div>
-                      <h3 className="font-display text-lg sm:text-xl font-bold text-foreground transition-colors group-hover:text-brand-blue leading-snug">
-                        {post.title}
-                      </h3>
-
-                      <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground line-clamp-2">
-                        {post.excerpt}
+                      <p className="eyebrow text-[0.65rem] text-brand-green">
+                        {post.category}
                       </p>
 
-                      {/* Author, Read Time, Date Footer Row */}
-                      <div className="mt-4 flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground font-mono">
-                        <span className="truncate">{post.author}</span>
-                        <span>•</span>
-                        <span>{post.readTime}</span>
-                        <span>•</span>
-                        <span>{post.date}</span>
-                      </div>
+                      <h3 className="mt-3 font-display text-lg font-bold leading-snug text-foreground transition-colors group-hover:text-brand-blue sm:text-xl">
+                        <Link
+                          to="/blog/$slug"
+                          params={{ slug: post.slug }}
+                          className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue hover:underline"
+                        >
+                          {post.title}
+                        </Link>
+                      </h3>
 
-                      {/* Restyled Tag Pills */}
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {post.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-full bg-brand-blue/10 px-2.5 py-1 font-mono text-[0.68rem] font-semibold text-brand-blue"
-                          >
-                            #{t}
-                          </span>
-                        ))}
-                      </div>
+                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                        {post.excerpt}
+                      </p>
                     </div>
 
                     {/* Bottom Read Guide Link */}
-                    <div className="mt-6 pt-4 border-t border-border/60 flex items-center justify-between">
-                      <span className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground">
-                        <Calendar className="h-3.5 w-3.5 text-brand-green" /> {post.date}
-                      </span>
-
+                    <div className="mt-7 flex items-center border-t border-border pt-4">
                       <Link
                         to="/blog/$slug"
                         params={{ slug: post.slug }}
-                        className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue group-hover:text-brand-green transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue transition-colors hover:text-brand-green cursor-pointer"
                       >
                         <span>Read Guide</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />

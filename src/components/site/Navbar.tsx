@@ -29,6 +29,7 @@ export function Navbar() {
     { label: "ABOUT US", to: "/about" },
     { label: "PRODUCTS", to: "/products" },
     { label: "SOLUTIONS", to: "/solutions" },
+    { label: "BRANCHES", to: "/locations" },
     { label: "PROJECTS", to: "/projects" },
     { label: "BLOG / KNOWLEDGE", to: "/blog" },
   ];
