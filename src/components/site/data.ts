@@ -1266,7 +1266,6 @@ export const allBlogPosts: BlogPostItem[] = [
       "Foundations",
     ],
     image: epoxyGroutImg,
-    imageKey: "grouts",
     alt: "Machine Foundation Precision Epoxy Grouting Diagram",
     takeaways: [
       "ASTM C1107 Grade B/C ensures 100% Effective Bearing Area contact beneath baseplates.",
