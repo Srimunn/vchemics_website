@@ -69,7 +69,7 @@ export const allProducts: ProductItem[] = [
   {
     id: "concrete-admixtures",
     slug: "concrete-admixtures",
-    title: "Concrete Admixtures",
+    title: "Concrete Admixtures & Chemical Additives",
     category: "Admixtures",
     tagline: "PCE & SNF Superplasticisers, Accelerators & Retarders",
     description:
@@ -452,7 +452,7 @@ export const allSolutions: SolutionItem[] = [
   {
     id: "basement-waterproofing",
     slug: "basement-waterproofing",
-    title: "Basement Waterproofing",
+    title: "Basement Waterproofing Chemicals & Sealants",
     subtitle: "Permanent deep-pore crystalline & membrane envelope against hydrostatic head",
     image: waterproofingImg,
     challenge:
@@ -1250,21 +1250,20 @@ export const allBlogPosts: BlogPostItem[] = [
   },
   {
     id: "machine-foundation-epoxy-grouting-standards",
-    slug: "machine-foundation-epoxy-grouting-standards",
-    title: "Heavy Equipment Precision Grouting: ASTM C1107 vs 3-Part Epoxy Grout",
-    category: "Precision Grouts",
+    slug: "basement-waterproofing-chemicals-specification-guide",
+    title: "Basement Waterproofing Chemicals & Solutions: Professional Specification Guide",
+    category: "Waterproofing",
     date: "January 2025",
-    readTime: "5 min read",
-    author: "Industrial Flooring & Grouting Team",
+    readTime: "6 min read",
+    author: "Waterproofing Diagnostics Team",
     excerpt:
-      "Engineering specifications for heavy machine plinths, stamping presses, and dynamic turbine mountings. Comparing Effective Bearing Area (EBA >95%) and vibration dampening.",
+      "Comprehensive specification guide for basement waterproofing, covering chemical solutions, sealants, coatings, and best practices to prevent moisture seepage in foundational structures.",
     tags: [
-      "Epoxy Grouting",
-      "Non-Shrink Grout",
-      "Precision Grouts",
-      "ASTM C1107",
-      "Grouts",
-      "Resin Grouts",
+      "Basement Waterproofing",
+      "Waterproofing Chemicals",
+      "Sealants",
+      "Coatings",
+      "Foundations",
     ],
     image: epoxyGroutImg,
     imageKey: "grouts",

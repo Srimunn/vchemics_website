@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Construction Chemicals Catalog & Products | Vchemics";
 const description =
-  "Explore high-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & repair mortars from Vchemics in Chennai.";
+  "Complete catalog of construction chemicals: admixtures, waterproofing agents, sealers, grouts. All IS/ASTM certified. Technical specifications & bulk ordering.";
 
 export const Route = createFileRoute("/products")({
   head: () => ({

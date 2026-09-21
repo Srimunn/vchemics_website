@@ -18,7 +18,7 @@ import { founder } from "@/components/site/data";
 
 const title = "About Us | Vchemics Construction Chemical Specialists";
 const description =
-  "Vchemics manufactures concrete admixtures, non-shrink grouts, and waterproofing systems in Chennai. Technical support, on-site trials, and 1-day response.";
+  `V Chemicals manufactures construction chemicals & waterproofing products for India. IS/ASTM certified, bulk supplier to manufacturers. ${new Date().getFullYear()} - Premium quality.`;
 
 const aboutPageSchema = {
   "@context": "https://schema.org",

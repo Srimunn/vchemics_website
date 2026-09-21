@@ -35,7 +35,7 @@ const solutionIcons: Record<string, LucideIcon> = {
 
 const solutionMetaDescriptions: Record<string, string> = {
   "basement-waterproofing":
-    "Dual-barrier crystalline and elastomeric envelope resisting >5 bar hydrostatic pressure in deep basement rafts, lift pits, retaining walls, and cold joints.",
+    "Professional-grade Basement  waterproofing chemicals, sealers & coatings. Prevent concrete leaks, moisture seepage. Chemical solutions for basements, foundations & structures.",
   "terrace-waterproofing":
     "Seamless PU and polymer matrix waterproofing with >400% elongation and UV topcoats engineered to bridge dynamic thermal cracks and withstand water ponding.",
   "concrete-repair":
