@@ -69,7 +69,7 @@ export const allProducts: ProductItem[] = [
   {
     id: "concrete-admixtures",
     slug: "concrete-admixtures",
-    title: "Concrete Admixtures",
+    title: "Concrete Admixtures & Chemical Additives",
     category: "Admixtures",
     tagline: "PCE & SNF Superplasticisers, Accelerators & Retarders",
     description:
@@ -452,7 +452,7 @@ export const allSolutions: SolutionItem[] = [
   {
     id: "basement-waterproofing",
     slug: "basement-waterproofing",
-    title: "Basement Waterproofing",
+    title: "Basement Waterproofing Chemicals & Sealants",
     subtitle: "Permanent deep-pore crystalline & membrane envelope against hydrostatic head",
     image: waterproofingImg,
     challenge:
@@ -1250,24 +1250,22 @@ export const allBlogPosts: BlogPostItem[] = [
   },
   {
     id: "machine-foundation-epoxy-grouting-standards",
-    slug: "machine-foundation-epoxy-grouting-standards",
-    title: "Heavy Equipment Precision Grouting: ASTM C1107 vs 3-Part Epoxy Grout",
+    slug: "precision-grouting-heavy-equipment-guide",
+    title: "Precision Grouting for Heavy Equipment: Chemical Solutions & Installation Guide",
     category: "Precision Grouts",
     date: "January 2025",
-    readTime: "5 min read",
+    readTime: "6 min read",
     author: "Industrial Flooring & Grouting Team",
     excerpt:
-      "Engineering specifications for heavy machine plinths, stamping presses, and dynamic turbine mountings. Comparing Effective Bearing Area (EBA >95%) and vibration dampening.",
+      "Comprehensive guide to precision grouting for heavy machinery, covering epoxy, PU, and polyester chemical solutions, and step-by-step installation procedures.",
     tags: [
-      "Epoxy Grouting",
-      "Non-Shrink Grout",
-      "Precision Grouts",
-      "ASTM C1107",
-      "Grouts",
-      "Resin Grouts",
+      "Precision Grouting",
+      "Epoxy Grout",
+      "Machine Foundations",
+      "Heavy Equipment",
+      "Industrial Grouting",
     ],
-    image: epoxyGroutImg,
-    imageKey: "grouts",
+    image: groutsImg,
     alt: "Machine Foundation Precision Epoxy Grouting Diagram",
     takeaways: [
       "ASTM C1107 Grade B/C ensures 100% Effective Bearing Area contact beneath baseplates.",

@@ -26,7 +26,7 @@ const blogMetaTitles: Record<string, string> = {
   "column-jacketing-micro-concrete-standards": "Column Jacketing & Section Enlargement | Vchemics",
   "crystalline-vs-membrane-waterproofing": "Crystalline vs Elastomeric Waterproofing | Vchemics",
   "machine-foundation-epoxy-grouting-standards":
-    "Precision Grouting: ASTM C1107 vs Epoxy | Vchemics",
+    "Precision Grouting for Heavy Equipment | Vchemics",
   "pu-injection-active-leak-sealing": "PU Injection Grouting for Active Leak Sealing | Vchemics",
 };
 
@@ -38,7 +38,7 @@ const blogMetaDescriptions: Record<string, string> = {
   "crystalline-vs-membrane-waterproofing":
     "Engineering comparison of catalytic crystalline waterproofing and polyurethane elastomeric membranes for subterranean and exposed concrete structures.",
   "machine-foundation-epoxy-grouting-standards":
-    "Engineering specifications for heavy machine plinths and turbines: comparing ASTM C1107 non-shrink cementitious grouts with 3-part chemical epoxy grouts.",
+    "Professional precision grouting chemicals for heavy machinery, precision equipment & CNC machines. Step-by-step installation guide. Epoxy & polyurethane options.",
   "pu-injection-active-leak-sealing":
     "Step-by-step guide to 45-degree mechanical packer installation and hydro-active PU injection grouting at 50-250 bar to permanently arrest water leaks.",
   "column-jacketing-micro-concrete-standards":
@@ -449,7 +449,7 @@ function BlogPostDetailPage() {
         )}
 
         <Reveal delay={120}>
-          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-display prose-headings:font-bold prose-headings:text-foreground prose-p:font-sans prose-p:text-base sm:prose-p:text-lg prose-p:leading-relaxed prose-p:text-foreground/80 prose-li:font-sans prose-li:text-base sm:prose-li:text-lg prose-li:leading-relaxed prose-li:text-foreground/80 prose-a:text-brand-green prose-a:font-semibold prose-a:underline prose-a:underline-offset-4 prose-a:decoration-brand-green hover:prose-a:text-brand-navy hover:prose-a:decoration-brand-navy prose-strong:text-foreground prose-strong:font-bold">
+          <article className="mx-auto max-w-3xl prose prose-slate prose-headings:font-display prose-headings:font-bold prose-headings:text-foreground prose-p:font-sans prose-p:text-base sm:prose-p:text-lg prose-p:leading-relaxed prose-p:text-foreground/80 prose-ul:my-6 prose-ul:space-y-3 prose-ol:my-6 prose-ol:space-y-3 prose-li:font-sans prose-li:text-base sm:prose-li:text-lg prose-li:leading-relaxed prose-li:text-foreground/80 prose-a:text-brand-green prose-a:font-semibold prose-a:underline prose-a:underline-offset-4 prose-a:decoration-brand-green hover:prose-a:text-brand-navy hover:prose-a:decoration-brand-navy prose-strong:text-foreground prose-strong:font-bold">
             {post.content.trimStart().startsWith("##") && (
               <p className="!mb-8 !text-lg !leading-relaxed !text-foreground/90 sm:!text-xl">
                 {post.excerpt}

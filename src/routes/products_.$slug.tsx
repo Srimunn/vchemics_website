@@ -62,7 +62,7 @@ function mapProductToCatalogueCategory(p: ProductItem): CatalogueCategory {
 
 const productMetaDescriptions: Record<string, string> = {
   "concrete-admixtures":
-    "High-performance PCE & SNF concrete superplasticisers delivering 30% water cut, 3h slump retention, and rapid early strength for RMC & precast in Tamil Nadu.",
+    "High-performance concrete admixtures & chemical additives. Enhance durability, workability, strength. IS/ASTM certified products. Direct supplier to manufacturers.",
   "waterproofing-chemicals":
     "Integral crystalline powders and elastomeric barrier chemicals preventing deep hydrostatic water ingress in basement foundations, rafts, sumps, and wet areas.",
   "pu-injection-grouting":

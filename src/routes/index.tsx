@@ -39,7 +39,7 @@ import { trackGetQuoteClick, trackCallClick } from "@/lib/analytics";
 
 const title = "Construction Chemical Distributors, Tamil Nadu | Vchemics";
 const description =
-  "Leading construction chemical distributor & manufacturer of concrete admixtures, crystalline waterproofing, PU grouts, non-shrink grouts & micro concrete across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch in TN.";
+  "Premium construction chemicals & waterproofing products. Concrete admixtures, PU grouting agents, sealers. IS/ASTM certified. Fast delivery across India.";
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "concrete-admixtures": FlaskConical,
