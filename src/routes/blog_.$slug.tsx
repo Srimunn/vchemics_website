@@ -26,7 +26,7 @@ const blogMetaTitles: Record<string, string> = {
   "column-jacketing-micro-concrete-standards": "Column Jacketing & Section Enlargement | Vchemics",
   "crystalline-vs-membrane-waterproofing": "Crystalline vs Elastomeric Waterproofing | Vchemics",
   "machine-foundation-epoxy-grouting-standards":
-    "Precision Grouting: ASTM C1107 vs Epoxy | Vchemics",
+    "Precision Grouting for Heavy Equipment | Vchemics",
   "pu-injection-active-leak-sealing": "PU Injection Grouting for Active Leak Sealing | Vchemics",
 };
 
@@ -38,7 +38,7 @@ const blogMetaDescriptions: Record<string, string> = {
   "crystalline-vs-membrane-waterproofing":
     "Engineering comparison of catalytic crystalline waterproofing and polyurethane elastomeric membranes for subterranean and exposed concrete structures.",
   "machine-foundation-epoxy-grouting-standards":
-    "Engineering specifications for heavy machine plinths and turbines: comparing ASTM C1107 non-shrink cementitious grouts with 3-part chemical epoxy grouts.",
+    "Professional precision grouting chemicals for heavy machinery, precision equipment & CNC machines. Step-by-step installation guide. Epoxy & polyurethane options.",
   "pu-injection-active-leak-sealing":
     "Step-by-step guide to 45-degree mechanical packer installation and hydro-active PU injection grouting at 50-250 bar to permanently arrest water leaks.",
   "column-jacketing-micro-concrete-standards":
