@@ -17,6 +17,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { BrandStrip } from "@/components/site/BrandStrip";
 import { Footer } from "@/components/site/Footer";
 import { BackToTop } from "@/components/site/BackToTop";
+import { ChatWidget } from "@/components/site/ChatWidget";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -305,6 +306,7 @@ function RootComponent() {
       <BrandStrip />
       <Footer />
       <BackToTop />
+      <ChatWidget />
       <Toaster position="top-right" richColors />
     </QueryClientProvider>
   );
