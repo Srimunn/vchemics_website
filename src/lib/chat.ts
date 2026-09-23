@@ -12,7 +12,53 @@ import { createServerFn } from "@tanstack/react-start";
  */
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const GROQ_MODEL = process.env["GROQ_MODEL"] || "llama-3.3-70b-versatile";
+const GROQ_MODELS_URL = "https://api.groq.com/openai/v1/models";
+const GROQ_MODEL = process.env["GROQ_MODEL"] || "openai/gpt-oss-120b";
+
+// Preference order when auto-selecting a chat model from the account's live list.
+const PREFERRED = [
+  GROQ_MODEL,
+  "openai/gpt-oss-120b",
+  "openai/gpt-oss-20b",
+  "llama-3.3-70b-versatile",
+  "qwen/qwen3.8-27b",
+  "llama-3.1-8b-instant",
+  "llama3-70b-8192",
+  "allam-2-7b",
+];
+
+let cachedModel: string | null = null;
+
+/**
+ * Resolve a chat model that actually exists on THIS key. A hardcoded model can be
+ * decommissioned/renamed by Groq and then every request 400/404s — this picks a
+ * live one from GET /models (mirrors the Majestronicz Beta AI behaviour).
+ */
+async function resolveModel(apiKey: string, force = false): Promise<string | null> {
+  if (cachedModel && !force) return cachedModel;
+  try {
+    const res = await fetch(GROQ_MODELS_URL, {
+      headers: { Authorization: `Bearer ${apiKey}` },
+      signal: AbortSignal.timeout(8000),
+    });
+    if (!res.ok) return cachedModel || GROQ_MODEL;
+    const data: any = await res.json().catch(() => ({}));
+    const ids: string[] = (data?.data || [])
+      .map((m: any) => m?.id || "")
+      .filter(Boolean)
+      // exclude non-chat models (speech, safety classifiers, embeddings, vision-only)
+      .filter((id: string) => !/whisper|tts|guard|embed|vision|orpheus|safeguard/i.test(id));
+    const pick =
+      PREFERRED.find((p) => ids.includes(p)) ||
+      ids.find((id) => /gpt-oss|llama|mixtral|gemma|qwen|allam/i.test(id)) ||
+      ids[0] ||
+      null;
+    if (pick) cachedModel = pick;
+    return cachedModel || GROQ_MODEL;
+  } catch {
+    return cachedModel || GROQ_MODEL;
+  }
+}
 
 export type ChatMessage = { role: "user" | "assistant"; content: string };
 export type ChatResult = { answer: string; degraded?: boolean };
@@ -83,51 +129,74 @@ async function askGroq(messages: ChatMessage[]): Promise<ChatResult> {
     content: String(m.content || "").slice(0, 2000),
   }));
 
-  let res: Response;
-  try {
-    res = await fetch(GROQ_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify({
-        model: GROQ_MODEL,
-        temperature: 0.3,
-        max_tokens: 600,
-        messages: [{ role: "system", content: systemPrompt() }, ...trimmed],
-      }),
-      signal: AbortSignal.timeout(30_000),
-    });
-  } catch {
-    return {
-      degraded: true,
-      answer:
-        "I couldn't reach the assistant just now. Please try again, or contact us on +91 99423 54602 / vchemics1989@gmail.com.",
-    };
-  }
+  let model = (await resolveModel(apiKey)) || GROQ_MODEL;
 
-  if (res.status === 429) {
-    return {
-      degraded: true,
-      answer: "I'm a little busy right now — please try again in a moment, or call +91 99423 54602.",
-    };
-  }
-  if (!res.ok) {
-    return {
-      degraded: true,
-      answer:
-        "Sorry, the assistant hit an error. Please contact our team on +91 99423 54602 or vchemics1989@gmail.com.",
-    };
-  }
-
-  try {
-    const data: any = await res.json();
-    const answer = data?.choices?.[0]?.message?.content?.trim();
-    if (!answer) {
-      return { degraded: true, answer: "Sorry, I didn't catch that — could you rephrase your question?" };
+  // Try once, and if the model is unavailable (404) re-resolve from the live list and retry.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    let res: Response;
+    try {
+      res = await fetch(GROQ_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify({
+          model,
+          temperature: 0.3,
+          max_tokens: 600,
+          messages: [{ role: "system", content: systemPrompt() }, ...trimmed],
+        }),
+        signal: AbortSignal.timeout(30_000),
+      });
+    } catch (err) {
+      console.error("[vchemics-chat] network error:", err);
+      return {
+        degraded: true,
+        answer:
+          "I couldn't reach the assistant just now. Please try again, or contact us on +91 99423 54602 / vchemics1989@gmail.com.",
+      };
     }
-    return { answer };
-  } catch {
-    return { degraded: true, answer: "I got an unreadable response. Please try again shortly." };
+
+    if ((res.status === 404 || res.status === 400) && attempt === 0) {
+      const fresh = await resolveModel(apiKey, true);
+      if (fresh && fresh !== model) {
+        model = fresh;
+        continue;
+      }
+    }
+
+    if (res.status === 429) {
+      return {
+        degraded: true,
+        answer: "I'm a little busy right now — please try again in a moment, or call +91 99423 54602.",
+      };
+    }
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      // Log the real reason so it shows in the Railway server logs for diagnosis.
+      console.error(`[vchemics-chat] Groq error ${res.status} (model=${model}):`, detail.slice(0, 500));
+      return {
+        degraded: true,
+        answer:
+          "Sorry, the assistant hit an error. Please contact our team on +91 99423 54602 or vchemics1989@gmail.com.",
+      };
+    }
+
+    try {
+      const data: any = await res.json();
+      const answer = data?.choices?.[0]?.message?.content?.trim();
+      if (!answer) {
+        return { degraded: true, answer: "Sorry, I didn't catch that — could you rephrase your question?" };
+      }
+      return { answer };
+    } catch {
+      return { degraded: true, answer: "I got an unreadable response. Please try again shortly." };
+    }
   }
+
+  return {
+    degraded: true,
+    answer: "Sorry, the assistant is busy right now. Please try again shortly, or call +91 99423 54602.",
+  };
 }
 
 /** POST server function called by the chat widget. CSRF is enforced by src/start.ts. */

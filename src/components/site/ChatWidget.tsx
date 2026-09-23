@@ -21,8 +21,18 @@ export function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
+  // Mirrors BackToTop's >500px threshold: when that button appears, lift the
+  // launcher above it so the two never overlap.
+  const [scrolled, setScrolled] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 500);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -58,8 +68,13 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Launcher */}
-      <div className="fixed bottom-5 right-5 z-[60] print:hidden">
+      {/* Launcher — lifts above the Back-to-top button once it appears on scroll */}
+      <div
+        className={cn(
+          "fixed right-5 z-[60] transition-[bottom] duration-300 print:hidden",
+          scrolled ? "bottom-24" : "bottom-5",
+        )}
+      >
         {!open && (
           <button
             type="button"
