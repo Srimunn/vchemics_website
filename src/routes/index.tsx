@@ -83,7 +83,7 @@ const faqs = [
     a: "Untreated terraces and basements are prone to water leakage during monsoons, leading to seepage marks on ceilings, mold growth, and gradual weakening of the concrete structure. Repair costs after damage occurs are typically far higher than the original waterproofing investment.",
   },
   {
-    q: "How do V Chemics India systems protect basements against high water tables?",
+    q: "How do Vchemics India Solutions systems protect basements against high water tables?",
     a: "We use deep-penetrating crystalline waterproofing and pressure-applied PU injection grouting. These formulations react with moisture to form insoluble crystals inside concrete pores, blocking high hydrostatic pressure and sealing active microcracks from below.",
   },
   {
@@ -91,11 +91,11 @@ const faqs = [
     a: "Seamless elastomeric polyurethane (PU) coatings and hydrophobic admixtures offer the best monsoon defense. They create a joint-free, UV-stable barrier capable of withstanding standing water, thermal expansion, and intense seasonal downpours without peeling or cracking.",
   },
   {
-    q: "How does V Chemics India address concrete damage in coastal environments?",
+    q: "How does Vchemics India Solutions address concrete damage in coastal environments?",
     a: "Coastal concrete faces rapid rebar corrosion from airborne chlorides and high humidity. Our marine-grade anti-carbonation and salt-resistant barrier coatings prevent salt-spray penetration, extending structural lifespans in marine belts.",
   },
   {
-    q: "Do V Chemics India waterproofing products comply with Indian and international standards?",
+    q: "Do Vchemics India Solutions waterproofing products comply with Indian and international standards?",
     a: "Yes. All formulations are manufactured and tested to meet relevant IS (Bureau of Indian Standards) and ASTM specifications, ensuring proven performance across diverse subcontinental climate zones.",
   },
 ];
@@ -838,7 +838,7 @@ function Home() {
                     Monsoon Challenges
                   </h2>
                   <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground font-sans">
-                    India's diverse monsoon cycles, coastal humidity, and fluctuating water tables demand high-performance waterproofing. V Chemics India provides advanced crystalline waterproofing, PU injection grouting, and seamless membrane systems engineered for extreme subcontinental conditions. From deep basement seepage and high groundwater pressure to terrace ponding and coastal salt-spray attack, our systems deliver permanent, IS-compliant protection for Indian infrastructure.
+                    India's diverse monsoon cycles, coastal humidity, and fluctuating water tables demand high-performance waterproofing. Vchemics India Solutions provides advanced crystalline waterproofing, PU injection grouting, and seamless membrane systems engineered for extreme subcontinental conditions. From deep basement seepage and high groundwater pressure to terrace ponding and coastal salt-spray attack, our systems deliver permanent, IS-compliant protection for Indian infrastructure.
                   </p>
                 </div>
               </div>
