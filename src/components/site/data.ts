@@ -1265,6 +1265,7 @@ export const allBlogPosts: BlogPostItem[] = [
       "Heavy Equipment",
       "Industrial Grouting",
     ],
+    image: epoxyGroutImg,
     image: groutsImg,
     alt: "Machine Foundation Precision Epoxy Grouting Diagram",
     takeaways: [
