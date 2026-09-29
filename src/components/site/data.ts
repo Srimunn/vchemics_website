@@ -6,7 +6,6 @@ import epoxyGroutImg from "@/assets/product-epoxy-grout.jpg";
 import protectiveCoatingsImg from "@/assets/product-protective-coatings.png";
 import concreteRepairImg from "@/assets/product-concrete-repair.jpg";
 import microConcreteImg from "@/assets/product-microconcrete.jpg";
-import groutsImg from "@/assets/product-grouts.jpg";
 import terraceWaterproofingImg from "@/assets/solution-terrace-waterproofing.jpg";
 import founderImg from "@/assets/velmurugan-sivanantham.jpg";
 import blogColdJointsImg from "@/assets/blog-preventing-cold-joints.jpg";
@@ -1266,7 +1265,6 @@ export const allBlogPosts: BlogPostItem[] = [
       "Industrial Grouting",
     ],
     image: epoxyGroutImg,
-    image: groutsImg,
     alt: "Machine Foundation Precision Epoxy Grouting Diagram",
     takeaways: [
       "ASTM C1107 Grade B/C ensures 100% Effective Bearing Area contact beneath baseplates.",
