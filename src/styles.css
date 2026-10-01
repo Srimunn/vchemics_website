@@ -231,3 +231,20 @@
     scroll-behavior: auto;
   }
 }
+
+/* Counter: real value stays in the DOM text; the count-up is drawn on top */
+.counter {
+  position: relative;
+  display: inline-block;
+}
+.counter-animating {
+  color: transparent;
+}
+.counter-animating::after {
+  content: attr(data-count);
+  position: absolute;
+  inset: 0;
+  color: var(--color-brand-green, currentColor);
+  text-align: center;
+  white-space: nowrap;
+}

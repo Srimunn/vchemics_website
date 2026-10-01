@@ -207,6 +207,9 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Vchemics India Solutions. All Rights Reserved.</p>
 
           <div className="flex items-center gap-6">
+            <Link to="/services" className="transition-colors hover:text-brand-green">
+              Services
+            </Link>
             <Link to="/terms" className="transition-colors hover:text-brand-green">
               Terms &amp; Conditions
             </Link>

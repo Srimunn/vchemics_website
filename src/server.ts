@@ -97,6 +97,13 @@ function compressResponseIfNeeded(request: Request, response: Response): Respons
 
 const HSTS_HEADER_VALUE = "max-age=31536000; includeSubDomains";
 
+// Old public URLs → canonical paths (301). Add retired slugs here.
+const LEGACY_REDIRECTS: Record<string, string> = {
+  "/blog/machine-foundation-epoxy-grouting-standards":
+    "/blog/precision-grouting-heavy-equipment-guide",
+  "/blog/hot-weather-concreting-pce-retarders": "/blog/preventing-cold-joints-tropical-concrete",
+};
+
 function applySecurityHeaders(response: Response): Response {
   if (response.headers.get("strict-transport-security")) {
     return response;
@@ -115,7 +122,18 @@ export default {
     const url = new URL(request.url);
     const hostHeader =
       request.headers.get("x-forwarded-host") || request.headers.get("host") || url.hostname;
-    const hostname = hostHeader.split(":")[0].toLowerCase();
+    const hostname = hostHeader.split(",")[0].trim().split(":")[0].toLowerCase();
+
+    const legacyTarget = LEGACY_REDIRECTS[url.pathname.replace(/\/+$/, "")];
+    if (legacyTarget) {
+      return new Response(null, {
+        status: 301,
+        headers: {
+          location: `https://www.vchemicsindia.com${legacyTarget}${url.search}`,
+          "strict-transport-security": HSTS_HEADER_VALUE,
+        },
+      });
+    }
 
     if (hostname === "vchemicsindia.com") {
       url.hostname = "www.vchemicsindia.com";

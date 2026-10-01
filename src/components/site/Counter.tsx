@@ -1,5 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
+// The final value is always the element's text, so SSR output and crawlers see the
+// real number. The count-up is drawn by a ::after overlay (.counter-animating in
+// styles.css) that reads data-count; pseudo-element text is not indexed.
 export function Counter({
   value,
   suffix = "+",
@@ -16,36 +19,51 @@ export function Counter({
       : suffix;
 
   const ref = useRef<HTMLSpanElement>(null);
-  const [n, setN] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (
+      !("IntersectionObserver" in window) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    let raf = 0;
+    const finish = () => {
+      el.classList.remove("counter-animating");
+      el.removeAttribute("data-count");
+    };
     const io = new IntersectionObserver(
       (entries) => {
         if (!entries.some((e) => e.isIntersecting)) return;
         io.disconnect();
         const start = performance.now();
-        let raf = 0;
+        el.setAttribute("data-count", `0${inferredSuffix}`);
+        el.classList.add("counter-animating");
         const tick = (now: number) => {
           const p = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - p, 3);
-          setN(Math.round(numValue * eased));
+          el.setAttribute("data-count", `${Math.round(numValue * eased)}${inferredSuffix}`);
           if (p < 1) raf = requestAnimationFrame(tick);
+          else finish();
         };
         raf = requestAnimationFrame(tick);
-        return () => cancelAnimationFrame(raf);
       },
       { threshold: 0.4 },
     );
     io.observe(el);
-    return () => io.disconnect();
-  }, [numValue, duration]);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+      finish();
+    };
+  }, [numValue, inferredSuffix, duration]);
 
   return (
-    <span ref={ref}>
-      {n}
-      {inferredSuffix}
+    <span ref={ref} className="counter tabular-nums">
+      {`${numValue}${inferredSuffix}`}
     </span>
   );
 }
