@@ -149,18 +149,6 @@ export const Route = createFileRoute("/products_/$slug")({
         "@type": "Brand",
         name: "Vchemics India Solutions",
       },
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "INR",
-        price: "0",
-        priceValidUntil: "2027-12-31",
-        availability: "https://schema.org/InStock",
-        url: url,
-        seller: {
-          "@type": "Organization",
-          name: "Vchemics India Solutions",
-        },
-      },
     };
 
     const breadcrumbSchema = {
@@ -397,6 +385,15 @@ function ProductDetailPage() {
                   <span>Call Technical Sales</span>
                 </a>
               </div>
+              <p className="mt-4 text-sm text-white/75">
+                Need mix design or on-site support?{" "}
+                <Link
+                  to="/services"
+                  className="font-semibold text-brand-green underline-offset-4 hover:underline"
+                >
+                  See our technical services
+                </Link>
+              </p>
             </div>
 
             {/* Right: Showcase Image Card */}

@@ -18,7 +18,7 @@ import { founder } from "@/components/site/data";
 
 const title = "About Us | Vchemics Construction Chemical Specialists";
 const description =
-  `V Chemicals manufactures construction chemicals & waterproofing products for India. IS/ASTM certified, bulk supplier to manufacturers. ${new Date().getFullYear()} - Premium quality.`;
+  "Vchemics India Solutions: 15+ years making IS/ASTM-compliant construction chemicals, waterproofing and grouts, with technical support across Tamil Nadu.";
 
 const aboutPageSchema = {
   "@context": "https://schema.org",
