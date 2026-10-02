@@ -29,7 +29,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allSolutions, type SolutionItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Waterproofing & Concrete Repair Solutions | Vchemics";
+const title = "Waterproofing & Concrete Repair Solutions in Tamil Nadu";
 const description =
   "Engineered waterproofing, concrete repair, basement sealing, structural column rehabilitation & industrial flooring solutions from Vchemics in Chennai.";
 

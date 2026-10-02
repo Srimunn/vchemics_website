@@ -11,6 +11,8 @@ import ardexEnduraImg from "@/assets/brands/ardex-1000x1000.webp";
 interface BrandItem {
   name: string;
   image: string;
+  width: number;
+  height: number;
   alt: string;
 }
 
@@ -18,46 +20,64 @@ const brands: BrandItem[] = [
   {
     name: "Fosroc",
     image: fosrocImg,
+    width: 600,
+    height: 600,
     alt: "Fosroc Authorized Distributor Logo",
   },
   {
     name: "BASF",
     image: basfImg,
+    width: 600,
+    height: 300,
     alt: "BASF Construction Chemicals Logo",
   },
   {
     name: "Master Builders Solutions",
     image: masterBuildersImg,
+    width: 404,
+    height: 316,
     alt: "Master Builders Solutions Logo",
   },
   {
     name: "Sika",
     image: sikaImg,
+    width: 500,
+    height: 281,
     alt: "Sika Building Trust Logo",
   },
   {
     name: "Berger Home Shield",
     image: bergerImg,
+    width: 600,
+    height: 600,
     alt: "Berger Home Shield Scientific Waterproofing Logo",
   },
   {
     name: "Renacon",
     image: renaconImg,
+    width: 600,
+    height: 316,
     alt: "Renacon AAC Blocks Logo",
   },
   {
     name: "MYK Arment",
     image: mykArmentImg,
+    width: 600,
+    height: 220,
     alt: "MYK Arment Construction Chemicals Logo",
   },
   {
     name: "STP Limited",
     image: stpImg,
+    width: 600,
+    height: 483,
     alt: "STP Limited Logo",
   },
   {
     name: "Ardex Endura",
     image: ardexEnduraImg,
+    width: 600,
+    height: 199,
     alt: "Ardex Endura Logo",
   },
 ];
@@ -100,6 +120,8 @@ export function BrandStrip() {
                 <img
                   src={brand.image}
                   alt={brand.alt}
+                  width={brand.width}
+                  height={brand.height}
                   loading="lazy"
                   decoding="async"
                   className="h-20 sm:h-24 w-auto max-w-[200px] sm:max-w-[260px] object-contain transition-transform duration-300 hover:scale-105"

@@ -19,7 +19,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, type ProductItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Construction Chemicals Catalog & Products | Vchemics";
+const title = "Construction Chemicals & Waterproofing Products | Vchemics";
 const description =
   "Complete catalog of construction chemicals: admixtures, waterproofing agents, sealers, grouts. All IS/ASTM certified. Technical specifications & bulk ordering.";
 

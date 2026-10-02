@@ -25,8 +25,8 @@ export function Logo({
           onDark && "brightness-125 contrast-110 drop-shadow-[0_0_14px_rgba(255,255,255,0.85)]",
           className,
         )}
-        width={320}
-        height={80}
+        width={588}
+        height={242}
       />
     </Link>
   );

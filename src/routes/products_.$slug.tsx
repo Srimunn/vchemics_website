@@ -79,6 +79,18 @@ const productMetaDescriptions: Record<string, string> = {
     "Pre-bagged flowable micro concrete for structural column jacketing, section enlargement, and dense rebar encasement with zero vibration and >60 MPa strength.",
 };
 
+// SEO <title> per product (keep each under ~60 characters).
+const productMetaTitles: Record<string, string> = {
+  "concrete-admixtures": "Concrete Admixture Suppliers in Tamil Nadu | Vchemics",
+  "waterproofing-chemicals": "Waterproofing Chemical Dealers Across Tamil Nadu | Vchemics",
+  "pu-injection-grouting": "PU Injection Grouting for Leakage & Cracks | Vchemics",
+  "non-shrink-grout": "Non-Shrink Grout for Machine Base Plates | Vchemics",
+  "epoxy-grouting": "Epoxy Grout for Anchor Bolts & Machine Bases | Vchemics",
+  "protective-coatings": "Protective Coatings for Concrete & Steel | Vchemics",
+  "concrete-repair": "Concrete Repair Chemicals & Mortars | Vchemics",
+  "micro-concrete": "Micro Concrete for Column & Slab Repair | Vchemics",
+};
+
 const productSolutionsMap: Record<string, { id: string; title: string }> = {
   "micro-concrete": {
     id: "structural-rehabilitation",
@@ -125,7 +137,7 @@ export const Route = createFileRoute("/products_/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.product) return {};
     const { product } = loaderData;
-    const title = `${product.title} | Technical Specs & TDS | Vchemics`;
+    const title = productMetaTitles[product.id] ?? `${product.title} | Vchemics`;
     const description =
       productMetaDescriptions[product.id] ||
       productMetaDescriptions[product.slug] ||

@@ -20,7 +20,7 @@ import { allLocations } from "@/components/site/data";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { trackWhatsAppClick, trackCallClick, trackEmailClick } from "@/lib/analytics";
 
-const title = "Contact Us & Get Technical Quotes | Vchemics Tamil Nadu";
+const title = "Contact Vchemics | Construction Chemical Dealers, Tamil Nadu";
 const description =
   "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from Vchemics across Chennai, Coimbatore, Erode & Krishnagiri.";
 
@@ -73,7 +73,7 @@ function ContactPage() {
     <>
       <PageHero
         eyebrow="Get In Touch / Request Quote"
-        title="Direct Factory Supply &amp; Technical Consultation"
+        title="Contact Our Construction Chemical Experts"
         intro="Whether scheduling an on-site concrete mix trial, sizing crystalline waterproofing for basement rafts, or requesting bulk barrel supply — our chemical formulation team responds within 2 hours."
       />
 

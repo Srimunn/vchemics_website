@@ -9,7 +9,7 @@ import { allBlogPosts, blogTopics } from "@/components/site/data";
 import { isGenericBlogImage } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
-const title = "Technical Knowledge Centre & Blog | Vchemics";
+const title = "Waterproofing & Construction Chemical Guides | Vchemics";
 const description =
   "Technical engineering guides on concrete admixtures, PU injection grouting, crystalline waterproofing, micro concrete, and structural repair methods.";
 

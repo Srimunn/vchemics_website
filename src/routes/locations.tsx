@@ -19,7 +19,7 @@ import { SectionHeading } from "@/components/site/ui";
 import { allLocations, type LocationItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 
-const title = "Locations in Chennai, Coimbatore, Erode & Krishnagiri | Vchemics";
+const title = "Branches in Chennai, Erode & Krishnagiri | Across Tamil Nadu";
 const description =
   "Locate Vchemics regional supply hubs across Tamil Nadu: Chennai Plant & HQ, Coimbatore Hub, Erode Depot, and Krishnagiri Regional Office. Same-day and 24-hour direct site delivery.";
 
@@ -70,7 +70,7 @@ function LocationsPage() {
     <>
       <PageHero
         eyebrow="Regional Network"
-        title="Supply Hubs & Engineering Centers Across South India"
+        title="Vchemics Branches & Supply Hubs Across Tamil Nadu"
         intro="With strategically positioned manufacturing plants, regional distribution warehouses, and local technical specialists in Chennai, Coimbatore, Erode, and Krishnagiri — we ensure rapid direct-to-site supply."
       />
 

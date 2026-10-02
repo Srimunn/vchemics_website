@@ -16,7 +16,7 @@ import { SectionHeading } from "@/components/site/ui";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { founder } from "@/components/site/data";
 
-const title = "About Us | Vchemics Construction Chemical Specialists";
+const title = "About Vchemics | Construction Chemical Dealers, Tamil Nadu";
 const description =
   "Vchemics India Solutions: 15+ years making IS/ASTM-compliant construction chemicals, waterproofing and grouts, with technical support across Tamil Nadu.";
 

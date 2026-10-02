@@ -26,8 +26,8 @@ export function Footer() {
                   src="/image.png"
                   alt="Vchemics India Solutions Logo"
                   className="h-12 sm:h-14 w-auto max-w-[280px] object-contain"
-                  width={280}
-                  height={56}
+                  width={588}
+                  height={242}
                 />
               </div>
             </Link>

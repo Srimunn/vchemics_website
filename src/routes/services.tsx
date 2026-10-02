@@ -24,7 +24,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { SectionHeading } from "@/components/site/ui";
 import { ContactSection } from "@/components/site/ContactSection";
 
-const title = "Mix Design & Site Support Engineering Services | Vchemics";
+const title = "Waterproofing & Concrete Repair Services in Tamil Nadu";
 const description =
   "Mix design consulting, on-site trials, waterproofing system design, structural repair support and reliable supply logistics from Vchemics India Solutions.";
 
@@ -169,7 +169,7 @@ function Services() {
     <>
       <PageHero
         eyebrow="Our Services"
-        title="Technical support that ships with every drum"
+        title="Waterproofing & Construction Works Across Tamil Nadu"
         intro="Material alone doesn't solve a site problem. Our engineers work with your team from mix design through final application."
       />
 

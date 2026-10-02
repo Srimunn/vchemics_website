@@ -48,6 +48,16 @@ const solutionMetaDescriptions: Record<string, string> = {
     "Industrial protective coatings and durable architectural painting systems matched to exposure conditions for structural steel, tanks, and building envelopes.",
 };
 
+// SEO <title> per solution (keep each under ~60 characters).
+const solutionMetaTitles: Record<string, string> = {
+  "basement-waterproofing": "Basement Waterproofing Solutions in Tamil Nadu | Vchemics",
+  "terrace-waterproofing": "Terrace Waterproofing Chemicals & Solutions | Vchemics",
+  "concrete-repair": "Concrete Crack Repair & Restoration | Vchemics",
+  "structural-rehabilitation": "Column Jacketing & Structural Rehabilitation | Vchemics",
+  "industrial-flooring": "Epoxy & Industrial Flooring Solutions | Vchemics",
+  painting: "Protective & Waterproof Exterior Painting | Vchemics",
+};
+
 export const Route = createFileRoute("/solutions_/$slug")({
   loader: ({ params }) => {
     const solution = allSolutions.find((s) => s.id === params.slug || s.slug === params.slug);
@@ -59,7 +69,7 @@ export const Route = createFileRoute("/solutions_/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData?.solution) return {};
     const { solution } = loaderData;
-    const title = `${solution.title} Solutions & Methodology | Vchemics`;
+    const title = solutionMetaTitles[solution.id] ?? `${solution.title} | Vchemics`;
     const description =
       solutionMetaDescriptions[solution.id] ||
       solutionMetaDescriptions[solution.slug] ||

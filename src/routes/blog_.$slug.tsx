@@ -28,6 +28,8 @@ const blogMetaTitles: Record<string, string> = {
   "machine-foundation-epoxy-grouting-standards":
     "Precision Grouting for Heavy Equipment | Vchemics",
   "pu-injection-active-leak-sealing": "PU Injection Grouting for Active Leak Sealing | Vchemics",
+  "waterproofing-chemicals-guide": "Waterproofing Chemicals Guide: Types & Uses | Vchemics",
+  "preventing-cold-joints-tropical-concrete": "How to Prevent Cold Joints in Hot-Weather Concrete",
 };
 
 const blogMetaDescriptions: Record<string, string> = {
