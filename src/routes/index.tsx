@@ -39,8 +39,7 @@ import { trackGetQuoteClick, trackCallClick } from "@/lib/analytics";
 
 const title = "Construction Chemical Distributors, Tamil Nadu | Vchemics";
 const description =
-  "Premium construction chemicals & waterproofing products. Concrete admixtures, PU grouting agents, sealers. IS/ASTM certified. Fast delivery across India.";
-  `Premium construction chemicals, waterproofing solutions & admixtures for Tamil Nadu & India. Same-day delivery to Chennai, Coimbatore, Erode, Krishnagiri. Quality products for builders, contractors.\nContact Vchemics today.`;
+  "Construction chemicals, waterproofing & construction services across Tamil Nadu. Authorized distributor of Fosroc, BASF & Sika. Get a quick quote today.";
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "concrete-admixtures": FlaskConical,
