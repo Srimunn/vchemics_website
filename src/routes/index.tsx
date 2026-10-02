@@ -324,7 +324,7 @@ function Home() {
               hash="dealer-stock"
               className="inline-flex items-center gap-3 rounded-2xl border border-brand-blue/30 bg-card px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-blue shadow-md transition-all duration-300 hover:scale-105 hover:bg-brand-blue/5 hover:border-brand-blue"
             >
-              <span>Explore Certified Dealer Stock (100+)</span>
+              <span>Explore Our Products & Brands</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

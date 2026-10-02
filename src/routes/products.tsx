@@ -98,7 +98,13 @@ function ProductsPage() {
     <>
       <PageHero
         eyebrow="Certified Formulations & Dealer Stock"
-        title="Engineered Systems & Certified Dealer Stock"
+        title={
+          <>
+            <span className="xl:whitespace-nowrap">Construction Chemicals &amp; Waterproofing</span>{" "}
+            <br />
+            Products in Tamil Nadu
+          </>
+        }
         intro="In-house engineered systems built to IS & ASTM benchmarks, plus 100+ certified formulations we stock as an authorized dealer — supplying RMC plants, infrastructure projects, and civil contractors across South India."
       />
 
