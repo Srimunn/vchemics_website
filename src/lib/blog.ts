@@ -1,11 +1,11 @@
 import { allBlogPosts, type BlogPostItem } from "@/components/site/data";
-import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.jpg";
-import waterproofingGuideImg from "@/assets/blog/water_proofing.png";
-import protectiveCoatingsBuildingsImg from "@/assets/blog/protective-coatings-buildings.png";
-import admixturesImg from "@/assets/product-admixtures.jpg";
-import waterproofingImg from "@/assets/product-waterproofing.jpg";
-import groutsImg from "@/assets/product-grouts.jpg";
-import microConcreteImg from "@/assets/product-microconcrete.jpg";
+import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.webp";
+import waterproofingGuideImg from "@/assets/blog/water_proofing.webp";
+import protectiveCoatingsBuildingsImg from "@/assets/blog/protective-coatings-buildings.webp";
+import admixturesImg from "@/assets/product-admixtures.webp";
+import waterproofingImg from "@/assets/product-waterproofing.webp";
+import groutsImg from "@/assets/product-grouts.webp";
+import microConcreteImg from "@/assets/product-microconcrete.webp";
 
 export const blogImages: Record<string, string> = {
   admixtures: admixturesImg,

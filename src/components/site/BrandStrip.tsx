@@ -1,12 +1,12 @@
-import fosrocImg from "@/assets/brands/fosroc.png";
-import basfImg from "@/assets/brands/logo-BASF.png";
-import masterBuildersImg from "@/assets/brands/basf.jpg.jpeg";
-import sikaImg from "@/assets/brands/Sika-Symbol-500x281.png";
-import bergerImg from "@/assets/brands/berger-home-shield.jpg";
-import renaconImg from "@/assets/brands/renacon.png";
-import mykArmentImg from "@/assets/brands/myk.png";
-import stpImg from "@/assets/brands/STP-logo.jpg (1).jpeg";
-import ardexEnduraImg from "@/assets/brands/ardex-1000x1000.png";
+import fosrocImg from "@/assets/brands/fosroc.webp";
+import basfImg from "@/assets/brands/logo-BASF.webp";
+import masterBuildersImg from "@/assets/brands/basf.webp";
+import sikaImg from "@/assets/brands/Sika-Symbol-500x281.webp";
+import bergerImg from "@/assets/brands/berger-home-shield.webp";
+import renaconImg from "@/assets/brands/renacon.webp";
+import mykArmentImg from "@/assets/brands/myk.webp";
+import stpImg from "@/assets/brands/stp-logo.webp";
+import ardexEnduraImg from "@/assets/brands/ardex-1000x1000.webp";
 
 interface BrandItem {
   name: string;
