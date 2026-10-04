@@ -12,6 +12,7 @@ import blogColdJointsImg from "@/assets/blog-preventing-cold-joints.webp";
 import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.webp";
 import waterproofingGuideImg from "@/assets/blog/water_proofing.webp";
 import protectiveCoatingsBuildingsImg from "@/assets/blog/protective-coatings-buildings.webp";
+import concreteRepairTropicalImg from "@/assets/blog/concrete-repair-tropical-climates.webp";
 import step1StructureImg from "@/assets/solutions/basement-waterproofing/step-1-structure.webp";
 import step2BeamCoatingImg from "@/assets/solutions/basement-waterproofing/step-2-beam-coating.webp";
 import step3SiteConditionsImg from "@/assets/solutions/basement-waterproofing/step-3-site-conditions.webp";
@@ -1128,6 +1129,7 @@ export interface BlogPostItem {
   readTime: string;
   excerpt: string;
   author: string;
+  reviewedBy?: string;
   tags: string[];
   image: string;
   imageKey?: string;
@@ -1145,6 +1147,21 @@ export const blogTopics = [
 ] as const;
 
 export const allBlogPosts: BlogPostItem[] = [
+  {
+    id: "why-concrete-repairs-fail-tropical-climates",
+    slug: "why-concrete-repairs-fail-tropical-climates",
+    title: "Why Concrete Repairs Fail in Tropical Climates (And What Works Instead)",
+    category: "Site Troubleshooting",
+    date: "October 2026",
+    readTime: "9 min read",
+    author: "Structural Repair & Diagnostics Team",
+    reviewedBy: "Vchemics Technical Team",
+    excerpt:
+      "That six-month-old patch flaking off your column usually isn't bad cement. It's the weather. Here's why concrete repairs fail in hot, humid, salty conditions and the repair sequence that actually lasts.",
+    tags: ["Concrete Repair", "Micro Concrete", "Protective Coatings", "Spalling Concrete", "Rebar Corrosion", "Tropical Climate"],
+    image: concreteRepairTropicalImg,
+    alt: "Illustration of a repaired concrete column cracking and rusting under tropical sun, monsoon rain and coastal salt air",
+  },
   {
     id: "pu-injection-grouting",
     slug: "pu-injection-grouting",

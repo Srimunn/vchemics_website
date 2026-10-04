@@ -25,6 +25,7 @@ Vchemics India Solutions brings 15+ years of experience supplying IS, ASTM and E
 
 ## Technical Guides
 
+- [Why Concrete Repairs Fail in Tropical Climates (And What Works Instead)](https://www.vchemicsindia.com/blog/why-concrete-repairs-fail-tropical-climates): That six-month-old patch flaking off your column usually isn't bad cement.
 - [PU Injection Grouting: Process, Uses, Types & Selection Guide](https://www.vchemicsindia.com/blog/pu-injection-grouting): Learn how PU injection grouting seals concrete leaks and cracks, its types, process, applications, limitations and selection factors.
 - [How to Prevent Cold Joints in High-Temperature Concrete Pours](https://www.vchemicsindia.com/blog/preventing-cold-joints-tropical-concrete): In South India's high ambient heat, standard hydration accelerates rapidly.
 - [Crystalline vs Elastomeric Membrane Waterproofing: Engineering Selection Guide](https://www.vchemicsindia.com/blog/crystalline-vs-membrane-waterproofing): Deep dive into chemical crystallization vs liquid polyurethane elastomeric membranes: comparative pore sealing chemistry, hydrostatic head resistance, and crack self-healing capabilities.

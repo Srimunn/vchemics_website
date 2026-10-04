@@ -11,6 +11,7 @@ import {
   List,
   ZoomIn,
   Maximize2,
+  ShieldCheck,
   X,
 } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
@@ -30,9 +31,12 @@ const blogMetaTitles: Record<string, string> = {
   "pu-injection-active-leak-sealing": "PU Injection Grouting for Active Leak Sealing | Vchemics",
   "waterproofing-chemicals-guide": "Waterproofing Chemicals Guide: Types & Uses | Vchemics",
   "preventing-cold-joints-tropical-concrete": "How to Prevent Cold Joints in Hot-Weather Concrete",
+  "why-concrete-repairs-fail-tropical-climates": "Why Concrete Repairs Fail in Hot, Humid Climates | Vchemics",
 };
 
 const blogMetaDescriptions: Record<string, string> = {
+  "why-concrete-repairs-fail-tropical-climates":
+    "A concrete patch that cracks within months is rarely bad cement. Here's why repairs fail in Tamil Nadu's heat, rain and salt air, and what lasts.",
   "pu-injection-grouting":
     "Learn how PU injection grouting seals concrete leaks and cracks, its types, process, applications, limitations and selection factors.",
   "preventing-cold-joints-tropical-concrete":
@@ -360,6 +364,15 @@ function BlogPostDetailPage() {
               <div className="flex items-center gap-2 text-foreground font-semibold">
                 <span>By {post.author}</span>
               </div>
+              {post.reviewedBy && (
+                <>
+                  <span>•</span>
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5 text-brand-green" />
+                    <span>Reviewed by {post.reviewedBy}</span>
+                  </div>
+                </>
+              )}
               <span>•</span>
               <div className="flex items-center gap-1.5">
                 <Calendar className="h-3.5 w-3.5 text-brand-green" />
