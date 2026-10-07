@@ -104,87 +104,149 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const webSiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Vchemics India Solutions",
-  alternateName: "Vchemics",
-  url: "https://www.vchemicsindia.com",
-};
+const SITE_URL = "https://www.vchemicsindia.com";
+const ORG_ID = `${SITE_URL}/#organization`;
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Vchemics India Solutions",
-  alternateName: "Vchemics",
-  url: "https://www.vchemicsindia.com",
-  logo: "https://www.vchemicsindia.com/image.png",
-  image: "https://www.vchemicsindia.com/image.png",
-  description:
-    "Manufacturer of concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts, and micro concrete in Chennai and across South India.",
-  telephone: "+91-99423-54602",
-  email: "vchemics1989@gmail.com",
-  sameAs: [
-    "https://www.instagram.com/vchemics_india/",
-    "https://www.facebook.com/profile.php?id=61593645627034",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Omsakthi Street, Kumaran Nagar Extn-I, Padi",
-    addressLocality: "Chennai",
-    addressRegion: "Tamil Nadu",
-    postalCode: "600050",
-    addressCountry: "IN",
-  },
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Organization"],
-  name: "Vchemics India Solutions",
-  alternateName: "Vchemics",
-  url: "https://www.vchemicsindia.com",
-  logo: "https://www.vchemicsindia.com/image.png",
-  image: "https://www.vchemicsindia.com/image.png",
-  description:
-    "Leading manufacturer and supplier of concrete admixtures, crystalline waterproofing chemicals, PU injection grouting, non-shrink grouts, and micro concrete in Chennai, Coimbatore, Erode, Krishnagiri, and across Tamil Nadu.",
-  telephone: "+91-99423-54602",
-  email: "vchemics1989@gmail.com",
-  sameAs: [
-    "https://www.instagram.com/vchemics_india/",
-    "https://www.facebook.com/profile.php?id=61593645627034",
-    "https://x.com/vchemics_india",
-  ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Omsakthi Street, Kumaran Nagar Extn-I, Padi",
-    addressLocality: "Chennai",
-    addressRegion: "Tamil Nadu",
-    postalCode: "600050",
-    addressCountry: "IN",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "13.0978",
-    longitude: "80.1873",
-  },
-  openingHoursSpecification: {
+// Opening hours from the Vchemics Google Business Profile (Erode), used for all branches.
+const openingHours = [
+  {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "09:00",
-    closes: "19:00",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:30",
+    closes: "19:30",
   },
-  areaServed: ["Chennai", "Coimbatore", "Erode", "Krishnagiri", "Tamil Nadu", "South India"],
-  priceRange: "₹₹",
-  knowsAbout: [
-    "Concrete Admixtures",
-    "Waterproofing Chemicals",
-    "PU Injection Grouting",
-    "Non-Shrink Grout",
-    "Micro Concrete",
-    "Concrete Repair",
-    "Epoxy Grouting",
-    "Protective Coatings",
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Saturday",
+    opens: "09:30",
+    closes: "20:30",
+  },
+];
+
+function branch(
+  id: string,
+  city: string,
+  streetAddress: string,
+  postalCode: string,
+  areaServed: string[],
+  extra: Record<string, unknown> = {},
+) {
+  return {
+    "@type": "HomeAndConstructionBusiness",
+    "@id": `${SITE_URL}/#${id}`,
+    name: `Vchemics India Solutions, ${city}`,
+    parentOrganization: { "@id": ORG_ID },
+    url: `${SITE_URL}/locations`,
+    image: `${SITE_URL}/image.png`,
+    telephone: "+91-99423-54602",
+    priceRange: "₹₹",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress,
+      addressLocality: city,
+      addressRegion: "Tamil Nadu",
+      postalCode,
+      addressCountry: "IN",
+    },
+    openingHoursSpecification: openingHours,
+    areaServed,
+    ...extra,
+  };
+}
+
+// One linked graph for the whole site: the company, its branches and the website.
+// Page-level schemas can reference the company with { "@id": ORG_ID }.
+const siteSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ORG_ID,
+      name: "Vchemics India Solutions",
+      alternateName: "Vchemics",
+      url: `${SITE_URL}/`,
+      logo: {
+        "@type": "ImageObject",
+        "@id": `${SITE_URL}/#logo`,
+        url: `${SITE_URL}/image.png`,
+        width: 588,
+        height: 242,
+        caption: "Vchemics India Solutions",
+      },
+      image: { "@id": `${SITE_URL}/#logo` },
+      description:
+        "Supplier of construction chemicals, waterproofing systems and concrete repair products across Tamil Nadu, and authorized distributor of leading brands including Fosroc, BASF, Sika, Berger, Ardex, MYK Arment, Renacon and STP.",
+      email: "vchemics1989@gmail.com",
+      telephone: "+91-99423-54602",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "302/B9, Indian Nagar, 3rd Street, 46 Pudur, Chettipalayam, Modakurichi",
+        addressLocality: "Erode",
+        addressRegion: "Tamil Nadu",
+        postalCode: "638002",
+        addressCountry: "IN",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-99423-54602",
+        email: "vchemics1989@gmail.com",
+        contactType: "sales",
+        areaServed: "IN-TN",
+        availableLanguage: ["English", "Tamil"],
+      },
+      areaServed: { "@type": "State", name: "Tamil Nadu" },
+      knowsAbout: [
+        "Concrete Admixtures",
+        "Waterproofing Chemicals",
+        "PU Injection Grouting",
+        "Non-Shrink Grout",
+        "Epoxy Grouting",
+        "Protective Coatings",
+        "Concrete Repair",
+        "Micro Concrete",
+      ],
+      sameAs: [
+        "https://www.instagram.com/vchemics_india/",
+        "https://www.facebook.com/profile.php?id=61593645627034",
+        "https://x.com/vchemics_india",
+      ],
+      department: [
+        { "@id": `${SITE_URL}/#erode` },
+        { "@id": `${SITE_URL}/#chennai` },
+        { "@id": `${SITE_URL}/#krishnagiri` },
+      ],
+    },
+    branch(
+      "erode",
+      "Erode",
+      "302/B9, Indian Nagar, 3rd Street, 46 Pudur, Chettipalayam, Modakurichi",
+      "638002",
+      ["Erode", "Perundurai", "Bhavani", "Gobichettipalayam", "Anthiyur", "Sathyamangalam"],
+    ),
+    branch(
+      "chennai",
+      "Chennai",
+      "Omsakthi Street, Kumaran Nagar Extn-I, Padi",
+      "600050",
+      ["Chennai", "Kanchipuram", "Chengalpattu", "Tiruvallur", "Sriperumbudur", "Oragadam"],
+      { geo: { "@type": "GeoCoordinates", latitude: 13.0978, longitude: 80.1873 } },
+    ),
+    branch(
+      "krishnagiri",
+      "Krishnagiri",
+      "RSF No. 121/16, Murugar Kovil, Boganapalli",
+      "635001",
+      ["Krishnagiri", "Hosur", "Dharmapuri", "Bargur", "Pochampalli"],
+    ),
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: "Vchemics India Solutions",
+      alternateName: "Vchemics",
+      inLanguage: "en-IN",
+      publisher: { "@id": ORG_ID },
+    },
   ],
 };
 
@@ -230,15 +292,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(organizationSchema),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(localBusinessSchema),
-      },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(webSiteSchema),
+        children: JSON.stringify(siteSchema),
       },
     ],
   }),
