@@ -156,7 +156,8 @@ function Home() {
         />
 
         <div className="relative mx-auto w-full max-w-7xl px-5 pt-32 pb-24 lg:px-8">
-          <Reveal className="max-w-4xl">
+          {/* Plain div, not <Reveal>: the H1 must paint on first render, not after hydration */}
+          <div className="max-w-4xl">
             {/* Clean Primary H1 */}
             <h1 className="text-3xl font-bold leading-[1.08] text-white sm:text-5xl lg:text-[3.75rem] drop-shadow-xl">
               Construction Chemicals &amp; Waterproofing Solutions
@@ -199,7 +200,7 @@ function Home() {
                 <span className="font-phone">+91 99423-54602</span>
               </a>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 

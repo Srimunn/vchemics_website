@@ -1,5 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import logo272 from "@/assets/logo-272.webp";
+import logo408 from "@/assets/logo-408.webp";
+import logo544 from "@/assets/logo-544.webp";
 
 export function Logo({
   onDark = false,
@@ -17,7 +20,13 @@ export function Logo({
       aria-label="Vchemics India Solutions — home"
     >
       <img
-        src="/image.png"
+        src={logo408}
+        srcSet={`${logo272} 272w, ${logo408} 408w, ${logo544} 544w`}
+        sizes={
+          compact
+            ? "(min-width: 768px) 97px, (min-width: 640px) 87px, 78px"
+            : "(min-width: 768px) 136px, (min-width: 640px) 117px, 97px"
+        }
         alt="Vchemics India Solutions Logo"
         className={cn(
           "w-auto max-w-[240px] sm:max-w-[320px] object-contain transition-all duration-300 group-hover:scale-105",
@@ -25,8 +34,8 @@ export function Logo({
           onDark && "brightness-125 contrast-110 drop-shadow-[0_0_14px_rgba(255,255,255,0.85)]",
           className,
         )}
-        width={588}
-        height={242}
+        width={408}
+        height={168}
       />
     </Link>
   );

@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 import { allProducts, allSolutions, allLocations } from "./data";
 import { trackCallClick, trackEmailClick } from "@/lib/analytics";
+import logo272 from "@/assets/logo-272.webp";
+import logo408 from "@/assets/logo-408.webp";
+import logo544 from "@/assets/logo-544.webp";
 
 export function Footer() {
   return (
@@ -23,11 +26,15 @@ export function Footer() {
             >
               <div className="flex w-full items-center justify-center rounded-2xl bg-white px-6 py-3.5 sm:py-4 shadow-md shadow-black/20 border border-white/40">
                 <img
-                  src="/image.png"
+                  src={logo408}
+                  srcSet={`${logo272} 272w, ${logo408} 408w, ${logo544} 544w`}
+                  sizes="(min-width: 640px) 136px, 117px"
                   alt="Vchemics India Solutions Logo"
                   className="h-12 sm:h-14 w-auto max-w-[280px] object-contain"
-                  width={588}
-                  height={242}
+                  width={408}
+                  height={168}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </Link>
