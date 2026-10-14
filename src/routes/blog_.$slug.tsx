@@ -22,6 +22,7 @@ import { trackGetQuoteClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 const blogMetaTitles: Record<string, string> = {
+  "terrace-leakage-monsoon-checks": "Terrace Leaking in the Rain? 7 Checks & Fixes | Vchemics",
   "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
   "protective-coatings-for-buildings": "Protective Coatings: Types, Benefits & Uses",
   "column-jacketing-micro-concrete-standards": "Column Jacketing & Section Enlargement | Vchemics",
@@ -35,6 +36,8 @@ const blogMetaTitles: Record<string, string> = {
 };
 
 const blogMetaDescriptions: Record<string, string> = {
+  "terrace-leakage-monsoon-checks":
+    "Terrace leaking this monsoon? 7 simple checks to find where the water gets in, what to fix now, what to fix after the rain, and when to call a pro.",
   "why-concrete-repairs-fail-tropical-climates":
     "A concrete patch that cracks within months is rarely bad cement. Here's why repairs fail in Tamil Nadu's heat, rain and salt air, and what lasts.",
   "pu-injection-grouting":

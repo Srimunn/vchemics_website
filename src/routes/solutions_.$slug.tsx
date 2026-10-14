@@ -526,6 +526,40 @@ function SolutionDetailPage() {
         </div>
       </section>
 
+      {/* FREQUENTLY ASKED QUESTIONS (only for solutions that define faqs) */}
+      {solution.faqs && solution.faqs.length > 0 && (
+        <section className="pt-14 sm:pt-20">
+          <div className="mx-auto max-w-5xl px-5 lg:px-8 space-y-6">
+            <div className="space-y-2">
+              <p className="eyebrow flex items-center gap-2 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">
+                <span className="h-2 w-2 rounded-full bg-brand-green" />
+                COMMON QUESTIONS
+              </p>
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                {solution.title}: Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="space-y-3">
+              {solution.faqs.map((faq, idx) => (
+                <details
+                  key={faq.q}
+                  open={idx === 0}
+                  className="group rounded-2xl border border-border/80 bg-card overflow-hidden open:border-brand-blue/40 open:shadow-md"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-sm sm:text-base font-bold text-foreground hover:text-brand-blue transition-colors">
+                    <span>{faq.q}</span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300 group-open:rotate-90" />
+                  </summary>
+                  <div className="border-t border-border/60 bg-muted/15 p-5 pt-4 text-xs sm:text-sm text-foreground/90 leading-relaxed">
+                    {faq.a}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 4. OTHER SOLUTION PROTOCOLS DIRECT CROSS-LINKS */}
       <section className="pt-14 sm:pt-20">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-6">

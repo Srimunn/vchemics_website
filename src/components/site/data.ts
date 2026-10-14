@@ -98,16 +98,20 @@ export const allProducts: ProductItem[] = [
     ],
     faqs: [
       {
-        q: "Can Vchemics PCE superplasticisers be blended with Fly Ash, GGBS, and Micro-Silica?",
-        a: "Yes. Our polycarboxylate ether (PCE) formulations are specifically calibrated with high steric hindrance polymers to remain stable in high-volume supplementary cementitious material (SCM) mixes containing up to 60% GGBS or 35% Class F fly ash, preventing delayed setting or slump loss.",
+        q: "What is IS 9103, and why does it matter for admixtures?",
+        a: "IS 9103 is the Bureau of Indian Standards specification for concrete admixtures: superplasticisers, water reducers, retarders and accelerators. It checks that an admixture actually does what the label says (water reduction, setting time, strength against a plain control mix) without hurting the concrete. Before you buy, ask for the IS 9103 reference on the TDS or test certificate, especially for RMC plants and government or tender work.",
       },
       {
-        q: "Is on-site trial batching required before full-scale batching plant dosing?",
-        a: "Yes, mandatory plant and site trial mixes (per IS 456 & IS 9103) should always be conducted with your project-specific cement brand, aggregate grading, and ambient temperature to determine the exact optimum dosage (typically 0.4%–1.8% by weight of cement).",
+        q: "Can PCE superplasticisers be used with fly ash, GGBS or micro silica?",
+        a: "Yes. PCE admixtures are widely used in blended mixes with fly ash, GGBS and micro silica. But how much you can blend, and the dose you'll need, change from product to product and from cement to cement. Check the TDS of the exact product and confirm it with a trial mix using your own materials.",
       },
       {
-        q: "What is the shelf life, drum storage requirement, and freezing behavior?",
-        a: "The shelf life is 12 months from the date of manufacture when stored in unopened original HDPE barrels or IBC containers between 5°C and 40°C in dry shaded conditions away from direct sunlight. Re-agitate before dosing if stored for extended periods.",
+        q: "Do I need a trial mix before using it at the batching plant?",
+        a: "Always. Run plant and site trials (as IS 456 and IS 9103 expect) with your actual cement brand, aggregate grading and the day's temperature. That's how you find the right dose, which typically falls somewhere between 0.4% and 1.8% by weight of cement. Skipping the trial is the quickest way to end up with slump loss or delayed setting on a hot Kongu afternoon.",
+      },
+      {
+        q: "What's the shelf life, and how should drums be stored?",
+        a: "Typically 12 months from the date of manufacture in unopened original drums or IBCs, stored in a dry, shaded place away from direct sun, roughly between 5°C and 40°C. If a drum has been standing for a long time, mix it well before dosing. The product's TDS gives the exact figures.",
       },
     ],
   },
@@ -143,16 +147,24 @@ export const allProducts: ProductItem[] = [
     ],
     faqs: [
       {
-        q: "How does crystalline waterproofing self-heal micro-cracks over time?",
-        a: "Active chemical catalysts within the crystalline slurry react with unhydrated cement minerals and free lime in the presence of water. This catalytic reaction grows non-soluble needle-like dendritic crystals deep inside the capillary tract, permanently sealing micro-cracks up to 0.4mm even under continuous negative water head.",
+        q: "What is IS 2645?",
+        a: "IS 2645 is the Indian Standard for integral waterproofing compounds, the powders and liquids you mix into cement mortar or concrete. It checks that the compound really cuts water penetration without spoiling setting time or strength. It covers mixed-in compounds only, not surface coatings or membranes, so check which standard the product's TDS actually quotes.",
       },
       {
-        q: "Can crystalline waterproofing withstand negative side hydrostatic pressure in deep basements?",
-        a: "Yes. Because crystalline chemical growth takes place inside the concrete pore network rather than relying on surface adhesion, it withstands over 5 bar (>50m head) of hydrostatic pressure from both positive (external) and negative (internal) sides without blistering or peeling.",
+        q: "Can these waterproofing chemicals be used on a terrace?",
+        a: "Yes, but pick the right one. An integral compound mixed into the terrace screed or plaster helps, and polymer or crystalline coatings work under tiles. An open terrace that takes full sun, though, moves a lot with the heat, so it needs a flexible membrane on top (PU or elastomeric acrylic). Our Terrace Waterproofing page explains the full system.",
       },
       {
-        q: "What is the surface preparation and moisture curing requirement before application?",
-        a: "The concrete substrate must be mechanically scabbled or high-pressure water jetted to expose open capillary pores and pre-wetted to a Saturated Surface Dry (SSD) condition. Following 2 cross-coats (1.2–1.5 kg/m² total), the treated surface must be moist-cured with fine water mist for a minimum of 48 hours to activate crystalline penetration.",
+        q: "How does crystalline waterproofing 'self-heal' small cracks?",
+        a: "Think of it like this: the chemicals in the slurry react with water and the leftover cement in the concrete and grow tiny insoluble crystals inside the pores. When a hairline crack later lets moisture in, the reaction starts again and the crystals grow into the crack. Products typically quote sealing of cracks up to about 0.4 mm; check the TDS of the product you're using.",
+      },
+      {
+        q: "Does it work from the inside of a basement, against water pushing in?",
+        a: "Yes, and that's one of its big strengths. Because the crystals form inside the concrete instead of sitting on the surface, crystalline systems can be applied on the inside (negative side) of basements, lift pits and tanks without peeling off under water pressure. The pressure rating depends on the product; the figures we list are from DIN 1048 tests on the TDS.",
+      },
+      {
+        q: "How should the surface be prepared, and does it need curing?",
+        a: "Preparation decides everything. Clean the concrete back to open pores (by scabbling or high-pressure water jetting), then wet it until it's saturated but has no standing water. Apply two cross coats as the TDS specifies (typically around 1.2-1.5 kg/m² in total), then keep it moist with a fine water mist for at least 48 hours. Skip the curing and the crystals don't grow properly.",
       },
     ],
   },
@@ -446,6 +458,7 @@ export interface SolutionItem {
   metrics: string;
   workGalleryType?: "photos" | "diagrams";
   workGallery?: WorkGalleryStep[];
+  faqs?: { q: string; a: string }[];
 }
 
 export const allSolutions: SolutionItem[] = [
@@ -490,6 +503,28 @@ export const allSolutions: SolutionItem[] = [
       "Commercial raft foundations",
     ],
     metrics: "100% Watertight • Resists >5 Bar Hydrostatic Head",
+    faqs: [
+      {
+        q: "Is there a special cement for basement waterproofing?",
+        a: "Not really, and that surprises a lot of people. No cement makes a basement watertight on its own. What usually gets called 'waterproof cement' is one of two things: a crystalline or integral waterproofing admixture mixed into the concrete, or a cement-based waterproof slurry brushed onto the walls. Both work best on dense, well-cured concrete, so the basics (a low water-cement ratio and proper curing) still matter most.",
+      },
+      {
+        q: "What's the best waterproofing for basement walls?",
+        a: "If you're still building, waterproof from the outside, on the soil side, before backfilling. That's a membrane or crystalline coating with a protection board over it. If the basement is already built and you can't dig, work from the inside: a crystalline slurry seals the wall from within because the crystals grow inside the concrete pores. Any crack with running water gets PU injection first. Most leaking basements need a mix of these, not one magic product.",
+      },
+      {
+        q: "Can a sealant alone stop basement leaks?",
+        a: "Only at the joints. Polyurethane sealants and swellable waterstops are made for construction and expansion joints. Cracks with flowing water need PU injection, and damp walls need a crystalline treatment. A tube of sealant on a wet wall might look fine for a week... and then the stain comes back.",
+      },
+      {
+        q: "How do you waterproof a retaining wall?",
+        a: "The best time is before the soil goes back in: coat or membrane the soil side, add drainage behind the wall and keep the weep holes clear so water can't build up pressure. If the wall is already backfilled and seeping, treat it from the inside with crystalline slurry and inject any active cracks.",
+      },
+      {
+        q: "Can basement waterproofing be done after construction?",
+        a: "Yes. It's called negative-side waterproofing: you treat the wall from the inside while water pushes from the outside. It isn't as ideal as outside protection, but crystalline systems and injection handle it well in most homes, lift pits and parking basements. A site visit tells us which parts need what.",
+      },
+    ],
     workGalleryType: "photos",
     workGallery: [
       {
@@ -575,6 +610,28 @@ export const allSolutions: SolutionItem[] = [
       "Industrial metal / concrete composite roofs",
     ],
     metrics: ">400% Elongation • 72h Pond Tested",
+    faqs: [
+      {
+        q: "Is epoxy suitable for terrace waterproofing?",
+        a: "Honestly, not for an open terrace. Epoxy is tough, but it's rigid, and most epoxies break down and chalk in direct sun. A terrace in Erode or Coimbatore bakes all afternoon and cools at night, so the slab keeps moving, and a rigid coat cracks along with it. For exposed roofs, a flexible PU or elastomeric acrylic membrane with a UV-stable top coat is the better bet. Keep epoxy for indoor floors and tank linings.",
+      },
+      {
+        q: "Which chemical is best for terrace waterproofing?",
+        a: "There isn't one 'best'. It depends on whether the terrace is open or tiled, how cracked it is, how much foot traffic it gets and your budget. Roughly: a PU liquid membrane is the most flexible for open slabs; elastomeric acrylic coatings are economical and easy to re-coat; polymer cementitious coatings suit areas that will be tiled or screeded; APP or torch-on membranes suit big flat roofs. We'll suggest a system after we've actually seen the slab.",
+      },
+      {
+        q: "Can you waterproof a terrace that's already leaking?",
+        a: "Yes, but don't just paint over it. First we find where the water gets in: usually cracks, the parapet corners, the joint around the drain outlet, or low spots where water ponds. Those get repaired and the slope gets corrected, and only then does the waterproofing go on. A coating over a cracked, ponding slab rarely survives one monsoon.",
+      },
+      {
+        q: "How long does terrace waterproofing last?",
+        a: "It really depends on the system and on how well the slab was prepared. Preparation and slope matter more than the brand name. Ask for the product's expected life and the warranty terms in writing before work starts, and check the coating once a year, especially around drains and parapets.",
+      },
+      {
+        q: "When is the best time to waterproof a terrace in Tamil Nadu?",
+        a: "In the dry months, well before the monsoon. Coatings won't bond properly to a wet slab, so give yourself a few dry weeks. For most of the Kongu region, that means planning the job before the October rains, not during them.",
+      },
+    ],
     workGalleryType: "photos",
     workGallery: [
       {
@@ -1148,6 +1205,20 @@ export const blogTopics = [
 
 export const allBlogPosts: BlogPostItem[] = [
   {
+    id: "terrace-leakage-monsoon-checks",
+    slug: "terrace-leakage-monsoon-checks",
+    title: "Terrace Leaking This Monsoon? 7 Checks Before You Call a Contractor",
+    category: "Waterproofing Guides",
+    date: "October 2026",
+    readTime: "8 min read",
+    author: "Vchemics Technical Team",
+    excerpt:
+      "That drip at 2 a.m. usually has a findable cause. Here are 7 simple checks to find where your terrace leaks, what to fix during the rain, and what to fix properly once it stops.",
+    tags: ["Terrace Waterproofing", "Roof Leakage", "Monsoon", "Waterproofing", "Erode", "Tamil Nadu"],
+    image: step5FinalTopcoatImg,
+    alt: "Applicator rolling a waterproof top coat onto a terrace slab and parapet wall",
+  },
+  {
     id: "why-concrete-repairs-fail-tropical-climates",
     slug: "why-concrete-repairs-fail-tropical-climates",
     title: "Why Concrete Repairs Fail in Tropical Climates (And What Works Instead)",
@@ -1232,7 +1303,7 @@ export const allBlogPosts: BlogPostItem[] = [
     title: "Crystalline vs Elastomeric Membrane Waterproofing: Engineering Selection Guide",
     category: "Waterproofing Guides",
     date: "January 2025",
-    readTime: "7 min read",
+    readTime: "6 min read",
     author: "Structural Diagnostics Division",
     excerpt:
       "Deep dive into chemical crystallization vs liquid polyurethane elastomeric membranes: comparative pore sealing chemistry, hydrostatic head resistance, and crack self-healing capabilities.",
@@ -1270,7 +1341,7 @@ export const allBlogPosts: BlogPostItem[] = [
     title: "Precision Grouting for Heavy Equipment: Chemical Solutions & Installation Guide",
     category: "Precision Grouts",
     date: "January 2025",
-    readTime: "6 min read",
+    readTime: "8 min read",
     author: "Industrial Flooring & Grouting Team",
     excerpt:
       "Comprehensive guide to precision grouting for heavy machinery, covering epoxy, PU, and polyester chemical solutions, and step-by-step installation procedures.",
@@ -1307,7 +1378,7 @@ export const allBlogPosts: BlogPostItem[] = [
     title: "High-Pressure PU Injection Grouting for Active Hydrostatic Water Ingress",
     category: "Site Troubleshooting",
     date: "December 2024",
-    readTime: "6 min read",
+    readTime: "5 min read",
     author: "Waterproofing Field Engineers",
     excerpt:
       "Step-by-step 45-degree mechanical packer installation and hydro-active polyurethane resin injection at 50–250 bar to permanently arrest high-pressure gushing leaks.",
@@ -1345,7 +1416,7 @@ export const allBlogPosts: BlogPostItem[] = [
     title: "Structural Column Jacketing & Section Enlargement with Micro Concrete",
     category: "Structural Rehabilitation",
     date: "December 2024",
-    readTime: "8 min read",
+    readTime: "5 min read",
     author: "Structural Rehabilitation Group",
     excerpt:
       "Best practices for RCC column encasement, rebar passivating primers, shear dowel anchorage, and self-compacting micro concrete placement compliant with EN 1504-3 Class R4.",
