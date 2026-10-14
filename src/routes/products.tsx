@@ -18,6 +18,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, type ProductItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
+import { productImgProps } from "@/lib/product-images";
 
 const title = "Construction Chemicals & Waterproofing Products | Vchemics";
 const description =
@@ -196,9 +197,11 @@ function ProductsPage() {
                         {p.image ? (
                           <img
                             src={p.image}
+                            {...productImgProps(p.id)}
                             alt={p.alt || `${p.title} - IS & ASTM Standard Construction Chemical`}
                             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                             loading="lazy"
+                            decoding="async"
                           />
                         ) : (
                           <ImagePlaceholder label={`+ Add ${p.title} Site Photo`} />

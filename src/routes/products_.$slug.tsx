@@ -38,6 +38,7 @@ import { productDetailsExtended } from "@/lib/product-details";
 import { getCategoryIcon } from "@/lib/category-icons";
 import { cn } from "@/lib/utils";
 import { trackWhatsAppClick, trackCallClick, trackGetQuoteClick } from "@/lib/analytics";
+import { productImgProps } from "@/lib/product-images";
 
 const productIcons: Record<string, LucideIcon> = {
   "concrete-admixtures": FlaskConical,
@@ -415,6 +416,7 @@ function ProductDetailPage() {
                   {product.image ? (
                     <img
                       src={product.image}
+                      {...productImgProps(product.id, "(min-width: 1024px) 42vw, 100vw")}
                       alt={product.alt || product.title}
                       className="h-full w-full object-cover"
                     />

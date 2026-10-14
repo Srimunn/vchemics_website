@@ -36,6 +36,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allProducts, allSolutions, allLocations, stats } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 import { trackGetQuoteClick, trackCallClick } from "@/lib/analytics";
+import { productImgProps } from "@/lib/product-images";
 
 const title = "Construction Chemical Distributors, Tamil Nadu | Vchemics";
 const description =
@@ -236,9 +237,11 @@ function Home() {
                       {p.image ? (
                         <img
                           src={p.image}
+                          {...productImgProps(p.id)}
                           alt={p.alt || p.title}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
                         />
                       ) : (
                         <ImagePlaceholder label={`+ Add ${p.title} Photo`} />

@@ -282,12 +282,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap",
-      },
+      // Fonts are self-hosted in styles.css (font-display: swap). No preload on purpose: in a 7-run
+      // slow-4G test, preloading delayed first paint more than it helped the largest paint.
     ],
     scripts: [
       {
@@ -307,8 +303,9 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-        {/* Google Analytics 4 (GA4) Tracking Script */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+        {/* Google Analytics 4 (GA4). The gtag() stub queues every call in dataLayer right away;
+            the 178 KB gtag.js library loads only after the first interaction or 2.5 s after
+            window load (whichever comes first), so it no longer competes with first paint. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -318,6 +315,23 @@ function RootShell({ children }: { children: ReactNode }) {
               gtag('config', '${GA_MEASUREMENT_ID}', {
                 page_path: window.location.pathname,
               });
+              (function () {
+                var loaded = false;
+                var events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+                function loadGtag() {
+                  if (loaded) return;
+                  loaded = true;
+                  events.forEach(function (e) { window.removeEventListener(e, loadGtag, true); });
+                  var s = document.createElement('script');
+                  s.async = true;
+                  s.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';
+                  document.head.appendChild(s);
+                }
+                events.forEach(function (e) {
+                  window.addEventListener(e, loadGtag, { once: true, passive: true, capture: true });
+                });
+                window.addEventListener('load', function () { setTimeout(loadGtag, 2500); });
+              })();
             `,
           }}
         />
