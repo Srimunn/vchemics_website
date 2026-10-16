@@ -23,6 +23,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allSolutions, type SolutionItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
+import { solutionAnswers, formatDate } from "@/components/site/quick-answers";
 
 const solutionIcons: Record<string, LucideIcon> = {
   "basement-waterproofing": Droplets,
@@ -145,6 +146,19 @@ export const Route = createFileRoute("/solutions_/$slug")({
         },
         {
           type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": url,
+            url,
+            name: title,
+            ...(solutionAnswers[solution.id]?.updated
+              ? { dateModified: solutionAnswers[solution.id]?.updated }
+              : {}),
+          }),
+        },
+        {
+          type: "application/ld+json",
           children: JSON.stringify(breadcrumbSchema),
         },
       ],
@@ -158,6 +172,7 @@ function SolutionDetailPage() {
   const SolIcon = solutionIcons[solution.id] || ShieldCheck;
   const gallery = solution.workGallery;
   const hasGallery = Boolean(gallery && gallery.length > 0);
+  const quick = solutionAnswers[solution.id];
 
   return (
     <div className="min-h-screen bg-background pb-12 sm:pb-16">
@@ -282,6 +297,21 @@ function SolutionDetailPage() {
       {/* 2. CHALLENGE VS SOLUTION STRATEGY & METHODOLOGY */}
       <section className="py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12">
+          {/* Quick answer: self-contained summary near the top of the page for AI search */}
+          {quick && (
+            <div className="rounded-2xl border border-brand-blue/20 bg-brand-blue/5 p-5 sm:p-6">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                {quick.q}
+              </h2>
+              <p className="mt-2 max-w-4xl text-sm sm:text-base leading-relaxed text-foreground/90">
+                {quick.a}
+              </p>
+              <p className="mt-3 font-mono text-xs text-muted-foreground">
+                Last updated: <time dateTime={quick.updated}>{formatDate(quick.updated)}</time>
+              </p>
+            </div>
+          )}
+
           {/* Challenge & Solution Cards */}
           <Reveal>
             <div className="grid md:grid-cols-2 gap-6">
@@ -294,7 +324,7 @@ function SolutionDetailPage() {
                   <span>The Structural Challenge</span>
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-                  Sub-surface Degradation &amp; Ingress Risks
+                  {quick?.causeQ ?? <>Sub-surface Degradation &amp; Ingress Risks</>}
                 </h3>
                 <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-sans">
                   {solution.challenge}
@@ -310,7 +340,7 @@ function SolutionDetailPage() {
                   <span>Vchemics Chemical Protocol</span>
                 </div>
                 <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-                  Engineered Multi-Barrier Protection
+                  {quick ? "How do we fix it?" : "Engineered Multi-Barrier Protection"}
                 </h3>
                 <p className="text-sm sm:text-base text-foreground/90 leading-relaxed font-sans">
                   {solution.solutionDesc}
@@ -328,7 +358,7 @@ function SolutionDetailPage() {
                   <Layers className="h-4.5 w-4.5" />
                 </div>
                 <h3 className="font-display text-lg font-bold text-foreground">
-                  Specified Chemical Formulations
+                  {quick ? "Which products are used?" : "Specified Chemical Formulations"}
                 </h3>
               </div>
               <ul className="space-y-2.5">
@@ -351,7 +381,7 @@ function SolutionDetailPage() {
                   <Building2 className="h-4.5 w-4.5" />
                 </div>
                 <h3 className="font-display text-lg font-bold text-foreground">
-                  Engineered Application Scope
+                  {quick ? "Where is it used?" : "Engineered Application Scope"}
                 </h3>
               </div>
               <ul className="space-y-2.5">
@@ -376,7 +406,7 @@ function SolutionDetailPage() {
                 Protocol
               </p>
               <h3 className="mt-1 font-display text-2xl font-bold text-foreground">
-                4-Stage Application Methodology
+                {quick ? `How is ${quick.name} done, step by step?` : "4-Stage Application Methodology"}
               </h3>
             </div>
 

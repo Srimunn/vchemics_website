@@ -39,6 +39,7 @@ import { getCategoryIcon } from "@/lib/category-icons";
 import { cn } from "@/lib/utils";
 import { trackWhatsAppClick, trackCallClick, trackGetQuoteClick } from "@/lib/analytics";
 import { productImgProps } from "@/lib/product-images";
+import { productAnswers, formatDate } from "@/components/site/quick-answers";
 
 const productIcons: Record<string, LucideIcon> = {
   "concrete-admixtures": FlaskConical,
@@ -203,10 +204,24 @@ export const Route = createFileRoute("/products_/$slug")({
           }
         : null;
 
+    const quick = productAnswers[product.id];
+    const webPageSchema = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": url,
+      url,
+      name: title,
+      ...(quick ? { dateModified: quick.updated } : {}),
+    };
+
     const scripts: { type: string; children: string }[] = [
       {
         type: "application/ld+json",
         children: JSON.stringify(productSchema),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(webPageSchema),
       },
       {
         type: "application/ld+json",
@@ -246,6 +261,7 @@ export const Route = createFileRoute("/products_/$slug")({
 
 function ProductDetailPage() {
   const { product } = Route.useLoaderData();
+  const quick = productAnswers[product.id];
   const [isProcOpen, setIsProcOpen] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
@@ -443,6 +459,21 @@ function ProductDetailPage() {
       {/* 2. DEEP SPECIFICATIONS & PERFORMANCE METRICS */}
       <section className="py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12">
+          {/* Quick answer: self-contained summary near the top of the page for AI search */}
+          {quick && (
+            <div className="rounded-2xl border border-brand-blue/20 bg-brand-blue/5 p-5 sm:p-6">
+              <h2 className="font-display text-xl sm:text-2xl font-bold text-foreground">
+                {quick.q}
+              </h2>
+              <p className="mt-2 max-w-4xl text-sm sm:text-base leading-relaxed text-foreground/90">
+                {quick.a}
+              </p>
+              <p className="mt-3 font-mono text-xs text-muted-foreground">
+                Last updated: <time dateTime={quick.updated}>{formatDate(quick.updated)}</time>
+              </p>
+            </div>
+          )}
+
           {/* Overview Grids */}
           <div className="grid lg:grid-cols-12 gap-8">
             {/* Left Column: Problem Solved & Key Features (7 cols) */}
@@ -483,7 +514,7 @@ function ProductDetailPage() {
               <div className="rounded-2xl border border-border/80 bg-card p-5 sm:p-6 shadow-xs space-y-4">
                 <h2 className="font-display text-lg font-bold text-foreground flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-brand-green" />
-                  <span>Key Performance Advantages</span>
+                  <span>{quick ? `Why use ${quick.name}?` : "Key Performance Advantages"}</span>
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {product.features.map((feat) => (
@@ -507,7 +538,11 @@ function ProductDetailPage() {
                 >
                   <span className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-brand-blue" />
-                    <span>Standard 4-Step Site Application Method</span>
+                    <span>
+                      {quick
+                        ? `How ${quick.plural ? "are" : "is"} ${quick.name} applied?`
+                        : "Standard 4-Step Site Application Method"}
+                    </span>
                   </span>
                   <ChevronDown
                     className={cn(

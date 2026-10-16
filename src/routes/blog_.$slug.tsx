@@ -20,6 +20,7 @@ import { PlaceholderBadge } from "@/components/site/PlaceholderBadge";
 import { getBlogPostBySlug, isGenericBlogImage } from "@/lib/blog";
 import { trackGetQuoteClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
+import { blogDates, formatDate } from "@/components/site/quick-answers";
 
 const blogMetaTitles: Record<string, string> = {
   "terrace-leakage-monsoon-checks": "Terrace Leaking in the Rain? 7 Checks & Fixes | Vchemics",
@@ -77,13 +78,14 @@ export const Route = createFileRoute("/blog_/$slug")({
         ? post.image
         : "https://www.vchemicsindia.com/image.png";
 
+    const dates = blogDates[post.id];
     const articleSchema = {
       "@context": "https://schema.org",
       "@type": "Article",
       headline: post.title,
       description: description,
       image: ogImage,
-      datePublished: "2025-01-01",
+      ...(dates ? { datePublished: dates.published, dateModified: dates.updated } : {}),
       author: {
         "@type": "Organization",
         name: post.author,
@@ -201,6 +203,7 @@ function getTagLink(tag: string): string {
 
 function BlogPostDetailPage() {
   const { post } = Route.useLoaderData();
+  const dates = blogDates[post.id];
   const [isImageModalOpen, setIsImageModalOpen] = useState(false);
 
   // Close popup modal with Escape key and prevent background scrolling
@@ -381,6 +384,14 @@ function BlogPostDetailPage() {
                 <Calendar className="h-3.5 w-3.5 text-brand-green" />
                 <span>{post.date}</span>
               </div>
+              {dates && dates.updated !== dates.published && (
+                <>
+                  <span>•</span>
+                  <span>
+                    Updated <time dateTime={dates.updated}>{formatDate(dates.updated)}</time>
+                  </span>
+                </>
+              )}
               <span>•</span>
               <div className="flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5 text-brand-blue" />
