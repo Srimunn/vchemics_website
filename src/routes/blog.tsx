@@ -6,6 +6,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { PlaceholderBadge } from "@/components/site/PlaceholderBadge";
 import { allBlogPosts, blogTopics } from "@/components/site/data";
+import { blogDates } from "@/components/site/quick-answers";
 import { isGenericBlogImage } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +28,7 @@ const blogSchema = {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    datePublished: "2025-01-01",
+    ...(blogDates[post.id] ? { datePublished: blogDates[post.id]?.published } : {}),
     author: {
       "@type": "Organization",
       name: post.author,

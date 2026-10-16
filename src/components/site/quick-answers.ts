@@ -117,18 +117,18 @@ export const solutionAnswers: Record<string, QuickAnswer> = {
 };
 
 /**
- * Blog dates as ISO strings. `published` matches the month shown on the post;
+ * Blog dates as ISO strings. `published` is the exact publish date (the post shows its month);
  * `updated` is the last time the article body was changed.
  */
 export const blogDates: Record<string, { published: string; updated: string }> = {
   "terrace-leakage-monsoon-checks": { published: "2026-10-14", updated: "2026-10-14" },
   "why-concrete-repairs-fail-tropical-climates": { published: "2026-10-04", updated: "2026-10-04" },
   "pu-injection-grouting": { published: "2026-09-01", updated: "2026-10-14" },
-  "preventing-cold-joints-tropical-concrete": { published: "2025-02-01", updated: "2026-09-13" },
-  "crystalline-vs-membrane-waterproofing": { published: "2025-01-01", updated: "2026-10-14" },
-  "machine-foundation-epoxy-grouting-standards": { published: "2025-01-01", updated: "2026-10-14" },
-  "pu-injection-active-leak-sealing": { published: "2024-12-01", updated: "2026-10-14" },
-  "column-jacketing-micro-concrete-standards": { published: "2024-12-01", updated: "2026-10-14" },
+  "preventing-cold-joints-tropical-concrete": { published: "2026-09-07", updated: "2026-09-13" },
+  "crystalline-vs-membrane-waterproofing": { published: "2026-09-21", updated: "2026-10-14" },
+  "machine-foundation-epoxy-grouting-standards": { published: "2026-09-14", updated: "2026-10-14" },
+  "pu-injection-active-leak-sealing": { published: "2026-08-31", updated: "2026-10-14" },
+  "column-jacketing-micro-concrete-standards": { published: "2026-08-24", updated: "2026-10-14" },
   "waterproofing-chemicals-guide": { published: "2026-09-13", updated: "2026-09-15" },
   "protective-coatings-for-buildings": { published: "2026-09-15", updated: "2026-10-14" },
 };

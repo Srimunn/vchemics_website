@@ -1265,7 +1265,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "preventing-cold-joints-tropical-concrete",
     title: "How to Prevent Cold Joints in High-Temperature Concrete Pours",
     category: "Admixtures & Mix Design",
-    date: "February 2025",
+    date: "September 2026",
     readTime: "6 min read",
     author: "Technical Formulation Team",
     excerpt:
@@ -1302,7 +1302,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "crystalline-vs-membrane-waterproofing",
     title: "Crystalline vs Elastomeric Membrane Waterproofing: Engineering Selection Guide",
     category: "Waterproofing Guides",
-    date: "January 2025",
+    date: "September 2026",
     readTime: "6 min read",
     author: "Structural Diagnostics Division",
     excerpt:
@@ -1340,7 +1340,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "precision-grouting-heavy-equipment-guide",
     title: "Precision Grouting for Heavy Equipment: Chemical Solutions & Installation Guide",
     category: "Precision Grouts",
-    date: "January 2025",
+    date: "September 2026",
     readTime: "8 min read",
     author: "Industrial Flooring & Grouting Team",
     excerpt:
@@ -1377,7 +1377,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "pu-injection-active-leak-sealing",
     title: "High-Pressure PU Injection Grouting for Active Hydrostatic Water Ingress",
     category: "Site Troubleshooting",
-    date: "December 2024",
+    date: "August 2026",
     readTime: "5 min read",
     author: "Waterproofing Field Engineers",
     excerpt:
@@ -1415,7 +1415,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "column-jacketing-micro-concrete-standards",
     title: "Structural Column Jacketing & Section Enlargement with Micro Concrete",
     category: "Structural Rehabilitation",
-    date: "December 2024",
+    date: "August 2026",
     readTime: "5 min read",
     author: "Structural Rehabilitation Group",
     excerpt:
