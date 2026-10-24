@@ -138,17 +138,50 @@ function isPagePath(pathname: string): boolean {
   return !lastSegment.includes(".");
 }
 
+// Baseline security headers. The CSP only limits framing, <base> and plugins, so it
+// can't block Google Tag Manager, fonts or any other script/style the site loads.
+const SECURITY_HEADERS: Record<string, string> = {
+  "strict-transport-security": HSTS_HEADER_VALUE,
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "SAMEORIGIN",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+  "content-security-policy": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'",
+};
+
 function applySecurityHeaders(response: Response): Response {
-  if (response.headers.get("strict-transport-security")) {
+  const missing = Object.keys(SECURITY_HEADERS).filter((name) => !response.headers.has(name));
+  if (missing.length === 0) {
     return response;
   }
   const headers = new Headers(response.headers);
-  headers.set("strict-transport-security", HSTS_HEADER_VALUE);
+  for (const name of missing) {
+    headers.set(name, SECURITY_HEADERS[name] as string);
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
     headers,
   });
+}
+
+// TanStack Start answers page requests that don't accept HTML (e.g. "Accept: text/markdown",
+// used by some AI agents) with a 500. Serve the normal HTML page instead.
+function asHtmlPageRequest(request: Request, url: URL): Request {
+  if (request.method !== "GET" && request.method !== "HEAD") return request;
+  if (!isPagePath(url.pathname)) return request;
+  const accept = request.headers.get("accept") ?? "";
+  if (!accept || /text\/html|\*\/\*/.test(accept)) return request;
+  const htmlAccept = "text/html,application/xhtml+xml;q=0.9,*/*;q=0.8";
+  try {
+    // The node server's request object can't be cloned with `new Request(request)`.
+    request.headers.set("accept", htmlAccept);
+    return request;
+  } catch {
+    const headers = new Headers(request.headers);
+    headers.set("accept", htmlAccept);
+    return new Request(request.url, { method: request.method, headers, signal: request.signal });
+  }
 }
 
 export default {
@@ -184,7 +217,7 @@ export default {
 
     try {
       const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
+      const response = await handler.fetch(asHtmlPageRequest(request, url), env, ctx);
       const normalizedResponse = await normalizeCatastrophicSsrResponse(response);
       const securedResponse = applySecurityHeaders(normalizedResponse);
       return compressResponseIfNeeded(request, securedResponse);

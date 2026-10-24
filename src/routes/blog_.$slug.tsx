@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { blogDates, formatDate } from "@/components/site/quick-answers";
 
 const blogMetaTitles: Record<string, string> = {
+  "sump-leakage-repair-after-rain": "Sump Leakage Repair After Rain: Causes & Fixes | Vchemics",
   "terrace-leakage-monsoon-checks": "Terrace Leaking in the Rain? 7 Checks & Fixes | Vchemics",
   "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
   "protective-coatings-for-buildings": "Protective Coatings: Types, Benefits & Uses",
@@ -37,6 +38,8 @@ const blogMetaTitles: Record<string, string> = {
 };
 
 const blogMetaDescriptions: Record<string, string> = {
+  "sump-leakage-repair-after-rain":
+    "Muddy water or a falling sump level after rain? Learn how to find where your underground tank leaks, stop it, and keep your water safe to use again.",
   "terrace-leakage-monsoon-checks":
     "Terrace leaking this monsoon? 7 simple checks to find where the water gets in, what to fix now, what to fix after the rain, and when to call a pro.",
   "why-concrete-repairs-fail-tropical-climates":

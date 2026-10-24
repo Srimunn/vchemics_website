@@ -19,6 +19,12 @@ export default defineConfig({
       "/**": {
         headers: {
           "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+          // Keep in sync with SECURITY_HEADERS in src/server.ts
+          "X-Content-Type-Options": "nosniff",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+          "Content-Security-Policy": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'",
         },
       },
       // Browser caching for un-hashed files in public/ (hashed /assets/* are already immutable)

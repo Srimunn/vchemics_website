@@ -13,6 +13,7 @@ import puInjectionSiteHeroImg from "@/assets/blog/pu-injection-grouting-hero.web
 import waterproofingGuideImg from "@/assets/blog/water_proofing.webp";
 import protectiveCoatingsBuildingsImg from "@/assets/blog/protective-coatings-buildings.webp";
 import concreteRepairTropicalImg from "@/assets/blog/concrete-repair-tropical-climates.webp";
+import sumpLeakageImg from "@/assets/blog/sump-leakage-repair-after-rain.webp";
 import step1StructureImg from "@/assets/solutions/basement-waterproofing/step-1-structure.webp";
 import step2BeamCoatingImg from "@/assets/solutions/basement-waterproofing/step-2-beam-coating.webp";
 import step3SiteConditionsImg from "@/assets/solutions/basement-waterproofing/step-3-site-conditions.webp";
@@ -1204,6 +1205,21 @@ export const blogTopics = [
 ] as const;
 
 export const allBlogPosts: BlogPostItem[] = [
+  {
+    id: "sump-leakage-repair-after-rain",
+    slug: "sump-leakage-repair-after-rain",
+    title: "Sump Leaking After Rain? How to Find and Fix Underground Tank Leaks",
+    category: "Waterproofing Guides",
+    date: "October 2026",
+    readTime: "9 min read",
+    author: "Waterproofing Field Engineers",
+    reviewedBy: "Vchemics Technical Team",
+    excerpt:
+      "Brown water from the tap, or a sump that empties itself overnight? After heavy rain that's usually a leak. Here's how to find it, what to do right now, and how a proper sump repair is done.",
+    tags: ["Sump Waterproofing", "Water Tank Waterproofing", "Waterproofing Chemicals", "PU Injection Grouting", "Monsoon", "Tamil Nadu"],
+    image: sumpLeakageImg,
+    alt: "Waterproofing technician in a safety vest and gloves inspecting an open underground sump with muddy water and damp, cracked walls after monsoon rain",
+  },
   {
     id: "terrace-leakage-monsoon-checks",
     slug: "terrace-leakage-monsoon-checks",
