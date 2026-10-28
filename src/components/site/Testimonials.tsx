@@ -131,6 +131,8 @@ export function Testimonials() {
               {[...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
                 <div
                   key={`${t.name}-${idx}`}
+                  // Hide the 2 repeated carousel copies so each testimonial is read once
+                  aria-hidden={idx >= testimonials.length ? true : undefined}
                   className="w-full sm:w-[370px] lg:w-[390px] shrink-0 flex flex-col justify-between overflow-hidden rounded-3xl border border-border/80 bg-card p-6 sm:p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/40 hover:shadow-xl relative group"
                 >
                   {/* Top Accent Gradient Line */}
@@ -139,12 +141,22 @@ export function Testimonials() {
                   {/* Header: Stars + Sector */}
                   <div>
                     <div className="flex items-center justify-between gap-3">
+                      {/* role="img" is required for aria-label on a div (Lighthouse agentic audit) */}
                       <div
+                        role="img"
                         className="flex items-center gap-1"
-                        aria-label={`${t.rating} out of 5 stars`}
+                        aria-label={`Rated ${t.rating} out of 5 stars`}
                       >
                         {Array.from({ length: 5 }).map((_, s) => (
-                          <Star key={s} className="h-4 w-4 fill-brand-green text-brand-green" />
+                          <Star
+                            key={s}
+                            aria-hidden="true"
+                            className={
+                              s < t.rating
+                                ? "h-4 w-4 fill-brand-green text-brand-green"
+                                : "h-4 w-4 text-brand-green/40"
+                            }
+                          />
                         ))}
                       </div>
 
