@@ -316,7 +316,7 @@ function ProductDetailPage() {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-background pb-12 sm:pb-16">
+    <div className="min-h-screen bg-background pb-12 sm:pb-16 flex flex-col">
       {/* 1. HERO & BREADCRUMB HEADER */}
       <section className="relative overflow-hidden blueprint bg-[#061933] text-white pt-28 sm:pt-36 pb-16 lg:pb-20 border-b border-border/20">
         <div className="absolute inset-0 bg-radial-at-t from-brand-blue/30 via-transparent to-transparent pointer-events-none" />
@@ -457,7 +457,7 @@ function ProductDetailPage() {
       </section>
 
       {/* 2. DEEP SPECIFICATIONS & PERFORMANCE METRICS */}
-      <section className="py-12 lg:py-16">
+      <section className="order-2 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-12">
           {/* Quick answer: self-contained summary near the top of the page for AI search */}
           {quick && (
@@ -658,7 +658,7 @@ function ProductDetailPage() {
 
       {/* 3. RELATED FORMULATIONS FROM FOSROC (AUTHORIZED DEALER STOCK) */}
       {relatedFormulations.length > 0 && (
-        <section className="py-14 lg:py-20 border-t border-border/80 bg-muted/20">
+        <section className="order-1 py-14 lg:py-20 border-t border-border/80 bg-muted/20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
             <Reveal>
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
@@ -695,7 +695,7 @@ function ProductDetailPage() {
 
       {/* 4. FREQUENTLY ASKED QUESTIONS (ACCORDION) */}
       {faqs && faqs.length > 0 && (
-        <section className="py-14 lg:py-20 border-t border-border/80 bg-background">
+        <section className="order-3 py-14 lg:py-20 border-t border-border/80 bg-background">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="text-center space-y-2 max-w-2xl mx-auto">
               <p className="eyebrow flex items-center justify-center gap-2 text-brand-blue font-mono text-xs font-bold uppercase tracking-wider">
@@ -759,7 +759,7 @@ function ProductDetailPage() {
 
       {/* 5. RELATED TECHNICAL ARTICLES */}
       {relatedArticles.length > 0 && (
-        <section className="py-14 lg:py-20 border-t border-border/80 bg-muted/20">
+        <section className="order-4 py-14 lg:py-20 border-t border-border/80 bg-muted/20">
           <div className="mx-auto max-w-7xl px-5 lg:px-8 space-y-8">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pb-4 border-b border-border/60">
               <div>
@@ -845,7 +845,7 @@ function ProductDetailPage() {
       )}
 
       {/* 6. DOWNLOAD / TDS ENQUIRY CARD */}
-      <section className="py-12 lg:py-16">
+      <section className="order-5 py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-brand-blue/30 bg-linear-to-br from-brand-blue/10 via-card to-brand-green/10 p-6 sm:p-10 shadow-lg">
             <div className="grid lg:grid-cols-12 gap-6 items-center">
@@ -898,7 +898,7 @@ function ProductDetailPage() {
       </section>
 
       {/* 7. BOTTOM STICKY/ACCORDION MOBILE ACTION DOCK (OPTIONAL) */}
-      <div className="mx-auto max-w-7xl px-5 lg:px-8 pt-4">
+      <div className="order-6 mx-auto max-w-7xl px-5 lg:px-8 pt-4">
         <Link
           to="/products"
           className="inline-flex items-center gap-2 text-xs font-bold font-display uppercase tracking-wider text-brand-blue hover:text-brand-green transition-colors"
