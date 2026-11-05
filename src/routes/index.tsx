@@ -53,50 +53,79 @@ const categoryIcons: Record<string, typeof FlaskConical> = {
   "protective-coatings": ShieldCheck,
 };
 
-const faqs = [
+// Home page card order and names; product pages keep their full titles from data.ts
+const homeProducts = [
+  { id: "waterproofing-chemicals", cardTitle: "Waterproofing Chemicals" },
+  { id: "concrete-admixtures", cardTitle: "Concrete Admixtures" },
+  { id: "non-shrink-grout", cardTitle: "Non-Shrink Grout" },
+  { id: "epoxy-grouting", cardTitle: "Epoxy Grout" },
+  { id: "pu-injection-grouting", cardTitle: "PU Injection Grout" },
+  { id: "micro-concrete", cardTitle: "Micro Concrete" },
+  { id: "concrete-repair", cardTitle: "Concrete Repair Mortar" },
+  { id: "protective-coatings", cardTitle: "Protective Coatings" },
+].flatMap(({ id, cardTitle }) => {
+  const product = allProducts.find((p) => p.id === id);
+  return product ? [{ product, cardTitle }] : [];
+});
+
+// Real search questions (People Also Ask, autocomplete, GSC). General questions only, answered
+// in our own words: direct answer first, then the detail that helps someone decide.
+type FaqLink =
+  | { kind: "products"; label: string }
+  | { kind: "contact"; label: string }
+  | { kind: "product"; slug: string; label: string }
+  | { kind: "solution"; slug: string; label: string };
+
+const faqs: { q: string; a: string; link: FaqLink }[] = [
   {
-    q: "What construction chemicals does Vchemics manufacture and distribute in Tamil Nadu?",
-    a: "Vchemics manufactures and distributes PCE superplasticiser concrete admixtures, crystalline waterproofing chemicals, hydro-active PU injection resins, ASTM C1107 non-shrink grouts, polymer repair mortars, micro concrete, 3-part epoxy grouts, and protective PU/epoxy coatings across Chennai, Coimbatore, Erode, and Krishnagiri.",
+    q: "What are construction chemicals?",
+    a: "Construction chemicals are products added to or applied on concrete and masonry to make buildings stronger, longer-lasting or watertight. Common types include admixtures, waterproofing compounds, grouts, repair mortars, sealants and protective coatings. Each one does a specific job on site.",
+    link: { kind: "products", label: "See the main types of construction chemicals" },
   },
   {
-    q: "How quickly can Vchemics deliver materials to sites in Tamil Nadu?",
-    a: "We provide same-day dispatch (4-8 hours) within Chennai Metro, and guaranteed 24-hour direct delivery across Coimbatore, Erode, Krishnagiri, and neighbouring districts from our regional warehouses.",
+    q: "Which chemical is used in construction?",
+    a: "No single chemical is used throughout; it depends on the stage of work. Admixtures control flow and setting during the pour, and curing compounds hold moisture in afterwards. Waterproofing products keep water out, grouts fill gaps under machines, and repair mortars rebuild damaged concrete.",
+    link: { kind: "product", slug: "concrete-admixtures", label: "Read about concrete admixtures" },
   },
   {
-    q: "Does Vchemics provide on-site concrete mix trial batches?",
-    a: "Yes. Our chemical formulation engineers visit ready-mix batch plants and job sites to perform slump-flow audits, cube compressive tests, and optimize water-cement ratios tailored to your quarry aggregates.",
+    q: "Which chemical is best for waterproofing?",
+    a: "No chemical is best everywhere, so choose by where the water comes from. Crystalline products suit basements under water pressure, flexible PU or acrylic coatings suit terraces, and cementitious coatings suit bathrooms. For drinking water tanks, use only a product certified as potable-safe.",
+    link: { kind: "product", slug: "waterproofing-chemicals", label: "Compare waterproofing chemicals" },
   },
   {
-    q: "Are Vchemics products compliant with IS and ASTM standards?",
-    a: "All Vchemics products are manufactured under rigorous QA and tested to comply with IS 9103, IS 2645, ASTM C494, ASTM C1107, and EN 1504 specifications with official Test Certificates & TDS.",
+    q: "Which waterproofing is best for a terrace?",
+    a: "For an exposed terrace in Tamil Nadu, a flexible, sunlight-resistant PU or elastomeric acrylic coating is usually the best start, because rigid layers crack as the slab expands and contracts with heat. If the terrace will be tiled, a cementitious membrane often suits better.",
+    link: { kind: "solution", slug: "terrace-waterproofing", label: "See how terrace waterproofing is done" },
   },
   {
-    q: "What industries and professionals do you serve?",
-    a: "We partner with civil contractors, infrastructure builders, ready-mix batching plants, structural consultants, industrial plant managers, and government project developers.",
+    q: "What is the best waterproofing method for basements?",
+    a: "Use more than one layer, because groundwater pushes on the floor and walls together. New basements need a crystalline admixture, waterstops at pour joints and an outer wall membrane. For an older basement that leaks, work from inside: inject the cracks, then brush on crystalline slurry.",
+    link: { kind: "solution", slug: "basement-waterproofing", label: "See basement waterproofing systems" },
   },
   {
-    q: "Why is waterproofing necessary for my home or building?",
-    a: "Without waterproofing, water seeps into concrete and masonry over time, causing dampness, peeling paint, rusting of internal steel reinforcement, and cracks. Waterproofing creates a barrier that keeps structures dry, extends their lifespan, and prevents costly repairs later.",
+    q: "Which chemical is best for water leakage?",
+    a: "For water actively coming through a crack, PU injection grout usually works best, because it reacts with water and expands to fill the gap. Dry structural cracks suit epoxy injection. Fix the source first, since a coating painted over running water will not hold.",
+    link: { kind: "product", slug: "pu-injection-grouting", label: "Read about PU injection grouting" },
   },
   {
-    q: "What happens if I skip waterproofing my terrace or basement?",
-    a: "Untreated terraces and basements are prone to water leakage during monsoons, leading to seepage marks on ceilings, mold growth, and gradual weakening of the concrete structure. Repair costs after damage occurs are typically far higher than the original waterproofing investment.",
+    q: "What is the average cost of waterproofing per square foot?",
+    a: "In Tamil Nadu, advertised terrace waterproofing rates commonly run from about ₹35 to ₹85 per sq ft, with PU systems at the higher end. Cost depends on area, surface condition and crack repair. Compare quotes by product, number of coats, surface preparation and written warranty.",
+    link: { kind: "contact", label: "Ask for a rate for your site" },
   },
   {
-    q: "How do Vchemics India Solutions systems protect basements against high water tables?",
-    a: "We use deep-penetrating crystalline waterproofing and pressure-applied PU injection grouting. These formulations react with moisture to form insoluble crystals inside concrete pores, blocking high hydrostatic pressure and sealing active microcracks from below.",
+    q: "Is epoxy good for flooring?",
+    a: "Yes, epoxy suits factories, warehouses and workshops, because it is seamless, hard-wearing, easy to clean and resists many chemicals. Sunlight can yellow it outdoors, and rising moisture can make it peel, so it needs dry, sound concrete. Forklift areas need a thicker system.",
+    link: { kind: "solution", slug: "industrial-flooring", label: "See epoxy and industrial flooring" },
   },
   {
-    q: "What is the most reliable waterproofing solution for severe monsoon rainfall and terrace ponding?",
-    a: "Seamless elastomeric polyurethane (PU) coatings and hydrophobic admixtures offer the best monsoon defense. They create a joint-free, UV-stable barrier capable of withstanding standing water, thermal expansion, and intense seasonal downpours without peeling or cracking.",
+    q: "Which admixture is used in RMC?",
+    a: "Ready-mix plants commonly use a PCE superplasticiser, often blended with a retarder, so concrete stays workable in transport with less water. The dose is usually well under 2% of cement weight, but varies with cement, sand and heat, so confirm it with a trial mix.",
+    link: { kind: "product", slug: "concrete-admixtures", label: "Compare concrete admixtures" },
   },
   {
-    q: "How does Vchemics India Solutions address concrete damage in coastal environments?",
-    a: "Coastal concrete faces rapid rebar corrosion from airborne chlorides and high humidity. Our marine-grade anti-carbonation and salt-resistant barrier coatings prevent salt-spray penetration, extending structural lifespans in marine belts.",
-  },
-  {
-    q: "Do Vchemics India Solutions waterproofing products comply with Indian and international standards?",
-    a: "Yes. All formulations are manufactured and tested to meet relevant IS (Bureau of Indian Standards) and ASTM specifications, ensuring proven performance across diverse subcontinental climate zones.",
+    q: "What are the uses of non-shrink grout?",
+    a: "Non-shrink grout fills the gap under machine base plates, steel column bases, bearings and anchor bolts, so the load passes evenly into the concrete. Cement-based grout suits most general work, while epoxy grout suits heavy vibration or chemical exposure. Look for ASTM C1107 testing.",
+    link: { kind: "product", slug: "non-shrink-grout", label: "Read about non-shrink grout" },
   },
 ];
 
@@ -138,6 +167,40 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
+
+function FaqAnswerLink({ link }: { link: FaqLink }) {
+  const className =
+    "mt-3 inline-flex items-center gap-1.5 font-display text-xs font-bold text-brand-blue hover:text-brand-green transition-colors";
+  const content = (
+    <>
+      <span>{link.label}</span>
+      <ArrowRight className="h-3.5 w-3.5" />
+    </>
+  );
+  if (link.kind === "products")
+    return (
+      <Link to="/products" className={className}>
+        {content}
+      </Link>
+    );
+  if (link.kind === "contact")
+    return (
+      <Link to="/contact" className={className}>
+        {content}
+      </Link>
+    );
+  if (link.kind === "product")
+    return (
+      <Link to="/products/$slug" params={{ slug: link.slug }} className={className}>
+        {content}
+      </Link>
+    );
+  return (
+    <Link to="/solutions/$slug" params={{ slug: link.slug }} className={className}>
+      {content}
+    </Link>
+  );
+}
 
 function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -213,21 +276,21 @@ function Home() {
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="Formulation Families"
+              eyebrow="Waterproofing & Construction Chemicals"
               title="Our Major Product Categories"
-              intro="Precision-blended construction chemicals and structural waterproofing solutions ready for dispatch across Tamil Nadu."
+              intro="Vchemics India Solutions manufactures and supplies waterproofing chemicals, concrete admixtures, non-shrink and epoxy grouts, PU injection grout, micro concrete, repair mortars and protective coatings for builders, contractors, RMC plants and factories across Tamil Nadu."
             />
           </Reveal>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
-            {allProducts.map((p, idx) => {
+            {homeProducts.map(({ product: p, cardTitle }, idx) => {
               const CategoryIcon = categoryIcons[p.id] ?? ShieldCheck;
 
               return (
                 <Reveal key={p.id} delay={idx * 50} className="h-full">
                   <Link
-                    to="/products"
-                    hash={p.id}
+                    to="/products/$slug"
+                    params={{ slug: p.id }}
                     className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border/80 bg-card shadow-sm transition-all duration-500 hover:-translate-y-2 hover:border-brand-blue/50 hover:shadow-2xl"
                   >
                     {/* Top Gradient Hover Accent Line */}
@@ -251,14 +314,6 @@ function Home() {
                       {/* Ambient Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent pointer-events-none" />
 
-                      {/* Top Left Floating System Badge */}
-                      <div className="absolute top-3 left-3 z-10">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-wider text-white border border-white/15">
-                          <span className="h-1.5 w-1.5 rounded-full bg-brand-green animate-pulse" />
-                          0{idx + 1}
-                        </span>
-                      </div>
-
                       {/* Top Right Category Icon Badge */}
                       <div className="absolute top-3 right-3 z-10">
                         <span className="grid h-8 w-8 place-items-center rounded-xl bg-white/20 text-white backdrop-blur-md shadow-xs transition-all duration-300 group-hover:bg-brand-green group-hover:text-white group-hover:scale-110">
@@ -278,7 +333,7 @@ function Home() {
                     <div className="flex flex-1 flex-col justify-between p-5">
                       <div className="flex-1 flex flex-col">
                         <h3 className="font-display text-lg font-bold text-foreground transition-colors duration-300 group-hover:text-brand-blue leading-snug">
-                          {p.title}
+                          {cardTitle}
                         </h3>
 
                         <p className="mt-2 text-xs leading-relaxed text-muted-foreground flex-1">
@@ -300,7 +355,7 @@ function Home() {
                         {/* Interactive Card Action Link */}
                         <div className="pt-2 border-t border-border/60 flex items-center justify-between">
                           <span className="font-display text-xs font-bold uppercase tracking-wider text-brand-blue group-hover:text-brand-green transition-colors inline-flex items-center gap-1.5">
-                            <span>View Specs</span>
+                            <span>View Uses &amp; Specs</span>
                             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                           </span>
 
@@ -320,15 +375,14 @@ function Home() {
               to="/products"
               className="inline-flex items-center gap-3 rounded-2xl btn-brand-gradient px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-xl shadow-brand-blue/25 transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             >
-              <span>Explore All 8 Product Families</span>
+              <span>View All Construction Chemical Products</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
-              to="/products"
-              hash="dealer-stock"
+              to="/contact"
               className="inline-flex items-center gap-3 rounded-2xl border border-brand-blue/30 bg-card px-7 py-4 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-blue shadow-md transition-all duration-300 hover:scale-105 hover:bg-brand-blue/5 hover:border-brand-blue"
             >
-              <span>Explore Our Products & Brands</span>
+              <span>Not Sure Which Product? Ask Our Team</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -816,6 +870,21 @@ function Home() {
               );
             })}
           </div>
+
+          {/* The panels above only link the open one, so link every solution here */}
+          <nav aria-label="All solutions" className="mt-6 flex flex-wrap items-center gap-2.5">
+            {allSolutions.map((sol) => (
+              <Link
+                key={sol.id}
+                to="/solutions/$slug"
+                params={{ slug: sol.id }}
+                className="inline-flex items-center gap-1.5 rounded-xl border border-border/80 bg-card px-4 py-2.5 font-display text-xs font-bold text-foreground hover:border-brand-blue hover:text-brand-blue transition-all"
+              >
+                <span>{sol.title}</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            ))}
+          </nav>
         </div>
       </section>
 
@@ -857,14 +926,15 @@ function Home() {
             <div className="pb-6">
               <div>
                 <p className="eyebrow flex items-center gap-2.5 text-brand-green">
-                  <span className="h-0.5 w-6 bg-brand-green" aria-hidden /> Technical &amp;
-                  Commercial FAQ
+                  <span className="h-0.5 w-6 bg-brand-green" aria-hidden /> Waterproofing &amp;
+                  Construction Chemicals FAQ
                 </p>
                 <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
                   Frequently Asked Questions
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl">
-                  Quick answers on chemical standards, dispatch timelines, and on-site trial mixes.
+                  Clear answers to common questions about waterproofing, construction chemicals, grouts and
+                  flooring.
                 </p>
               </div>
             </div>
@@ -921,19 +991,20 @@ function Home() {
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div
-                      id={`faq-panel-${index}`}
-                      role="region"
-                      className="px-5 pb-5 pt-1 animate-in fade-in slide-in-from-top-2 duration-300"
-                    >
-                      <div className="rounded-xl border border-border/60 bg-muted/30 p-4">
-                        <p className="text-xs sm:text-sm leading-relaxed text-foreground/90 font-sans">
-                          {faq.a}
-                        </p>
-                      </div>
+                  {/* Always in the HTML so search engines can read every answer; hidden until opened */}
+                  <div
+                    id={`faq-panel-${index}`}
+                    role="region"
+                    hidden={!isOpen}
+                    className="px-5 pb-5 pt-1 animate-in fade-in slide-in-from-top-2 duration-300"
+                  >
+                    <div className="rounded-xl border border-border/60 bg-muted/30 p-4">
+                      <p className="text-xs sm:text-sm leading-relaxed text-foreground/90 font-sans">
+                        {faq.a}
+                      </p>
+                      <FaqAnswerLink link={faq.link} />
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}

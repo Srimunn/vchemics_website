@@ -121,16 +121,17 @@ export const solutionAnswers: Record<string, QuickAnswer> = {
  * `updated` is the last time the article body was changed.
  */
 export const blogDates: Record<string, { published: string; updated: string }> = {
-  "terrace-leakage-monsoon-checks": { published: "2026-10-14", updated: "2026-10-14" },
-  "why-concrete-repairs-fail-tropical-climates": { published: "2026-10-04", updated: "2026-10-04" },
-  "pu-injection-grouting": { published: "2026-09-01", updated: "2026-10-14" },
-  "preventing-cold-joints-tropical-concrete": { published: "2026-09-07", updated: "2026-09-13" },
-  "crystalline-vs-membrane-waterproofing": { published: "2026-09-21", updated: "2026-10-14" },
-  "machine-foundation-epoxy-grouting-standards": { published: "2026-09-14", updated: "2026-10-14" },
-  "pu-injection-active-leak-sealing": { published: "2026-08-31", updated: "2026-10-14" },
-  "column-jacketing-micro-concrete-standards": { published: "2026-08-24", updated: "2026-10-14" },
-  "waterproofing-chemicals-guide": { published: "2026-09-13", updated: "2026-09-15" },
-  "protective-coatings-for-buildings": { published: "2026-09-15", updated: "2026-10-14" },
+  "sump-leakage-repair-after-rain": { published: "2026-10-24", updated: "2026-11-04" },
+  "terrace-leakage-monsoon-checks": { published: "2026-10-14", updated: "2026-11-04" },
+  "why-concrete-repairs-fail-tropical-climates": { published: "2026-10-04", updated: "2026-11-04" },
+  "pu-injection-grouting": { published: "2026-09-01", updated: "2026-11-04" },
+  "preventing-cold-joints-tropical-concrete": { published: "2026-09-07", updated: "2026-11-04" },
+  "crystalline-vs-membrane-waterproofing": { published: "2026-09-21", updated: "2026-11-04" },
+  "machine-foundation-epoxy-grouting-standards": { published: "2026-09-14", updated: "2026-11-04" },
+  "pu-injection-active-leak-sealing": { published: "2026-08-31", updated: "2026-11-04" },
+  "column-jacketing-micro-concrete-standards": { published: "2026-08-24", updated: "2026-11-04" },
+  "waterproofing-chemicals-guide": { published: "2026-09-13", updated: "2026-11-04" },
+  "protective-coatings-for-buildings": { published: "2026-09-15", updated: "2026-11-04" },
 };
 
 const MONTHS = [

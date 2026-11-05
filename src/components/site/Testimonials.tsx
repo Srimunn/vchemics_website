@@ -64,7 +64,11 @@ const testimonials = [
 export function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  // Server HTML holds each testimonial once; the carousel's repeat copies are added in the browser
+  const [hydrated, setHydrated] = useState(false);
   const total = testimonials.length;
+
+  useEffect(() => setHydrated(true), []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % total);
@@ -128,7 +132,10 @@ export function Testimonials() {
                 transform: `translateX(calc(-${currentIndex} * (min(100%, 390px) + 24px)))`,
               }}
             >
-              {[...testimonials, ...testimonials, ...testimonials].map((t, idx) => (
+              {(hydrated
+                ? [...testimonials, ...testimonials, ...testimonials]
+                : testimonials
+              ).map((t, idx) => (
                 <div
                   key={`${t.name}-${idx}`}
                   // Hide the 2 repeated carousel copies so each testimonial is read once
@@ -184,9 +191,9 @@ export function Testimonials() {
                         {t.initials}
                       </div>
                       <div>
-                        <h4 className="font-display text-sm font-bold text-foreground group-hover:text-brand-blue transition-colors">
+                        <p className="font-display text-sm font-bold text-foreground group-hover:text-brand-blue transition-colors">
                           {t.name}
-                        </h4>
+                        </p>
                         <p className="text-[0.75rem] text-muted-foreground">{t.company}</p>
                         <p className="text-[0.7rem] font-mono text-brand-green mt-0.5">
                           {t.project}
