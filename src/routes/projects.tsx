@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Waterproofing & Structural Repair Projects | Vchemics";
 const description =
-  "Explore landmark civil, industrial, and commercial projects across South India built with Vchemics concrete admixtures, grouts, and waterproofing systems.";
+  "Waterproofing and structural repair projects across South India. See how Vchemics products work on real industrial and commercial sites.";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({

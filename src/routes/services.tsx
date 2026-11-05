@@ -26,7 +26,7 @@ import { ContactSection } from "@/components/site/ContactSection";
 
 const title = "Waterproofing & Concrete Repair Services in Tamil Nadu";
 const description =
-  "Mix design consulting, on-site trials, waterproofing system design, structural repair support and reliable supply logistics from Vchemics India Solutions.";
+  "Waterproofing services in Tamil Nadu from the team that supplies the products: on-site trials, system design and repair support. Ask us.";
 
 export const Route = createFileRoute("/services")({
   head: () => ({

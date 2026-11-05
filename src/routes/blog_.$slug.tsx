@@ -45,17 +45,17 @@ const blogMetaDescriptions: Record<string, string> = {
   "why-concrete-repairs-fail-tropical-climates":
     "A concrete patch that cracks within months is rarely bad cement. Here's why repairs fail in Tamil Nadu's heat, rain and salt air, and what lasts.",
   "pu-injection-grouting":
-    "Learn how PU injection grouting seals concrete leaks and cracks, its types, process, applications, limitations and selection factors.",
+    "How does PU injection grouting stop a leak, and when won't it work? See the types, the 10-step process, the limits and how to pick a material.",
   "preventing-cold-joints-tropical-concrete":
-    "Learn how PCE retarding superplasticisers extend open slump retention up to 3 hours in tropical heat without compromising early 3-day compressive strength.",
+    "Why do cold joints form in hot weather? See how retarding admixtures hold workability for up to 3 hours, plus 4 site habits that protect a pour.",
   "crystalline-vs-membrane-waterproofing":
-    "Engineering comparison of catalytic crystalline waterproofing and polyurethane elastomeric membranes for subterranean and exposed concrete structures.",
+    "What's the difference between crystalline and membrane waterproofing? Compare 10 factors, then see which suits your basement, terrace or sump.",
   "machine-foundation-epoxy-grouting-standards":
-    "Professional precision grouting chemicals for heavy machinery, precision equipment & CNC machines. Step-by-step installation guide. Epoxy & polyurethane options.",
+    "Machine drifting out of alignment? Precision grouting for machinery explained: epoxy vs non-shrink grout, 8 steps and the mistakes to avoid.",
   "pu-injection-active-leak-sealing":
-    "Step-by-step guide to 45-degree mechanical packer installation and hydro-active PU injection grouting at 50-250 bar to permanently arrest water leaks.",
+    "Water coming through a crack right now? What to do first, how PU injection stops an active leak in 2 stages, and what it still can't fix.",
   "column-jacketing-micro-concrete-standards":
-    "Best practices for RCC structural column encasement, rebar passivating primers, shear dowel anchorage, and self-compacting micro concrete pouring.",
+    "Column cracking, or adding floors? Column jacketing explained: 3 methods, 10 micro concrete steps and the mistakes we keep seeing on site.",
   "protective-coatings-for-buildings":
     "Learn about protective coatings, their types, benefits, applications, and selection for concrete, steel, roofs, and industrial surfaces.",
 };

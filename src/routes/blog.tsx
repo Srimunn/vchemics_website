@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Waterproofing & Construction Chemical Guides | Vchemics";
 const description =
-  "Technical engineering guides on concrete admixtures, PU injection grouting, crystalline waterproofing, micro concrete, and structural repair methods.";
+  "Waterproofing and construction chemical guides in plain words: admixtures, PU grouting, crystalline systems and repairs. Free to read.";
 
 const blogSchema = {
   "@context": "https://schema.org",

@@ -72,13 +72,13 @@ const productMetaDescriptions: Record<string, string> = {
   "non-shrink-grout":
     "Free-flowing ASTM C1107 cementitious precision grouts achieving >75 MPa strength with 100% bearing area contact under heavy machine baseplates & anchor bolts.",
   "epoxy-grouting":
-    "Heavy-duty 3-component solvent-free epoxy grouts exceeding 95 MPa compressive strength with extreme chemical resistance for dynamic stamping presses & cranes.",
+    "Epoxy grout for machinery foundations, anchor bolts and presses. 3-component, over 95 MPa, resists chemicals and shock loads. Get a quote.",
   "protective-coatings":
     "Aliphatic polyurethane, epoxy floorings & anti-carbonation barrier coatings shielding civil facades and industrial concrete against UV, moisture, and smog.",
   "concrete-repair":
     "Thixotropic polymer-modified structural repair mortars and zinc-rich rebar primers halting corrosion and spalling in structural columns, beams, and facades.",
   "micro-concrete":
-    "Pre-bagged flowable micro concrete for structural column jacketing, section enlargement, and dense rebar encasement with zero vibration and >60 MPa strength.",
+    "Micro concrete for column repair and jacketing. Pre-bagged, free-flowing, no vibration needed, over 60 MPa strength. Ask for the data sheet.",
 };
 
 // SEO <title> per product (keep each under ~60 characters).

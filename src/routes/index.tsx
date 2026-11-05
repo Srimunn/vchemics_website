@@ -40,7 +40,7 @@ import { productImgProps } from "@/lib/product-images";
 
 const title = "Construction Chemical Distributors, Tamil Nadu | Vchemics";
 const description =
-  "Construction chemicals, waterproofing & construction services across Tamil Nadu. Authorized distributor of Fosroc, BASF & Sika. Get a quick quote today.";
+  "Waterproofing, epoxy flooring & construction chemicals across Tamil Nadu. Authorized distributor of Fosroc, BASF & Sika. Get a quote today.";
 
 const categoryIcons: Record<string, typeof FlaskConical> = {
   "concrete-admixtures": FlaskConical,

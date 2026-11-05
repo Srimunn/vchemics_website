@@ -22,7 +22,7 @@ import { trackWhatsAppClick, trackCallClick, trackEmailClick } from "@/lib/analy
 
 const title = "Contact Vchemics | Construction Chemical Dealers, Tamil Nadu";
 const description =
-  "Request technical quotes, TDS, and trial batches for concrete admixtures, crystalline waterproofing, PU grouts & micro concrete from Vchemics across Chennai, Coimbatore, Erode & Krishnagiri.";
+  "Need construction chemical dealers in Tamil Nadu? Ask Vchemics for quotes, data sheets and trial batches in Erode, Chennai or Coimbatore.";
 
 const contactPageSchema = {
   "@context": "https://schema.org",

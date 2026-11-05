@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Branches in Chennai, Erode & Krishnagiri | Across Tamil Nadu";
 const description =
-  "Locate Vchemics regional supply hubs across Tamil Nadu: Chennai Plant & HQ, Coimbatore Hub, Erode Depot, and Krishnagiri Regional Office. Same-day and 24-hour direct site delivery.";
+  "Vchemics branches across Tamil Nadu: Erode head office, Chennai, Coimbatore and Krishnagiri. Same-day and 24-hour direct site delivery.";
 
 export const Route = createFileRoute("/locations")({
   head: () => ({

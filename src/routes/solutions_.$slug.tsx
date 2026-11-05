@@ -38,15 +38,15 @@ const solutionMetaDescriptions: Record<string, string> = {
   "basement-waterproofing":
     "Professional-grade Basement  waterproofing chemicals, sealers & coatings. Prevent concrete leaks, moisture seepage. Chemical solutions for basements, foundations & structures.",
   "terrace-waterproofing":
-    "Seamless PU and polymer matrix waterproofing with >400% elongation and UV topcoats engineered to bridge dynamic thermal cracks and withstand water ponding.",
+    "Terrace leaking every monsoon? Terrace waterproofing chemicals and PU coatings that stretch over cracks. 72h pond tested. Get a quote.",
   "concrete-repair":
-    "Step-by-step structural concrete restoration protocol: crack routing, zinc-rich rebar passivation, and polymer-modified mortar repair recovering >50 MPa.",
+    "Concrete crack repair for spalling and rusted steel: crack routing, zinc-rich primer and polymer mortar, recovering over 50 MPa. Ask us.",
   "structural-rehabilitation":
     "Engineered RCC column jacketing and section enlargement with self-compacting micro concrete and epoxy doweling achieving >65 MPa compressive strength.",
   "industrial-flooring":
-    "Heavy-duty epoxy screeds, metallic dry-shake floor hardeners, and chemical-resistant polyurethane toppings built for high-abrasion forklift and factory traffic.",
+    "Epoxy flooring in Erode and across Tamil Nadu for factories and warehouses, plus floor hardeners and PU toppings for forklifts. Get a quote.",
   painting:
-    "Industrial protective coatings and durable architectural painting systems matched to exposure conditions for structural steel, tanks, and building envelopes.",
+    "Protective coatings and exterior painting for steel, tanks and buildings, matched to weather and chemical exposure. Supplied and applied.",
 };
 
 // SEO <title> per solution (keep each under ~60 characters).

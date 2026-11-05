@@ -31,7 +31,7 @@ import { cn } from "@/lib/utils";
 
 const title = "Waterproofing & Concrete Repair Solutions in Tamil Nadu";
 const description =
-  "Engineered waterproofing, concrete repair, basement sealing, structural column rehabilitation & industrial flooring solutions from Vchemics in Chennai.";
+  "Engineered waterproofing, concrete repair, basement sealing, structural column rehabilitation & industrial flooring solutions from Vchemics across Tamil Nadu.";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
