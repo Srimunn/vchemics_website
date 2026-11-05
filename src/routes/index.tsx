@@ -168,6 +168,85 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+// Home page wording for the solutions section. The solution pages keep their own text in data.ts.
+const homeSolutionText: Record<
+  string,
+  {
+    title: string;
+    short: string;
+    subtitle: string;
+    challenge: string;
+    solutionDesc: string;
+    cta: string;
+  }
+> = {
+  "basement-waterproofing": {
+    title: "Basement Waterproofing Chemicals & Sealants",
+    short: "Basement Waterproofing Chemicals & Sealants",
+    subtitle:
+      "Crystalline waterproofing chemicals, membrane coatings and sealants for basements and retaining walls.",
+    challenge:
+      "High water tables push water pressure through basement walls, bringing damp, steel corrosion and structural damage.",
+    solutionDesc:
+      "Our system adds crystalline admixture while pouring the concrete, then elastomeric coatings and sealed construction joints.",
+    cta: "View Basement Waterproofing",
+  },
+  "terrace-waterproofing": {
+    title: "Terrace Waterproofing",
+    short: "Terrace Waterproofing",
+    subtitle:
+      "Terrace waterproofing with elastomeric PU and acrylic coatings, resistant to heat and standing water.",
+    challenge:
+      "Daily heat and cooling move the concrete slabs, so rigid coatings split, cracks widen and ceiling leaks begin.",
+    solutionDesc:
+      "Seamless polyurethane and reinforced coating systems stretch across cracks and reflect sun heat off the terrace.",
+    cta: "View Terrace Waterproofing",
+  },
+  "concrete-repair": {
+    title: "Concrete Repair",
+    short: "Concrete Repair",
+    subtitle:
+      "Concrete repair chemicals and restoration for spalling, rusted steel and structural cracks.",
+    challenge:
+      "Carbonation and salt air cause steel corrosion inside concrete. Rust swells, cracks open and the surface breaks off.",
+    solutionDesc:
+      "We remove weak concrete, prime the steel with zinc-rich primer and rebuild damaged sections with polymer repair mortar.",
+    cta: "View Concrete Repair",
+  },
+  "structural-rehabilitation": {
+    title: "Structural Rehabilitation & Micro Concrete Jacketing",
+    short: "Structural Rehabilitation",
+    subtitle: "RCC column jacketing with micro concrete to restore or add load capacity.",
+    challenge:
+      "Ageing structures and extra floor additions need stronger columns and beams, without demolishing what's there.",
+    solutionDesc:
+      "A free-flowing micro concrete jacket enlarges the RCC column section, designed by a structural engineer.",
+    cta: "View Structural Rehabilitation",
+  },
+  "industrial-flooring": {
+    title: "Epoxy & Industrial Flooring",
+    short: "Epoxy & Industrial Flooring",
+    subtitle:
+      "Epoxy flooring in Erode and across Tamil Nadu, plus polyurethane floors and heavy-duty floor hardeners.",
+    challenge:
+      "Forklifts, heavy pallet drops and chemical spills wear manufacturing floors down, leaving pits and dust.",
+    solutionDesc:
+      "Floor hardeners are worked into fresh concrete, while epoxy and polyurethane coatings seal existing floors.",
+    cta: "View Epoxy & Industrial Flooring",
+  },
+  painting: {
+    title: "Protective Coatings & Painting",
+    short: "Protective Coatings & Painting",
+    subtitle:
+      "Heavy-duty protective coatings and lasting painting for industrial plants, tanks and building exteriors.",
+    challenge:
+      "Weather, chemical attack and sun damage exposed structural steel and tanks, causing corrosion and a shorter service life.",
+    solutionDesc:
+      "We supply and apply coating systems matched to each surface, from industrial tanks to building exteriors and interiors.",
+    cta: "View Protective Coatings",
+  },
+};
+
 function FaqAnswerLink({ link }: { link: FaqLink }) {
   const className =
     "mt-3 inline-flex items-center gap-1.5 font-display text-xs font-bold text-brand-blue hover:text-brand-green transition-colors";
@@ -398,9 +477,9 @@ function Home() {
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <SectionHeading
-              eyebrow="Market Sectors"
-              title="Who Vchemics Serves"
-              intro="Custom chemical solutions and certified technical support tailored for every tier of the construction ecosystem."
+              eyebrow="Who We Supply"
+              title="Waterproofing, Epoxy Flooring and Concrete Admixtures for Every Project"
+              intro="From house waterproofing to epoxy flooring for factories, we supply products and apply them on site across Erode and Tamil Nadu."
             />
           </Reveal>
 
@@ -410,9 +489,9 @@ function Home() {
               {
                 step: "01",
                 num: "1",
-                title: "Civil & Infrastructure Contractors",
-                role: "High-Volume Supply & Compliance",
-                desc: "IS 9103 compliant superplasticisers, crystalline waterproofing systems, and ASTM C1107 grouts with on-time direct batching plant deliveries.",
+                title: "Contractors & Infrastructure Projects",
+                role: "Concrete Admixtures & Grouting",
+                desc: "Concrete admixtures, waterproofing chemicals and non-shrink grout for site work across Tamil Nadu.",
                 highlights: ["IS 9103 Compliance", "Direct Batching Supply", "On-Site Batch QA/QC"],
                 icon: HardHat,
                 theme: "blue" as const,
@@ -420,9 +499,9 @@ function Home() {
               {
                 step: "02",
                 num: "2",
-                title: "Ready-Mix Concrete (RMC) Plants",
-                role: "Custom Mix Design & Slump Retention",
-                desc: "PCE-based retarders and accelerators calibrated to your quarry sand and ambient heat for 3-hour open transit without cold joints.",
+                title: "Ready-Mix Concrete Plants",
+                role: "Concrete Admixtures for Ready-Mix",
+                desc: "Concrete admixtures that keep ready-mix workable during long trips in hot weather, with the dose matched to your sand and cement.",
                 highlights: [
                   "3-Hour Slump Retention",
                   "Quarry Sand Calibration",
@@ -435,8 +514,8 @@ function Home() {
                 step: "03",
                 num: "3",
                 title: "Structural & Waterproofing Consultants",
-                role: "Technical Specification & Drawings",
-                desc: "Complete specification assistance, crystalline vs membrane selection, structural rehabilitation protocols, and test data sheets.",
+                role: "Crystalline vs Membrane",
+                desc: "Help choosing between crystalline and membrane waterproofing for your project specification.",
                 highlights: ["AutoCAD / BIM Specs", "Method Statements", "NABL Lab Test Sheets"],
                 icon: Ruler,
                 theme: "blue" as const,
@@ -444,9 +523,9 @@ function Home() {
               {
                 step: "04",
                 num: "4",
-                title: "Industrial & Manufacturing Plants",
-                role: "Machinery Plinths & Chemical Bunds",
-                desc: "High-strength vibration-resistant epoxy grouts for stamping presses and chemical-resistant linings for ETP/STP tanks.",
+                title: "Factories & Industrial Plants",
+                role: "Epoxy Flooring & Machinery Grouting",
+                desc: "Epoxy flooring for factory floors, precision grouting for machinery and protective coatings for industrial plants.",
                 highlights: [
                   "High Early Strength",
                   "ETP/STP Chemical Linings",
@@ -458,9 +537,9 @@ function Home() {
               {
                 step: "05",
                 num: "5",
-                title: "Builders & Commercial Developers",
-                role: "Watertight Envelope Guarantee",
-                desc: "Permanent basement raft crystalline protection, podium elastomeric membranes, and high-fluidity column jacketing concrete.",
+                title: "Commercial Buildings & Homes",
+                role: "Basement & Terrace Waterproofing",
+                desc: "Basement waterproofing, terrace waterproofing chemicals and micro concrete for column repair, for homes and commercial buildings.",
                 highlights: [
                   "Basement Raft Protection",
                   "Podium Elastomeric Coats",
@@ -472,9 +551,9 @@ function Home() {
               {
                 step: "06",
                 num: "6",
-                title: "Specialist Waterproofing Applicators",
-                role: "Chemical Training & Same-Day Dispatch",
-                desc: "Hydro-active PU leak injection resins, mechanical packers, and fast-curing polymer repair mortars stocked in drums and bags.",
+                title: "Waterproofing Contractors",
+                role: "PU Injection & Waterproofing Coatings",
+                desc: "PU injection grouting, waterproofing coatings and epoxy bonding agents, supplied in drums and bags for leak repair jobs.",
                 highlights: [
                   "Hydro-Active PU Resins",
                   "Mechanical Packers Stocked",
@@ -681,14 +760,14 @@ function Home() {
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 pb-10">
               <div>
                 <p className="eyebrow flex items-center gap-2.5 text-brand-green">
-                  <span className="h-0.5 w-6 bg-brand-green" aria-hidden /> Engineered Protocols
+                  <span className="h-0.5 w-6 bg-brand-green" aria-hidden /> Our Solutions
                 </p>
                 <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold text-foreground">
-                  6 Engineered Solution Systems
+                  Waterproofing and Epoxy Flooring Solutions
                 </h2>
                 <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl">
-                  Hover or select an engineering discipline below to explore chemical mechanisms,
-                  live benchmarks, and application protocols.
+                  Select a solution below to see the problem it solves, the chemicals and system we
+                  use, and how the application works.
                 </p>
               </div>
 
@@ -696,16 +775,24 @@ function Home() {
                 to="/solutions"
                 className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card px-5 py-3 font-display text-xs font-bold uppercase tracking-wider text-foreground hover:border-brand-blue hover:text-brand-blue transition-all shrink-0"
               >
-                <span>View Full Protocols ({allSolutions.length})</span>
+                <span>View All Solutions ({allSolutions.length})</span>
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </Reveal>
 
           {/* Interactive Horizontal Expanding Accordion Panels */}
-          <div className="mt-6 flex flex-col lg:flex-row gap-3.5 min-h-[550px] lg:h-[580px] items-stretch">
+          <div className="mt-6 flex flex-col lg:flex-row gap-3.5 min-h-[550px] lg:h-[620px] xl:h-[580px] items-stretch">
             {allSolutions.map((sol, idx) => {
               const isExpanded = activeSolutionTab === sol.id;
+              const copy = homeSolutionText[sol.id] ?? {
+                title: sol.title,
+                short: sol.title,
+                subtitle: sol.subtitle,
+                challenge: sol.challenge,
+                solutionDesc: sol.solutionDesc,
+                cta: `View ${sol.title}`,
+              };
               const SolIcon =
                 sol.id === "basement-waterproofing"
                   ? Droplets
@@ -769,7 +856,14 @@ function Home() {
                   <div className="relative z-10 h-full p-5 sm:p-7 flex flex-col justify-between">
                     {/* Top Bar: Number + Icon */}
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-wider text-white border border-white/20 shadow-md">
+                      <button
+                        type="button"
+                        onClick={() => setActiveSolutionTab(sol.id)}
+                        aria-expanded={isExpanded}
+                        aria-controls={`solution-panel-${sol.id}`}
+                        aria-label={`Show ${copy.title}`}
+                        className="inline-flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-2.5 py-1 font-mono text-[0.68rem] font-bold uppercase tracking-wider text-white border border-white/20 shadow-md"
+                      >
                         <span
                           className={cn(
                             "h-1.5 w-1.5 rounded-full",
@@ -777,7 +871,7 @@ function Home() {
                           )}
                         />
                         0{idx + 1}
-                      </span>
+                      </button>
 
                       <span
                         className={cn(
@@ -791,18 +885,24 @@ function Home() {
                       </span>
                     </div>
 
-                    {/* EXPANDED STATE CONTENT */}
-                    {isExpanded ? (
-                      <div className="space-y-3.5 pt-2 animate-in fade-in zoom-in-95 duration-500">
+                    {/* EXPANDED STATE CONTENT: always in the HTML so search engines can read all six panels */}
+                    <div
+                      id={`solution-panel-${sol.id}`}
+                      className={cn(
+                        isExpanded
+                          ? "space-y-3.5 pt-2 animate-in fade-in zoom-in-95 duration-500"
+                          : "hidden",
+                      )}
+                    >
                         <div>
                           <span className="font-mono text-[0.65rem] font-bold uppercase tracking-wider text-brand-green">
                             System Specification
                           </span>
                           <h3 className="mt-0.5 font-display text-2xl sm:text-3xl font-bold text-white drop-shadow-md">
-                            {sol.title}
+                            {copy.title}
                           </h3>
-                          <p className="mt-1 text-xs sm:text-sm text-[#b0c7df] leading-relaxed line-clamp-2">
-                            {sol.subtitle}
+                          <p className="mt-1 text-xs sm:text-sm text-[#b0c7df] leading-relaxed">
+                            {copy.subtitle}
                           </p>
                         </div>
 
@@ -820,10 +920,10 @@ function Home() {
                         <div className="grid sm:grid-cols-2 gap-2.5">
                           <div className="rounded-xl border border-amber-500/30 bg-black/40 p-3 backdrop-blur-xs">
                             <span className="font-mono text-[0.62rem] font-bold uppercase tracking-wider text-amber-400 block">
-                              ⚠ The Challenge
+                              ⚠ The Problem
                             </span>
-                            <p className="mt-1 text-[0.7rem] text-white/80 leading-snug line-clamp-2 font-sans">
-                              {sol.challenge}
+                            <p className="mt-1 text-[0.7rem] text-white/80 leading-snug font-sans">
+                              {copy.challenge}
                             </p>
                           </div>
 
@@ -831,8 +931,8 @@ function Home() {
                             <span className="font-mono text-[0.62rem] font-bold uppercase tracking-wider text-brand-green block">
                               ✓ Vchemics Solution
                             </span>
-                            <p className="mt-1 text-[0.7rem] text-white/90 leading-snug line-clamp-2 font-sans">
-                              {sol.solutionDesc}
+                            <p className="mt-1 text-[0.7rem] text-white/90 leading-snug font-sans">
+                              {copy.solutionDesc}
                             </p>
                           </div>
                         </div>
@@ -844,18 +944,24 @@ function Home() {
                             params={{ slug: sol.id }}
                             className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-5 py-2.5 font-display text-xs font-bold uppercase tracking-wider text-white shadow-md hover:scale-105 transition-all"
                           >
-                            <span>Inspect Full Methodology</span>
+                            <span>{copy.cta}</span>
                             <ArrowRight className="h-3.5 w-3.5" />
                           </Link>
                         </div>
-                      </div>
-                    ) : (
-                      /* COLLAPSED STATE (PERFECTLY CENTERED VERTICAL TITLE WITH NO OVERLAP) */
-                      <div className="flex flex-col justify-between flex-1 py-4 items-center">
+                    </div>
+
+                    {/* COLLAPSED STATE (PERFECTLY CENTERED VERTICAL TITLE WITH NO OVERLAP). The h3 lives in the panel above. */}
+                    <div
+                      className={cn(
+                        isExpanded
+                          ? "hidden"
+                          : "flex flex-col justify-between flex-1 py-4 items-center",
+                      )}
+                    >
                         <div className="my-auto flex items-center justify-center px-2">
-                          <h3 className="lg:[writing-mode:vertical-rl] lg:rotate-180 font-display text-sm lg:text-base font-bold text-white tracking-wide text-center max-w-full break-words lg:whitespace-nowrap">
-                            {sol.title}
-                          </h3>
+                          <p className="lg:[writing-mode:vertical-rl] lg:rotate-180 font-display text-sm lg:text-base font-bold text-white tracking-wide text-center max-w-full break-words lg:whitespace-nowrap">
+                            {copy.short}
+                          </p>
                         </div>
 
                         <div className="pt-3 border-t border-white/10 w-full text-center">
@@ -863,8 +969,7 @@ function Home() {
                             {sol.metrics.split("•")[0]?.trim() ?? sol.metrics}
                           </span>
                         </div>
-                      </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               );
