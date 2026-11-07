@@ -15,6 +15,8 @@ export default defineConfig({
   nitro: {
     preset: "node-server",
     compressPublicAssets: true,
+    // Bare domain → www (and legacy URLs) before public/ files are served. See the file.
+    plugins: ["./src/nitro/apex-redirect.ts"],
     routeRules: {
       "/**": {
         headers: {

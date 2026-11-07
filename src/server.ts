@@ -2,6 +2,13 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import {
+  HSTS_HEADER_VALUE,
+  canonicalRedirectTarget,
+  isPagePath,
+  permanentRedirect,
+  requestHostname,
+} from "./lib/canonical-redirects";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -95,48 +102,8 @@ function compressResponseIfNeeded(request: Request, response: Response): Respons
   });
 }
 
-const HSTS_HEADER_VALUE = "max-age=31536000; includeSubDomains";
-
-// Old public URLs → canonical paths (301). Keys are lowercase, without a trailing slash.
-// Every slug change must add the old path here in the same commit.
-const LEGACY_REDIRECTS: Record<string, string> = {
-  // Old static site (confirmed in Search Console: Pages report / Not found (404))
-  "/terms.html": "/terms",
-  "/product.html": "/products",
-  "/service.html": "/services",
-  "/about.html": "/about",
-  // Old static site (standard page names; safe because each has a matching new page)
-  "/index.html": "/",
-  "/products.html": "/products",
-  "/services.html": "/services",
-  "/contact.html": "/contact",
-  "/privacy.html": "/privacy",
-  // Legal page aliases (were 307 temporary redirects in the router)
-  "/terms-and-conditions": "/terms",
-  "/privacy-policy": "/privacy",
-  // Retired blog slugs
-  "/blog/machine-foundation-epoxy-grouting-standards":
-    "/blog/precision-grouting-heavy-equipment-guide",
-  "/blog/hot-weather-concreting-pce-retarders": "/blog/preventing-cold-joints-tropical-concrete",
-};
-
-const CANONICAL_ORIGIN = "https://www.vchemicsindia.com";
-
-function permanentRedirect(location: string): Response {
-  return new Response(null, {
-    status: 301,
-    headers: { location, "strict-transport-security": HSTS_HEADER_VALUE },
-  });
-}
-
-// Page paths only: skip built assets, files with an extension and server endpoints.
-function isPagePath(pathname: string): boolean {
-  if (pathname.startsWith("/assets/") || pathname.startsWith("/_") || pathname.startsWith("/api")) {
-    return false;
-  }
-  const lastSegment = pathname.split("/").pop() ?? "";
-  return !lastSegment.includes(".");
-}
+// Legacy URLs, trailing slashes and the bare domain: see src/lib/canonical-redirects.ts.
+// The same rules also run earlier, in src/nitro/apex-redirect.ts, for files in public/.
 
 // Baseline security headers. The CSP only limits framing, <base> and plugins, so it
 // can't block Google Tag Manager, fonts or any other script/style the site loads.
@@ -187,32 +154,12 @@ function asHtmlPageRequest(request: Request, url: URL): Request {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     const url = new URL(request.url);
-    const hostHeader =
-      request.headers.get("x-forwarded-host") || request.headers.get("host") || url.hostname;
-    const hostname = (hostHeader.split(",")[0] ?? "").trim().split(":")[0]?.toLowerCase() ?? "";
-
-    const trimmedPath = url.pathname.replace(/\/+$/, "") || "/";
-    const legacyTarget = LEGACY_REDIRECTS[trimmedPath.toLowerCase()];
-    if (legacyTarget) {
-      return permanentRedirect(`${CANONICAL_ORIGIN}${legacyTarget}${url.search}`);
-    }
-
-    // "/products/" → "/products" in one permanent hop (the router would answer 307).
-    if (trimmedPath !== url.pathname && isPagePath(trimmedPath)) {
-      return permanentRedirect(`${CANONICAL_ORIGIN}${trimmedPath}${url.search}`);
-    }
-
-    if (hostname === "vchemicsindia.com") {
-      url.hostname = "www.vchemicsindia.com";
-      url.protocol = "https:";
-      url.port = "";
-      return new Response(null, {
-        status: 301,
-        headers: {
-          location: url.toString(),
-          "strict-transport-security": HSTS_HEADER_VALUE,
-        },
-      });
+    const redirectTarget = canonicalRedirectTarget(
+      url,
+      requestHostname(request.headers, url.hostname),
+    );
+    if (redirectTarget) {
+      return permanentRedirect(redirectTarget);
     }
 
     try {

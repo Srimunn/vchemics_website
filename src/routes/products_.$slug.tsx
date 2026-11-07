@@ -876,7 +876,9 @@ function ProductDetailPage() {
                 </Link>
 
                 <a
-                  href="https://wa.me/919942354602?text=Hi%20Vchemics,%20please%20send%20the%20TDS%20and%20pricing%20for%20"
+                  href={`https://wa.me/919942354602?text=${encodeURIComponent(
+                    `Hi Vchemics, please send the TDS and pricing for ${product.title}.`,
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() =>
