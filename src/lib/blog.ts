@@ -6,6 +6,7 @@ import admixturesImg from "@/assets/product-admixtures.webp";
 import waterproofingImg from "@/assets/product-waterproofing.webp";
 import groutsImg from "@/assets/product-grouts.webp";
 import microConcreteImg from "@/assets/product-microconcrete.webp";
+import step1DiamondGrindingImg from "@/assets/solutions/industrial-flooring/step-1-diamond-grinding.webp";
 
 export const blogImages: Record<string, string> = {
   admixtures: admixturesImg,
@@ -55,6 +56,194 @@ export const blogPostMarkdownData: Record<
     relatedProducts: { name: string; link: string }[];
   }
 > = {
+  "epoxy-flooring-for-factories": {
+    takeaways: [
+      "Epoxy suits dry production areas, packing halls and stores. PU suits hot, wet or wash-down zones, and a dry-shake hardener suits new warehouse slabs.",
+      "Published 2026 Indian price guides put applied epoxy at about ₹30 to ₹300 per sq ft. Compare quotes by total thickness, not just the rate.",
+      "Most early failures come from a damp slab, poor preparation, heat cutting pot life, humidity, covered-over joints or loading the floor too early.",
+      "Test the slab's moisture before coating, and keep forklifts and chemicals off until the full cure, often around 7 days.",
+    ],
+    relatedProducts: [
+      { name: "Epoxy & Industrial Flooring", link: "/solutions/industrial-flooring" },
+      { name: "Protective Coatings", link: "/products/protective-coatings" },
+      { name: "Concrete Repair", link: "/products/concrete-repair" },
+    ],
+    content: `
+You walk the shop floor at the start of a shift and there it is again. Grey dust on the machine guards. A crumbling patch where the forklift turns. Someone says "let's just do epoxy." And honestly? For a lot of plants, epoxy flooring for factories is the right call.
+
+But epoxy isn't one product, and it doesn't suit every corner of every plant. A floor rushed in over a long weekend can start lifting before the next monsoon. The resin is rarely the reason.
+
+So here's what we'll cover. What epoxy really costs per sq ft, which type fits which area, and when PU or a plain floor hardener is the smarter buy. Then the part most guides skip: why so many floors peel in Tamil Nadu's heat and humidity.
+
+## The short answer
+
+Epoxy flooring is a resin-and-hardener coating that bonds to concrete and cures into a hard, jointless, dust-free surface. For dry production areas, assembly lines, packing halls and stores, it's usually a sound choice.
+
+What does it cost? Published Indian price guides for 2026 put applied epoxy at about ₹30 to ₹300 per sq ft. The low end is a thin roller coat; the high end is a thick screed.
+
+Before you choose a system, answer three questions. Is the slab dry and sound? Will the floor see hot water, steam or harsh chemicals? And how heavy is the traffic? Those three answers decide the floor far more than the brand on the tin.
+
+## What epoxy flooring actually is
+
+Two parts, mixed on site: an epoxy resin and a hardener. Once they're mixed, they react and set into a rigid plastic that grips the concrete. A typical factory system has three layers:
+
+- **Primer** that soaks into the slab and seals it.
+- **Body coat** that gives the floor its thickness and strength.
+- **Top coat** for the finish, colour, grip or chemical resistance.
+
+Here's the way to think about it. The concrete carries the load. The epoxy is a tough skin that keeps dust, spills and wear away from that concrete. Which also means the skin is only ever as good as the surface it's stuck to. Keep that in mind, because it explains most of the failures further down.
+
+## Types of epoxy flooring for factories
+
+| Type | Typical thickness | Where it suits | Published price, 2026 (₹ per sq ft) |
+|---|---|---|---|
+| Epoxy floor coating (roller applied) | About 0.1 to 0.4 mm | Stores, light-traffic rooms, dust-proofing old floors | 30 to 80 |
+| Self-levelling epoxy | About 1.5 to 3 mm | Assembly, packing, pharma and electronics lines | 100 to 250 |
+| Epoxy mortar or screed | About 4 to 9 mm | Heavy trolleys, impact, worn or uneven floors | 150 to 300 |
+| Anti-static (ESD) epoxy | Depends on the system | Electronics, areas with flammable vapour | 150 to 300 |
+| Anti-skid finish (sand broadcast into a coat) | Adds to any system | Ramps, loading bays, wet zones | Adds about 20 to 60 |
+
+Where do these numbers come from? The prices are applied rates from Studio Matrx's 2026 Indian flooring price guides, and the thicknesses are typical figures from manufacturers' literature. Treat them as a rough guide, not a quote. Your price depends on area, slab condition and city. The exact thickness of any product is on its data sheet.
+
+## What really changes the price per sq ft
+
+Two quotes for "epoxy flooring" can be miles apart, and usually for good reasons. These are the things that move the number:
+
+- **The system and its thickness.** A 0.3 mm roller coat and a 3 mm self-levelling floor are different products doing different jobs.
+- **The state of your slab.** Grinding, crack repair and levelling can add roughly ₹20 to ₹80 per sq ft on their own, according to the same guide.
+- **Area.** Small rooms cost more per sq ft than a large hall, because setup and mobilisation don't shrink with the floor.
+- **Working hours.** If the plant can't stop, the job may need night shifts or weekend work.
+- **Chemicals.** A floor that must resist specific acids or solvents may need a special resin, and that costs more.
+- **Finishing extras.** Anti-skid grit, a UV-stable top coat, line marking and coving at the wall base all add up.
+
+One more thing. A quote far below the others usually means a thinner film, less preparation, or both. Ask every bidder to write the total thickness in mm or microns on the quote. It's the easiest way to compare like with like.
+
+## Epoxy, PU or floor hardener: which suits which zone
+
+Most plants don't need one floor everywhere. The dry packing hall, the forklift aisle and the wash-down area face very different abuse, so it's common to use different systems in different zones.
+
+| Area of the plant | Usually suits | Why |
+|---|---|---|
+| Dry assembly, packing, stores | Self-levelling epoxy or an epoxy coating | No joints, no dust and easy to clean |
+| Forklift aisles and racking on a new slab | Dry-shake floor hardener worked into the fresh concrete | A tough wearing surface with no separate coating to peel |
+| Wet processing, hot-water washdown, food, dairy | PU or PU-cement flooring | Copes better with heat shock and wet conditions |
+| Chemical stores, battery rooms, ETP areas | Chemical-resistant epoxy chosen for your actual chemicals | Standard epoxy resists many chemicals, but not all |
+| Floors in direct sun | Epoxy with a UV-stable PU top coat | Plain epoxy tends to yellow and chalk in sunlight |
+
+If you run a processing or dyeing unit, the wet, hot side of the floor is where plain epoxy struggles most. Hot water and sudden temperature changes are hard on a rigid coating, and that's exactly the job PU flooring is designed for.
+
+And floor hardeners are underrated. On a new warehouse slab, a dry-shake hardener goes into the concrete during finishing, so there's no coating on top to come loose. Non-metallic hardeners suit forklift traffic and dust control. Metallic ones suit steel wheels and heavy impact. The catch? You can only use them while the concrete is fresh.
+
+## Why factory epoxy floors peel in our heat
+
+When an epoxy floor fails early, it's almost never the resin's fault. It's the conditions it went down in. These are the six causes we'd check first.
+
+### 1. The slab was damp
+
+Moisture rising through the concrete gets trapped under the coating, builds pressure, and pushes it up into blisters that later peel. Ground-floor slabs without a damp-proof membrane are the usual suspects. New concrete should normally cure for at least 28 days, and even then, curing time isn't a moisture test.
+
+The proper checks are a moisture meter reading (many systems ask for below about 4%) or a relative humidity probe test to ASTM F2170. A plastic sheet taped down overnight is a rough first look. If you see damp under it the next morning, stop and test properly before anyone opens a tin.
+
+### 2. The surface wasn't prepared properly
+
+Concrete has a weak, powdery top skin called laitance, and factory floors often carry oil, old paint or curing compound too. Epoxy that bonds to any of that will come off with it. Diamond grinding or shot blasting opens the surface and gives the primer something to grip. Mechanical preparation beats an acid wash, and sweeping isn't enough. The dust has to come off with an industrial vacuum.
+
+### 3. The heat cut the working time
+
+Mixed epoxy has a pot life: the time you've got before it starts setting in the bucket. On a hot Kongu afternoon in April or May, that window can shrink to roughly half of what it is in the cool of the morning. Material that's already thickening won't level, won't wet the surface and won't bond well.
+
+So start early, keep kits in the shade, and mix full kits instead of guessing ratios by eye. A wrong ratio leaves soft, tacky patches that never harden.
+
+### 4. Humidity left a greasy film
+
+Very humid air is a problem too. So is a slab that's within about 3°C of the dew point. In either case, curing epoxy can form a greasy haze called amine blush, and the next coat won't stick to it unless it's washed off first.
+
+Many systems ask for humidity below about 75 to 80% while they cure. That makes the northeast monsoon a risky time to lay a floor, unless the area can be closed up and kept dry.
+
+### 5. Moving joints and cracks were covered over
+
+Epoxy is rigid. Run it straight across a moving joint or a live crack and it'll crack along the same line, usually within weeks. Moving joints should stay as joints, cut through and filled with a flexible sealant. Dormant cracks get repaired before priming.
+
+### 6. The floor went into service too early
+
+Epoxy feels hard long before it's fully cured. Light foot traffic is often fine after about a day, but forklifts, heavy racking, chemicals and wet cleaning usually need the full cure, around 7 days for many systems. The exact times are on each product's data sheet, and they're longer when it's cool.
+
+## How a proper factory epoxy job runs
+
+![Diamond grinding a concrete floor before epoxy coating](${step1DiamondGrindingImg})
+
+Every site is different, but a job done properly follows roughly this order:
+
+1. **Survey the slab.** Tap-test for hollow areas, check for oil, map the cracks and joints, and test the moisture.
+2. **Prepare the surface.** Diamond grind or shot blast, then vacuum.
+3. **Repair the defects.** Fill potholes and dormant cracks with epoxy mortar; keep moving joints for flexible sealant.
+4. **Prime.** A penetrating epoxy primer seals the concrete and anchors everything above it.
+5. **Lay the body coat.** Pour and spike-roll self-levelling epoxy, or trowel the mortar, to the thickness in the spec.
+6. **Finish.** Apply the top coat, with anti-skid grit where people walk on wet floors.
+7. **Cure and hand over.** Keep traffic off for the full cure, and record the products, batch numbers and thickness for later.
+
+You can see these stages, with photos, on our [epoxy and industrial flooring](/solutions/industrial-flooring) page.
+
+Is the floor already cracked or spalled? Then the repair comes before any of this. Here's [how to make a concrete repair last in our climate](/blog/why-concrete-repairs-fail-tropical-climates).
+
+## Questions to ask before you sign a quote
+
+A good applicator won't mind any of these:
+
+1. Which system is it, and what's the total thickness in mm?
+2. How will you prepare the slab: diamond grinding or shot blasting?
+3. Will you test the moisture first, and what reading will you accept?
+4. How will you treat the joints and the existing cracks?
+5. How long before forklifts, racking and chemicals can go back on?
+6. Which brand and product, and can I see the data sheet?
+7. What's the warranty, is it written down, and what does it exclude?
+
+Vague answers on thickness, moisture or joints are the warning sign. Those three decide whether the floor lasts.
+
+## When epoxy is the wrong choice
+
+Epoxy is good, but it isn't the answer everywhere. We'd steer you towards something else when:
+
+- The floor sees hot water, steam cleaning or big temperature swings. Look at PU instead.
+- The slab has rising damp and no membrane, unless a moisture-tolerant primer or barrier goes down first.
+- The area sits in full sun and you don't plan a UV-stable top coat.
+- The slab is still being poured. A dry-shake hardener at that stage is often cheaper and tougher.
+
+For the wider picture on coating types, our guide to [protective coatings for buildings](/blog/protective-coatings-for-buildings) explains where epoxy and PU each belong. And if you're installing machines on the new floor, [precision grouting for heavy equipment](/blog/precision-grouting-heavy-equipment-guide) is worth a read too.
+
+## How we can help
+
+We're Vchemics India Solutions, based in Erode. We supply epoxy flooring systems, PU toppings and floor hardeners across Tamil Nadu, and our own team applies them. Our [protective coatings](/products/protective-coatings) range covers the epoxy and PU systems. Our [concrete repair](/products/concrete-repair) range covers the mortars that fix a damaged slab first.
+
+Planning a floor? [Send us](/contact) four things: the area in sq ft, what runs on it (feet, trolleys or forklifts), any chemicals or hot water it'll see, and a few photos of the slab. We'll tell you which system makes sense, and where a cheaper option will do the job just as well.
+
+## Frequently asked questions
+
+### How much does epoxy flooring cost per sq ft in India?
+
+Published 2026 Indian price guides put applied epoxy at roughly ₹30 to ₹80 per sq ft for a roller coat, ₹100 to ₹250 for self-levelling and ₹150 to ₹300 for mortar. Slab repair adds more. Treat these as a rough guide, and compare quotes by total thickness.
+
+### What are the disadvantages of epoxy flooring?
+
+It needs a dry, well-prepared slab, or it blisters and peels. Plain epoxy yellows in sunlight, can be slippery when wet without grit, and struggles with hot water and sudden temperature changes. Repairs rarely blend in perfectly, and the full cure takes several days.
+
+### How long does epoxy flooring last in a factory?
+
+There's no fixed number. A well-laid, thick system on a dry, sound slab can last for years, while a thin coat under heavy forklifts wears much sooner. Thickness, preparation, traffic, chemicals and cleaning all matter. Recoating worn aisles early stretches the life of the floor.
+
+### Can epoxy flooring be done on existing tiles?
+
+Often, yes, if the tiles are firmly bonded and the floor is level. Hollow or cracked tiles must be replaced first, the glaze needs grinding so the primer can grip, and the grout lines need filling. On a factory floor that sees heavy loads, removing the tiles is usually safer.
+
+### Is epoxy flooring slippery?
+
+A smooth, glossy epoxy finish can be slippery when it's wet or oily. For ramps, loading bays, kitchens and wash-down areas, ask for an anti-skid finish, where sand or grit is broadcast into a coat. It's a little harder to clean, but far safer underfoot.
+
+### Which flooring is best for industrial use?
+
+It depends on the area. A dry-shake floor hardener on a new slab suits forklift aisles and warehouses. Self-levelling epoxy suits dry, clean production areas. PU flooring suits hot, wet or wash-down zones. Many factories mix all three, choosing the floor for each area.
+`,
+  },
   "sump-leakage-repair-after-rain": {
     takeaways: [
       "After heavy rain, rising groundwater and surface runoff can push dirty water into an underground sump through the lid, pipe entries, the wall-floor corner and cracks.",

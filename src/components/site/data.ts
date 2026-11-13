@@ -1206,6 +1206,21 @@ export const blogTopics = [
 
 export const allBlogPosts: BlogPostItem[] = [
   {
+    id: "epoxy-flooring-for-factories",
+    slug: "epoxy-flooring-for-factories",
+    title: "Epoxy Flooring for Factories: Cost, Types and Why It Peels in Our Heat",
+    category: "Site Troubleshooting",
+    date: "November 2026",
+    readTime: "11 min read",
+    author: "Industrial Flooring & Grouting Team",
+    reviewedBy: "Vchemics Technical Team",
+    excerpt:
+      "Thinking of epoxy for your shop floor? See what each type costs per sq ft, when PU or a floor hardener suits better, and the six reasons factory floors peel in hot, humid weather.",
+    tags: ["Epoxy Flooring", "Industrial Flooring", "Floor Hardener", "PU Flooring", "Protective Coatings", "Tamil Nadu"],
+    image: step4SelfLevelingImg,
+    alt: "Applicator spike-rolling self-levelling epoxy on a factory floor to release trapped air",
+  },
+  {
     id: "sump-leakage-repair-after-rain",
     slug: "sump-leakage-repair-after-rain",
     title: "Sump Leaking After Rain? How to Find and Fix Underground Tank Leaks",

@@ -23,6 +23,7 @@ import { cn } from "@/lib/utils";
 import { blogDates, formatDate } from "@/components/site/quick-answers";
 
 const blogMetaTitles: Record<string, string> = {
+  "epoxy-flooring-for-factories": "Epoxy Flooring for Factories: Cost, Types & Why It Peels",
   "sump-leakage-repair-after-rain": "Sump Leakage Repair After Rain: Causes & Fixes | Vchemics",
   "terrace-leakage-monsoon-checks": "Terrace Leaking in the Rain? 7 Checks & Fixes | Vchemics",
   "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
@@ -38,6 +39,8 @@ const blogMetaTitles: Record<string, string> = {
 };
 
 const blogMetaDescriptions: Record<string, string> = {
+  "epoxy-flooring-for-factories":
+    "Thinking of epoxy flooring for factories? Compare 5 floor types, cost per sq ft, epoxy vs PU vs hardener, and 6 reasons floors peel in our heat.",
   "sump-leakage-repair-after-rain":
     "Muddy water or a falling sump level after rain? Learn how to find where your underground tank leaks, stop it, and keep your water safe to use again.",
   "terrace-leakage-monsoon-checks":
