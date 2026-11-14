@@ -21,15 +21,16 @@ import { getBlogPostBySlug, isGenericBlogImage } from "@/lib/blog";
 import { trackGetQuoteClick } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 import { blogDates, formatDate } from "@/components/site/quick-answers";
+import { absUrl } from "@/lib/abs-url";
 
 const blogMetaTitles: Record<string, string> = {
   "epoxy-flooring-for-factories": "Epoxy Flooring for Factories: Cost, Types & Why It Peels",
   "sump-leakage-repair-after-rain": "Sump Leakage Repair After Rain: Causes & Fixes | Vchemics",
-  "terrace-leakage-monsoon-checks": "Terrace Leaking in the Rain? 7 Checks & Fixes | Vchemics",
+  "terrace-leakage-monsoon-checks": "Terrace Leakage in the Rain? 7 Checks & Fixes | Vchemics",
   "pu-injection-grouting": "PU Injection Grouting: Process, Uses & Types",
   "protective-coatings-for-buildings": "Protective Coatings: Types, Benefits & Uses",
   "column-jacketing-micro-concrete-standards": "Column Jacketing & Section Enlargement | Vchemics",
-  "crystalline-vs-membrane-waterproofing": "Crystalline vs Elastomeric Waterproofing | Vchemics",
+  "crystalline-vs-membrane-waterproofing": "Crystalline vs Membrane Waterproofing | Vchemics",
   "machine-foundation-epoxy-grouting-standards":
     "Precision Grouting for Heavy Equipment | Vchemics",
   "pu-injection-active-leak-sealing": "PU Injection Grouting for Active Leak Sealing | Vchemics",
@@ -79,10 +80,7 @@ export const Route = createFileRoute("/blog_/$slug")({
     const description =
       blogMetaDescriptions[post.id] || blogMetaDescriptions[post.slug] || post.excerpt;
     const url = `https://www.vchemicsindia.com/blog/${post.slug}`;
-    const ogImage =
-      typeof post.image === "string" && post.image.startsWith("http")
-        ? post.image
-        : "https://www.vchemicsindia.com/image.png";
+    const ogImage = absUrl(post.image);
 
     const dates = blogDates[post.id];
     const articleSchema = {
@@ -94,10 +92,13 @@ export const Route = createFileRoute("/blog_/$slug")({
       ...(dates ? { datePublished: dates.published, dateModified: dates.updated } : {}),
       author: {
         "@type": "Organization",
-        name: post.author,
+        "@id": "https://www.vchemicsindia.com/#organization",
+        name: "Vchemics India Solutions",
+        url: "https://www.vchemicsindia.com",
       },
       publisher: {
         "@type": "Organization",
+        "@id": "https://www.vchemicsindia.com/#organization",
         name: "Vchemics India Solutions",
         url: "https://www.vchemicsindia.com",
         logo: {
@@ -146,7 +147,17 @@ export const Route = createFileRoute("/blog_/$slug")({
         { property: "og:type", content: "article" },
         { property: "og:url", content: url },
         { property: "og:image", content: ogImage },
+        { property: "og:image:alt", content: post.alt || post.title },
+        ...(dates
+          ? [
+              { property: "article:published_time", content: dates.published },
+              { property: "article:modified_time", content: dates.updated },
+            ]
+          : []),
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -418,6 +429,10 @@ function BlogPostDetailPage() {
                     <img
                       src={post.image}
                       alt={post.alt || `${post.title} - Technical Engineering Diagram`}
+                      width={1280}
+                      height={720}
+                      fetchPriority="high"
+                      decoding="async"
                       className="block aspect-[16/9] h-auto max-h-[36rem] w-full object-cover transition-transform duration-300 group-hover:scale-[1.008]"
                     />
 

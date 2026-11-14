@@ -176,7 +176,7 @@ function About() {
                   mix into an unyielding, resilient asset.
                 </p>
                 <p>
-                  Headquartered in Chennai, Vchemics operates dedicated synthesis reactors producing
+                  From its head office in Erode and branches in Chennai and Krishnagiri, Vchemics operates dedicated synthesis reactors producing
                   PCE superplasticisers, crystalline waterproofing compounds, non-shrink epoxy
                   grouts, and structural micro-mortars. Every formulation is tailored to match local
                   sands, quarry aggregates, and regional humidity curves.

@@ -29,11 +29,6 @@ export const Route = createFileRoute("/products")({
     meta: [
       { title },
       { name: "description", content: description },
-      {
-        name: "keywords",
-        content:
-          "concrete admixtures Chennai, Fosroc dealer Chennai, Brushbond, Nitobond EP, Conplast SP430, Conbextra GP2, Auramix, crystalline waterproofing, non-shrink grout Tamil Nadu",
-      },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
@@ -41,8 +36,39 @@ export const Route = createFileRoute("/products")({
       { property: "og:url", content: "https://www.vchemicsindia.com/products" },
       { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/products" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://www.vchemicsindia.com/products",
+              url: "https://www.vchemicsindia.com/products",
+              name: title,
+              description,
+              isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
+              about: { "@id": "https://www.vchemicsindia.com/#organization" },
+              mainEntity: {
+                "@type": "ItemList",
+                itemListElement: allProducts.map((x, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  name: x.title,
+                  url: `https://www.vchemicsindia.com/products/${x.id}`,
+                })),
+              },
+            },
+            { "@type": "BreadcrumbList", itemListElement: [ { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vchemicsindia.com/" }, { "@type": "ListItem", position: 2, name: "Products", item: "https://www.vchemicsindia.com/products" } ] },
+          ],
+        }),
+      },
+    ],
   }),
   component: ProductsPage,
 });

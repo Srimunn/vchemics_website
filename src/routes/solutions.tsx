@@ -38,11 +38,6 @@ export const Route = createFileRoute("/solutions")({
     meta: [
       { title },
       { name: "description", content: description },
-      {
-        name: "keywords",
-        content:
-          "waterproofing solutions Chennai, basement waterproofing, terrace waterproofing, concrete repair Chennai, structural rehabilitation, industrial flooring Tamil Nadu",
-      },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
@@ -50,8 +45,39 @@ export const Route = createFileRoute("/solutions")({
       { property: "og:url", content: "https://www.vchemicsindia.com/solutions" },
       { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/solutions" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://www.vchemicsindia.com/solutions",
+              url: "https://www.vchemicsindia.com/solutions",
+              name: title,
+              description,
+              isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
+              about: { "@id": "https://www.vchemicsindia.com/#organization" },
+              mainEntity: {
+                "@type": "ItemList",
+                itemListElement: allSolutions.map((x, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  name: x.title,
+                  url: `https://www.vchemicsindia.com/solutions/${x.id}`,
+                })),
+              },
+            },
+            { "@type": "BreadcrumbList", itemListElement: [ { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vchemicsindia.com/" }, { "@type": "ListItem", position: 2, name: "Solutions", item: "https://www.vchemicsindia.com/solutions" } ] },
+          ],
+        }),
+      },
+    ],
   }),
   component: SolutionsPage,
 });
@@ -395,7 +421,9 @@ function SolutionsPage() {
                       src={activeSolution.image}
                       alt={`${activeSolution.title} - Engineered Application Protocol`}
                       className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                      loading="lazy"
+                      width={1024}
+                      height={640}
+                      fetchPriority="high"
                     />
                   ) : (
                     <ImagePlaceholder label={`+ Add ${activeSolution.title} Photo`} />

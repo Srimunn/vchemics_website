@@ -40,8 +40,43 @@ export const Route = createFileRoute("/services")({
       { property: "og:url", content: "https://www.vchemicsindia.com/services" },
       { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "@id": "https://www.vchemicsindia.com/services",
+              url: "https://www.vchemicsindia.com/services",
+              name: title,
+              description,
+              isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
+              mainEntity: {
+                "@type": "ItemList",
+                itemListElement: capabilities.map((c, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  item: {
+                    "@type": "Service",
+                    name: c.title,
+                    description: c.body,
+                    provider: { "@id": "https://www.vchemicsindia.com/#organization" },
+                    areaServed: { "@type": "State", name: "Tamil Nadu" },
+                  },
+                })),
+              },
+            },
+            { "@type": "BreadcrumbList", itemListElement: [ { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vchemicsindia.com/" }, { "@type": "ListItem", position: 2, name: "Services", item: "https://www.vchemicsindia.com/services" } ] },
+          ],
+        }),
+      },
+    ],
   }),
   component: Services,
 });
@@ -169,7 +204,7 @@ function Services() {
     <>
       <PageHero
         eyebrow="Our Services"
-        title="Waterproofing & Construction Works Across Tamil Nadu"
+        title="Waterproofing & Concrete Repair Services in Tamil Nadu"
         intro="Material alone doesn't solve a site problem. Our engineers work with your team from mix design through final application."
       />
 

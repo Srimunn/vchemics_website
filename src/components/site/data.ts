@@ -996,7 +996,7 @@ export const allLocations: LocationItem[] = [
     id: "chennai",
     slug: "chennai",
     city: "Chennai",
-    role: "Headquarters, Main Manufacturing Plant & R&D Laboratory",
+    role: "Main Manufacturing Plant & R&D Laboratory",
     address: "Omsakthi Street, Kumaran Nagar Extn-I, Padi, Chennai - 600050",
     phone: "+91 99423-54602",
     email: "vchemics1989@gmail.com",
@@ -1046,7 +1046,7 @@ export const allLocations: LocationItem[] = [
     id: "erode",
     slug: "erode",
     city: "Erode",
-    role: "Central Infrastructure & Textile Logistics Depot",
+    role: "Head Office, Infrastructure & Textile Logistics Depot",
     address: "302/B9, Indian Nagar, 3rd Street, 46 Pudhur, Modakurichi, Erode - 638002",
     phone: "+91 99423-54602",
     email: "vchemics1989@gmail.com",
@@ -1223,7 +1223,7 @@ export const allBlogPosts: BlogPostItem[] = [
   {
     id: "sump-leakage-repair-after-rain",
     slug: "sump-leakage-repair-after-rain",
-    title: "Sump Leaking After Rain? How to Find and Fix Underground Tank Leaks",
+    title: "Sump Leakage Repair After Rain: How to Find and Fix Underground Tank Leaks",
     category: "Waterproofing Guides",
     date: "October 2026",
     readTime: "9 min read",
@@ -1238,7 +1238,7 @@ export const allBlogPosts: BlogPostItem[] = [
   {
     id: "terrace-leakage-monsoon-checks",
     slug: "terrace-leakage-monsoon-checks",
-    title: "Terrace Leaking This Monsoon? 7 Checks Before You Call a Contractor",
+    title: "Terrace Leakage This Monsoon? 7 Checks Before You Call a Contractor",
     category: "Waterproofing Guides",
     date: "October 2026",
     readTime: "8 min read",
@@ -1331,7 +1331,7 @@ export const allBlogPosts: BlogPostItem[] = [
   {
     id: "crystalline-vs-membrane-waterproofing",
     slug: "crystalline-vs-membrane-waterproofing",
-    title: "Crystalline vs Elastomeric Membrane Waterproofing: Engineering Selection Guide",
+    title: "Crystalline vs Membrane Waterproofing: Which One Do You Need?",
     category: "Waterproofing Guides",
     date: "September 2026",
     readTime: "6 min read",
@@ -1406,7 +1406,7 @@ export const allBlogPosts: BlogPostItem[] = [
   {
     id: "pu-injection-active-leak-sealing",
     slug: "pu-injection-active-leak-sealing",
-    title: "High-Pressure PU Injection Grouting for Active Hydrostatic Water Ingress",
+    title: "PU Injection Grouting for Active Leak Sealing",
     category: "Site Troubleshooting",
     date: "August 2026",
     readTime: "5 min read",

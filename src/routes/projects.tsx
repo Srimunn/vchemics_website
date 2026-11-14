@@ -34,8 +34,39 @@ export const Route = createFileRoute("/projects")({
       { property: "og:url", content: "https://www.vchemicsindia.com/projects" },
       { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [{ rel: "canonical", href: "https://www.vchemicsindia.com/projects" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "@id": "https://www.vchemicsindia.com/projects",
+              url: "https://www.vchemicsindia.com/projects",
+              name: title,
+              description,
+              isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
+              about: { "@id": "https://www.vchemicsindia.com/#organization" },
+              mainEntity: {
+                "@type": "ItemList",
+                itemListElement: allProjects.map((x, i) => ({
+                  "@type": "ListItem",
+                  position: i + 1,
+                  name: x.title,
+                  url: `https://www.vchemicsindia.com/projects`,
+                })),
+              },
+            },
+            { "@type": "BreadcrumbList", itemListElement: [ { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vchemicsindia.com/" }, { "@type": "ListItem", position: 2, name: "Projects", item: "https://www.vchemicsindia.com/projects" } ] },
+          ],
+        }),
+      },
+    ],
   }),
   component: ProjectsPage,
 });
@@ -54,7 +85,7 @@ function ProjectsPage() {
     <>
       <PageHero
         eyebrow="Proven Track Record"
-        title="Engineering Success Across South India"
+        title="Waterproofing & Structural Repair Projects"
         intro="From underground metro tunnels and 2,500-ton OEM press foundations to high-rise commercial podiums and chemical ETP sumps — our formulations ensure zero-failure performance."
       />
 

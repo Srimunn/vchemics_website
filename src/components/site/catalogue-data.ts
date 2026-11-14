@@ -49,7 +49,7 @@ export const catalogueProducts: CatalogueProduct[] = [
     variants: [{ label: "4L" }, { label: "1L" }],
     featured: false,
     description:
-      "A two-part epoxy resin bonding agent used to achieve a high-strength structural bond between old and new concrete, widely used in repair work, overlays, and structural strengthening where mechanical bond strength is critical. VERIFY exact pot life and strength figures against current datasheet.",
+      "A two-part epoxy resin bonding agent used to achieve a high-strength structural bond between old and new concrete, widely used in repair work, overlays, and structural strengthening where mechanical bond strength is critical.",
   },
   {
     id: "brushbond-roofguard-terracota",
@@ -94,7 +94,7 @@ export const catalogueProducts: CatalogueProduct[] = [
     variants: [{ label: "1LTR" }],
     featured: false,
     description:
-      "A surface preparation/release-aid product used ahead of repair or coating application to improve surface receptiveness. VERIFY exact application and product category against current datasheet — naming suggests it may be related to the Reebaklens line (see separate entry).",
+      "A surface preparation/release-aid product used ahead of repair or coating application to improve surface receptiveness.",
   },
   {
     id: "rendroc-rg",
@@ -128,7 +128,7 @@ export const catalogueProducts: CatalogueProduct[] = [
     variants: [{ label: "20L" }],
     featured: true,
     description:
-      "A high-range water-reducing superplasticiser used to produce flowing, workable concrete at reduced water-cement ratios, improving both placement ease and hardened concrete strength/durability. VERIFY exact dosage rate against current datasheet.",
+      "A high-range water-reducing superplasticiser used to produce flowing, workable concrete at reduced water-cement ratios, improving both placement ease and hardened concrete strength/durability.",
   },
   {
     id: "concure-wb-white",
@@ -272,7 +272,7 @@ export const catalogueProducts: CatalogueProduct[] = [
     variants: [{ label: "6kg" }],
     featured: false,
     description:
-      "A polymer-modified cementitious bonding/patching compound used for smaller-scale repair and surface reinstatement work. VERIFY exact application scope against current datasheet.",
+      "A polymer-modified cementitious bonding/patching compound used for smaller-scale repair and surface reinstatement work.",
   },
   {
     id: "rendroc-sp40",
@@ -306,7 +306,7 @@ export const catalogueProducts: CatalogueProduct[] = [
     variants: [{ label: "1L" }],
     featured: false,
     description:
-      "A surface treatment product used in concrete finishing/release applications. VERIFY exact product category and relationship to the separately listed Fosroc Rebaklens RR — naming suggests these may be the same product line.",
+      "A surface treatment product used in concrete finishing/release applications.",
   },
   {
     id: "rendroc-cs-white",
@@ -351,7 +351,7 @@ export const catalogueProducts: CatalogueProduct[] = [
     variants: [{ label: "250KG" }],
     featured: false,
     description:
-      "A concrete admixture from Fosroc's Auracast range used to enhance workability and finishing characteristics in cast concrete applications. VERIFY exact chemistry and dosage against current datasheet.",
+      "A concrete admixture from Fosroc's Auracast range used to enhance workability and finishing characteristics in cast concrete applications.",
   },
   {
     id: "auramix-200",

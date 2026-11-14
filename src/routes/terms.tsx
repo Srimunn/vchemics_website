@@ -22,7 +22,7 @@ import {
 
 const title = "Terms & Conditions of Service | Vchemics India";
 const description =
-  "Terms and conditions of service, product warranties, and governing policies for Vchemics India Solutions, leading construction chemicals manufacturer.";
+  "The terms for using vchemicsindia.com: product information, prices, third-party links, liability limits, governing law and how to contact Vchemics.";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({

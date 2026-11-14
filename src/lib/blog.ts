@@ -411,7 +411,7 @@ The same principles apply to basements and lift pits, which face the same ground
 
 A leaking sump feels like a big, hidden problem, but most of the time the cause is ordinary: a lid at ground level, a pipe joint, the corner at the bottom, or a crack. Do the overnight test, look from the top with a torch, fix the lid first, and keep your family off that water until you're sure it's clean.
 
-Then, once the rains ease, have it repaired properly from the inside, in the right order, with products that are safe for drinking water.
+Then, once the rains ease, have it repaired properly from the inside, in the right order, with products that are safe for drinking water. If the terrace is leaking too, here are [7 checks for terrace leakage](/blog/terrace-leakage-monsoon-checks) you can do the same day.
 
 Not sure what you're looking at? Take three photos: the inside of the sump from the opening, the lid and collar, and the spot where the pipes come in. Send them on WhatsApp to **+91 99423 54602**, or use our [contact page](/contact), and tell us your town. We'll tell you what we see.
 
@@ -575,9 +575,11 @@ If the answer to most of these is "don't worry, sir, we'll manage", keep looking
 
 ## What we'd do, if you called us
 
-We're Vchemics India Solutions, based in Erode with [branches across Tamil Nadu](/locations), and we supply [waterproofing chemicals](/products/waterproofing-chemicals) and [protective coatings](/products/protective-coatings) from the brands we're authorized for, along with our own application team. When someone sends us photos of a leak, we look at exactly the seven things above. Then we tell you plainly whether it needs a patch now and a proper system after the rains, or whether it can wait.
+We're Vchemics India Solutions, a construction chemicals manufacturer and authorized distributor based in Erode, with [branches across Tamil Nadu](/locations). We supply [waterproofing chemicals](/products/waterproofing-chemicals) and [protective coatings](/products/protective-coatings), and our own team applies them. When someone sends us photos of a leak, we look at exactly the seven things above. Then we tell you plainly whether it needs a patch now and a proper system after the rains, or whether it can wait.
 
 If cracks are part of the story, our [concrete repair](/products/concrete-repair) range covers the crack filling and repair mortars that go *under* the waterproofing. That bit gets skipped far too often.
+
+And if your sump water turned muddy after the same rains, [these sump checks](/blog/sump-leakage-repair-after-rain) will help you find that leak too.
 
 ## Frequently asked questions
 
@@ -841,7 +843,7 @@ These discontinuities severely compromise structural monolithic action, expose r
 
 ## Extended Slump Retention with Retarding PCE Admixtures
 
-Polycarboxylate Ether (PCE) [concrete admixtures](/products/concrete-admixtures) engineered with specialized retarding molecules control the initial dissolution of tricalcium aluminate ($C_3A$) and tricalcium silicate ($C_3S$). By introducing steric hindrance and controlled retardation compliant with **IS 9103 Type G** and **ASTM C494 Type G**, open slump retention is safely extended up to 3 hours while preserving robust 3-day and 28-day compressive strength gains.
+Polycarboxylate Ether (PCE) [concrete admixtures](/products/concrete-admixtures) engineered with specialized retarding molecules control the initial dissolution of tricalcium aluminate (C₃A) and tricalcium silicate (C₃S). By introducing steric hindrance and controlled retardation compliant with **IS 9103 Type G** and **ASTM C494 Type G**, open slump retention is safely extended up to 3 hours while preserving robust 3-day and 28-day compressive strength gains.
 
 ### Electrostatic Repulsion & Steric Hindrance
 

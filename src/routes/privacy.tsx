@@ -5,7 +5,7 @@ import { Reveal } from "@/components/site/Reveal";
 
 const title = "Privacy Policy & Data Protection | Vchemics India";
 const description =
-  "Read the Privacy Policy for Vchemics India Solutions. Learn how we handle customer inquiries, technical quotes, orders, and personal information.";
+  "Our privacy policy: how Vchemics India Solutions collects, uses and protects the details you share in enquiries, technical quotes and orders.";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({

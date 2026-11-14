@@ -13,20 +13,18 @@ export function Reveal({
   as?: "div" | "section" | "li" | "article";
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  // Visible in the server HTML, so crawlers and slow phones see the content before JavaScript loads.
+  const [shown, setShown] = useState(true);
 
   useEffect(() => {
-    // Immediately show if IntersectionObserver is unavailable
-    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
-      setShown(true);
-      return;
-    }
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) return;
 
     const el = ref.current;
-    if (!el) {
-      setShown(true);
-      return;
-    }
+    if (!el) return;
+
+    // Content already on screen stays put; only blocks below the fold get the fade-in.
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    setShown(false);
 
     const io = new IntersectionObserver(
       (entries) => {

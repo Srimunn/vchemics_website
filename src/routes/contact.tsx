@@ -44,11 +44,6 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title },
       { name: "description", content: description },
-      {
-        name: "keywords",
-        content:
-          "contact Vchemics, construction chemicals quote Chennai, buy concrete admixtures Coimbatore, PU injection grouting supplier Erode, Krishnagiri construction chemicals price, micro concrete Tamil Nadu",
-      },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },

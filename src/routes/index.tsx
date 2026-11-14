@@ -144,11 +144,6 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
-      {
-        name: "keywords",
-        content:
-          "construction chemical distributors Tamil Nadu, construction chemicals Chennai, waterproofing chemicals Coimbatore, concrete admixtures Erode, Krishnagiri construction chemicals, PU injection grouting, non shrink grout, micro concrete",
-      },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },

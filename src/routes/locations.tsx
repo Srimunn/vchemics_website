@@ -28,11 +28,6 @@ export const Route = createFileRoute("/locations")({
     meta: [
       { title },
       { name: "description", content: description },
-      {
-        name: "keywords",
-        content:
-          "construction chemicals Tamil Nadu, construction chemical supplier Chennai, Coimbatore waterproofing chemicals, Erode construction chemicals, Krishnagiri construction chemicals",
-      },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
@@ -112,156 +107,158 @@ function LocationsPage() {
             })}
           </div>
 
-          {/* Active Location Detail Card */}
-          <div id={activeLoc.id} className="mt-12">
-            <Reveal key={activeLoc.id}>
-              <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-sm relative overflow-hidden">
-                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue" />
+          {/* Every branch card is in the HTML (others hidden), so search engines can read all addresses */}
+          {allLocations.map((loc) => (
+            <div key={loc.id} id={loc.id} className="mt-12" hidden={loc.id !== activeLoc.id}>
+              <Reveal>
+                <div className="rounded-3xl border border-border/80 bg-card p-6 sm:p-10 shadow-sm relative overflow-hidden">
+                  <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-brand-blue via-brand-green to-brand-blue" />
 
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand-green">
-                      Regional Center
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                      <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand-green">
+                        Regional Center
+                      </span>
+                      <h3 className="font-display text-2xl sm:text-4xl font-bold text-foreground">
+                        {loc.city} Facility
+                      </h3>
+                    </div>
+
+                    <span className="inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/10 px-4 py-1.5 font-mono text-xs font-bold text-brand-green">
+                      <Truck className="h-3.5 w-3.5" />
+                      {loc.dispatchTime}
                     </span>
-                    <h3 className="font-display text-2xl sm:text-4xl font-bold text-foreground">
-                      {activeLoc.city} Facility
-                    </h3>
                   </div>
 
-                  <span className="inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-brand-green/10 px-4 py-1.5 font-mono text-xs font-bold text-brand-green">
-                    <Truck className="h-3.5 w-3.5" />
-                    {activeLoc.dispatchTime}
-                  </span>
-                </div>
+                  <p className="mt-3 text-base sm:text-lg font-medium text-foreground/90 leading-relaxed">
+                    {loc.role}
+                  </p>
 
-                <p className="mt-3 text-base sm:text-lg font-medium text-foreground/90 leading-relaxed">
-                  {activeLoc.role}
-                </p>
+                  {/* Hub Specifics Grid */}
+                  <div className="mt-8 grid gap-6 lg:grid-cols-12">
+                    {/* Left info column */}
+                    <div className="lg:col-span-6 space-y-4">
+                      <h4 className="font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                        Facility Contact & Address
+                      </h4>
 
-                {/* Hub Specifics Grid */}
-                <div className="mt-8 grid gap-6 lg:grid-cols-12">
-                  {/* Left info column */}
-                  <div className="lg:col-span-6 space-y-4">
-                    <h4 className="font-display text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                      Facility Contact & Address
-                    </h4>
+                      <div className="space-y-3">
+                        {loc.address && loc.address.trim().length > 0 && (
+                          <a
+                            href={`https://maps.google.com/?q=${encodeURIComponent(loc.mapQuery || loc.address)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-start gap-3.5 rounded-2xl border border-border/80 bg-muted/20 p-4 transition-all hover:border-brand-blue/40 hover:bg-muted/50"
+                          >
+                            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-blue/10 text-brand-blue">
+                              <MapPin className="h-5 w-5" />
+                            </span>
+                            <div>
+                              <p className="font-mono text-[0.68rem] font-bold uppercase text-brand-green">
+                                Physical Depot Address
+                              </p>
+                              <p className="text-sm font-semibold text-foreground group-hover:text-brand-blue transition-colors leading-relaxed">
+                                {loc.address}
+                              </p>
+                              <span className="mt-1 inline-flex items-center gap-1 font-mono text-xs text-brand-blue">
+                                Open in Google Maps <ArrowRight className="h-3 w-3" />
+                              </span>
+                            </div>
+                          </a>
+                        )}
 
-                    <div className="space-y-3">
-                      {activeLoc.address && activeLoc.address.trim().length > 0 && (
                         <a
-                          href={`https://maps.google.com/?q=${encodeURIComponent(activeLoc.mapQuery || activeLoc.address)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group flex items-start gap-3.5 rounded-2xl border border-border/80 bg-muted/20 p-4 transition-all hover:border-brand-blue/40 hover:bg-muted/50"
+                          href={`tel:${loc.phone}`}
+                          className="group flex items-center gap-3.5 rounded-2xl border border-border/80 bg-muted/20 p-4 transition-all hover:border-brand-blue/40 hover:bg-muted/50"
                         >
-                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-blue/10 text-brand-blue">
-                            <MapPin className="h-5 w-5" />
+                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-green/10 text-brand-green">
+                            <Phone className="h-5 w-5" />
                           </span>
                           <div>
                             <p className="font-mono text-[0.68rem] font-bold uppercase text-brand-green">
-                              Physical Depot Address
+                              Direct Technical Hotline
                             </p>
-                            <p className="text-sm font-semibold text-foreground group-hover:text-brand-blue transition-colors leading-relaxed">
-                              {activeLoc.address}
+                            <p className="text-sm font-semibold text-foreground group-hover:text-brand-green transition-colors font-phone">
+                              {loc.phone}
                             </p>
-                            <span className="mt-1 inline-flex items-center gap-1 font-mono text-xs text-brand-blue">
-                              Open in Google Maps <ArrowRight className="h-3 w-3" />
-                            </span>
                           </div>
                         </a>
-                      )}
 
-                      <a
-                        href={`tel:${activeLoc.phone}`}
-                        className="group flex items-center gap-3.5 rounded-2xl border border-border/80 bg-muted/20 p-4 transition-all hover:border-brand-blue/40 hover:bg-muted/50"
-                      >
-                        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-green/10 text-brand-green">
-                          <Phone className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <p className="font-mono text-[0.68rem] font-bold uppercase text-brand-green">
-                            Direct Technical Hotline
-                          </p>
-                          <p className="text-sm font-semibold text-foreground group-hover:text-brand-green transition-colors font-phone">
-                            {activeLoc.phone}
-                          </p>
-                        </div>
-                      </a>
-
-                      <a
-                        href={`https://mail.google.com/mail/?view=cm&fs=1&to=${activeLoc.email}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-3.5 rounded-2xl border border-border/80 bg-muted/20 p-4 transition-all hover:border-brand-blue/40 hover:bg-muted/50"
-                      >
-                        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-blue/10 text-brand-blue">
-                          <Mail className="h-5 w-5" />
-                        </span>
-                        <div>
-                          <p className="font-mono text-[0.68rem] font-bold uppercase text-brand-green">
-                            Email Us
-                          </p>
-                          <p className="text-sm font-semibold text-foreground group-hover:text-brand-blue transition-colors">
-                            {activeLoc.email}
-                          </p>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Right coverage & highlights column */}
-                  <div className="lg:col-span-6 space-y-6">
-                    <div>
-                      <h4 className="font-display text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                        Operational Capabilities
-                      </h4>
-                      <ul className="space-y-2.5">
-                        {activeLoc.keyHighlights.map((hl) => (
-                          <li
-                            key={hl}
-                            className="flex items-start gap-2.5 rounded-xl border border-border/60 bg-muted/30 p-3 text-xs sm:text-sm text-foreground"
-                          >
-                            <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-green mt-0.5" />
-                            <span>{hl}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h4 className="font-display text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
-                        Direct Delivery Coverage Zones
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {activeLoc.coverageAreas.map((area) => (
-                          <span
-                            key={area}
-                            className="rounded-lg border border-border/80 bg-background px-3 py-1 font-mono text-xs font-medium text-foreground"
-                          >
-                            {area}
+                        <a
+                          href={`https://mail.google.com/mail/?view=cm&fs=1&to=${loc.email}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group flex items-center gap-3.5 rounded-2xl border border-border/80 bg-muted/20 p-4 transition-all hover:border-brand-blue/40 hover:bg-muted/50"
+                        >
+                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-brand-blue/10 text-brand-blue">
+                            <Mail className="h-5 w-5" />
                           </span>
-                        ))}
+                          <div>
+                            <p className="font-mono text-[0.68rem] font-bold uppercase text-brand-green">
+                              Email Us
+                            </p>
+                            <p className="text-sm font-semibold text-foreground group-hover:text-brand-blue transition-colors">
+                              {loc.email}
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Right coverage & highlights column */}
+                    <div className="lg:col-span-6 space-y-6">
+                      <div>
+                        <h4 className="font-display text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
+                          Operational Capabilities
+                        </h4>
+                        <ul className="space-y-2.5">
+                          {loc.keyHighlights.map((hl) => (
+                            <li
+                              key={hl}
+                              className="flex items-start gap-2.5 rounded-xl border border-border/60 bg-muted/30 p-3 text-xs sm:text-sm text-foreground"
+                            >
+                              <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-green mt-0.5" />
+                              <span>{hl}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <h4 className="font-display text-xs font-bold uppercase tracking-wider text-muted-foreground mb-3">
+                          Direct Delivery Coverage Zones
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {loc.coverageAreas.map((area) => (
+                            <span
+                              key={area}
+                              className="rounded-lg border border-border/80 bg-background px-3 py-1 font-mono text-xs font-medium text-foreground"
+                            >
+                              {area}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Bottom CTA */}
-                <div className="mt-8 pt-6 border-t border-border/80 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <span className="font-mono text-xs text-muted-foreground">
-                    Looking for bulk supply or an on-site sample trial in {activeLoc.city}?
-                  </span>
+                  {/* Bottom CTA */}
+                  <div className="mt-8 pt-6 border-t border-border/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span className="font-mono text-xs text-muted-foreground">
+                      Looking for bulk supply or an on-site sample trial in {loc.city}?
+                    </span>
 
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-6 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all hover:scale-[1.02]"
-                  >
-                    Request Delivery To {activeLoc.city} Site <ArrowRight className="h-4 w-4" />
-                  </Link>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 rounded-xl btn-brand-gradient px-6 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white shadow-md transition-all hover:scale-[1.02]"
+                    >
+                      Request Delivery To {loc.city} Site <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          </div>
+              </Reveal>
+            </div>
+          ))}
         </div>
       </section>
 

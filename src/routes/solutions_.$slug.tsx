@@ -24,6 +24,26 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { allSolutions, type SolutionItem } from "@/components/site/data";
 import { cn } from "@/lib/utils";
 import { solutionAnswers, formatDate } from "@/components/site/quick-answers";
+import { absUrl } from "@/lib/abs-url";
+
+// Related product and guide links shown under "Which products are used?" (pages with few impressions only, for now).
+const solutionRelatedLinks: Record<string, { label: string; to: string }[]> = {
+  "concrete-repair": [
+    { label: "Concrete repair mortars", to: "/products/concrete-repair" },
+    { label: "Micro concrete for deep repairs", to: "/products/micro-concrete" },
+    { label: "Why concrete repairs fail in hot, humid weather", to: "/blog/why-concrete-repairs-fail-tropical-climates" },
+  ],
+  "structural-rehabilitation": [
+    { label: "Micro concrete for column jacketing", to: "/products/micro-concrete" },
+    { label: "Epoxy grout for dowels and anchors", to: "/products/epoxy-grouting" },
+    { label: "Column jacketing guide", to: "/blog/column-jacketing-micro-concrete-standards" },
+  ],
+  "industrial-flooring": [
+    { label: "Epoxy and PU floor coatings", to: "/products/protective-coatings" },
+    { label: "Repair mortars for damaged slabs", to: "/products/concrete-repair" },
+    { label: "Epoxy flooring for factories guide", to: "/blog/epoxy-flooring-for-factories" },
+  ],
+};
 
 const solutionIcons: Record<string, LucideIcon> = {
   "basement-waterproofing": Droplets,
@@ -49,13 +69,20 @@ const solutionMetaDescriptions: Record<string, string> = {
     "Protective coatings and exterior painting for steel, tanks and buildings, matched to weather and chemical exposure. Supplied and applied.",
 };
 
+// Page H1 where it should differ from the solution name used in menus and cards.
+const solutionH1: Record<string, string> = {
+  "concrete-repair": "Concrete Crack Repair & Restoration",
+  "structural-rehabilitation": "Column Jacketing & Structural Rehabilitation",
+  "industrial-flooring": "Epoxy Flooring & Industrial Floors",
+};
+
 // SEO <title> per solution (keep each under ~60 characters).
 const solutionMetaTitles: Record<string, string> = {
   "basement-waterproofing": "Basement Waterproofing Solutions in Tamil Nadu | Vchemics",
   "terrace-waterproofing": "Terrace Waterproofing Chemicals & Solutions | Vchemics",
   "concrete-repair": "Concrete Crack Repair & Restoration | Vchemics",
   "structural-rehabilitation": "Column Jacketing & Structural Rehabilitation | Vchemics",
-  "industrial-flooring": "Epoxy & Industrial Flooring Solutions | Vchemics",
+  "industrial-flooring": "Epoxy Flooring & Industrial Floors in Tamil Nadu | Vchemics",
   painting: "Protective & Waterproof Exterior Painting | Vchemics",
 };
 
@@ -76,25 +103,24 @@ export const Route = createFileRoute("/solutions_/$slug")({
       solutionMetaDescriptions[solution.slug] ||
       `${solution.subtitle} Engineered structural application protocols by Vchemics Chennai.`;
     const url = `https://www.vchemicsindia.com/solutions/${solution.id}`;
-    const ogImage =
-      typeof solution.image === "string" && solution.image.startsWith("http")
-        ? solution.image
-        : "https://www.vchemicsindia.com/image.png";
+    const ogImage = absUrl(solution.image);
 
     const solutionSchema = {
       "@context": "https://schema.org",
       "@type": "Service",
+      "@id": `${url}#service`,
+      url,
       name: solution.title,
+      serviceType: solution.title,
       description: description,
-      provider: {
-        "@type": "Organization",
-        name: "Vchemics India Solutions",
-        url: "https://www.vchemicsindia.com",
-      },
-      areaServed: {
-        "@type": "State",
-        name: "Tamil Nadu",
-      },
+      image: ogImage,
+      provider: { "@id": "https://www.vchemicsindia.com/#organization" },
+      areaServed: [
+        { "@type": "State", name: "Tamil Nadu" },
+        { "@type": "City", name: "Erode" },
+        { "@type": "City", name: "Chennai" },
+        { "@type": "City", name: "Krishnagiri" },
+      ],
     };
 
     const breadcrumbSchema = {
@@ -126,17 +152,17 @@ export const Route = createFileRoute("/solutions_/$slug")({
       meta: [
         { title },
         { name: "description", content: description },
-        {
-          name: "keywords",
-          content: `${solution.title}, structural solutions Chennai, waterproofing chemicals, concrete repair Tamil Nadu, Vchemics`,
-        },
         { name: "robots", content: "index, follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:image", content: ogImage },
+        { property: "og:image:alt", content: solution.alt || solution.title },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -152,6 +178,8 @@ export const Route = createFileRoute("/solutions_/$slug")({
             "@id": url,
             url,
             name: title,
+            mainEntity: { "@id": `${url}#service` },
+            isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
             ...(solutionAnswers[solution.id]?.updated
               ? { dateModified: solutionAnswers[solution.id]?.updated }
               : {}),
@@ -223,7 +251,7 @@ function SolutionDetailPage() {
 
               {/* Solution Title H1 */}
               <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-                {solution.title}
+                {solutionH1[solution.id] ?? solution.title}
               </h1>
 
               {/* Subtitle / Tagline */}
@@ -372,6 +400,22 @@ function SolutionDetailPage() {
                   </li>
                 ))}
               </ul>
+              {(solutionRelatedLinks[solution.id] ?? []).length > 0 && (
+                <p className="pt-2 text-xs sm:text-sm text-muted-foreground">
+                  Related:{" "}
+                  {(solutionRelatedLinks[solution.id] ?? []).map((l, i) => (
+                    <span key={l.to}>
+                      {i > 0 && " · "}
+                      <a
+                        href={l.to}
+                        className="font-semibold text-brand-blue underline underline-offset-4 hover:text-brand-green"
+                      >
+                        {l.label}
+                      </a>
+                    </span>
+                  ))}
+                </p>
+              )}
             </div>
 
             {/* Target Structural Applications */}

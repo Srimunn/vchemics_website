@@ -7,6 +7,7 @@ import { ImagePlaceholder } from "@/components/site/ImagePlaceholder";
 import { PlaceholderBadge } from "@/components/site/PlaceholderBadge";
 import { allBlogPosts, blogTopics } from "@/components/site/data";
 import { blogDates } from "@/components/site/quick-answers";
+import { absUrl } from "@/lib/abs-url";
 import { isGenericBlogImage } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
@@ -19,20 +20,17 @@ const blogSchema = {
   "@type": "Blog",
   name: title,
   description: description,
-  publisher: {
-    "@type": "Organization",
-    name: "Vchemics India Solutions",
-    url: "https://www.vchemicsindia.com",
-  },
+  publisher: { "@id": "https://www.vchemicsindia.com/#organization" },
   blogPost: allBlogPosts.map((post) => ({
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    ...(blogDates[post.id] ? { datePublished: blogDates[post.id]?.published } : {}),
-    author: {
-      "@type": "Organization",
-      name: post.author,
-    },
+    url: `https://www.vchemicsindia.com/blog/${post.slug}`,
+    image: absUrl(post.image),
+    ...(blogDates[post.id]
+      ? { datePublished: blogDates[post.id]?.published, dateModified: blogDates[post.id]?.updated }
+      : {}),
+    author: { "@id": "https://www.vchemicsindia.com/#organization" },
   })),
 };
 
@@ -41,11 +39,6 @@ export const Route = createFileRoute("/blog")({
     meta: [
       { title },
       { name: "description", content: description },
-      {
-        name: "keywords",
-        content:
-          "concrete admixture guide, PU injection grouting Chennai, crystalline waterproofing guide, micro concrete standards, non shrink grout ASTM C1107, concrete crack repair",
-      },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
@@ -171,6 +164,9 @@ function KnowledgeCenterPage() {
                               featuredPost.alt ||
                               `${featuredPost.title} - Technical Engineering Guide`
                             }
+                            width={1280}
+                            height={800}
+                            fetchPriority="high"
                             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                           />
                           {/* Amber Placeholder Badge for generic category images */}
@@ -266,6 +262,10 @@ function KnowledgeCenterPage() {
                       <img
                         src={post.image}
                         alt={post.alt || `${post.title} - Technical Guide`}
+                        width={640}
+                        height={400}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                       />
                     ) : (

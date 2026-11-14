@@ -40,6 +40,7 @@ import { cn } from "@/lib/utils";
 import { trackWhatsAppClick, trackCallClick, trackGetQuoteClick } from "@/lib/analytics";
 import { productImgProps } from "@/lib/product-images";
 import { productAnswers, formatDate } from "@/components/site/quick-answers";
+import { absUrl } from "@/lib/abs-url";
 
 const productIcons: Record<string, LucideIcon> = {
   "concrete-admixtures": FlaskConical,
@@ -82,6 +83,11 @@ const productMetaDescriptions: Record<string, string> = {
 };
 
 // SEO <title> per product (keep each under ~60 characters).
+// Page H1 where it should differ from the product name used in menus and cards.
+const productH1: Record<string, string> = {
+  "concrete-repair": "Concrete Repair Mortars & Chemicals",
+};
+
 const productMetaTitles: Record<string, string> = {
   "concrete-admixtures": "Concrete Admixture Suppliers in Tamil Nadu | Vchemics",
   "waterproofing-chemicals": "Waterproofing Chemical Dealers Across Tamil Nadu | Vchemics",
@@ -145,24 +151,28 @@ export const Route = createFileRoute("/products_/$slug")({
       productMetaDescriptions[product.slug] ||
       `${product.title} manufactured by Vchemics Chennai. ${product.tagline}. Compliant with ${product.standard}.`;
     const url = `https://www.vchemicsindia.com/products/${product.id}`;
-    const ogImage =
-      typeof product.image === "string" && product.image.startsWith("http")
-        ? product.image
-        : "https://www.vchemicsindia.com/image.png";
+    const ogImage = absUrl(product.image);
 
     const productSchema: Record<string, unknown> = {
       "@context": "https://schema.org",
       "@type": "Product",
+      "@id": `${url}#product`,
+      url,
       name: product.title,
       description: description,
       category: product.category,
       image: ogImage,
-      sku: product.id,
-      mpn: product.id,
       brand: {
         "@type": "Brand",
         name: "Vchemics India Solutions",
       },
+      ...(product.standard
+        ? {
+            additionalProperty: [
+              { "@type": "PropertyValue", name: "Standard", value: product.standard },
+            ],
+          }
+        : {}),
     };
 
     const breadcrumbSchema = {
@@ -211,6 +221,8 @@ export const Route = createFileRoute("/products_/$slug")({
       "@id": url,
       url,
       name: title,
+      mainEntity: { "@id": `${url}#product` },
+      isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
       ...(quick ? { dateModified: quick.updated } : {}),
     };
 
@@ -240,17 +252,17 @@ export const Route = createFileRoute("/products_/$slug")({
       meta: [
         { title },
         { name: "description", content: description },
-        {
-          name: "keywords",
-          content: `${product.title}, ${product.category}, ${product.standard}, construction chemicals Chennai, Vchemics`,
-        },
         { name: "robots", content: "index, follow" },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         { property: "og:url", content: url },
         { property: "og:image", content: ogImage },
+        { property: "og:image:alt", content: product.alt || product.title },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: description },
+        { name: "twitter:image", content: ogImage },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts,
@@ -343,7 +355,11 @@ function ProductDetailPage() {
                 Home
               </Link>
               <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
-              <Link to="/products" className="hover:text-white transition-colors">
+              <Link
+                to="/products"
+                activeOptions={{ exact: true }}
+                className="hover:text-white transition-colors"
+              >
                 Products
               </Link>
               <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
@@ -366,7 +382,7 @@ function ProductDetailPage() {
 
               {/* Product Title H1 */}
               <h1 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-                {product.title}
+                {productH1[product.id] ?? product.title}
               </h1>
 
               {/* Subtitle / Tagline */}
@@ -729,6 +745,7 @@ function ProductDetailPage() {
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                       className="flex w-full items-center justify-between p-5 text-left font-display text-sm sm:text-base font-bold text-foreground hover:text-brand-blue transition-colors cursor-pointer gap-4"
                       aria-expanded={isOpen}
+                      aria-controls={`product-faq-${idx}`}
                     >
                       <span className="flex items-center gap-3">
                         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue/10 text-xs font-bold text-brand-blue font-mono">
@@ -744,11 +761,14 @@ function ProductDetailPage() {
                       />
                     </button>
 
-                    {isOpen && (
-                      <div className="border-t border-border/60 bg-muted/15 p-5 pt-4 text-xs sm:text-sm text-foreground/90 leading-relaxed font-sans animate-in fade-in duration-200">
-                        {faq.a}
-                      </div>
-                    )}
+                    {/* Every answer stays in the HTML (hidden when closed) so search engines can read it */}
+                    <div
+                      id={`product-faq-${idx}`}
+                      hidden={!isOpen}
+                      className="border-t border-border/60 bg-muted/15 p-5 pt-4 text-xs sm:text-sm text-foreground/90 leading-relaxed font-sans animate-in fade-in duration-200"
+                    >
+                      {faq.a}
+                    </div>
                   </div>
                 );
               })}

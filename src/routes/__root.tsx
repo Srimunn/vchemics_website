@@ -175,7 +175,7 @@ const siteSchema = {
       },
       image: { "@id": `${SITE_URL}/#logo` },
       description:
-        "Supplier of construction chemicals, waterproofing systems and concrete repair products across Tamil Nadu, and authorized distributor of leading brands including Fosroc, BASF, Sika, Berger, Ardex, MYK Arment, Renacon and STP.",
+        "Manufacturer and supplier of construction chemicals, waterproofing systems and concrete repair products across Tamil Nadu, and authorized distributor of leading brands including Fosroc, BASF, Sika, Berger, Ardex, MYK Arment, Renacon and STP.",
       email: "vchemics1989@gmail.com",
       telephone: "+91-99423-54602",
       address: {
@@ -263,15 +263,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "High-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & micro concrete manufacturer across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch.",
       },
-      {
-        name: "keywords",
-        content:
-          "construction chemicals Chennai, waterproofing chemicals Coimbatore, concrete admixture supplier Erode, Krishnagiri construction chemicals, PU injection grouting Tamil Nadu, non shrink grout, micro concrete",
-      },
       { name: "author", content: "Vchemics India Solutions" },
       { name: "robots", content: "index, follow" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Vchemics India Solutions" },
+      { property: "og:locale", content: "en_IN" },
       { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -300,7 +296,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <head>
         <HeadContent />
         {/* Google Analytics 4 (GA4). The gtag() stub queues every call in dataLayer right away;
