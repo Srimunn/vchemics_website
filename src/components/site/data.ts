@@ -1225,7 +1225,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "sump-leakage-repair-after-rain",
     title: "Sump Leakage Repair After Rain: How to Find and Fix Underground Tank Leaks",
     category: "Waterproofing Guides",
-    date: "October 2026",
+    date: "November 2026",
     readTime: "9 min read",
     author: "Waterproofing Field Engineers",
     reviewedBy: "Vchemics Technical Team",
@@ -1484,7 +1484,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "waterproofing-chemicals-guide",
     title: "Waterproofing Chemicals: A Simple Guide for Better Building Protection",
     category: "Waterproofing Guides",
-    date: "September 2026",
+    date: "October 2026",
     readTime: "8 min read",
     author: "Vchemics Technical Team",
     excerpt:
@@ -1505,7 +1505,7 @@ export const allBlogPosts: BlogPostItem[] = [
     slug: "protective-coatings-for-buildings",
     title: "Protective Coatings: Types, Benefits & Uses",
     category: "Waterproofing Guides",
-    date: "September 2026",
+    date: "October 2026",
     readTime: "8 min read",
     author: "Vchemics Technical Team",
     excerpt:

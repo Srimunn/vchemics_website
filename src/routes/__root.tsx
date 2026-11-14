@@ -8,7 +8,7 @@ import {
   Scripts,
   useRouterState,
 } from "@tanstack/react-router";
-import { useEffect, useRef, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -17,7 +17,32 @@ import { Navbar } from "@/components/site/Navbar";
 import { BrandStrip } from "@/components/site/BrandStrip";
 import { Footer } from "@/components/site/Footer";
 import { BackToTop } from "@/components/site/BackToTop";
-import { ChatWidget } from "@/components/site/ChatWidget";
+// The chat launcher is not needed for the first paint: load its code after the page has loaded,
+// so it doesn't compete with the hero image on phones (PageSpeed "element render delay").
+const ChatWidget = lazy(() =>
+  import("@/components/site/ChatWidget").then((m) => ({ default: m.ChatWidget })),
+);
+
+function DeferredChatWidget() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const show = () => {
+      timer = setTimeout(() => setReady(true), 1500);
+    };
+    if (document.readyState === "complete") show();
+    else window.addEventListener("load", show, { once: true });
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("load", show);
+    };
+  }, []);
+  return ready ? (
+    <Suspense fallback={null}>
+      <ChatWidget />
+    </Suspense>
+  ) : null;
+}
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -231,13 +256,13 @@ const siteSchema = {
       ["Chennai", "Kanchipuram", "Chengalpattu", "Tiruvallur", "Sriperumbudur", "Oragadam"],
       { geo: { "@type": "GeoCoordinates", latitude: 13.0978, longitude: 80.1873 } },
     ),
-    branch(
-      "krishnagiri",
+    branch("krishnagiri", "Krishnagiri", "RSF No. 121/16, Murugar Kovil, Boganapalli", "635001", [
       "Krishnagiri",
-      "RSF No. 121/16, Murugar Kovil, Boganapalli",
-      "635001",
-      ["Krishnagiri", "Hosur", "Dharmapuri", "Bargur", "Pochampalli"],
-    ),
+      "Hosur",
+      "Dharmapuri",
+      "Bargur",
+      "Pochampalli",
+    ]),
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
@@ -251,43 +276,50 @@ const siteSchema = {
 };
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      {
-        title: "Construction Chemicals & Waterproofing Solutions | Vchemics",
-      },
-      {
-        name: "description",
-        content:
-          "High-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & micro concrete manufacturer across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch.",
-      },
-      { name: "author", content: "Vchemics India Solutions" },
-      { name: "robots", content: "index, follow" },
-      { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Vchemics India Solutions" },
-      { property: "og:locale", content: "en_IN" },
-      { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "64x64" },
-      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
-      // Fonts are self-hosted in styles.css (font-display: swap). No preload on purpose: in a 7-run
-      // slow-4G test, preloading delayed first paint more than it helped the largest paint.
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify(siteSchema),
-      },
-    ],
-  }),
+  head: ({ match }) => {
+    // 404 pages (unknown URL, or a page whose loader threw notFound) get their own title and
+    // noindex; the status code is already 404. Child heads don't run for these, so root decides.
+    const notFound = match.status === "notFound" || match.globalNotFound;
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          title: notFound
+            ? "Page Not Found | Vchemics"
+            : "Construction Chemicals & Waterproofing Solutions | Vchemics",
+        },
+        {
+          name: "description",
+          content:
+            "High-performance concrete admixtures, crystalline waterproofing, PU injection grouts, non-shrink grouts & micro concrete manufacturer across Chennai, Coimbatore, Erode & Krishnagiri. Same-day & 24-hour dispatch.",
+        },
+        { name: "author", content: "Vchemics India Solutions" },
+        { name: "robots", content: notFound ? "noindex, follow" : "index, follow" },
+        { property: "og:type", content: "website" },
+        { property: "og:site_name", content: "Vchemics India Solutions" },
+        { property: "og:locale", content: "en_IN" },
+        { property: "og:image", content: "https://www.vchemicsindia.com/image.png" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [
+        { rel: "stylesheet", href: appCss },
+        { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "64x64" },
+        { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+        { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+        // Fonts are self-hosted in styles.css (font-display: swap). No preload on purpose: in a 7-run
+        // slow-4G test, preloading delayed first paint more than it helped the largest paint.
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(siteSchema),
+        },
+      ],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -370,7 +402,7 @@ function RootComponent() {
       <BrandStrip />
       <Footer />
       <BackToTop />
-      <ChatWidget />
+      <DeferredChatWidget />
       <Toaster position="top-right" richColors />
     </QueryClientProvider>
   );

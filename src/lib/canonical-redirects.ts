@@ -50,13 +50,19 @@ export function requestHostname(headers: Headers, fallback: string): string {
  * so even an old URL on the bare domain needs only one hop.
  */
 export function canonicalRedirectTarget(url: URL, hostname: string): string | null {
-  const trimmedPath = url.pathname.replace(/\/+$/, "") || "/";
+  // "//about" → "/about" (the router answered 308 to an http:// URL).
+  const collapsedPath = url.pathname.replace(/\/{2,}/g, "/");
+  const trimmedPath = collapsedPath.replace(/\/+$/, "") || "/";
   const legacyTarget = LEGACY_REDIRECTS[trimmedPath.toLowerCase()];
   if (legacyTarget) return `${CANONICAL_ORIGIN}${legacyTarget}${url.search}`;
 
-  // "/products/" → "/products" in one permanent hop (the router would answer 307).
-  if (trimmedPath !== url.pathname && isPagePath(trimmedPath)) {
-    return `${CANONICAL_ORIGIN}${trimmedPath}${url.search}`;
+  if (isPagePath(trimmedPath)) {
+    // Page URLs are all lowercase: "/Products/Waterproofing-Chemicals" → lowercase (was a 404).
+    const lowerPath = trimmedPath.toLowerCase();
+    // One hop for "/products/", "//about" and uppercase variants alike.
+    if (lowerPath !== url.pathname) return `${CANONICAL_ORIGIN}${lowerPath}${url.search}`;
+  } else if (collapsedPath !== url.pathname) {
+    return `${CANONICAL_ORIGIN}${collapsedPath}${url.search}`;
   }
 
   // Bare domain → www for every path, files in public/ included (sitemap.xml, robots.txt, images).

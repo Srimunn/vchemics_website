@@ -26,7 +26,7 @@ export default defineConfig({
           "X-Frame-Options": "SAMEORIGIN",
           "Referrer-Policy": "strict-origin-when-cross-origin",
           "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
-          "Content-Security-Policy": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'",
+          "Content-Security-Policy": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com",
         },
       },
       // Browser caching for un-hashed files in public/ (hashed /assets/* are already immutable)

@@ -84,13 +84,13 @@ export function Footer() {
             <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-white flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> Products
             </h3>
-            <ul className="space-y-2 text-xs text-[#b0c7df]">
+            <ul className="space-y-1 text-xs text-[#b0c7df]">
               {allProducts.map((p) => (
                 <li key={p.id}>
                   <Link
                     to="/products/$slug"
                     params={{ slug: p.id }}
-                    className="transition-colors hover:text-brand-green inline-flex items-center gap-1.5"
+                    className="transition-colors hover:text-brand-green inline-flex min-h-6 items-center gap-1.5"
                   >
                     <span className="text-white/30">•</span> {p.title}
                   </Link>
@@ -104,13 +104,13 @@ export function Footer() {
             <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-white flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> Solutions
             </h3>
-            <ul className="space-y-2 text-xs text-[#b0c7df]">
+            <ul className="space-y-1 text-xs text-[#b0c7df]">
               {allSolutions.map((s) => (
                 <li key={s.id}>
                   <Link
                     to="/solutions/$slug"
                     params={{ slug: s.id }}
-                    className="transition-colors hover:text-brand-green inline-flex items-center gap-1.5"
+                    className="transition-colors hover:text-brand-green inline-flex min-h-6 items-center gap-1.5"
                   >
                     <span className="text-white/30">•</span>{" "}
                     {s.id === "painting" ? "Painting" : s.title}
@@ -214,13 +214,22 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Vchemics India Solutions. All Rights Reserved.</p>
 
           <div className="flex items-center gap-6">
-            <Link to="/services" className="transition-colors hover:text-brand-green">
+            <Link
+              to="/services"
+              className="inline-flex min-h-6 items-center transition-colors hover:text-brand-green"
+            >
               Services
             </Link>
-            <Link to="/terms" className="transition-colors hover:text-brand-green">
+            <Link
+              to="/terms"
+              className="inline-flex min-h-6 items-center transition-colors hover:text-brand-green"
+            >
               Terms &amp; Conditions
             </Link>
-            <Link to="/privacy" className="transition-colors hover:text-brand-green">
+            <Link
+              to="/privacy"
+              className="inline-flex min-h-6 items-center transition-colors hover:text-brand-green"
+            >
               Privacy Policy
             </Link>
           </div>

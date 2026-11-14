@@ -1,5 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { preload } from "react-dom";
 import {
   FlaskConical,
   Droplets,
@@ -153,26 +154,20 @@ export const Route = createFileRoute("/products_/$slug")({
     const url = `https://www.vchemicsindia.com/products/${product.id}`;
     const ogImage = absUrl(product.image);
 
+    // These are product-family pages (several grades, no published prices), so they are an
+    // OfferCatalog, not a Product: Google requires offers/review/aggregateRating on Product and
+    // Search Console reported "Product snippets" errors on all 8 pages. If real prices are ever
+    // published, add Product markup per individual product, with real `offers`.
     const productSchema: Record<string, unknown> = {
       "@context": "https://schema.org",
-      "@type": "Product",
-      "@id": `${url}#product`,
+      "@type": "OfferCatalog",
+      "@id": `${url}#catalog`,
       url,
       name: product.title,
-      description: description,
-      category: product.category,
+      description: product.standard
+        ? `${description} Standards: ${product.standard}.`
+        : description,
       image: ogImage,
-      brand: {
-        "@type": "Brand",
-        name: "Vchemics India Solutions",
-      },
-      ...(product.standard
-        ? {
-            additionalProperty: [
-              { "@type": "PropertyValue", name: "Standard", value: product.standard },
-            ],
-          }
-        : {}),
     };
 
     const breadcrumbSchema = {
@@ -221,7 +216,7 @@ export const Route = createFileRoute("/products_/$slug")({
       "@id": url,
       url,
       name: title,
-      mainEntity: { "@id": `${url}#product` },
+      mainEntity: { "@id": `${url}#catalog` },
       isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
       ...(quick ? { dateModified: quick.updated } : {}),
     };
@@ -271,8 +266,21 @@ export const Route = createFileRoute("/products_/$slug")({
   component: ProductDetailPage,
 });
 
+const HERO_IMG_SIZES = "(min-width: 1024px) 42vw, 100vw";
+
 function ProductDetailPage() {
   const { product } = Route.useLoaderData();
+  // The hero photo is the mobile LCP element: request it at once, at high priority.
+  const heroImg: { srcSet?: string; sizes?: string; width?: number; height?: number } =
+    productImgProps(product.id, HERO_IMG_SIZES);
+  if (product.image) {
+    preload(product.image, {
+      as: "image",
+      fetchPriority: "high",
+      imageSrcSet: heroImg.srcSet,
+      imageSizes: heroImg.sizes,
+    });
+  }
   const quick = productAnswers[product.id];
   const [isProcOpen, setIsProcOpen] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -443,13 +451,15 @@ function ProductDetailPage() {
 
             {/* Right: Showcase Image Card */}
             <div className="lg:col-span-5 flex items-center justify-center">
-              <div className="w-full relative overflow-hidden rounded-2xl border border-white/20 bg-white/5 backdrop-blur-md shadow-2xl p-2 sm:p-3">
+              <div className="w-full relative overflow-hidden rounded-2xl border border-white/20 bg-white/5 shadow-2xl p-2 sm:p-3">
                 <div className="relative aspect-4/3 overflow-hidden rounded-xl bg-slate-900">
                   {product.image ? (
                     <img
                       src={product.image}
-                      {...productImgProps(product.id, "(min-width: 1024px) 42vw, 100vw")}
+                      {...heroImg}
                       alt={product.alt || product.title}
+                      fetchPriority="high"
+                      loading="eager"
                       className="h-full w-full object-cover"
                     />
                   ) : (
@@ -458,12 +468,10 @@ function ProductDetailPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
 
                   <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
-                    <span className="font-mono text-[0.68rem] font-bold text-brand-green uppercase tracking-wider bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
+                    <span className="font-mono text-xs font-bold text-brand-green uppercase tracking-wider bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
                       IS & ASTM Verified
                     </span>
-                    <span className="font-mono text-[0.68rem] text-white/80">
-                      Chennai Manufacturing
-                    </span>
+                    <span className="font-mono text-xs text-white/80">Chennai Manufacturing</span>
                   </div>
                 </div>
               </div>
@@ -572,7 +580,7 @@ function ProductDetailPage() {
                   <div className="border-t border-border/80 bg-muted/15 p-5 space-y-3">
                     {ext.procedure.map((step, sIdx) => (
                       <div key={sIdx} className="flex items-start gap-3 text-xs">
-                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-blue text-[0.65rem] font-bold text-white font-mono">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-blue text-xs font-bold text-white font-mono">
                           {sIdx + 1}
                         </span>
                         <span className="text-foreground/90 leading-relaxed pt-0.5">{step}</span>
@@ -593,7 +601,7 @@ function ProductDetailPage() {
 
                 <div className="divide-y divide-border/60 text-xs">
                   <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
-                    <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
+                    <span className="text-muted-foreground font-mono uppercase text-xs">
                       Standard
                     </span>
                     <span className="font-semibold text-foreground font-mono">
@@ -602,7 +610,7 @@ function ProductDetailPage() {
                   </div>
 
                   <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
-                    <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
+                    <span className="text-muted-foreground font-mono uppercase text-xs">
                       Dosage / Rate
                     </span>
                     <span className="font-semibold text-brand-green font-mono">
@@ -611,7 +619,7 @@ function ProductDetailPage() {
                   </div>
 
                   <div className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap">
-                    <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
+                    <span className="text-muted-foreground font-mono uppercase text-xs">
                       Packaging
                     </span>
                     <span className="font-semibold text-foreground text-right max-w-full sm:max-w-[200px] truncate">
@@ -624,7 +632,7 @@ function ProductDetailPage() {
                       key={spec.label}
                       className="py-2.5 flex items-center justify-between gap-3 flex-wrap sm:flex-nowrap"
                     >
-                      <span className="text-muted-foreground font-mono uppercase text-[0.68rem]">
+                      <span className="text-muted-foreground font-mono uppercase text-xs">
                         {spec.label}
                       </span>
                       <span className="font-semibold text-foreground font-mono text-right">
@@ -827,14 +835,14 @@ function ProductDetailPage() {
                         <ImagePlaceholder label={article.title} />
                       )}
                       <div className="absolute top-2.5 left-2.5 z-10">
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/65 backdrop-blur-md px-2.5 py-0.5 font-mono text-[0.62rem] font-bold uppercase tracking-wider text-brand-green border border-white/15">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-black/65 backdrop-blur-md px-2.5 py-0.5 font-mono text-xs font-bold uppercase tracking-wider text-brand-green border border-white/15">
                           {article.category}
                         </span>
                       </div>
                     </div>
 
                     <div className="p-4 sm:p-5 space-y-2">
-                      <div className="flex items-center gap-2 text-[0.68rem] font-mono text-muted-foreground">
+                      <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
                         <Calendar className="h-3 w-3 text-brand-green" />
                         <span>{article.date}</span>
                         <span>•</span>
@@ -963,11 +971,11 @@ function RelatedCatalogueCard({
           </div>
 
           <div className="flex flex-wrap items-center justify-end gap-1.5">
-            <span className="font-mono text-[0.68rem] font-bold uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-2.5 py-0.5 rounded-full border border-brand-blue/20">
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-brand-blue bg-brand-blue/10 px-2.5 py-0.5 rounded-full border border-brand-blue/20">
               {product.make}
             </span>
             {product.featured && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 text-brand-green px-2 py-0.5 font-mono text-[0.65rem] font-bold uppercase tracking-wider border border-brand-green/30">
+              <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 text-brand-green px-2 py-0.5 font-mono text-xs font-bold uppercase tracking-wider border border-brand-green/30">
                 <Sparkles className="h-3 w-3" /> Featured
               </span>
             )}
@@ -990,14 +998,14 @@ function RelatedCatalogueCard({
 
         {/* Variant Pills */}
         <div className="space-y-1.5 pt-1">
-          <span className="block font-mono text-[0.62rem] font-bold uppercase tracking-wider text-muted-foreground">
+          <span className="block font-mono text-xs font-bold uppercase tracking-wider text-muted-foreground">
             Available Pack Sizes / Variants:
           </span>
           <div className="flex flex-wrap gap-1.5">
             {product.variants.map((v) => (
               <span
                 key={v.label}
-                className="inline-flex items-center rounded-lg border border-border/80 bg-muted/40 px-2 py-0.5 font-mono text-[0.68rem] font-semibold text-foreground/90"
+                className="inline-flex items-center rounded-lg border border-border/80 bg-muted/40 px-2 py-0.5 font-mono text-xs font-semibold text-foreground/90"
               >
                 {v.label}
               </span>
@@ -1020,10 +1028,10 @@ function RelatedCatalogueCard({
 
       {/* Card Action Footer */}
       <div className="pt-4 mt-4 border-t border-border/60 flex items-center justify-between gap-3">
-        <span className="font-mono text-[0.62rem] text-muted-foreground">SKU: {product.id}</span>
+        <span className="font-mono text-xs text-muted-foreground">SKU: {product.id}</span>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-border/80 bg-background px-3 py-1.5 font-display text-[0.7rem] font-bold uppercase tracking-wider text-foreground hover:bg-muted/50 hover:text-brand-blue transition-all"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-border/80 bg-background px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wider text-foreground hover:bg-muted/50 hover:text-brand-blue transition-all"
         >
           <span>Enquire / Quote</span>
           <ArrowRight className="h-3 w-3" />

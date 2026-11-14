@@ -64,7 +64,23 @@ export const Route = createFileRoute("/products")({
                 })),
               },
             },
-            { "@type": "BreadcrumbList", itemListElement: [ { "@type": "ListItem", position: 1, name: "Home", item: "https://www.vchemicsindia.com/" }, { "@type": "ListItem", position: 2, name: "Products", item: "https://www.vchemicsindia.com/products" } ] },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.vchemicsindia.com/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Products",
+                  item: "https://www.vchemicsindia.com/products",
+                },
+              ],
+            },
           ],
         }),
       },
@@ -136,7 +152,7 @@ function ProductsPage() {
       />
 
       {/* 1. SLIM INTERACTIVE FILTER & SEARCH DOCK */}
-      <section className="bg-muted/40 border-b border-border/80 py-3 sticky top-14 sm:top-16 z-30 backdrop-blur-md bg-white/95 transition-all duration-300">
+      <section className="bg-muted/40 border-b border-border/80 py-3 sm:sticky sm:top-16 z-30 backdrop-blur-md bg-white/95 transition-all duration-300">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="rounded-xl border border-border/80 bg-card p-2 sm:p-2.5 shadow-xs flex flex-col md:flex-row items-center justify-between gap-2.5">
             {/* Category Tabs */}

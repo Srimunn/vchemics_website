@@ -105,15 +105,17 @@ function compressResponseIfNeeded(request: Request, response: Response): Respons
 // Legacy URLs, trailing slashes and the bare domain: see src/lib/canonical-redirects.ts.
 // The same rules also run earlier, in src/nitro/apex-redirect.ts, for files in public/.
 
-// Baseline security headers. The CSP only limits framing, <base> and plugins, so it
-// can't block Google Tag Manager, fonts or any other script/style the site loads.
+// Baseline security headers. The CSP limits framing, <base> and plugins, and allows scripts
+// only from this site (incl. inline: SSR hydration, gtag stub) and Google Tag Manager/Analytics.
+// Styles, images, fonts and fetch/XHR (Web3Forms, Groq) are not restricted. A new third-party
+// <script> host must be added here and in vite.config.ts (routeRules), or the browser blocks it.
 const SECURITY_HEADERS: Record<string, string> = {
   "strict-transport-security": HSTS_HEADER_VALUE,
   "x-content-type-options": "nosniff",
   "x-frame-options": "SAMEORIGIN",
   "referrer-policy": "strict-origin-when-cross-origin",
   "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
-  "content-security-policy": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'",
+  "content-security-policy": "frame-ancestors 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com",
 };
 
 function applySecurityHeaders(response: Response): Response {
