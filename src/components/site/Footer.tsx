@@ -102,7 +102,7 @@ export function Footer() {
           {/* Col 3: Solutions (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <h3 className="font-display text-xs font-bold uppercase tracking-[0.14em] text-white flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> Solutions
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-green" /> Services
             </h3>
             <ul className="space-y-1 text-xs text-[#b0c7df]">
               {allSolutions.map((s) => (

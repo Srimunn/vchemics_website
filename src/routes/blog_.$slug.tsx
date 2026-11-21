@@ -24,6 +24,7 @@ import { blogDates, formatDate } from "@/components/site/quick-answers";
 import { absUrl } from "@/lib/abs-url";
 
 const blogMetaTitles: Record<string, string> = {
+  "rebar-chemicals-for-concrete": "Rebar Chemicals for Concrete: Types & Uses | Vchemics",
   "epoxy-flooring-for-factories": "Epoxy Flooring for Factories: Cost, Types & Why It Peels",
   "sump-leakage-repair-after-rain": "Sump Leakage Repair After Rain: Causes & Fixes | Vchemics",
   "terrace-leakage-monsoon-checks": "Terrace Leakage in the Rain? 7 Checks & Fixes | Vchemics",
@@ -40,6 +41,8 @@ const blogMetaTitles: Record<string, string> = {
 };
 
 const blogMetaDescriptions: Record<string, string> = {
+  "rebar-chemicals-for-concrete":
+    "Rebar chemicals for concrete do 3 different jobs: anchoring new bars, stopping rust and rebuilding damaged cover. Here's how to pick the right one.",
   "epoxy-flooring-for-factories":
     "Thinking of epoxy flooring for factories? Compare 5 floor types, cost per sq ft, epoxy vs PU vs hardener, and 6 reasons floors peel in our heat.",
   "sump-leakage-repair-after-rain":

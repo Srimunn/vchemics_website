@@ -28,7 +28,6 @@ export function Navbar() {
     { label: "HOME", to: "/", exact: true },
     { label: "ABOUT US", to: "/about" },
     { label: "PRODUCTS", to: "/products" },
-    { label: "SOLUTIONS", to: "/solutions" },
     { label: "SERVICES", to: "/services" },
     { label: "BRANCHES", to: "/locations" },
     { label: "PROJECTS", to: "/projects" },

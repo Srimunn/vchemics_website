@@ -1206,6 +1206,21 @@ export const blogTopics = [
 
 export const allBlogPosts: BlogPostItem[] = [
   {
+    id: "rebar-chemicals-for-concrete",
+    slug: "rebar-chemicals-for-concrete",
+    title: "Rebar Chemicals for Concrete: Which One Does Your Job Need?",
+    category: "Structural Rehabilitation",
+    date: "November 2026",
+    readTime: "9 min read",
+    author: "Structural Repair & Diagnostics Team",
+    reviewedBy: "Vchemics Technical Team",
+    excerpt:
+      "\"Rebar chemical\" can mean three different products: one anchors new bars, one protects rusted steel and one rebuilds the concrete. Here's how to choose, and the site mistakes that make each one fail.",
+    tags: ["Rebar Chemicals", "Concrete Repair", "Epoxy Grouting", "Micro Concrete", "Rebar Corrosion", "Structural Rehabilitation"],
+    image: step2DowelingImg,
+    alt: "Worker drilling holes and fixing chemically anchored rebar dowels into an existing concrete column",
+  },
+  {
     id: "epoxy-flooring-for-factories",
     slug: "epoxy-flooring-for-factories",
     title: "Epoxy Flooring for Factories: Cost, Types and Why It Peels in Our Heat",

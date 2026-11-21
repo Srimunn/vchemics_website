@@ -1,7 +1,7 @@
 {
   "/": {
-    "hash": "df808db5cf0c9596",
-    "lastmod": "2026-11-14"
+    "hash": "e2ee733e829ef30f",
+    "lastmod": "2026-11-19"
   },
   "/about": {
     "hash": "c2348291f83b9746",
@@ -11,13 +11,9 @@
     "hash": "0870dba273056db2",
     "lastmod": "2026-11-14"
   },
-  "/solutions": {
-    "hash": "31bdd5be2f0721ff",
-    "lastmod": "2026-11-14"
-  },
   "/services": {
-    "hash": "f22659951d93f0f9",
-    "lastmod": "2026-11-14"
+    "hash": "666852b87c39ac8a",
+    "lastmod": "2026-11-19"
   },
   "/locations": {
     "hash": "44f5d73c7cf0c299",
@@ -28,8 +24,8 @@
     "lastmod": "2026-11-14"
   },
   "/blog": {
-    "hash": "79dcaaf2c4c81ad8",
-    "lastmod": "2026-11-14"
+    "hash": "4e08674d773a65b9",
+    "lastmod": "2026-11-20"
   },
   "/contact": {
     "hash": "6358d2d445dd2283",
@@ -99,6 +95,10 @@
     "hash": "ab16fb59c301a658",
     "lastmod": "2026-10-16"
   },
+  "/blog/rebar-chemicals-for-concrete": {
+    "hash": "8d6db8f712de7501",
+    "lastmod": "2026-11-20"
+  },
   "/blog/epoxy-flooring-for-factories": {
     "hash": "940311423d715d76",
     "lastmod": "2026-11-13"
@@ -112,8 +112,8 @@
     "lastmod": "2026-11-14"
   },
   "/blog/why-concrete-repairs-fail-tropical-climates": {
-    "hash": "96af0f1ba9c18b54",
-    "lastmod": "2026-11-05"
+    "hash": "8b078be21f54d95b",
+    "lastmod": "2026-11-20"
   },
   "/blog/pu-injection-grouting": {
     "hash": "b8d10eea3769106a",
@@ -136,8 +136,8 @@
     "lastmod": "2026-11-14"
   },
   "/blog/column-jacketing-micro-concrete-standards": {
-    "hash": "87efaf0af548fa81",
-    "lastmod": "2026-11-05"
+    "hash": "45958acdcd6f373a",
+    "lastmod": "2026-11-20"
   },
   "/blog/waterproofing-chemicals-guide": {
     "hash": "1ca59e917b124f05",

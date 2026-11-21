@@ -14,7 +14,6 @@ export const STATIC_PAGES = [
   { path: "/", files: ["src/routes/index.tsx"] },
   { path: "/about", files: ["src/routes/about.tsx"] },
   { path: "/products", files: ["src/routes/products.tsx"] },
-  { path: "/solutions", files: ["src/routes/solutions.tsx"] },
   { path: "/services", files: ["src/routes/services.tsx"] },
   { path: "/locations", files: ["src/routes/locations.tsx"], lists: ["allLocations"] },
   { path: "/projects", files: ["src/routes/projects.tsx"], lists: ["allProjects"] },

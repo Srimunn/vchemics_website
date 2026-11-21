@@ -121,6 +121,7 @@ export const solutionAnswers: Record<string, QuickAnswer> = {
  * `updated` is the last time the article body was changed.
  */
 export const blogDates: Record<string, { published: string; updated: string }> = {
+  "rebar-chemicals-for-concrete": { published: "2026-11-16", updated: "2026-11-16" },
   "epoxy-flooring-for-factories": { published: "2026-11-09", updated: "2026-11-13" },
   "sump-leakage-repair-after-rain": { published: "2026-11-02", updated: "2026-11-04" },
   "terrace-leakage-monsoon-checks": { published: "2026-10-26", updated: "2026-11-04" },

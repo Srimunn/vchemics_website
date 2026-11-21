@@ -767,7 +767,7 @@ function Home() {
               </div>
 
               <Link
-                to="/solutions"
+                to="/services"
                 className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card px-5 py-3 font-display text-xs font-bold uppercase tracking-wider text-foreground hover:border-brand-blue hover:text-brand-blue transition-all shrink-0"
               >
                 <span>View All Solutions ({allSolutions.length})</span>

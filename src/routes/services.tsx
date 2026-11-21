@@ -1,5 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
+  Droplets,
+  Paintbrush,
   Building2,
   ClipboardCheck,
   Factory,
@@ -23,6 +25,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { Testimonials } from "@/components/site/Testimonials";
 import { SectionHeading } from "@/components/site/ui";
 import { ContactSection } from "@/components/site/ContactSection";
+import { allSolutions } from "@/components/site/data";
 
 const title = "Waterproofing & Concrete Repair Services in Tamil Nadu";
 const description =
@@ -59,13 +62,19 @@ export const Route = createFileRoute("/services")({
               isPartOf: { "@id": "https://www.vchemicsindia.com/#website" },
               mainEntity: {
                 "@type": "ItemList",
-                itemListElement: capabilities.map((c, i) => ({
+                itemListElement: [
+                  ...allSolutions.map((s) => ({
+                    name: s.title,
+                    description: s.subtitle,
+                    url: `https://www.vchemicsindia.com/solutions/${s.id}`,
+                  })),
+                  ...capabilities.map((c) => ({ name: c.title, description: c.body })),
+                ].map((svc, i) => ({
                   "@type": "ListItem",
                   position: i + 1,
                   item: {
                     "@type": "Service",
-                    name: c.title,
-                    description: c.body,
+                    ...svc,
                     provider: { "@id": "https://www.vchemicsindia.com/#organization" },
                     areaServed: { "@type": "State", name: "Tamil Nadu" },
                   },
@@ -131,6 +140,15 @@ const capabilities = [
     Icon: HardHat,
   },
 ];
+
+const solutionIcons: Record<string, typeof Droplets> = {
+  "basement-waterproofing": Droplets,
+  "terrace-waterproofing": ShieldCheck,
+  "concrete-repair": Wrench,
+  "structural-rehabilitation": Building2,
+  "industrial-flooring": Factory,
+  painting: Paintbrush,
+};
 
 const industriesServed = [
   {
@@ -208,8 +226,72 @@ function Services() {
         intro="Material alone doesn't solve a site problem. Our engineers work with your team from mix design through final application."
       />
 
-      {/* 2. CAPABILITIES & WHAT WE DO (6-CARD ARCHITECTURAL BENTO DECK) */}
+      {/* 2. OUR 6 SERVICES (moved here from the old /solutions hub; each card keeps its /solutions/ page) */}
       <section className="bg-background py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Waterproofing & Repair Solutions"
+              title="Structural &amp; Waterproofing Solutions"
+              intro="Explore dedicated execution methodologies, certified ASTM/IS layering standards, and photo case documentation."
+            />
+          </Reveal>
+
+          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {allSolutions.map((sol, idx) => {
+              const SolIcon = solutionIcons[sol.id] ?? ShieldCheck;
+              return (
+                <Reveal key={sol.id} as="li" delay={idx * 70}>
+                  <Link
+                    to="/solutions/$slug"
+                    params={{ slug: sol.id }}
+                    className="group flex h-full flex-col justify-between rounded-3xl border border-border/80 bg-card p-6 shadow-xs hover:border-brand-blue/40 hover:shadow-xl transition-all duration-300"
+                  >
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-brand-blue/10 text-brand-blue border border-brand-blue/20 group-hover:scale-110 transition-transform">
+                          <SolIcon className="h-6 w-6" />
+                        </div>
+                        <span className="font-mono text-xs font-bold text-brand-green bg-brand-green/10 px-2.5 py-1 rounded-full border border-brand-green/30">
+                          0{idx + 1}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h3 className="font-display text-lg font-bold text-foreground group-hover:text-brand-blue transition-colors">
+                          {sol.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
+                          {sol.subtitle}
+                        </p>
+                      </div>
+
+                      <div className="space-y-1.5 pt-2 border-t border-border/60">
+                        <span className="font-mono text-[0.65rem] font-bold text-brand-blue uppercase tracking-wider block">
+                          Target Applications:
+                        </span>
+                        <p className="text-xs text-foreground/80">
+                          {sol.applications.slice(0, 3).join(" • ")}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="pt-4 mt-4 border-t border-border/60 flex items-center justify-between gap-3">
+                      <span className="font-display text-xs font-bold text-brand-blue group-hover:text-brand-green transition-colors">
+                        View {sol.title}
+                      </span>
+                      <ArrowRight className="h-4 w-4 shrink-0 text-brand-blue group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+
+      {/* 3. CAPABILITIES & WHAT WE DO (6-CARD ARCHITECTURAL BENTO DECK) */}
+      <section id="capabilities" className="scroll-mt-20 bg-concrete py-24 lg:py-32 border-t border-border/60">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <SectionHeading
@@ -265,8 +347,8 @@ function Services() {
         </div>
       </section>
 
-      {/* 3. INDUSTRIES WE SERVE (8-CARD ARCHITECTURAL MATRIX) */}
-      <section className="bg-concrete py-24 lg:py-32 border-t border-border/60">
+      {/* 4. INDUSTRIES WE SERVE (8-CARD ARCHITECTURAL MATRIX) */}
+      <section className="bg-background py-24 lg:py-32 border-t border-border/60">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <SectionHeading

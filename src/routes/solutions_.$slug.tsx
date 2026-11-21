@@ -136,8 +136,8 @@ export const Route = createFileRoute("/solutions_/$slug")({
         {
           "@type": "ListItem",
           position: 2,
-          name: "Solutions",
-          item: "https://www.vchemicsindia.com/solutions",
+          name: "Services",
+          item: "https://www.vchemicsindia.com/services",
         },
         {
           "@type": "ListItem",
@@ -214,11 +214,11 @@ function SolutionDetailPage() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10">
             {/* Standalone Back Link */}
             <Link
-              to="/solutions"
+              to="/services"
               className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-brand-green hover:text-white transition-colors"
             >
               <ArrowLeft className="h-3.5 w-3.5 shrink-0" />
-              <span>Back to Solutions</span>
+              <span>Back to Services</span>
             </Link>
 
             {/* Breadcrumb Trail */}
@@ -230,8 +230,8 @@ function SolutionDetailPage() {
                 Home
               </Link>
               <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
-              <Link to="/solutions" className="hover:text-white transition-colors">
-                Solutions
+              <Link to="/services" className="hover:text-white transition-colors">
+                Services
               </Link>
               <ChevronRight className="h-3 w-3 shrink-0 text-white/40" />
               <span className="text-brand-green font-semibold truncate max-w-[180px] sm:max-w-none">
@@ -648,10 +648,10 @@ function SolutionDetailPage() {
               </h2>
             </div>
             <Link
-              to="/solutions"
+              to="/services"
               className="inline-flex items-center gap-1.5 font-display text-xs font-bold uppercase tracking-wider text-brand-blue hover:text-brand-green transition-colors"
             >
-              <span>View All Protocols</span>
+              <span>View All Services</span>
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
@@ -720,10 +720,10 @@ function SolutionDetailPage() {
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  to="/solutions"
+                  to="/services"
                   className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3.5 font-display text-xs sm:text-sm font-bold uppercase tracking-wider text-white hover:bg-white/20 transition-all"
                 >
-                  <span>All Solutions</span>
+                  <span>All Services</span>
                 </Link>
               </div>
             </div>

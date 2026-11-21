@@ -56,6 +56,144 @@ export const blogPostMarkdownData: Record<
     relatedProducts: { name: string; link: string }[];
   }
 > = {
+  "rebar-chemicals-for-concrete": {
+    takeaways: [
+      "\"Rebar chemical\" covers three jobs: anchoring new bars into old concrete, protecting rusted bars, and rebuilding the concrete cover. Say which one you need.",
+      "For rebaring, the hole matters more than the resin: drill to the marked depth, blow, brush and blow again, inject from the bottom and respect the cure time.",
+      "A zinc-rich primer only protects clean steel. Clean bars to bright metal and coat them all the way round before any mortar goes on.",
+      "Rebuild the cover with polymer-modified repair mortar or micro concrete, not plain sand and cement, then protect the whole face with a coating.",
+    ],
+    standards: [
+      { code: "IS 15988:2013", name: "Seismic Evaluation and Strengthening of Existing Reinforced Concrete Buildings: Guidelines", url: "https://law.resource.org/pub/in/bis/S03/is.15988.2013.pdf" },
+      { code: "IS 456:2000", name: "Plain and Reinforced Concrete: Code of Practice (exposure conditions, cover)", url: "https://law.resource.org/pub/in/bis/S03/is.456.2000.pdf" },
+      { code: "EN 1504-7", name: "Reinforcement Corrosion Protection", url: "https://www.en-standard.eu" },
+      { code: "EN 1504-3", name: "Structural and Non-Structural Repair of Concrete", url: "https://www.en-standard.eu" },
+    ],
+    relatedProducts: [
+      { name: "Concrete Repair", link: "/products/concrete-repair" },
+      { name: "Epoxy Grouting", link: "/products/epoxy-grouting" },
+      { name: "Micro Concrete", link: "/products/micro-concrete" },
+      { name: "Structural Rehabilitation", link: "/solutions/structural-rehabilitation" },
+    ],
+    content: `
+You call a supplier and ask for a "rebar chemical". There's a pause. Then: "For anchoring bars, or for the rust?"
+
+It's a fair question, and the answer changes everything. On Indian sites, "rebar chemical" can mean three quite different products. One glues a new steel bar into old concrete. One protects a bar that has already started rusting. And one rebuilds the concrete around the bar so the rust doesn't come back. Buy the wrong one and you won't know for a year or two, until the plaster bulges or a dowel pulls loose.
+
+So let's sort it out properly: what each type of rebar chemical for concrete does, how to pick, and the mistakes we keep seeing on sites across Tamil Nadu.
+
+## The short answer
+
+Rebar chemicals for concrete fall into three groups:
+
+1. **Anchoring chemicals (rebaring chemicals).** Injection mortars, usually epoxy or vinylester, that bond a new bar into a hole drilled in existing concrete. You need these when you extend a column, add a floor, fix shear dowels for column jacketing, or correct a bar that was missed during casting.
+2. **Rebar protection chemicals.** Zinc-rich primers and cementitious rebar coatings that go straight onto cleaned steel during a repair, plus corrosion-inhibiting admixtures that go into new concrete.
+3. **Corrosion-resistant repair mortars.** Polymer-modified mortars, and flowable micro concrete for deep sections, that replace the damaged concrete cover so the steel sits in dense, alkaline material again.
+
+Most real repairs use two or all three. A corroded column being jacketed, for example, needs a primer on the old bars, anchoring chemical for the new dowels, and micro concrete for the jacket.
+
+| What you're doing | Rebar chemical you need | What it's made of |
+|---|---|---|
+| Fixing new bars or dowels into old concrete | Anchoring (rebaring) chemical | Epoxy, vinylester or hybrid injection mortar |
+| Treating rusted bars exposed during repair | Rebar primer | Zinc-rich epoxy, or a cementitious rebar coating |
+| New concrete in a coastal or high-chloride area | Corrosion-inhibiting admixture | Added to the mix at the batching stage |
+| Replacing spalled concrete cover | Corrosion-resistant repair mortar | Polymer-modified mortar, or micro concrete for deep sections |
+
+## Type 1: Rebaring chemicals for anchoring new bars
+
+Here's the situation. A building is going up by one more floor, so the column starters need extending. Or a column needs jacketing, and the new cage has to be tied into the old concrete with shear dowels. You can't cast those bars in any more. So you drill, clean, inject a chemical mortar, and push the bar in. Engineers call this a post-installed rebar connection.
+
+Indian suppliers mostly sell three resin families in cartridges:
+
+- **Epoxy.** Usually the strongest bond and the longest working time, which helps with deep holes and large bars. It cures slower, so you wait longer before loading.
+- **Vinylester (and hybrid) mortars.** Faster curing, handy when the crew needs to keep moving. Fosroc's Lokfix range, which we supply, includes vinylester products such as Lokfix E45T.
+- **Polyester.** Cheapest, and fine for light fixings. We wouldn't use it for a structural bar.
+
+But honestly, the resin matters less than the hole. Manufacturers' own field studies keep finding the same thing: anchors fail because the hole was dusty, too shallow, wet when the product wasn't approved for wet holes, or only half filled.
+
+### How a rebaring job should go
+
+1. **Get the design first.** Bar size, embedment depth, spacing and edge distance come from a structural engineer and the product's approval documents. Don't copy a depth from another job.
+2. **Drill to the marked depth** with a rotary hammer drill and a depth stop. Wrong depth and wrong location are two of the most common faults.
+3. **Clean the hole properly: blow, brush, blow.** Blow out the dust, scrub with a wire brush of the right size, blow again. Repeat if the data sheet says so. Dust left in the hole is like trying to stick tape to a dusty wall.
+4. **Check for water.** Many products need a dry hole. If yours allows damp or flooded holes, follow the special cleaning steps for that condition.
+5. **Inject from the bottom of the hole up**, so no air gets trapped, and fill it about two-thirds or as the instructions say.
+6. **Push the bar in with a slight twist** until it reaches the depth mark you made on it. A little mortar should squeeze out at the top.
+7. **Leave it alone** for the full cure time on the data sheet. Heat shortens working time and cold lengthens curing, so check the table for your site temperature.
+
+For jacketing work, IS 15988 (the seismic strengthening code) describes epoxy-grouted dowels between the old column and the new jacket. Our [column jacketing guide](/blog/column-jacketing-micro-concrete-standards) walks through the full sequence, and you can see the doweling step on our [structural rehabilitation page](/solutions/structural-rehabilitation). The anchoring products themselves sit in our [epoxy grouting range](/products/epoxy-grouting).
+
+## Type 2: Rebar protection chemicals
+
+Now the other kind of rebar problem. You chip off a cracked corner of a column and there's the bar: orange, flaky, a bit thinner than it should be. Rust takes up more room than the steel it came from, so it pushes the concrete off from the inside. That's what spalling is.
+
+Once that bar is exposed, it needs protecting before anything goes back over it. The usual options:
+
+- **Zinc-rich primers.** The most common choice in India. They're mostly two-pack epoxy products, with some single-pack versions. The zinc gives the steel sacrificial protection, corroding in place of the bar. Fosroc's Nitozinc Primer is one widely used example.
+- **Cementitious rebar coatings.** Polymer-cement slurries that wrap the bar in an alkaline layer, which helps the steel stay passive.
+- **Corrosion-inhibiting admixtures.** These don't go on the bar. They go into new concrete, usually for coastal, marine or chloride-exposed structures, to slow corrosion from the start. They're a design decision for new work, not a repair product.
+
+The rule that matters most: **a primer only works on clean steel.** Paint a zinc primer over loose rust and you've sealed the rust in. The bar has to be cleaned to bright metal first, by wire brush or grit blasting, and coated all the way round, not just the face you can see. That means breaking out the concrete behind the bar too. Our guide on [why repairs fail in hot, humid weather](/blog/why-concrete-repairs-fail-tropical-climates) explains why, including the "ring anode" effect that makes rust pop up again just outside a neat patch.
+
+And no primer can put back steel that rust has already eaten away. That's an engineer's call: added bars, a splice, or a jacket.
+
+## Type 3: Corrosion-resistant repair mortars
+
+This is the group behind searches like "corrosion resistant chemical mortar" and "rebar chemical mortar". These mortars rebuild the concrete cover after the steel has been treated.
+
+Plain sand and cement is the usual site habit, and it's the usual reason repairs crack. It shrinks while drying and grips old concrete poorly. A polymer-modified repair mortar bonds better, lets less water and salt through, and gives the bar a dense, alkaline cover again. For structural work, look for mortars classed under EN 1504-3, where R3 and R4 are the structural grades. For deep sections or column jackets, a flowable [micro concrete](/products/micro-concrete) poured into formwork beats building up layer after layer by hand.
+
+You'll find the primers, bonding agents and repair mortars together in our [concrete repair range](/products/concrete-repair), and the full repair sequence on our [concrete repair solution page](/solutions/concrete-repair).
+
+## Why rebar rusts faster in Tamil Nadu
+
+Two things eat the protection around the steel here. Near the coast, chlorides from salty air work their way into the concrete. Inland, carbon dioxide slowly carbonates the cover, and the daily wet-dry cycle of our monsoons speeds both along. IS 456, India's concrete code, treats alternate wetting and drying and coastal exposure as severe conditions.
+
+That's why thin cover and porous concrete fail so quickly here, and why we'd always finish a rebar repair with an anti-carbonation [protective coating](/products/protective-coatings) over the whole face, not just the patch. Our [protective coatings guide](/blog/protective-coatings-for-buildings) covers the options.
+
+## Mistakes we see with rebar chemicals
+
+- **Buying "rebar chemical" without saying what it's for.** You'll get whatever the shop has.
+- **Skipping hole cleaning** because the drill dust "looks clean enough". It never is.
+- **Guessing embedment depth** instead of taking it from the design and the product's approval.
+- **Priming over rust**, or coating only the visible face of the bar.
+- **Using a cartridge past its expiry date**, or mixing part of a two-pack kit by eye.
+- **Loading the bar too early** in cool weather, when the resin is still curing.
+- **Patching with plain cement mortar**, then wondering why it cracked by the next monsoon.
+
+## When to call an engineer
+
+Bring in a qualified structural engineer before you start if bars have lost noticeable thickness, cracks are growing, the member carries a heavy load, or you're adding floors. Rebar chemicals make a good repair last. They're not a substitute for structural design.
+
+Not sure which group your job falls into? Send us photos of the damage or the drawing for the extension, and tell us your town. [Contact our technical team](/contact), and we'll suggest the right products before anyone drills a hole.
+
+## Frequently asked questions
+
+### What is a rebar chemical for concrete?
+
+It's any chemical used with the steel bars in concrete. Most fall into three groups: anchoring chemicals that bond new bars into drilled holes, primers that protect rusted bars during repair, and corrosion-resistant mortars that rebuild the concrete cover. Many repairs need all three.
+
+### Which chemical is used for rebaring?
+
+Rebaring uses an injection mortar, usually epoxy or vinylester, squeezed from a cartridge into a cleaned, drilled hole before the bar goes in. Epoxy gives more working time for deep holes, and vinylester cures faster. Choose a product approved for post-installed rebar.
+
+### Is epoxy or vinylester better for rebar anchoring?
+
+Neither wins every job. Epoxy usually suits deep holes, large bars and heavy structural loads, because it gives more working time and a strong bond. Vinylester cures faster, which helps when crews need to keep moving. The design load, hole condition and product approval should decide.
+
+### How deep should rebar be anchored with chemical?
+
+The depth comes from a structural engineer's design and the product's approval data, not from a fixed rule. It depends on bar size, load, concrete strength and edge distance. Mark that depth on the bar and use a depth stop on the drill, so every hole matches the drawing.
+
+### Can zinc-rich primer be applied over rusty steel?
+
+No. A zinc-rich primer protects only clean steel, so rust left underneath keeps growing and pushes the repair off. Wire-brush or grit-blast the bar until it's bright metal, prime its full circumference, then wait the time the data sheet gives before placing mortar.
+
+### How long before a chemically anchored bar can take load?
+
+That depends on the product and the site temperature, so check the cure table on its data sheet. Fast vinylester mortars may be ready within hours in warm weather, while epoxy can need much longer. Cold slows curing, so never load a bar early just because the resin feels hard.
+`,
+  },
   "epoxy-flooring-for-factories": {
     takeaways: [
       "Epoxy suits dry production areas, packing halls and stores. PU suits hot, wet or wash-down zones, and a dry-shake hardener suits new warehouse slabs.",
@@ -1363,7 +1501,7 @@ Your engineer's spec and the product TDS always win over this outline.
 2. **Propping and shoring.** Support the slab and beams before removing anything. Never skip this.
 3. **Remove loose concrete.** Break out everything unsound, including the concrete behind corroded bars, then roughen the sound surface.
 4. **Clean and prime the rebar.** Take the steel back to clean metal and coat it with a zinc-rich primer such as Nitozinc Primer. If a bar has lost serious section, the engineer decides on extra steel.
-5. **Dowels and shear connectors.** Drill into the old column and anchor them with an epoxy anchoring compound like Lokfix S. Blow the holes clean first, because dust kills bond.
+5. **Dowels and shear connectors.** Drill into the old column and anchor them with an epoxy anchoring compound like Lokfix S. Blow the holes clean first, because dust kills bond. Our guide to [rebar chemicals for concrete](/blog/rebar-chemicals-for-concrete) covers hole cleaning step by step.
 6. **New cage.** Fix bars and ties exactly to the drawing, with cover blocks.
 7. **Bonding.** Depending on the spec, that's soaking the old concrete to saturated surface dry, or an epoxy bonding agent like Nitobond EP. With epoxy, you have to pour within its open time, and that takes planning.
 8. **Formwork.** Make it strong and watertight, with a hopper at the top. Leaky joints mean honeycombing.
@@ -1847,7 +1985,7 @@ It gets worse. Repair one spot and the steel just outside the patch, still sitti
 - Cut back behind the reinforcement, leaving roughly 20 mm of clearance, so the repair material can wrap all the way round each bar.
 - Keep breaking out along the bar until you reach clean, uncorroded steel. Don't stop at the edge of the visible damage.
 - Clean the steel to bright metal with a wire brush or by grit blasting.
-- Coat the cleaned steel with a **zinc-rich anti-corrosion primer**, like the rebar primers in our [concrete repair range](/products/concrete-repair).
+- Coat the cleaned steel with a **zinc-rich anti-corrosion primer**, like the rebar primers in our [concrete repair range](/products/concrete-repair). Our [rebar chemicals guide](/blog/rebar-chemicals-for-concrete) compares the main types.
 - If a bar has lost a lot of its thickness, it may need extra steel. That's a decision for a structural engineer.
 - Near the coast, test for chlorides before you decide how far to break out.
 

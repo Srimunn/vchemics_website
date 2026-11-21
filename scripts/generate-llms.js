@@ -57,9 +57,9 @@ const company = [
     desc: "Company background, founder profile, quality standards and 15+ years of construction chemicals experience in Tamil Nadu.",
   },
   {
-    title: "Technical Services",
+    title: "Services",
     url: `${BASE}/services`,
-    desc: "Mix design calibration, on-site trial batches, application support and troubleshooting.",
+    desc: "Basement and terrace waterproofing, concrete repair, structural rehabilitation, industrial flooring and protective painting, plus mix design, on-site trials and applicator training.",
   },
   {
     title: "Projects",

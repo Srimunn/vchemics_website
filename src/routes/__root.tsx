@@ -74,10 +74,10 @@ function NotFoundComponent() {
             View Products
           </Link>
           <Link
-            to="/solutions"
+            to="/services"
             className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-muted"
           >
-            View Solutions
+            View Services
           </Link>
           <Link
             to="/contact"
